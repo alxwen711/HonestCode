@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Alexander Wen">
+<meta name="dcterms.date" content="2026-01-08">
 
-<title>template</title>
+<title>Sparse Tables – template</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,25 +25,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-c1fac2584b48ed01fb6e278e36375074.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-c1fac2584b48ed01fb6e278e36375074.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,35 +69,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -129,17 +100,17 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">template</span>
     </a>
   </div>
@@ -150,7 +121,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -173,138 +144,457 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">template</h1>
-                      </div>
+    <div class="quarto-title column-body">
+      <h1 class="title">Sparse Tables</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">data structures</div>
+                <div class="quarto-category">2026</div>
+              </div>
+                  </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page-left">
+  <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Alexander Wen </p>
+            </div>
+    </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">January 8, 2026</p>
+      </div>
+    </div>
     
       
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(3)</span></div><div class="category" data-category="MjAyNg==">2026 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YW5hbHlzaXM=">analysis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y29kZQ==">code <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGF0YSUyMHN0cnVjdHVyZXM=">data structures <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bmV3cw==">news <span class="quarto-category-count">(2)</span></div></div></div>
+    
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
 
-
-
-
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="bmV3cyUyQ2NvZGUlMkNhbmFseXNpcw==" data-listing-date-sort="1768377600000" data-listing-file-modified-sort="1768420774960" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="7">
-<div class="thumbnail"><a href="./posts/post-with-code/index.html" class="no-external">
-
-<img loading="lazy" src="./posts/post-with-code/image.jpg" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/post-with-code/index.html" class="no-external">Post With Code</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('bmV3cw=='); return false;">news</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29kZQ=='); return false;">code</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
+<p>Suppose a hiker is mapping out a mountain range. They walk across the mountain and record their current altitude in meters at important landmarks in this diagram:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="mountain.png" class="img-fluid figure-img"></p>
+<figcaption>Various mountain measurements.</figcaption>
+</figure>
 </div>
-<div class="delink listing-description"><a href="./posts/post-with-code/index.html" class="no-external">
-This is a post with executable code.
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/post-with-code/index.html" class="no-external">
-<div class="listing-date">
-Jan 14, 2026
-</div>
-<div class="listing-author">
-Harlow Malloc
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="bmV3cw==" data-listing-date-sort="1768118400000" data-listing-file-modified-sort="1768420774964" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="32">
-<div class="thumbnail"><a href="./posts/welcome/index.html" class="no-external">
+<p>These measurements can then be expressed in an array:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 39%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 6%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Index #</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Altitude in meters</td>
+<td>800</td>
+<td>400</td>
+<td>700</td>
+<td>1000</td>
+<td>1300</td>
+<td>1600</td>
+<td>1200</td>
+<td>900</td>
+</tr>
+</tbody>
+</table>
+<p>From this array, the highest altitude in this entire mountain range is 1300 meters. But some travellers may only traverse part of this mountain range; for example, someone that travels from landmark 1 to 4 reaches a maximum altitude of 1000 meters, and another person who travels from landmark 7 to 8 reaches a maximum altitude of 1200 meters. These continuous segments are referred to as subarrays.</p>
+<p>Now imagine that many tourists ask about the highest altitude they can reach by traversing an arbitrary segment of this mountain range. Thus, a method to find the maximum value of any subarray in this measurement array is required, and each question must be answerable in a practically instant amount of time. An initial solution is to build a table with the maximum altitudes reached for every subarray from index <span class="math inline">\(X\)</span> to <span class="math inline">\(Y\)</span> like below:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>X = 1</th>
+<th>X = 2</th>
+<th>X = 3</th>
+<th>X = 4</th>
+<th>X = 5</th>
+<th>X = 6</th>
+<th>X = 7</th>
+<th>X = 8</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Y = 1</td>
+<td>800</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td>Y = 2</td>
+<td>800</td>
+<td>400</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td>Y = 3</td>
+<td>800</td>
+<td>700</td>
+<td>700</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td>Y = 4</td>
+<td>1000</td>
+<td>1000</td>
+<td>1000</td>
+<td>1000</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td>Y = 5</td>
+<td>1300</td>
+<td>1300</td>
+<td>1300</td>
+<td>1300</td>
+<td>1300</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td>Y = 6</td>
+<td>1600</td>
+<td>1600</td>
+<td>1600</td>
+<td>1600</td>
+<td>1600</td>
+<td>1600</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td>Y = 7</td>
+<td>1600</td>
+<td>1600</td>
+<td>1600</td>
+<td>1600</td>
+<td>1600</td>
+<td>1600</td>
+<td>1200</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td>Y = 8</td>
+<td>1600</td>
+<td>1600</td>
+<td>1600</td>
+<td>1600</td>
+<td>1600</td>
+<td>1600</td>
+<td>1200</td>
+<td>900</td>
+</tr>
+</tbody>
+</table>
+<p>Any tourist’s query can now be answered by instantly looking up the specific subarray in this table. This method is effective, but also tedious because for any positive value <span class="math inline">\(C\)</span>, increasing the length of this array by a factor of <span class="math inline">\(C\)</span> will increase the number of subarrays computed by a factor of <span class="math inline">\(C^2\)</span>. In this example, all 36 possible subarrays are computed, which is manageable. But suppose on larger scale, a robot took far more measurements on the mountain, such as a million. This table method would then have to compute the maximum value of each of roughly 5 trillion subarrays, which is infeasible even with a computer.</p>
+<p>There is a more efficient way because not every subarray maximum value has to be literally computed. For example, knowing that maximum values for the subarrays from index 1 to 4 and index 3 to 6 to be 1000 and 1600 respectively is enough to conclude that the maximum value for the subarray from index 1 to 6 must be 1600. This is because every index from 1 to 6 is in at least one of these subarrays, thus the maximum value for the entire subarray must be the higher of 1000 and 1600. This important observation motivates the following sparse table.</p>
+<p>Let <span class="math inline">\(L\)</span> be the length of a subarray. Start by “computing” the maximum value of every single element subarray.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Subarray length</th>
+<th>X = 1</th>
+<th>X = 2</th>
+<th>X = 3</th>
+<th>X = 4</th>
+<th>X = 5</th>
+<th>X = 6</th>
+<th>X = 7</th>
+<th>X = 8</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>L = 1</td>
+<td>800</td>
+<td>400</td>
+<td>700</td>
+<td>1000</td>
+<td>1300</td>
+<td>1600</td>
+<td>1200</td>
+<td>900</td>
+</tr>
+</tbody>
+</table>
+<p>The maximum of the subarray of length <span class="math inline">\(L\)</span> from index <span class="math inline">\(X\)</span> to <span class="math inline">\(X+L-1\)</span> inclusive is equal to the higher of the maximums for the subarray from index <span class="math inline">\(X\)</span> to <span class="math inline">\(X+L/2-1\)</span> and index <span class="math inline">\(X+L/2\)</span> to <span class="math inline">\(X+L-1\)</span>. The computed subarray maximums for <span class="math inline">\(L = 1\)</span> can then be used to compute the subarray maximums for <span class="math inline">\(L = 2\)</span>:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Subarray length</th>
+<th>X = 1</th>
+<th>X = 2</th>
+<th>X = 3</th>
+<th>X = 4</th>
+<th>X = 5</th>
+<th>X = 6</th>
+<th>X = 7</th>
+<th>X = 8</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>L = 1</td>
+<td>800</td>
+<td>400</td>
+<td>700</td>
+<td>1000</td>
+<td>1300</td>
+<td>1600</td>
+<td>1200</td>
+<td>900</td>
+</tr>
+<tr class="even">
+<td>L = 2</td>
+<td>800</td>
+<td>700</td>
+<td>1000</td>
+<td>1300</td>
+<td>1600</td>
+<td>1600</td>
+<td>1200</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<p>This information can then be used to compute the subarray maximums for <span class="math inline">\(L = 4\)</span>:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Subarray length</th>
+<th>X = 1</th>
+<th>X = 2</th>
+<th>X = 3</th>
+<th>X = 4</th>
+<th>X = 5</th>
+<th>X = 6</th>
+<th>X = 7</th>
+<th>X = 8</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>L = 1</td>
+<td>800</td>
+<td>400</td>
+<td>700</td>
+<td>1000</td>
+<td>1300</td>
+<td>1600</td>
+<td>1200</td>
+<td>900</td>
+</tr>
+<tr class="even">
+<td>L = 2</td>
+<td>800</td>
+<td>700</td>
+<td>1000</td>
+<td>1300</td>
+<td>1600</td>
+<td>1600</td>
+<td>1200</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td>L = 4</td>
+<td>1000</td>
+<td>1300</td>
+<td>1600</td>
+<td>1600</td>
+<td>1600</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<p>And lastly in this case, <span class="math inline">\(L = 8\)</span> (further steps would use larger powers of 2 for <span class="math inline">\(L\)</span>):</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Subarray length</th>
+<th>X = 1</th>
+<th>X = 2</th>
+<th>X = 3</th>
+<th>X = 4</th>
+<th>X = 5</th>
+<th>X = 6</th>
+<th>X = 7</th>
+<th>X = 8</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>L = 1</td>
+<td>800</td>
+<td>400</td>
+<td>700</td>
+<td>1000</td>
+<td>1300</td>
+<td>1600</td>
+<td>1200</td>
+<td>900</td>
+</tr>
+<tr class="even">
+<td>L = 2</td>
+<td>800</td>
+<td>700</td>
+<td>1000</td>
+<td>1300</td>
+<td>1600</td>
+<td>1600</td>
+<td>1200</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td>L = 4</td>
+<td>1000</td>
+<td>1300</td>
+<td>1600</td>
+<td>1600</td>
+<td>1600</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td>L = 8</td>
+<td>1600</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<p>The maximum of any subarray from index <span class="math inline">\(A\)</span> to <span class="math inline">\(B\)</span> can then be computed using this sparse table in 3 steps:</p>
+<ol type="1">
+<li>Compute <span class="math inline">\(N\)</span>, the length of the subarray. (<span class="math inline">\(N = B - A + 1\)</span>)</li>
+<li>Determine <span class="math inline">\(M\)</span>, the largest power of 2 (1, 2, 4, 8, 16, 32…) satisfying <span class="math inline">\(M \leq N\)</span>.</li>
+<li>Look in the row <span class="math inline">\(L = M\)</span> and choose the larger of the values in columns <span class="math inline">\(X = A\)</span> and <span class="math inline">\(X = B - M + 1\)</span>, representing the subarrays from index <span class="math inline">\(A\)</span> to <span class="math inline">\(A + M - 1\)</span> and index <span class="math inline">\(B - M + 1\)</span> to <span class="math inline">\(B\)</span>. These subarrays are guaranteed to cover every index from <span class="math inline">\(A\)</span> to <span class="math inline">\(B\)</span>.</li>
+</ol>
+<p>As an example, suppose a tourist wanted to know the highest altitude (maximum) between landmarks 2 to 4. Use the method to determine the maximum of the subarray from index 2 to 4:</p>
+<ol type="1">
+<li><span class="math inline">\(N = 4 - 2 + 1\)</span> =&gt; <span class="math inline">\(N = 3\)</span></li>
+<li><span class="math inline">\(M = 2\)</span> (largest power of 2 less than or equal to 3)</li>
+<li>Value in <span class="math inline">\(L = 2, X = 2\)</span> is 700; value in <span class="math inline">\(L = 2, X = 4 - 2 + 1 = 3\)</span> is 1000. Thus the maximum altitude between landmarks 2 to 4 is 1000.</li>
+</ol>
+<p>With the sparse table, only 21 total subarrays have their maximum computed, compared to 36 with the naive table approach. Where this efficiency is more pronounced is with more measurements; for any positive value <span class="math inline">\(C\)</span>, increasing the length of the array by a factor of <span class="math inline">\(C\)</span> will now only increase the number of subarrays computed by a factor of <span class="math inline">\(C\text{log}(C)\)</span>. Going back to the robot scenario, if the array consisted of a million value, the number of maximums for subarrays computed would decrease from roughly 5 trillion with a naive table to 19 million with a sparse table.</p>
 
-<p class="card-img-top"><img src="posts/welcome/thumbnail.jpg"  class="thumbnail-image card-img"/></p>
 
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/welcome/index.html" class="no-external">Welcome To My Blog</a>
-</h3>
-<div class="listing-categories">
 
-<div class="listing-category" onclick="window.quartoListingCategory('bmV3cw=='); return false;">news</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/welcome/index.html" class="no-external">
-This is the first post in a Quarto blog. Welcome!
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/welcome/index.html" class="no-external">
-<div class="listing-date">
-Jan 11, 2026
-</div>
-<div class="listing-author">
-Tristan O’Malley
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="ZGF0YSUyMHN0cnVjdHVyZXMlMkMyMDI2" data-listing-date-sort="1767859200000" data-listing-file-modified-sort="1768435962187" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1870">
-<div class="thumbnail"><a href="./posts/sparse-table/index.html" class="no-external">
-
-<p class="card-img-top"><img src="posts/sparse-table/mountain.png"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/sparse-table/index.html" class="no-external">Sparse Tables</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZGF0YSUyMHN0cnVjdHVyZXM='); return false;">data structures</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('MjAyNg=='); return false;">2026</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/sparse-table/index.html" class="no-external">
-Suppose a hiker is mapping out a mountain range. They walk across the mountain and record their current altitude in meters at important landmarks in this diagram:
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/sparse-table/index.html" class="no-external">
-<div class="listing-date">
-Jan 8, 2026
-</div>
-<div class="listing-author">
-Alexander Wen
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
