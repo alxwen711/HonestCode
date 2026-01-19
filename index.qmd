@@ -1,5 +1,5 @@
 ---
-title: "template"
+title: "HonestCode"
 listing:
   contents: posts
   sort: "date desc"
