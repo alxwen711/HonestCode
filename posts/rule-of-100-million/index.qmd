@@ -1,0 +1,38 @@
+---
+title: "Rule of 100 Million: Estimating Big-O Runtime Expectations"
+author: "Alexander Wen"
+date: "2026-01-24"
+categories: [competitive programming,2026]
+draft: True
+---
+
+Many problems in competitive programming...
+
+## A Quick Review of Big-O Notation
+
+- Add formula here
+
+- easier explanation?
+
+## 100 Million Operations Per Second
+
+- state rule 100 million -> 1 second
+
+- roughly a factor of 3 up and down for optimistic/pragmatic estimates
+
+- Python from experience roughly divide by 3
+
+- insert table of n values here with basic runtime examples
+- bolded cases are the most common
+
+## Exceptions Where Slowest Allowed != Fastest Possible
+
+### Div 2A Type Problems
+
+- tend to have very small n, but obviously not O(n^4) or something like that
+
+### $O(n^3)$ Estimates and Longer
+
+- These tend to be more common on harder problems, usually
+
+- round 1073 2B example/incident, technically O(n^4) is possible
