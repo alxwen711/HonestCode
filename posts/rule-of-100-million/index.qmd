@@ -25,8 +25,6 @@ Now that this overview has been taken care of, the rule of 100 million can be su
 
 ## Assume at most 100 Million Operations Per Second
 
-- state rule 100 million -> 1 second
-
 **Formally, to estimate runtime, we can assume that a program can complete up to 100 million basic operations per second.**
 
 In practice, assuming a program will perform 100 million operations per second is fairly optimistic. Most problems are designed to allow quite a bit of leniency up to roughly a factor of 3, so assuming about 30 million operations per second for C++ is a safe estimate. As for Python, this number drops to around 10 million operations per second, but having done many contests using Python, the number of times this actually affected me where an algorithm in C++ passes but that same one in Python fails is maybe once.
