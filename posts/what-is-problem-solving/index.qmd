@@ -1,0 +1,58 @@
+---
+title: "What is Meant By 'Problem Solving' in Competitive Programming"
+subtitle: "Meta Hacker Cup 2024 Round 2, Problem 1B"
+author: "Alexander Wen"
+date: "2026-01-08"
+categories: [competitive programming,2026]
+draft: True
+---
+
+::: {.callout-important collapse="true"}
+## Important Details About the Meta Hacker Cup
+
+MHC 
+:::
+
+
+## Summary of the Problem
+
+
+## Initial Observations
+
+
+## A "Monkey" Solution
+
+
+::: {.callout-note collapse="true"}
+## Scenario Where The Monkey Solution Could Have Failed
+
+If maximum case with no preprocess -> yikes 
+:::
+
+
+## Observations That Produce A MUCH Faster Solution
+
+### Climbs + Slopes = Mountains
+
+### Modular Arithmic 101
+
+### The Solution, Without Pure Brute Force
+
+::: {.callout-note}
+## Additional Improvment to This Solution
+
+Binary search can be implemented in the 3rd manualish step, it's implementation is somewhat difficult but yes this could be even faster.
+:::
+
+## Final Time Analysis and Conclusion
+
+At most 40000 comps needed per testcase with this method, previous is flat 73 million
+
+Yeah this is much faster, it is about the thought process
+
+
+::: {.callout-note collapse="true"}
+## What If The Input Was Just a *Bit* Larger?
+
+Even a literal bit in the increase could have been enough to screw it all up
+:::

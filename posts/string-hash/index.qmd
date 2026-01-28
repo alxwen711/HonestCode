@@ -1,0 +1,21 @@
+---
+title: "A Simple String Hashing Method"
+author: "Alexander Wen"
+date: "2026-01-08"
+categories: [data structures,2026]
+draft: True
+---
+
+## Primes Are Useful in Modular Arithmetic
+
+## General Hashing Formula
+
+::: {.callout-note collapse="true"}
+## Birthday Paradox For Prime Size
+
+Make notes on what why the prime has to be that size
+:::
+
+
+## Use Cases
+
