@@ -23,7 +23,7 @@ jobs:
         with:
           python-version: '3.12'
           cache: 'pip'
-      - run: pip install -e .[docs]
+      - run: pip install quartodoc
       
       - name: Install Quarto
         uses: quarto-dev/quarto-actions/setup@v2
