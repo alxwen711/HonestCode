@@ -1,0 +1,43 @@
+name: Build and publish docs
+# Test yml for building + publishing docs setup
+on:
+  workflow_dispatch:
+  push:
+    branches: 
+      - main
+    
+jobs:
+  build-deploy:
+    runs-on: windows-latest 
+    permissions:
+      contents: write
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Install Python and Dependencies
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+      - run: pip install -e .[docs]
+      
+      - name: Install Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: stable 
+
+      - name: Construct HTML
+        run: |
+          quartodoc build
+          quarto render
+
+      - name: Render and Publish
+        uses: quarto-dev/quarto-actions/publish@v2
+        with:
+          target: gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
