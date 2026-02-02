@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Alexander Wen">
+<meta name="dcterms.date" content="2026-02-01">
 
-<title>HonestCode Main Page – HonestCode</title>
+<title>A Simple String Hashing Method – HonestCode</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,28 +22,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-c1fac2584b48ed01fb6e278e36375074.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-c1fac2584b48ed01fb6e278e36375074.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,35 +104,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -129,17 +135,17 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">HonestCode</span>
     </a>
   </div>
@@ -150,7 +156,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -168,170 +174,148 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">HonestCode Main Page</h1>
-                      </div>
+    <div class="quarto-title column-body">
+      <h1 class="title">A Simple String Hashing Method</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">data structures</div>
+                <div class="quarto-category">2026</div>
+              </div>
+                  </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page-left">
+  <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Alexander Wen </p>
+            </div>
+    </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">February 1, 2026</p>
+      </div>
+    </div>
     
       
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="MjAyNg==">2026 <span class="quarto-category-count">(4)</span></div><div class="category" data-category="YW5hbHlzaXM=">analysis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y29tcGV0aXRpdmUlMjBwcm9ncmFtbWluZw==">competitive programming <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGF0YSUyMHN0cnVjdHVyZXM=">data structures <span class="quarto-category-count">(2)</span></div></div></div>
+    
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
 
-
-
-
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="ZGF0YSUyMHN0cnVjdHVyZXMlMkMyMDI2" data-listing-date-sort="1769932800000" data-listing-file-modified-sort="1769996826292" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="848">
-<div class="thumbnail"><a href="./posts/string-hash/index.html" class="no-external">
-
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/string-hash/index.html" class="no-external">A Simple String Hashing Method</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZGF0YSUyMHN0cnVjdHVyZXM='); return false;">data structures</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('MjAyNg=='); return false;">2026</div>
-
+<section id="modular-arithmetic-review" class="level2">
+<h2 class="anchored" data-anchor-id="modular-arithmetic-review">Modular Arithmetic Review</h2>
+<p>Modular arithmetic simplified is the remainder of integer division; in the example sense, for any values <span class="math inline">\(a,b\)</span> and a non-zero value <span class="math inline">\(m\)</span>, <span class="math inline">\(a \cong b \text{ (mod } m)\)</span> if and only if when dividing <span class="math inline">\(a\)</span> by <span class="math inline">\(n\)</span> the remainder is equal to that of dividing <span class="math inline">\(b\)</span> by <span class="math inline">\(n\)</span>. So <span class="math inline">\(8 \cong 5 \text{ (mod } 3)\)</span> because 8 divided by 3 has remainder 2, and 5 divided by 3 has remainder 2. Most operations are simple in modular arithmetic, addition/subtraction/multiplication can be done normally then taking the modulo of the total. Division is a bit more complex as it requires determing the inverse; for any integers <span class="math inline">\(a,m\)</span>, <span class="math inline">\(b\)</span> is an inverse of <span class="math inline">\(a\)</span> if <span class="math inline">\(ab \cong 1 \text{ (mod } m)\)</span>. This equation can be solved as a <a href="https://cp-algorithms.com/algebra/linear-diophantine-equation.html">Diophantine Equation</a> or by utilization of <a href="https://en.wikipedia.org/wiki/Euler%27s_theorem">Euler’s Theorem</a>. Specifically, if the modulo <span class="math inline">\(m\)</span> is prime, then this can be similifed further to <a href="https://en.wikipedia.org/wiki/Fermat%27s_little_theorem">Fermat’s Little Theorem</a> and the inverse for ANY non-zero integer <span class="math inline">\(a\)</span> in modulo <span class="math inline">\(p\)</span> is equal to <span class="math inline">\(a^{p-2} \text{ mod } p\)</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<div class="delink listing-description"><a href="./posts/string-hash/index.html" class="no-external">
-Modular arithmetic simplified is the remainder of integer division; in the example sense, for any values <span class="math inline">\(a,b\)</span> and a non-zero value <span class="math inline">\(m\)</span>, <span class="math inline">\(a \cong b \text{ (mod } m)\)</span> if…<span class="math inline"></span><span class="math inline"></span><span class="math inline"></span><span class="math inline"></span><span class="math inline"></span><span class="math inline"></span><span class="math inline"></span><span class="math inline"></span><span class="math inline"></span><span class="math inline"></span><span class="math inline"></span><span class="math inline"></span><span class="math inline"></span>
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/string-hash/index.html" class="no-external">
-<div class="listing-date">
-Feb 1, 2026
-</div>
-<div class="listing-author">
-Alexander Wen
-</div>
-</a>
+<div class="callout-title-container flex-fill">
+Python Power Implemenation Fun Sidenote
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="Y29tcGV0aXRpdmUlMjBwcm9ncmFtbWluZyUyQzIwMjY=" data-listing-date-sort="1769241600000" data-listing-file-modified-sort="1769323459030" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2125">
-<div class="thumbnail"><a href="./posts/rule-of-100-million/index.html" class="no-external">
-
-<p class="card-img-top"><img src="posts/rule-of-100-million/global27c.png"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/rule-of-100-million/index.html" class="no-external">Rule of 100 Million: Estimating Big-O Runtime Expectations</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Y29tcGV0aXRpdmUlMjBwcm9ncmFtbWluZw=='); return false;">competitive programming</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('MjAyNg=='); return false;">2026</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/rule-of-100-million/index.html" class="no-external">
-There is a reason why experienced competitive programmers can look at a problem and then within seconds, be able to determine a basic idea of the solution. All problems in…
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/rule-of-100-million/index.html" class="no-external">
-<div class="listing-date">
-Jan 24, 2026
-</div>
-<div class="listing-author">
-Alexander Wen
-</div>
-</a>
+<div class="callout-body-container callout-body">
+<p>Most competitive programmers use C++, and the common method to implementing modular exponentiation uses <a href="https://cp-algorithms.com/algebra/binary-exp.html">Binary Exponentiation</a>. Conviniently in Python, this is already implemented in the built in <code>pow</code> function, so by the above, running <code>pow(a,p-2,p)</code> will compute the modular inverse in <span class="math inline">\(O(\log p)\)</span> time, which for most practical cases is fast enough. Even if you forget Euler’s Theorem, the modular inverse can still be computed via <code>pow(a,-1,p)</code> (assuming it exists).</p>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="MjAyNiUyQ2FuYWx5c2lz" data-listing-date-sort="1768550400000" data-listing-file-modified-sort="1768622498782" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1250">
-<div class="thumbnail"><a href="./posts/database-segment-tree/index.html" class="no-external">
-
-<p class="card-img-top"><img src="posts/database-segment-tree/mountain.png"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/database-segment-tree/index.html" class="no-external">An Intro to Segment Trees and Their Applicability to Database Management Systems</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('MjAyNg=='); return false;">2026</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YW5hbHlzaXM='); return false;">analysis</div>
-
+</section>
+<section id="general-hashing-formula" class="level2">
+<h2 class="anchored" data-anchor-id="general-hashing-formula">General Hashing Formula</h2>
+<p>We can then use modular arithmetic to effectively hash (assign) each character in a string array a unique value. Let character <code>c</code> be in index <code>i</code> in a string. This character is assigned the value ord(c). <code>ord(c)+1</code> is used to convert a character to a positive integer from 1 to 128 (usually) depending on its ASCII value. This setup will be sufficient for most general strings comprising of uppercase/lowercase characters, numbers, and symbols. Most problems don’t use all of these and this part of the expression can vary slightly. For instance, if only lower case letters are being used, then <code>ord(c)-96</code> may be more ideal to map all the lower case letters to the integers from 1 to 26. Using this mapping system, we can map the string “helloworld” to the array [8,5,12,12,15,23,15,18,12,4].</p>
+<p>We can now use this array to precompute the hash values for ALL of the possible substrings in <span class="math inline">\(O(n^2)\)</span> where <span class="math inline">\(n\)</span> is the length of the array using the following code:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># create reference table</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>hashstrings <span class="op">=</span> <span class="bu">list</span>()</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    tmp <span class="op">=</span> [<span class="dv">0</span>]<span class="op">*</span>n</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    hashstrings.append(tmp)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> <span class="dv">10</span><span class="op">**</span><span class="dv">17</span><span class="op">-</span><span class="dv">3</span> <span class="co"># large prime for avoiding hash collisions</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">29</span> <span class="co"># base for exponents</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    h <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(i,n):</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        h <span class="op">=</span> (h<span class="op">*</span>b <span class="op">+</span> ar[j]) <span class="op">%</span> p</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        hashstrings[i][j] <span class="op">=</span> h</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This code works by induction where for a substring from index i to j, the hash value is</p>
+<p><span class="math display">\[
+\sum_{k = i}^j 29^{j-k}*\text{ar[k]} \mod {10^{17}-3}
+\]</span></p>
+<p>Another way to interpret it is that the hash value of the substring equals the hash value of the last character, 29 times the hash value of the second last character, <span class="math inline">\(29^2\)</span> times the hash value of the third last character, and every previous character is 29 times the value of the previous. Our base case is an empty string, which has a hash value of 0. Then multiplying by 29 “shifts” all of the characters in the string 1 place to the left, alowing for the new character’s hash value to be added. This way, each new substring’s hash is computed from the hash value of the prefix of the string missing the last character.</p>
+</section>
+<section id="example-problem" class="level2">
+<h2 class="anchored" data-anchor-id="example-problem">Example Problem</h2>
+<p><a href="https://codeforces.com/contest/271/problem/D">Codeforces Round 166 (Div 2.) Problem D</a></p>
+<p>We can then observe usage of this basic hashing method in this example problem. For this problem, the above code can be slightly modified to compute the hash value of each substring that has at most k bad characters. Once this limit is reached, the inner loop can be broken as all further strings would not be good. To track number of unique substrings, you can store the hash values in a dictionary and then count the number of keys.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<div class="delink listing-description"><a href="./posts/database-segment-tree/index.html" class="no-external">
-It goes without saying that PostgreSQL, MondoDB, Redis, and all other database management systems require efficient methods for managing and querying their stored databases.…
-</a></div>
+<div class="callout-title-container flex-fill">
+Solution Implementation
 </div>
-<div class="metadata">
-<a href="./posts/database-segment-tree/index.html" class="no-external">
-<div class="listing-date">
-Jan 16, 2026
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div class="listing-author">
-Alexander Wen
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="ZGF0YSUyMHN0cnVjdHVyZXMlMkMyMDI2" data-listing-date-sort="1767859200000" data-listing-file-modified-sort="1768612847674" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1870">
-<div class="thumbnail"><a href="./posts/sparse-table/index.html" class="no-external">
-
-<p class="card-img-top"><img src="posts/sparse-table/mountain.png"  class="thumbnail-image card-img"/></p>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/sparse-table/index.html" class="no-external">Sparse Tables</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZGF0YSUyMHN0cnVjdHVyZXM='); return false;">data structures</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('MjAyNg=='); return false;">2026</div>
-
-</div>
-<div class="delink listing-description"><a href="./posts/sparse-table/index.html" class="no-external">
-Suppose a hiker is mapping out a mountain range. They walk across the mountain and record their current altitude in meters at important landmarks in this diagram:
-</a></div>
-</div>
-<div class="metadata">
-<a href="./posts/sparse-table/index.html" class="no-external">
-<div class="listing-date">
-Jan 8, 2026
-</div>
-<div class="listing-author">
-Alexander Wen
-</div>
-</a>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#input functions</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>readint <span class="op">=</span> <span class="kw">lambda</span>: <span class="bu">int</span>(sys.stdin.readline())</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>readints <span class="op">=</span> <span class="kw">lambda</span>: <span class="bu">map</span>(<span class="bu">int</span>,sys.stdin.readline().split())</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>readar <span class="op">=</span> <span class="kw">lambda</span>: <span class="bu">list</span>(<span class="bu">map</span>(<span class="bu">int</span>,sys.stdin.readline().split()))</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>flush <span class="op">=</span> <span class="kw">lambda</span>: sys.stdout.flush()</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>readin <span class="op">=</span> <span class="kw">lambda</span>: sys.stdin.readline()[:<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>readins <span class="op">=</span> <span class="kw">lambda</span>: <span class="bu">map</span>(<span class="bu">str</span>,sys.stdin.readline().split())</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> readin()</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>goodbadstr <span class="op">=</span> readin()</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> readint()</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co"># determine bad characters</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>badch <span class="op">=</span> {}</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">26</span>):</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> goodbadstr[i] <span class="op">==</span> <span class="st">"0"</span>: badch[<span class="bu">chr</span>(i<span class="op">+</span><span class="dv">97</span>)] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co"># compute hashes</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> <span class="dv">10</span><span class="op">**</span><span class="dv">17</span><span class="op">-</span><span class="dv">3</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">29</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>hashvals <span class="op">=</span> {}</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="bu">len</span>(s)</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    badcount <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    h <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(i,n):</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> badch.get(s[j]) <span class="op">==</span> <span class="dv">1</span>: badcount <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> badcount <span class="op">&gt;</span> k: <span class="cf">break</span> <span class="co"># too many bad characters</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>        h <span class="op">=</span> (h<span class="op">*</span>b <span class="op">+</span> <span class="bu">ord</span>(s[j])<span class="op">-</span><span class="dv">96</span>) <span class="op">%</span> m <span class="co"># update hash</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>        hashvals[h] <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(<span class="bu">list</span>(hashvals.keys())))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+
+
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
