@@ -2,7 +2,7 @@
 title: "What is Meant By 'Problem Solving' in Competitive Programming"
 subtitle: "Meta Hacker Cup 2024 Round 2, Problem 1B"
 author: "Alexander Wen"
-date: "2026-01-08"
+date: "2026-02-08"
 categories: [competitive programming,2026]
 draft: True
 ---
