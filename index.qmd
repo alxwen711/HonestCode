@@ -2,7 +2,9 @@
 title: "HonestCode Main Page"
 listing:
   contents: posts
-  sort: "date desc"
+  sort:
+    - "pinned" 
+    - "date desc"
   type: default
   categories: true
   sort-ui: false

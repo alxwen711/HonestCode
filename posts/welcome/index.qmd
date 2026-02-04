@@ -1,9 +1,9 @@
 ---
-title: "Welcome To My Blog"
+title: "📌 About this Blog"
 author: "Tristan O'Malley"
 date: "2026-01-11"
-categories: [news]
-draft: true
+categories: [news,Pinned]
+pinned: true
 ---
 
 This is the first post in a Quarto blog. Welcome!
