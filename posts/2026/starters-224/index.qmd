@@ -86,17 +86,41 @@ for _ in range(readint()):
 
 ### [D: Accommodation](https://www.codechef.com/problems/ACMDT)
 
+- There must be enough space in a room for the minimal number of boys and girls
+- There must be at least `(b+g+n-1)//n` rooms, call this value `r`
+- There must be at least `xr` boys and `yr` girls
+
 **[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20224/a.py)**
 
 ### [E: Advitiya Coin](https://www.codechef.com/problems/ADC)
+
+- Only number of trades matter -> complete trades as early as possible
+- Greedy min/max check
 
 **[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20224/b.py)**
 
 ### [F: MAX MIN MEX](https://www.codechef.com/problems/MAXMINMEX)
 
+- Working through small examples, only the longest consecutive run creates highest mex
+- How many ways to arrange longest consecutive run? Trial and error -> `2^(n-1)`
+- Multiple longest runs can exist
+
 **[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20224/c.py)**
 
 ### [G: Tree Walk 2](https://www.codechef.com/problems/WLKLIM2)
+
+- Check time constraints -> at least O(n log n)
+- How can the answer be large? (Considered line graph)
+- Combinatorics are usually dp like problems, try splitting case where a node has been touched once/twice?
+
+![Notes made for the 5th example case.](d.png)
+
+- From img above, solution looks more clear
+- Compute unique path from 1 to n
+- single cases are just sum of single/double options from previous node
+- double cases is number of single options in current node * number of "child" nodes
+- double case for 1 is number of "child" nodes not part of main path
+- answer is single case for n
 
 **[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20224/d.py)**
 
@@ -104,8 +128,16 @@ for _ in range(readint()):
 
 ### [H: MEX Variation](https://www.codechef.com/problems/MXCHG)
 
+- ordering of values does not matter
+- tried devising some sort of dp around (lowest frequency up to break, smallest total to break/breakpoint)
+- Roughly 40 minutes of experimentation on this problem, currently still unsure
+
 
 ### [I: Tree Walk 3](https://www.codechef.com/problems/WLKLIM3)
 
+- In theory similar to G but not really
 
 ## Contest Reflection
+
+- tbh surprised I actually retained 6* given CF slump
+- G is a pretty good problem solve, would be about 1900-2000
