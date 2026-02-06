@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Alexander Wen">
-<meta name="dcterms.date" content="2026-02-01">
+<meta name="dcterms.date" content="2026-01-24">
 
-<title>A Simple String Hashing Method – HonestCode</title>
+<title>Rule of 100 Million: Estimating Big-O Runtime Expectations – HonestCode</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,62 +22,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-e31584831b205ffbb2d98406f31c2a5b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-e31584831b205ffbb2d98406f31c2a5b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -136,7 +101,7 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../../styles.css">
 </head>
 
 <body class="nav-fixed fullcontent quarto-light">
@@ -146,7 +111,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">HonestCode</span>
     </a>
   </div>
@@ -157,7 +122,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html"> 
+    <a class="nav-link" href="../../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -176,9 +141,9 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">A Simple String Hashing Method</h1>
+      <h1 class="title">Rule of 100 Million: Estimating Big-O Runtime Expectations</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">data structures</div>
+                <div class="quarto-category">competitive programming</div>
                 <div class="quarto-category">2026</div>
               </div>
                   </div>
@@ -197,7 +162,7 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">February 1, 2026</p>
+        <p class="date">January 24, 2026</p>
       </div>
     </div>
     
@@ -216,104 +181,174 @@ window.Quarto = {
 
 
 
-<section id="modular-arithmetic-review" class="level2">
-<h2 class="anchored" data-anchor-id="modular-arithmetic-review">Modular Arithmetic Review</h2>
-<p>Modular arithmetic simplified is the remainder of integer division; in the example sense, for any values <span class="math inline">\(a,b\)</span> and a non-zero value <span class="math inline">\(m\)</span>, <span class="math inline">\(a \cong b \text{ (mod } m)\)</span> if and only if when dividing <span class="math inline">\(a\)</span> by <span class="math inline">\(n\)</span> the remainder is equal to that of dividing <span class="math inline">\(b\)</span> by <span class="math inline">\(n\)</span>. So <span class="math inline">\(8 \cong 5 \text{ (mod } 3)\)</span> because 8 divided by 3 has remainder 2, and 5 divided by 3 has remainder 2. Most operations are simple in modular arithmetic, addition/subtraction/multiplication can be done normally then taking the modulo of the total. Division is a bit more complex as it requires determing the inverse; for any integers <span class="math inline">\(a,m\)</span>, <span class="math inline">\(b\)</span> is an inverse of <span class="math inline">\(a\)</span> if <span class="math inline">\(ab \cong 1 \text{ (mod } m)\)</span>. This equation can be solved as a <a href="https://cp-algorithms.com/algebra/linear-diophantine-equation.html">Diophantine Equation</a> or by utilization of <a href="https://en.wikipedia.org/wiki/Euler%27s_theorem">Euler’s Theorem</a>. Specifically, if the modulo <span class="math inline">\(m\)</span> is prime, then this can be similifed further to <a href="https://en.wikipedia.org/wiki/Fermat%27s_little_theorem">Fermat’s Little Theorem</a> and the inverse for ANY non-zero integer <span class="math inline">\(a\)</span> in modulo <span class="math inline">\(p\)</span> is equal to <span class="math inline">\(a^{p-2} \text{ mod } p\)</span>.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
+<p>There is a reason why experienced competitive programmers can look at a problem and then within seconds, be able to determine a basic idea of the solution. All problems in competitive programming require an understanding of how fast an algorithm must be to solve it, and within each problem statement there is important snippets that can immediately help you perform a basic time complexity analysis.</p>
+<section id="a-quick-review-of-big-o-notation" class="level2">
+<h2 class="anchored" data-anchor-id="a-quick-review-of-big-o-notation">A Quick Review of Big-O Notation</h2>
+<p>Time complexity is represented through Big-O Notation, which in mathematical terms, states that a function <span class="math inline">\(f(x)\)</span> is equal to <span class="math inline">\(O(g(x))\)</span> if and only if</p>
+<p><span class="math display">\[
+\exists M,x_0 \text{ s.t. } |f(x)| \leq Mg(x), \forall x \geq x_0
+\]</span></p>
+<p>To explain this more simply, an algorithm has a time complexity of <span class="math inline">\(O(f(n))\)</span> if for some arbritary minimal input size, when increasing the input size by a factor of <span class="math inline">\(n\)</span>, the runtime of the algorithm increases by a factor of <span class="math inline">\(f(n)\)</span>. In the context of competitive programming, the runtime is usually approximated by the number of basic operations performed, which are general computer operations (adding, subtracting, conditionals) that have a near instant and constant <span class="math inline">\(O(1)\)</span> amount time to complete. (Technically running <code>time.sleep(100)</code> in Python would be a <span class="math inline">\(O(1)\)</span> operation since it will always pause the program for 100 seconds, but it can hardly be called instantaneous, so while it is a constant operation, it is not basic.) Basic operations can also include array index lookup, adding two numbers, modulo division, and assigning variables.</p>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Python Power Implemenation Fun Sidenote
+Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Most competitive programmers use C++, and the common method to implementing modular exponentiation uses <a href="https://cp-algorithms.com/algebra/binary-exp.html">Binary Exponentiation</a>. Conviniently in Python, this is already implemented in the built in <code>pow</code> function, so by the above, running <code>pow(a,p-2,p)</code> will compute the modular inverse in <span class="math inline">\(O(\log p)\)</span> time, which for most practical cases is fast enough. Even if you forget Euler’s Theorem, the modular inverse can still be computed via <code>pow(a,-1,p)</code> (assuming it exists).</p>
+<p>Dictionary additions and lookups can also be considered basic operations, but this assumes there are an insignifcant number of collisions in the hashing function. Especially within CodeForces there are scenarios where users can design test cases to intentionally cause many such collisions resulting in set/dict lookup to take <span class="math inline">\(O(n)\)</span> time per operation. <a href="https://codeforces.com/blog/entry/62393">https://codeforces.com/blog/entry/62393</a> contains a very robust setup at the end to make a custom hash that is immune to such hacks, but from practice, even small adjustments to the basic hash function used are usually enough.</p>
 </div>
 </div>
+<p>Now that this overview has been taken care of, the rule of 100 million can be summed up by the following subtitle:</p>
 </section>
-<section id="general-hashing-formula" class="level2">
-<h2 class="anchored" data-anchor-id="general-hashing-formula">General Hashing Formula</h2>
-<p>We can then use modular arithmetic to effectively hash (assign) each character in a string array a unique value. Let character <code>c</code> be in index <code>i</code> in a string. This character is assigned the value ord(c). <code>ord(c)+1</code> is used to convert a character to a positive integer from 1 to 128 (usually) depending on its ASCII value. This setup will be sufficient for most general strings comprising of uppercase/lowercase characters, numbers, and symbols. Most problems don’t use all of these and this part of the expression can vary slightly. For instance, if only lower case letters are being used, then <code>ord(c)-96</code> may be more ideal to map all the lower case letters to the integers from 1 to 26. Using this mapping system, we can map the string “helloworld” to the array [8,5,12,12,15,23,15,18,12,4].</p>
-<p>We can now use this array to precompute the hash values for ALL of the possible substrings in <span class="math inline">\(O(n^2)\)</span> where <span class="math inline">\(n\)</span> is the length of the array using the following code:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># create reference table</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>hashstrings <span class="op">=</span> <span class="bu">list</span>()</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(n):</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    tmp <span class="op">=</span> [<span class="dv">0</span>]<span class="op">*</span>n</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    hashstrings.append(tmp)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> <span class="dv">10</span><span class="op">**</span><span class="dv">17</span><span class="op">-</span><span class="dv">3</span> <span class="co"># large prime for avoiding hash collisions</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">29</span> <span class="co"># base for exponents</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n):</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    h <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(i,n):</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        h <span class="op">=</span> (h<span class="op">*</span>b <span class="op">+</span> ar[j]) <span class="op">%</span> p</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        hashstrings[i][j] <span class="op">=</span> h</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This code works by induction where for a substring from index i to j, the hash value is</p>
-<p><span class="math display">\[
-\sum_{k = i}^j 29^{j-k}*\text{ar[k]} \mod {10^{17}-3}
-\]</span></p>
-<p>Another way to interpret it is that the hash value of the substring equals the hash value of the last character, 29 times the hash value of the second last character, <span class="math inline">\(29^2\)</span> times the hash value of the third last character, and every previous character is 29 times the value of the previous. Our base case is an empty string, which has a hash value of 0. Then multiplying by 29 “shifts” all of the characters in the string 1 place to the left, alowing for the new character’s hash value to be added. This way, each new substring’s hash is computed from the hash value of the prefix of the string missing the last character.</p>
+<section id="assume-at-most-100-million-operations-per-second" class="level2">
+<h2 class="anchored" data-anchor-id="assume-at-most-100-million-operations-per-second">Assume at most 100 Million Operations Per Second</h2>
+<p><strong>Formally, to estimate runtime, we can assume that a program can complete up to 100 million basic operations per second.</strong></p>
+<p>In practice, assuming a program will perform 100 million operations per second is fairly optimistic. Most problems are designed to allow quite a bit of leniency up to roughly a factor of 3, so assuming about 30 million operations per second for C++ is a safe estimate. As for Python, this number drops to around 10 million operations per second, but having done many contests using Python, the number of times this actually affected me where an algorithm in C++ passes but that same one in Python fails is maybe once.</p>
+<p>Knowing this, let’s use a few example statements to estimate the maximum runtime complexity allowed:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="global27c.png" class="img-fluid figure-img"></p>
+<figcaption>Source: Global Round 27 C (https://codeforces.com/contest/2035/problem/C)</figcaption>
+</figure>
+</div>
+<p>Here we observe that the maximum value of <span class="math inline">\(n\)</span> is 200000, and that we have 2 seconds in this problem. <span class="math inline">\(200000^2 = 4*10^{10} &gt; 2*10^8\)</span>, so we can safely assume an <span class="math inline">\(O(n^2)\)</span> algorithm is not going to work. On the other hand, <span class="math inline">\(200000 &lt; 2*10^8\)</span>, so we can be very sure that an <span class="math inline">\(O(n)\)</span> algorithm can work. The tightest possible bound here would be <span class="math inline">\(O(n \log^2 n)\)</span>; computationally this works out to about <span class="math inline">\(\log(200000)^2*200000 \approx\)</span> 62 million operations, which is under the 100 million operation per second assumption, but using 30 million operations per second as a safe C++ or optimistic Python estimate makes this complexity iffy. In actual practice, <span class="math inline">\(O(n \log^2 n)\)</span> complexities are quite rare and this problem would most likely be expecting a time complexity of <span class="math inline">\(O(n \log n)\)</span> or better given these constraints.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="global27f.png" class="img-fluid figure-img"></p>
+<figcaption>Source: Global Round 27 F (https://codeforces.com/contest/2035/problem/F)</figcaption>
+</figure>
+</div>
+<p>In this case, the maximum value of <span class="math inline">\(n\)</span> is 2000, and that we have 4 seconds in this problem. This time a <span class="math inline">\(O(n^2)\)</span> algorithm will be possible because <span class="math inline">\(2000^2 = 4*10^{6} &lt; 4*10^8\)</span>. It is also worth noting that usually Codeforces problems have 1 or 2 second time limits, in the rare cases where a problem has 4 seconds allotted to it, it usualy means higher time complexities can be possible; in this case, <span class="math inline">\(O(n^2 \log n)\)</span> (roughly 44 million) and even <span class="math inline">\(O(n^{2.5})\)</span> (roughly 180 million) are possible time complexities for this solution. Especially on harder problems like this one, these are cases where more complex runtime algorithms can be possible, as the intended solution does have a <span class="math inline">\(O(n^2 \log n)\)</span> solution.</p>
+<p>Below is a table of many of the more common runtime possibilities, and a rough estimate for the maximum input size <span class="math inline">\(n\)</span> for which an algorithm should reasonably be able to pass in 1 second:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 28%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Time Complexity</th>
+<th>Maximum n per second</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>O(1)</strong>, O(log n)</td>
+<td><span class="math inline">\(n \\leq 10^{18}\)</span></td>
+<td>Basic operations, binary search</td>
+</tr>
+<tr class="even">
+<td>O(sqrt n)</td>
+<td><span class="math inline">\(n \\leq 10^{14}\)</span></td>
+<td>Trial division primality test</td>
+</tr>
+<tr class="odd">
+<td><strong>O(n)</strong></td>
+<td><span class="math inline">\(n \\leq 10^7\)</span></td>
+<td>Maximum of an array</td>
+</tr>
+<tr class="even">
+<td><strong>O(n log n)</strong></td>
+<td><span class="math inline">\(n \\leq 10^6\)</span></td>
+<td>Sorting algorithms</td>
+</tr>
+<tr class="odd">
+<td>O(n log^2 n)</td>
+<td><span class="math inline">\(n \\leq 200000\)</span></td>
+<td>Query type problems on segment tree</td>
+</tr>
+<tr class="even">
+<td>O(n sqrt n)</td>
+<td><span class="math inline">\(n \\leq 50000\)</span></td>
+<td>Sqrt decomposition, Mo’s algorithm</td>
+</tr>
+<tr class="odd">
+<td><strong>O(n^2)</strong></td>
+<td><span class="math inline">\(n \\leq 3000\)</span></td>
+<td>Brute force subarray sums</td>
+</tr>
+<tr class="even">
+<td>O(n^2 log n)</td>
+<td><span class="math inline">\(n \\leq 1000\)</span></td>
+<td>Niche dp cases, very rare</td>
+</tr>
+<tr class="odd">
+<td><strong>O(n^3)</strong></td>
+<td><span class="math inline">\(n \\leq 300\)</span></td>
+<td>Floyd-Warshall</td>
+</tr>
+<tr class="even">
+<td>O(n^4)</td>
+<td><span class="math inline">\(n \\leq 60\)</span></td>
+<td>4D DP</td>
+</tr>
+<tr class="odd">
+<td>O(2^n)</td>
+<td><span class="math inline">\(n \\leq 25\)</span></td>
+<td>Brute force on all subsets</td>
+</tr>
+<tr class="even">
+<td>O(n!)</td>
+<td><span class="math inline">\(n \\leq 11\)</span></td>
+<td>Brute force on all permutations</td>
+</tr>
+</tbody>
+</table>
+<p>This table is not comprehensive, but covers just about every time complexity I have observed. In actuality, the bolded ones are the most common time complexities used in problems and are thus the most important to remember.</p>
 </section>
-<section id="example-problem" class="level2">
-<h2 class="anchored" data-anchor-id="example-problem">Example Problem</h2>
-<p><a href="https://codeforces.com/contest/271/problem/D">Codeforces Round 166 (Div 2.) Problem D</a></p>
-<p>We can then observe usage of this basic hashing method in this example problem. For this problem, the above code can be slightly modified to compute the hash value of each substring that has at most k bad characters. Once this limit is reached, the inner loop can be broken as all further strings would not be good. To track number of unique substrings, you can store the hash values in a dictionary and then count the number of keys.</p>
+<section id="exceptions-where-slowest-allowed-fastest-possible" class="level2">
+<h2 class="anchored" data-anchor-id="exceptions-where-slowest-allowed-fastest-possible">Exceptions Where Slowest Allowed != Fastest Possible</h2>
+<p>The above table can be used accurately for the slowest possible algorithms a problem will accept. For the most part, this table also provides a decent estimation of what the time complexity actually is, but there are cases where a significantly faster solution is possible than what the input size implies.</p>
+<section id="codeforce-div-234-problem-a" class="level3">
+<h3 class="anchored" data-anchor-id="codeforce-div-234-problem-a">Codeforce Div 2/3/4 Problem A</h3>
+<p>The point of a problem A on a Codeforces contest is so that everyone (or least almost everyone) is able to solve at least one problem on a Codeforces contest. In divison 1 contests, Problem A can be fairly challenging and thus have a reasonable time complexity estimation by it’s maximum allowable algorithm, but otherwise, many of these problems are created without consideration of optimizing the time complexity of the solution.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="1074a.png" class="img-fluid figure-img"></p>
+<figcaption>Source: Codeforces Round 1074 Div. 4 A (https://codeforces.com/contest/2185/problem/A)</figcaption>
+</figure>
+</div>
+<p>In this case, we notice that the maximum <span class="math inline">\(n\)</span> value in a testcase is 20. Does that mean that the solution to this introductory problem has a <span class="math inline">\(O(2^n)\)</span> time complexity? Well you could make a solution that does, but obviously there’s faster! If we read the question carefully, we can conclude that <em>every</em> positive integer is a perfect root because <span class="math inline">\(\sqrt{x^2} = x\)</span> and <span class="math inline">\(x^2\)</span> uniquely exists for every positive integer. So all we’d have to do is output <span class="math inline">\(n\)</span> unique numbers for each testcase, which is an <span class="math inline">\(O(n)\)</span> algorithm.</p>
+</section>
+<section id="on3-estimates-and-longer" class="level3">
+<h3 class="anchored" data-anchor-id="on3-estimates-and-longer"><span class="math inline">\(O(n^3)\)</span> Estimates and Longer</h3>
+<p>Cases where the estimated runtime can be at least <span class="math inline">\(O(n^3)\)</span> usualy mean the runtime is this long, especially on harder problems. But there are cases where the solution can be surprisingly faster, as one of these cases occurred to me recently to inspire the creation of this post.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="1073b2.png" class="img-fluid figure-img"></p>
+<figcaption>Source: Codeforces Round 1073 Div. 1 B2 (https://codeforces.com/contest/2190/problem/B2)</figcaption>
+</figure>
+</div>
+<p>With this case, a time complexity as high as even <span class="math inline">\(O(n^4)\)</span> is possible because with a maximum <span class="math inline">\(n\)</span> value of 100, <span class="math inline">\(100^4 = 10^8 &lt; 2 * 10^8\)</span> for a 2 second problem. Furthermore, from my initial attempts on this problem using a dynamic programming approach, I roughly computed that there was closer to around 12.5 million basic operations needed when <span class="math inline">\(n = 100\)</span>, so even if I was using Python, a <span class="math inline">\(O(n^4)\)</span> idea was possible, and I assumed that the solution for this problem really was no faster than <span class="math inline">\(O(n^4)\)</span>.</p>
+<p>What then proceeded to follow was 14 Time Limit Exceeded verdicts of complete and total agony as this contest dropped me out of the Candidate Master ranking on Codeforces. <a href="https://codeforces.com/contest/2190/submission/358366032">Here is a link to my last solution with a O(n^4) attempt where you can try and understand what exactly I was thinking.</a>.</p>
+<p>From the editorial, there is a <span class="math inline">\(O(n^3)\)</span> approach to this that can be optimized further to the <span class="math inline">\(O(n^2)\)</span> algorithm I eventually submitted for upsolving, showing that the input limits are only absolute in determining the slowest possible solution, and not the actual fastest possible solution. I won’t explain the reasoning too extensively as I don’t want to provide spoilers for the problem and <a href="https://codeforces.com/blog/entry/150256">the editorial</a> is effective for explaning the solution, but as for an exercise for the reader, try to understand how the observations made in my slow <span class="math inline">\(O(n^4)\)</span> solution can be simplified greatly to create an <span class="math inline">\(O(n^3)\)</span> or better algorithm.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Solution Implementation
+<span class="screen-reader-only">Note</span>How Can My O(n^4) Solution Be Faster? (Spoilers for Round 1073 Problem B2)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#input functions</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>readint <span class="op">=</span> <span class="kw">lambda</span>: <span class="bu">int</span>(sys.stdin.readline())</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>readints <span class="op">=</span> <span class="kw">lambda</span>: <span class="bu">map</span>(<span class="bu">int</span>,sys.stdin.readline().split())</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>readar <span class="op">=</span> <span class="kw">lambda</span>: <span class="bu">list</span>(<span class="bu">map</span>(<span class="bu">int</span>,sys.stdin.readline().split()))</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>flush <span class="op">=</span> <span class="kw">lambda</span>: sys.stdout.flush()</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>readin <span class="op">=</span> <span class="kw">lambda</span>: sys.stdin.readline()[:<span class="op">-</span><span class="dv">1</span>]</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>readins <span class="op">=</span> <span class="kw">lambda</span>: <span class="bu">map</span>(<span class="bu">str</span>,sys.stdin.readline().split())</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> readin()</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>goodbadstr <span class="op">=</span> readin()</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> readint()</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co"># determine bad characters</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>badch <span class="op">=</span> {}</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">26</span>):</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> goodbadstr[i] <span class="op">==</span> <span class="st">"0"</span>: badch[<span class="bu">chr</span>(i<span class="op">+</span><span class="dv">97</span>)] <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co"># compute hashes</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> <span class="dv">10</span><span class="op">**</span><span class="dv">17</span><span class="op">-</span><span class="dv">3</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">29</span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>hashvals <span class="op">=</span> {}</span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="bu">len</span>(s)</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n):</span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    badcount <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    h <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(i,n):</span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> badch.get(s[j]) <span class="op">==</span> <span class="dv">1</span>: badcount <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> badcount <span class="op">&gt;</span> k: <span class="cf">break</span> <span class="co"># too many bad characters</span></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>        h <span class="op">=</span> (h<span class="op">*</span>b <span class="op">+</span> <span class="bu">ord</span>(s[j])<span class="op">-</span><span class="dv">96</span>) <span class="op">%</span> m <span class="co"># update hash</span></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>        hashvals[h] <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(<span class="bu">list</span>(hashvals.keys())))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The main slowdown is the dp setup used, where I am tracking the last and second last occurances of <code>(</code>, the first occurance of <code>)</code>, the count of <code>(</code> - count of <code>)</code>, and the length of the bracket subsequence being considered. Furthermore, I observe that the bracket sequence is valid (ie. the score is not 0) only if the count of <code>(</code> - count of <code>)</code> is 0 AND the second last occurrance of <code>(</code> is after the first occurance of <code>)</code>. This means this complex occurance tracking nonsense can be simplified to checking if the subsequence <code>)((</code> exists the created subsequence or not.</p>
+<p>To tell if <code>)((</code> exists, all that needs to be done is to create a counter <code>x</code> which starts at 0. If a <code>)</code> is added to the subsequence and <code>x</code> is 0, then <code>x</code> is increased to 1. If <code>(</code> is added to the subsequence and <code>x</code> is 1 or 2, <code>x</code> is increased by 1. Otherwise, <code>x</code> remains as is. Then if this counter <code>x</code> ends up at 3, then the subsequence <code>)((</code> exists. This means the only things needed to track in the dp are this counter, the count of <code>(</code> - count of <code>)</code>, and the length of the bracket subsequence. This then makes a <span class="math inline">\(O(n^3)\)</span> solution possible.</p>
+<p>For the <span class="math inline">\(O(n^2)\)</span> solution, another observation (which I somehow did end up making even in the <span class="math inline">\(O(n^4)\)</span> attempts) is that the score of any bracket sequence will always be either 0 or <span class="math inline">\(n-2\)</span>, where <span class="math inline">\(n\)</span> is the length of the sequence. This then means that only information needed to be tracked for computing the answer are the number of bracket sequences with the specific counter value and count of <code>(</code> - count of <code>)</code> and their combined lengths, which is possibe in <span class="math inline">\(O(n^2)\)</span>. My upsolved solution is an example of this. (<a href="https://codeforces.com/contest/2190/submission/358384748">https://codeforces.com/contest/2190/submission/358384748</a>)</p>
 </div>
 </div>
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

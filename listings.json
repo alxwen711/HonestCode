@@ -2,10 +2,11 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/string-hash/index.html",
-      "/posts/rule-of-100-million/index.html",
-      "/posts/database-segment-tree/index.html",
-      "/posts/sparse-table/index.html",
+      "/posts/2026/starters-224/index.html",
+      "/posts/2026/string-hash/index.html",
+      "/posts/2026/rule-of-100-million/index.html",
+      "/posts/2026/database-segment-tree/index.html",
+      "/posts/2026/sparse-table/index.html",
       "/posts/archive/2022-01/index.html"
     ]
   }

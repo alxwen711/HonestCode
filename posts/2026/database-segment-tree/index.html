@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Alexander Wen">
-<meta name="dcterms.date" content="2026-01-24">
+<meta name="dcterms.date" content="2026-01-16">
 
-<title>Rule of 100 Million: Estimating Big-O Runtime Expectations – HonestCode</title>
+<title>An Intro to Segment Trees and Their Applicability to Database Management Systems – HonestCode</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -25,24 +25,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-e31584831b205ffbb2d98406f31c2a5b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-e31584831b205ffbb2d98406f31c2a5b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -101,7 +101,7 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../../styles.css">
 </head>
 
 <body class="nav-fixed fullcontent quarto-light">
@@ -111,7 +111,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">HonestCode</span>
     </a>
   </div>
@@ -122,7 +122,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html"> 
+    <a class="nav-link" href="../../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -141,10 +141,10 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Rule of 100 Million: Estimating Big-O Runtime Expectations</h1>
+      <h1 class="title">An Intro to Segment Trees and Their Applicability to Database Management Systems</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">competitive programming</div>
                 <div class="quarto-category">2026</div>
+                <div class="quarto-category">analysis</div>
               </div>
                   </div>
   </div>
@@ -162,7 +162,7 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">January 24, 2026</p>
+        <p class="date">January 16, 2026</p>
       </div>
     </div>
     
@@ -181,174 +181,136 @@ window.Quarto = {
 
 
 
-<p>There is a reason why experienced competitive programmers can look at a problem and then within seconds, be able to determine a basic idea of the solution. All problems in competitive programming require an understanding of how fast an algorithm must be to solve it, and within each problem statement there is important snippets that can immediately help you perform a basic time complexity analysis.</p>
-<section id="a-quick-review-of-big-o-notation" class="level2">
-<h2 class="anchored" data-anchor-id="a-quick-review-of-big-o-notation">A Quick Review of Big-O Notation</h2>
-<p>Time complexity is represented through Big-O Notation, which in mathematical terms, states that a function <span class="math inline">\(f(x)\)</span> is equal to <span class="math inline">\(O(g(x))\)</span> if and only if</p>
-<p><span class="math display">\[
-\exists M,x_0 \text{ s.t. } |f(x)| \leq Mg(x), \forall x \geq x_0
-\]</span></p>
-<p>To explain this more simply, an algorithm has a time complexity of <span class="math inline">\(O(f(n))\)</span> if for some arbritary minimal input size, when increasing the input size by a factor of <span class="math inline">\(n\)</span>, the runtime of the algorithm increases by a factor of <span class="math inline">\(f(n)\)</span>. In the context of competitive programming, the runtime is usually approximated by the number of basic operations performed, which are general computer operations (adding, subtracting, conditionals) that have a near instant and constant <span class="math inline">\(O(1)\)</span> amount time to complete. (Technically running <code>time.sleep(100)</code> in Python would be a <span class="math inline">\(O(1)\)</span> operation since it will always pause the program for 100 seconds, but it can hardly be called instantaneous, so while it is a constant operation, it is not basic.) Basic operations can also include array index lookup, adding two numbers, modulo division, and assigning variables.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Dictionary additions and lookups can also be considered basic operations, but this assumes there are an insignifcant number of collisions in the hashing function. Especially within CodeForces there are scenarios where users can design test cases to intentionally cause many such collisions resulting in set/dict lookup to take <span class="math inline">\(O(n)\)</span> time per operation. <a href="https://codeforces.com/blog/entry/62393">https://codeforces.com/blog/entry/62393</a> contains a very robust setup at the end to make a custom hash that is immune to such hacks, but from practice, even small adjustments to the basic hash function used are usually enough.</p>
-</div>
-</div>
-<p>Now that this overview has been taken care of, the rule of 100 million can be summed up by the following subtitle:</p>
-</section>
-<section id="assume-at-most-100-million-operations-per-second" class="level2">
-<h2 class="anchored" data-anchor-id="assume-at-most-100-million-operations-per-second">Assume at most 100 Million Operations Per Second</h2>
-<p><strong>Formally, to estimate runtime, we can assume that a program can complete up to 100 million basic operations per second.</strong></p>
-<p>In practice, assuming a program will perform 100 million operations per second is fairly optimistic. Most problems are designed to allow quite a bit of leniency up to roughly a factor of 3, so assuming about 30 million operations per second for C++ is a safe estimate. As for Python, this number drops to around 10 million operations per second, but having done many contests using Python, the number of times this actually affected me where an algorithm in C++ passes but that same one in Python fails is maybe once.</p>
-<p>Knowing this, let’s use a few example statements to estimate the maximum runtime complexity allowed:</p>
+<p>It goes without saying that PostgreSQL, MondoDB, Redis, and all other database management systems require efficient methods for managing and querying their stored databases. A similarity between nearly all of these database management systems is that they make use of one of the most flexible and powerful data structures: the segment tree.</p>
+<section id="a-segment-tree-example" class="level2">
+<h2 class="anchored" data-anchor-id="a-segment-tree-example">A Segment Tree Example</h2>
+<p>To demonstrate the effectiveness of the segment tree, let’s use it in an example, that acts as a continuation from <a href="https://alxwen711.github.io/HonestCode/posts/sparse-table/">last week’s post about sparse tables</a>. After John Code (our hiker from last week) maps out a mountain range and all of the various peaks, he ends up with a new set of data indicating the number of people that visited each landmark over the past week:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="global27c.png" class="img-fluid figure-img"></p>
-<figcaption>Source: Global Round 27 C (https://codeforces.com/contest/2035/problem/C)</figcaption>
+<p><img src="mountain.png" class="img-fluid figure-img"></p>
+<figcaption>More mountain measurements.</figcaption>
 </figure>
 </div>
-<p>Here we observe that the maximum value of <span class="math inline">\(n\)</span> is 200000, and that we have 2 seconds in this problem. <span class="math inline">\(200000^2 = 4*10^{10} &gt; 2*10^8\)</span>, so we can safely assume an <span class="math inline">\(O(n^2)\)</span> algorithm is not going to work. On the other hand, <span class="math inline">\(200000 &lt; 2*10^8\)</span>, so we can be very sure that an <span class="math inline">\(O(n)\)</span> algorithm can work. The tightest possible bound here would be <span class="math inline">\(O(n \log^2 n)\)</span>; computationally this works out to about <span class="math inline">\(\log(200000)^2*200000 \approx\)</span> 62 million operations, which is under the 100 million operation per second assumption, but using 30 million operations per second as a safe C++ or optimistic Python estimate makes this complexity iffy. In actual practice, <span class="math inline">\(O(n \log^2 n)\)</span> complexities are quite rare and this problem would most likely be expecting a time complexity of <span class="math inline">\(O(n \log n)\)</span> or better given these constraints.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="global27f.png" class="img-fluid figure-img"></p>
-<figcaption>Source: Global Round 27 F (https://codeforces.com/contest/2035/problem/F)</figcaption>
-</figure>
-</div>
-<p>In this case, the maximum value of <span class="math inline">\(n\)</span> is 2000, and that we have 4 seconds in this problem. This time a <span class="math inline">\(O(n^2)\)</span> algorithm will be possible because <span class="math inline">\(2000^2 = 4*10^{6} &lt; 4*10^8\)</span>. It is also worth noting that usually Codeforces problems have 1 or 2 second time limits, in the rare cases where a problem has 4 seconds allotted to it, it usualy means higher time complexities can be possible; in this case, <span class="math inline">\(O(n^2 \log n)\)</span> (roughly 44 million) and even <span class="math inline">\(O(n^{2.5})\)</span> (roughly 180 million) are possible time complexities for this solution. Especially on harder problems like this one, these are cases where more complex runtime algorithms can be possible, as the intended solution does have a <span class="math inline">\(O(n^2 \log n)\)</span> solution.</p>
-<p>Below is a table of many of the more common runtime possibilities, and a rough estimate for the maximum input size <span class="math inline">\(n\)</span> for which an algorithm should reasonably be able to pass in 1 second:</p>
+<p>These are the measurements expressed in an array:</p>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 21%">
-<col style="width: 28%">
-<col style="width: 50%">
-</colgroup>
 <thead>
 <tr class="header">
-<th>Time Complexity</th>
-<th>Maximum n per second</th>
-<th>Examples</th>
+<th>Index #</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>O(1)</strong>, O(log n)</td>
-<td><span class="math inline">\(n \\leq 10^{18}\)</span></td>
-<td>Basic operations, binary search</td>
-</tr>
-<tr class="even">
-<td>O(sqrt n)</td>
-<td><span class="math inline">\(n \\leq 10^{14}\)</span></td>
-<td>Trial division primality test</td>
-</tr>
-<tr class="odd">
-<td><strong>O(n)</strong></td>
-<td><span class="math inline">\(n \\leq 10^7\)</span></td>
-<td>Maximum of an array</td>
-</tr>
-<tr class="even">
-<td><strong>O(n log n)</strong></td>
-<td><span class="math inline">\(n \\leq 10^6\)</span></td>
-<td>Sorting algorithms</td>
-</tr>
-<tr class="odd">
-<td>O(n log^2 n)</td>
-<td><span class="math inline">\(n \\leq 200000\)</span></td>
-<td>Query type problems on segment tree</td>
-</tr>
-<tr class="even">
-<td>O(n sqrt n)</td>
-<td><span class="math inline">\(n \\leq 50000\)</span></td>
-<td>Sqrt decomposition, Mo’s algorithm</td>
-</tr>
-<tr class="odd">
-<td><strong>O(n^2)</strong></td>
-<td><span class="math inline">\(n \\leq 3000\)</span></td>
-<td>Brute force subarray sums</td>
-</tr>
-<tr class="even">
-<td>O(n^2 log n)</td>
-<td><span class="math inline">\(n \\leq 1000\)</span></td>
-<td>Niche dp cases, very rare</td>
-</tr>
-<tr class="odd">
-<td><strong>O(n^3)</strong></td>
-<td><span class="math inline">\(n \\leq 300\)</span></td>
-<td>Floyd-Warshall</td>
-</tr>
-<tr class="even">
-<td>O(n^4)</td>
-<td><span class="math inline">\(n \\leq 60\)</span></td>
-<td>4D DP</td>
-</tr>
-<tr class="odd">
-<td>O(2^n)</td>
-<td><span class="math inline">\(n \\leq 25\)</span></td>
-<td>Brute force on all subsets</td>
-</tr>
-<tr class="even">
-<td>O(n!)</td>
-<td><span class="math inline">\(n \\leq 11\)</span></td>
-<td>Brute force on all permutations</td>
+<td>Number of tourists</td>
+<td>1</td>
+<td>2</td>
+<td>0</td>
+<td>3</td>
+<td>1</td>
+<td>4</td>
+<td>0</td>
+<td>2</td>
 </tr>
 </tbody>
 </table>
-<p>This table is not comprehensive, but covers just about every time complexity I have observed. In actuality, the bolded ones are the most common time complexities used in problems and are thus the most important to remember.</p>
-</section>
-<section id="exceptions-where-slowest-allowed-fastest-possible" class="level2">
-<h2 class="anchored" data-anchor-id="exceptions-where-slowest-allowed-fastest-possible">Exceptions Where Slowest Allowed != Fastest Possible</h2>
-<p>The above table can be used accurately for the slowest possible algorithms a problem will accept. For the most part, this table also provides a decent estimation of what the time complexity actually is, but there are cases where a significantly faster solution is possible than what the input size implies.</p>
-<section id="codeforce-div-234-problem-a" class="level3">
-<h3 class="anchored" data-anchor-id="codeforce-div-234-problem-a">Codeforce Div 2/3/4 Problem A</h3>
-<p>The point of a problem A on a Codeforces contest is so that everyone (or least almost everyone) is able to solve at least one problem on a Codeforces contest. In divison 1 contests, Problem A can be fairly challenging and thus have a reasonable time complexity estimation by it’s maximum allowable algorithm, but otherwise, many of these problems are created without consideration of optimizing the time complexity of the solution.</p>
+<p>Now John is interested in which parts of the mountain range are the most popular. To do this, he queries the sum of various subarrays. For example, the subarray representing the part of the mountain range from landmark 3 to 5 saw <span class="math inline">\(0 + 3 + 1 = 4\)</span> people visit last week, whereas the subarray representing the part of the mountain range from landmark 1 to 4 saw <span class="math inline">\(1 + 2 + 0 + 3 = 6\)</span> people visit last week. He then records all of these measurements in a database, and now let’s see how such queries can be computed efficiently.</p>
+<p>To create the segment tree, we are going to compute the sums for only some of the subarrays. First, we create a node for every single measurement made, representing the trivial sum values for every subarray of length 1:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="1074a.png" class="img-fluid figure-img"></p>
-<figcaption>Source: Codeforces Round 1074 Div. 4 A (https://codeforces.com/contest/2185/problem/A)</figcaption>
+<p><img src="seg1.png" class="img-fluid figure-img"></p>
+<figcaption>Base step of segment tree creation.</figcaption>
 </figure>
 </div>
-<p>In this case, we notice that the maximum <span class="math inline">\(n\)</span> value in a testcase is 20. Does that mean that the solution to this introductory problem has a <span class="math inline">\(O(2^n)\)</span> time complexity? Well you could make a solution that does, but obviously there’s faster! If we read the question carefully, we can conclude that <em>every</em> positive integer is a perfect root because <span class="math inline">\(\sqrt{x^2} = x\)</span> and <span class="math inline">\(x^2\)</span> uniquely exists for every positive integer. So all we’d have to do is output <span class="math inline">\(n\)</span> unique numbers for each testcase, which is an <span class="math inline">\(O(n)\)</span> algorithm.</p>
-</section>
-<section id="on3-estimates-and-longer" class="level3">
-<h3 class="anchored" data-anchor-id="on3-estimates-and-longer"><span class="math inline">\(O(n^3)\)</span> Estimates and Longer</h3>
-<p>Cases where the estimated runtime can be at least <span class="math inline">\(O(n^3)\)</span> usualy mean the runtime is this long, especially on harder problems. But there are cases where the solution can be surprisingly faster, as one of these cases occurred to me recently to inspire the creation of this post.</p>
+<p>Now we compute the sum values for the subarrays of length 2 by summing every pair of consecutive nodes like below:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="1073b2.png" class="img-fluid figure-img"></p>
-<figcaption>Source: Codeforces Round 1073 Div. 1 B2 (https://codeforces.com/contest/2190/problem/B2)</figcaption>
+<p><img src="seg2.png" class="img-fluid figure-img"></p>
+<figcaption>Node combining process</figcaption>
 </figure>
 </div>
-<p>With this case, a time complexity as high as even <span class="math inline">\(O(n^4)\)</span> is possible because with a maximum <span class="math inline">\(n\)</span> value of 100, <span class="math inline">\(100^4 = 10^8 &lt; 2 * 10^8\)</span> for a 2 second problem. Furthermore, from my initial attempts on this problem using a dynamic programming approach, I roughly computed that there was closer to around 12.5 million basic operations needed when <span class="math inline">\(n = 100\)</span>, so even if I was using Python, a <span class="math inline">\(O(n^4)\)</span> idea was possible, and I assumed that the solution for this problem really was no faster than <span class="math inline">\(O(n^4)\)</span>.</p>
-<p>What then proceeded to follow was 14 Time Limit Exceeded verdicts of complete and total agony as this contest dropped me out of the Candidate Master ranking on Codeforces. <a href="https://codeforces.com/contest/2190/submission/358366032">Here is a link to my last solution with a O(n^4) attempt where you can try and understand what exactly I was thinking.</a>.</p>
-<p>From the editorial, there is a <span class="math inline">\(O(n^3)\)</span> approach to this that can be optimized further to the <span class="math inline">\(O(n^2)\)</span> algorithm I eventually submitted for upsolving, showing that the input limits are only absolute in determining the slowest possible solution, and not the actual fastest possible solution. I won’t explain the reasoning too extensively as I don’t want to provide spoilers for the problem and <a href="https://codeforces.com/blog/entry/150256">the editorial</a> is effective for explaning the solution, but as for an exercise for the reader, try to understand how the observations made in my slow <span class="math inline">\(O(n^4)\)</span> solution can be simplified greatly to create an <span class="math inline">\(O(n^3)\)</span> or better algorithm.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<p>This new row now contains the sums for the subarrays with indexes going 1 to 2, 3 to 4, 5 to 6, and 7 to 8. Repeat this step with the new nodes created to get the sum values for subarrays of length 4:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="seg3.png" class="img-fluid figure-img"></p>
+<figcaption>Repeating the previous step</figcaption>
+</figure>
 </div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>How Can My O(n^4) Solution Be Faster? (Spoilers for Round 1073 Problem B2)
+<p>And now finally with the two nodes for the subarrays with indexes going 1 to 4 and 5 to 8, create the top layer of the segment tree representing the sum value for subarrays of length 8 (ie. the entire array):</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="seg4.png" class="img-fluid figure-img"></p>
+<figcaption>The full segment tree.</figcaption>
+</figure>
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+<p>This segment tree can now be used to compute the sum of any subarray by choosing nodes greedily, meaning that the nodes that cover the largest subarrays are chosen first to minimize the number of nodes involved. For instance, if the sum of the subarray from index 1 to 7 was to be computed:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="example.png" class="img-fluid figure-img"></p>
+<figcaption>Example of the segment tree in use.</figcaption>
+</figure>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>The main slowdown is the dp setup used, where I am tracking the last and second last occurances of <code>(</code>, the first occurance of <code>)</code>, the count of <code>(</code> - count of <code>)</code>, and the length of the bracket subsequence being considered. Furthermore, I observe that the bracket sequence is valid (ie. the score is not 0) only if the count of <code>(</code> - count of <code>)</code> is 0 AND the second last occurrance of <code>(</code> is after the first occurance of <code>)</code>. This means this complex occurance tracking nonsense can be simplified to checking if the subsequence <code>)((</code> exists the created subsequence or not.</p>
-<p>To tell if <code>)((</code> exists, all that needs to be done is to create a counter <code>x</code> which starts at 0. If a <code>)</code> is added to the subsequence and <code>x</code> is 0, then <code>x</code> is increased to 1. If <code>(</code> is added to the subsequence and <code>x</code> is 1 or 2, <code>x</code> is increased by 1. Otherwise, <code>x</code> remains as is. Then if this counter <code>x</code> ends up at 3, then the subsequence <code>)((</code> exists. This means the only things needed to track in the dp are this counter, the count of <code>(</code> - count of <code>)</code>, and the length of the bracket subsequence. This then makes a <span class="math inline">\(O(n^3)\)</span> solution possible.</p>
-<p>For the <span class="math inline">\(O(n^2)\)</span> solution, another observation (which I somehow did end up making even in the <span class="math inline">\(O(n^4)\)</span> attempts) is that the score of any bracket sequence will always be either 0 or <span class="math inline">\(n-2\)</span>, where <span class="math inline">\(n\)</span> is the length of the sequence. This then means that only information needed to be tracked for computing the answer are the number of bracket sequences with the specific counter value and count of <code>(</code> - count of <code>)</code> and their combined lengths, which is possibe in <span class="math inline">\(O(n^2)\)</span>. My upsolved solution is an example of this. (<a href="https://codeforces.com/contest/2190/submission/358384748">https://codeforces.com/contest/2190/submission/358384748</a>)</p>
-</div>
-</div>
-</div>
-
-
+<p>The yellow nodes indicate nodes that are only partially included in the subarray range. These nodes are not included in the sum but are instead searched deeper to their child nodes. The green nodes indicate nodes that are fully covered by the subarray range, so for maximum efficiency, these nodes are added to the sum and no further searching is required. For this example, the sum of the subarray from index 1 to 7 is <span class="math inline">\(6 + 5 + 0 = 11\)</span>.</p>
+<p>With efficient node selection, at most one node from each layer is going to be selected. This means in a much larger case, if John Code’s robot made a million measurements in total, then because the number of nodes in each layer is divided by two each time, such a segment tree would have only 21 such layers, meaning that ANY subarray sum for an array of one million values can be computed by just adding at most 21 values together! A segment tree of that size would consist of <span class="math inline">\(1000000 + 500000 + 250000 + ... + 2 + 1 \approx 2000000\)</span> nodes, so while there is a substantial precomputation cost, if multiple subarray sums are required, this is a much faster method than burte forcing every query. Generally, for an array of <span class="math inline">\(n\)</span> elements, a segment tree will create roughly <span class="math inline">\(2n\)</span> nodes, and will require summing up at most <span class="math inline">\(\text{log}_2(n)\)</span> nodes to compute a subarray sum. In big-O notation, this means the amount of time to create a segment tree scales linearly with the size of the array and can be represented as <span class="math inline">\(O(n)\)</span>, while the time needed to complete a single query scales logarithmically with the size of the array and can be represented as <span class="math inline">\(O(\log n)\)</span>.</p>
 </section>
+<section id="database-usability-of-segment-trees" class="level2">
+<h2 class="anchored" data-anchor-id="database-usability-of-segment-trees">Database Usability of Segment Trees</h2>
+<p>Technically, there are simpler methods to finding the sum of any subarray that are equally as fast or even faster, such as <a href="https://usaco.guide/silver/prefix-sums?lang=cpp">prefix sums</a>. However, suppose that John later finds there was an error in his data, and that landmark 5 actually had a lot more people there last week, updating the array to something like below:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Index #</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Number of tourists</td>
+<td>1</td>
+<td>2</td>
+<td>0</td>
+<td>3</td>
+<td><strong>100</strong></td>
+<td>4</td>
+<td>0</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>These data updates can be common in a database context, and what makes segment trees useful is how they handle these changes. First, we highlight all nodes that are affected by this change in the previous segment tree red. These nodes include the base node tracking the sum of the subarray from index 5 to 5 in the bottom layer, and each subsequent parent node up to the top.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="altseg1.png" class="img-fluid figure-img"></p>
+<figcaption>Nodes that are affected by index 5 changing from 1 to 100.</figcaption>
+</figure>
+</div>
+<p>Now starting from the bottom node in this tree, update each node: - The sum of the subarray from index 5 to 5 is now 100 (previously 1) - The sum of the subarray from index 5 to 6 is now 104 (100 + 4) - The sum of the subarray from index 5 to 8 is now 106 (104 + 2) - The sum of the subarray from index 1 to 8 is now 112 (6 + 106)</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="altseg2.png" class="img-fluid figure-img"></p>
+<figcaption>Updated segment tree.</figcaption>
+</figure>
+</div>
+<p>Now with this updated segment tree, the subarray sum queries can be computed in the same way as before. Even with a much larger tree, the number of nodes that need to be updated will always be equal to the number of layers in the tree, thus meaning that the amount of time needed to perform such an update scales logarithmically with the array size. This means that this is roughly as fast as the <span class="math inline">\(O(\log n)\)</span> operation used for finding a subarray sum.</p>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>In short, segment trees are a data structure based solution that explains how database management systems are capable of processing database queries in an efficient manner. The subarray sum problem is just one of the many applicable uses of segment trees, and further explanation as well as a code implementation of the structure can be found on <a href="https://cp-algorithms.com/data_structures/segment_tree.html">cp-algorithms</a>, which is one of the largest information bases for various data structure and algorithmic concepts used in competitive programming.</p>
+
+
 </section>
 
 </main> <!-- /main -->
