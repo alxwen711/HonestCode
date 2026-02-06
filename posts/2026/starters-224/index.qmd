@@ -3,9 +3,10 @@ title: "Starters 224 Recap"
 author: "Alexander Wen"
 date: "2026-02-06"
 categories: [competitive programming,codechef,recap,2026]
+image: "icon.png"
 ---
 
-The last time I did a CodeChef contest was [September 18th, 2024](https://www.codechef.com/START152), and I wanted the first recap of HonestCode to be a CodeForces contest so I could at east showcase a decent start that gets me out of the Expert (1600-1899) rating group. However, as of writing this, this is the upcoming CodeForces contests:
+The last time I did a CodeChef contest was [September 18th, 2024](https://www.codechef.com/START152), and I wanted the first recap of HonestCode to be a CodeForces contest so I could showcase a decent start that gets me out of the Expert (1600-1899) rating group. However, as of writing this, this is the upcoming CodeForces contests:
 
 ![The common struggle of living in the Pacific Time Zone.](ripschedule.png)
 
@@ -140,20 +141,52 @@ for _ in range(readint()):
 - There must be at least `(b+g+n-1)//n` rooms, call this value `r`
 - There must be at least `xr` boys and `yr` girls
 
+There are a few mathematical observations here to start:
+
+- There must be enough space in a room for the minimal number of boys and girls, thus $x + y \leq n$.
+- If at most $n$ people can fit in a room, then there must be at least $\lceil \frac{b+g}{n} \rceil$ rooms. Call this value $r$, and in code this is representable as `(b+g+n-1)//n`.
+- There must be at least $xr$ boys and $yr$ girls to ensure each room meats the minimal number of boys and girls requirement.
+
+If all of these conditions are true then $r$ rooms is the answer as any excess people could be fitted into the rooms by the second condition.
+
 **[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20224/a.py)**
 
 ### [E: Advitiya Coin](https://www.codechef.com/problems/ADC)
 
-- Only number of trades matter -> complete trades as early as possible
-- Greedy min/max check
+`Note that you do not need to maximize the overall profit of the trades: only the number of winning trades.`
+
+The last sentence in the statement basically gives the solution away because it means that only the number of successful trades actually matters, and by greedy principle, we want to complete these trades as early as possible. Thus, we can determine when a trade is possible in a subarray by keeping a running track of the minimum and maximum of the subarray, then starting a new one once this difference exceeds $k$.
 
 **[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20224/b.py)**
 
 ### [F: MAX MIN MEX](https://www.codechef.com/problems/MAXMINMEX)
 
-- Working through small examples, only the longest consecutive run creates highest mex
-- How many ways to arrange longest consecutive run? Trial and error -> `2^(n-1)`
-- Multiple longest runs can exist
+
+Among these permutation problems, it is implied that the array can be reordered arbritarily. Let's observe an example larger testcase written here:
+
+```
+1
+10
+3 7 8 9 10 12 13 14 15 17
+```
+
+The values in this list have been ordered intentionally. We also note that the value of $R_i$ will only keep increasing as the maximum of the array will never decrease when adding new elements and the minimum will never decrease. One possible arrangement that would result in a MEX value of 4 would be the following:
+
+```
+12 13 14 15 3 7 8 9 10 17 
+-> 0 1 2 3 12 12 12 12 12 14
+```
+
+Another possible arrangement is the following:
+
+```
+13 14 12 15 17 3 8 9 10 7
+-> 0 1 2 3 5 14 14 14 14 14
+```
+
+What both of these arrangements do is place the values from 12 to 15 at the start. We can call 12 to 15 in this array the longest consecutive run, and all of the remaining values have no effect on the MEX value, so they can be placed in the back in any order (if there are $n$ of these, then there are $n!$ such ways to do so).
+
+Suppose the length of the longest consecutive run is $m$, and that there are $k$ such longest consecutive runs (because an array like `1 2 3 5 7 8 9` has 2 longest consecutive runs of length 3). For a consuctive run of length $m$, there are exactly $2^{m-1}$ such ways to arrange it so that the resulting array will have the maximum MEX, which I ended up finding via trial and error (this may also be provable via induction). Multiply this value by $k$ and the number of ways to arrange all other elements not being used to create the MEX for the answer.
 
 **[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20224/c.py)**
 
@@ -163,14 +196,20 @@ for _ in range(readint()):
 - How can the answer be large? (Considered line graph)
 - Combinatorics are usually dp like problems, try splitting case where a node has been touched once/twice?
 
+For this problem, I start by determining likely time complexity ($O(n \text{ log } n)$) of the solution. Initially I wasn't sure why the answer had to be returned mod 998244353, but from experimentation, the line graph ($n$ nodes where the only edges are 1-2, 2-3, 3-4, 4-5, etc.) could produce a case with a very large value, and this made it likely this had some sort of dp solution. This is another case where I tried figuring out how the testcases worked first, and eventually we get to these notes:
+
 ![Notes made for the 5th example case.](d.png)
 
-- From img above, solution looks more clear
-- Compute unique path from 1 to n
-- single cases are just sum of single/double options from previous node
-- double cases is number of single options in current node * number of "child" nodes
-- double case for 1 is number of "child" nodes not part of main path
-- answer is single case for n
+From drawing this out, there begins to be a clearer solution, which I figured out in the following stages:
+
+- The unique path from 1 to n is needed for the dp part of the step.
+- Each node $i$ in this unique path will have values $A_i$ and $B_i$ assigned to it representing the number of ways to reach this node by visiting it once or twice respectively.
+- $A_j = A_i + B_i$ if node $j$ is the next node in the path after node $i$. In node 1's case, $A_1 = 1$.
+- $B_i$ is dependent on the number of branching nodes that can be obtained by ignoring other nodes that would be in the path. This was observed in the testcase above, where $x = 11$ and it just happens that if you ignore node 4, there are 11 other branching nodes from node 1.
+- From this, $B_i$ must equal the number of branching nodes multiplied by $A_i$. I only figured the multiplication part after finding that without it, the code would return $4$ on the 4th example when the answer is actually 5.
+- Then the answer to this problem is $A_n$. 
+
+This entire thought process came through after about 45 minutes.
 
 **[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20224/d.py)**
 
@@ -178,14 +217,11 @@ for _ in range(readint()):
 
 ### [H: MEX Variation](https://www.codechef.com/problems/MXCHG)
 
-- ordering of values does not matter
-- tried devising some sort of dp around (lowest frequency up to break, smallest total to break/breakpoint)
-- Roughly 40 minutes of experimentation on this problem, currently still unsure
-
+Like with F, ordering of values does not matter. For this problem I spent around 40 mintues trying to devise some sort of dp equation, using the lowest frequency of a specifc value in a chain and the minimum number of operations needed to change the MEX as keys. The part that complicated things for me is considering cases with multiple chains such as `[0,0,0,0,0,0,0,5,5,5]` which should have an answer of 4.
 
 ### [I: Tree Walk 3](https://www.codechef.com/problems/WLKLIM3)
 
-- In theory similar to G but not really
+Verbally this problem is similar to G, but that's about where the similarities end. Most of the remaining time was on attempting H and from the solve statistics this problem is significantly harder. A part of me assumes there might be a tree dp idea for this as well, but post contest I am not really sure about this.
 
 ## Contest Reflection
 
