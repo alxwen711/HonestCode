@@ -47,7 +47,7 @@ This setup only needs 10 problems but the differences in each division should be
 | Div 3     | \- | A  | B  | C | D | E | F  | \- | \- |
 | Div 4     | A  | B  | C  | D | E | F | \- | \- | \- |
 
-Asides from the gap between Div 1 and 2 being pretty small, this contest structure could be an interesting experiment, and in fairness, if CodeChef can have a 4 division structure with a smaller coderbase especially in the upper divisions, CodeForces could definitely try this. It would at least be a better implementation of Division 4 than the separate Div 4 contests that have been held on CodeForces, but this is seperate post entirely.
+Asides from the gap between Div 1 and 2 being pretty small, this contest structure could be an interesting experiment, and in fairness, if CodeChef can have a 4 division structure with fewer coders especially in the upper divisions, CodeForces could definitely try this. It would at least be a better implementation of Division 4 than the separate Div 4 contests that have been held on CodeForces, but this is separate post entirely.
 :::
 
 Anyways, this was how the problems were split up for each division in Starters 224:
@@ -90,15 +90,15 @@ readar = lambda: list(map(int,sys.stdin.readline().split()))
 flush = lambda: sys.stdout.flush()
 
 for _ in range(readint()):
-    n = readint()
-    ar = readar()
-    best = 0
-    chain = 0
-    for i in ar:
-        if i != 0: chain += 1
-        else: chain = 0
-        best = max(best,chain)
-    print(best)
+   n = readint()
+   ar = readar()
+   best = 0
+   chain = 0
+   for i in ar:
+       if i != 0: chain += 1
+       else: chain = 0
+       best = max(best,chain)
+   print(best)
 ```
 
 ### [C: AabBcCDd](https://www.codechef.com/problems/AABBCCDD)
@@ -116,20 +116,19 @@ flush = lambda: sys.stdout.flush()
 readin = lambda: sys.stdin.readline()[:-1]
 
 for _ in range(readint()):
-    n = readint()
-    s = readin().lower()
-    d = {}
-    for i in s:
-        if d.get(i) == None: d[i] = 0
-        d[i] += 1
-    ar = list()
-    for j in d.keys():
-        ar.append(d[j])
-    ar.sort()
-    if len(ar) == 1: print(ar[0]) # if only one letter type is in the string
-    else: print(ar[-1]+ar[-2])
+   n = readint()
+   s = readin().lower()
+   d = {}
+   for i in s:
+       if d.get(i) == None: d[i] = 0
+       d[i] += 1
+   ar = list()
+   for j in d.keys():
+       ar.append(d[j])
+   ar.sort()
+   if len(ar) == 1: print(ar[0]) # if only one letter type is in the string
+   else: print(ar[-1]+ar[-2])
 ```
-
 
 :::
 
@@ -161,8 +160,7 @@ The last sentence in the statement basically gives the solution away because it 
 
 ### [F: MAX MIN MEX](https://www.codechef.com/problems/MAXMINMEX)
 
-
-Among these permutation problems, it is implied that the array can be reordered arbritarily. Let's observe an example larger testcase written here:
+Among these permutation problems, it is implied that the array can be reordered arbitrarily. Let's observe an example larger test case written here:
 
 ```
 1
@@ -173,7 +171,7 @@ Among these permutation problems, it is implied that the array can be reordered 
 The values in this list have been ordered intentionally. We also note that the value of $R_i$ will only keep increasing as the maximum of the array will never decrease when adding new elements and the minimum will never decrease. One possible arrangement that would result in a MEX value of 4 would be the following:
 
 ```
-12 13 14 15 3 7 8 9 10 17 
+12 13 14 15 3 7 8 9 10 17
 -> 0 1 2 3 12 12 12 12 12 14
 ```
 
@@ -186,7 +184,7 @@ Another possible arrangement is the following:
 
 What both of these arrangements do is place the values from 12 to 15 at the start. We can call 12 to 15 in this array the longest consecutive run, and all of the remaining values have no effect on the MEX value, so they can be placed in the back in any order (if there are $n$ of these, then there are $n!$ such ways to do so).
 
-Suppose the length of the longest consecutive run is $m$, and that there are $k$ such longest consecutive runs (because an array like `1 2 3 5 7 8 9` has 2 longest consecutive runs of length 3). For a consuctive run of length $m$, there are exactly $2^{m-1}$ such ways to arrange it so that the resulting array will have the maximum MEX, which I ended up finding via trial and error (this may also be provable via induction). Multiply this value by $k$ and the number of ways to arrange all other elements not being used to create the MEX for the answer.
+Suppose the length of the longest consecutive run is $m$, and that there are $k$ such longest consecutive runs (because an array like `1 2 3 5 7 8 9` has 2 longest consecutive runs of length 3). For a consecutive run of length $m$, there are exactly $2^{m-1}$ such ways to arrange it so that the resulting array will have the maximum MEX, which I ended up finding via trial and error (this may also be provable via induction). Multiply this value by $k$ and the number of ways to arrange all other elements not being used to create the MEX for the answer.
 
 **[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20224/c.py)**
 
@@ -196,7 +194,7 @@ Suppose the length of the longest consecutive run is $m$, and that there are $k$
 - How can the answer be large? (Considered line graph)
 - Combinatorics are usually dp like problems, try splitting case where a node has been touched once/twice?
 
-For this problem, I start by determining likely time complexity ($O(n \text{ log } n)$) of the solution. Initially I wasn't sure why the answer had to be returned mod 998244353, but from experimentation, the line graph ($n$ nodes where the only edges are 1-2, 2-3, 3-4, 4-5, etc.) could produce a case with a very large value, and this made it likely this had some sort of dp solution. This is another case where I tried figuring out how the testcases worked first, and eventually we get to these notes:
+For this problem, I start by determining likely time complexity ($O(n \text{ log } n)$) of the solution. Initially I wasn't sure why the answer had to be returned mod 998244353, but from experimentation, the line graph ($n$ nodes where the only edges are 1-2, 2-3, 3-4, 4-5, etc.) could produce a case with a very large value, and this made it likely this had some sort of dp solution. This is another case where I tried figuring out how the test cases worked first, and eventually we get to these notes:
 
 ![Notes made for the 5th example case.](d.png)
 
@@ -207,7 +205,7 @@ From drawing this out, there begins to be a clearer solution, which I figured ou
 - $A_j = A_i + B_i$ if node $j$ is the next node in the path after node $i$. In node 1's case, $A_1 = 1$.
 - $B_i$ is dependent on the number of branching nodes that can be obtained by ignoring other nodes that would be in the path. This was observed in the testcase above, where $x = 11$ and it just happens that if you ignore node 4, there are 11 other branching nodes from node 1.
 - From this, $B_i$ must equal the number of branching nodes multiplied by $A_i$. I only figured the multiplication part after finding that without it, the code would return $4$ on the 4th example when the answer is actually 5.
-- Then the answer to this problem is $A_n$. 
+- Then the answer to this problem is $A_n$.
 
 This entire thought process came through after about 45 minutes.
 
@@ -217,7 +215,8 @@ This entire thought process came through after about 45 minutes.
 
 ### [H: MEX Variation](https://www.codechef.com/problems/MXCHG)
 
-Like with F, ordering of values does not matter. For this problem I spent around 40 mintues trying to devise some sort of dp equation, using the lowest frequency of a specifc value in a chain and the minimum number of operations needed to change the MEX as keys. The part that complicated things for me is considering cases with multiple chains such as `[0,0,0,0,0,0,0,5,5,5]` which should have an answer of 4.
+Like with F, ordering of values does not matter. For this problem I spent around 40 minutes trying to devise some sort of dp equation, using the lowest frequency of a specific value in a chain and the minimum number of operations needed to change the MEX as keys. The part that complicated things for me is considering cases with multiple chains such as `[0,0,0,0,0,0,0,5,5,5]` which should have an answer of 4.
+
 
 ### [I: Tree Walk 3](https://www.codechef.com/problems/WLKLIM3)
 
@@ -225,6 +224,8 @@ Verbally this problem is similar to G, but that's about where the similarities e
 
 ## Contest Reflection
 
-[Based on recent contests](https://clist.by/coder/alxwen711/) the consistency I was having even problems roughly at the Divison 2D level was rubbish, so retaining 2200 (6*) on CodeChef and actually going up in rating by 15 is a result that actually shows what I am capable of. Tree Walk 2 is a problem that would be about 1900-2000 on CodeForces from rough estimation, where as MEX Variation feels like it would be around 2200-2300. This contest did not have any penalty for wrong submissions, but it is worth noting that I wouldn't have a penalty anyways if there was one.
+[Based on recent contests](https://clist.by/coder/alxwen711/) the consistency I was having even problems roughly at the Division 2D level was rubbish, so retaining 2200 (6*) on CodeChef and actually going up in rating by 15 is a result that actually shows what I am capable of. Tree Walk 2 is a problem that would be about 1900-2000 on CodeForces from rough estimation, where as MEX Variation feels like it would be around 2200-2300. This contest did not have any penalty for wrong submissions, but it is worth noting that I wouldn't have a penalty anyways if there was one.
+
 
 Each of these CodeChef Starters contests take place on Wednesdays 6:30-8:30AM PST. Usually I have class at 8AM on Wednesdays with this contest being an exception, and the next Wednesday where I'd be able to take part would be March 11th. I probably will compete in that Starters contest then; even if I feel AtCoder and CodeForces tend to have better problem quality (another post to be written at some point as to why), the problems on CodeChef are useful here, most of the issue is just a lack of competitions at the absolute top level.
+
