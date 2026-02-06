@@ -1,0 +1,111 @@
+---
+title: "Starters 224 Recap"
+author: "Alexander Wen"
+date: "2026-02-08"
+categories: [competitive programming,codechef,recap,2026]
+---
+
+::: {.callout-important collapse="true"}
+## Division 1 Unranked Problems Upsolved
+
+### [A: Qualified or Not](https://www.codechef.com/problems/QNOT)
+
+From reading the problem, all that needs to be checked is if $N \geq 2X$ and $N \geq 2Y$. The sample code below is more an example of the lightweight input template I use.
+
+```python
+import sys
+
+#input functions
+readint = lambda: int(sys.stdin.readline())
+readints = lambda: map(int,sys.stdin.readline().split())
+readar = lambda: list(map(int,sys.stdin.readline().split()))
+flush = lambda: sys.stdout.flush()
+
+n,x,y = readints()
+print("YES" if n >= 2*x and n >= 2*y else "NO")
+```
+
+### [B: The Coding Streak](https://www.codechef.com/problems/STREAK)
+
+Keep track of the streak as you are going through the array; if the value is not 0, increment streak by 1, else reset to 0. After each day update the maximum streak found.
+
+```python
+import sys
+
+#input functions
+readint = lambda: int(sys.stdin.readline())
+readints = lambda: map(int,sys.stdin.readline().split())
+readar = lambda: list(map(int,sys.stdin.readline().split()))
+flush = lambda: sys.stdout.flush()
+
+for _ in range(readint()):
+    n = readint()
+    ar = readar()
+    best = 0
+    chain = 0
+    for i in ar:
+        if i != 0: chain += 1
+        else: chain = 0
+        best = max(best,chain)
+    print(best)
+```
+
+### [C: AabBcCDd](https://www.codechef.com/problems/AABBCCDD)
+
+Operation 1 can be performed any number of times, and the score of the banner is not affected by any uppercase letters, so changing the entire string to lowercase via operation 1 is a valid solution step. Then operation 2 can only be used once, so the greedy idea is to just make the two letters that show up the most in the string match each other.
+
+```python
+import sys
+
+#input functions
+readint = lambda: int(sys.stdin.readline())
+readints = lambda: map(int,sys.stdin.readline().split())
+readar = lambda: list(map(int,sys.stdin.readline().split()))
+flush = lambda: sys.stdout.flush()
+readin = lambda: sys.stdin.readline()[:-1]
+
+for _ in range(readint()):
+    n = readint()
+    s = readin().lower()
+    d = {}
+    for i in s:
+        if d.get(i) == None: d[i] = 0
+        d[i] += 1
+    ar = list()
+    for j in d.keys():
+        ar.append(d[j])
+    ar.sort()
+    if len(ar) == 1: print(ar[0]) # if only one letter type is in the string
+    else: print(ar[-1]+ar[-2])
+```
+
+
+:::
+
+## Solved Problems
+
+### [D: Accommodation](https://www.codechef.com/problems/ACMDT)
+
+**[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20224/a.py)**
+
+### [E: Advitiya Coin](https://www.codechef.com/problems/ADC)
+
+**[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20224/b.py)**
+
+### [F: MAX MIN MEX](https://www.codechef.com/problems/MAXMINMEX)
+
+**[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20224/c.py)**
+
+### [G: Tree Walk 2](https://www.codechef.com/problems/WLKLIM2)
+
+**[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20224/d.py)**
+
+## Unsolved Problems
+
+### [H: MEX Variation](https://www.codechef.com/problems/MXCHG)
+
+
+### [I: Tree Walk 3](https://www.codechef.com/problems/WLKLIM3)
+
+
+## Contest Reflection
