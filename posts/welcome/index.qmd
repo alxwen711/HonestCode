@@ -3,7 +3,8 @@ title: "📌 About this Blog"
 author: "Tristan O'Malley"
 date: "2026-01-11"
 categories: [news,Pinned]
-pinned: true
+pinned: True
+draft: True
 ---
 
 This is the first post in a Quarto blog. Welcome!
