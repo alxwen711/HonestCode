@@ -1,11 +1,61 @@
 ---
 title: "Starters 224 Recap"
 author: "Alexander Wen"
-date: "2026-02-08"
+date: "2026-02-06"
 categories: [competitive programming,codechef,recap,2026]
 ---
 
-::: {.callout-important collapse="true"}
+The last time I did a CodeChef contest was [September 18th, 2024](https://www.codechef.com/START152), and I wanted the first recap of HonestCode to be a CodeForces contest so I could at east showcase a decent start that gets me out of the Expert (1600-1899) rating group. However, as of writing this, this is the upcoming CodeForces contests:
+
+![The common struggle of living in the Pacific Time Zone.](ripschedule.png)
+
+Round 1078 is at 1AM, Round 1079 overlaps with my class times, the contest afterwards would be unranked for me, and the ones after that are part of the Kotlin series. But I really need some sort of programming competition for practice, so here we are with CodeChef's Starters series, which in terms of difficulty, the top division can be described as roughly for CodeForce rating from 1600-2099, which is roughly the equivalent of Division 2 on Codeforces in [Round 905](https://codeforces.com/blog/entry/121579).
+
+::: {.callout-note collapse="true"}
+## A brief side tangent on Round 905's division structure
+
+Normally when contests on CF are divided into divisions, the standard has been to do Div 1 (1900 and up) and Div 2 (everyone else), usually by removing the 2 or 3 easiest problems from the Div 2 version and adding in 2 or 3 harder problems, similar to this table if the problems were arranged in difficulty:
+
+| Problem # | 1  | 2  | 3 | 4 | 5 | 6 | 7  | 8  |
+| --------- | -- | -- | - | - | - | - | -- | -- |
+| Div 1     | \- | \- | A | B | C | D | E  | F  |
+| Div 2     | A  | B  | C | D | E | F | \- | \- |
+
+Round 905 is one of the most interesting in division structure as there were 3 groups: Div 1 (2100 and up), Div 2 (1600-2099), and Div 3 (everyone else).
+
+| Problem # | 1  | 2  | 3  | 4  | 5  | 6  | 7     | 8  | 9  | 10 | 11 | 12 |
+| --------- | -- | -- | -- | -- | -- | -- | ----- | -- | -- | -- | -- | -- |
+| Div 1     | \- | \- | \- | \- | \- | \- | A1/A2 | B  | C  | D  | E  | F  |
+| Div 2     | \- | A  | B  | \- | \- | C  | D1/D2 | E  | F  | \- | \- | \- |
+| Div 3     | A  | B  | C  | D  | E  | F  | G1/G2 | \- | \- | \- | \- | \- |
+
+This division structure has not been used much since probably because it requires several extra problems to be created, but for providing a more adaptive difficulty scale this was actually useful, especially since in the two division structure I tend to find myself in the Div 1/2 borderline area a lot (mainly the cycle of do well in Div 2, get run over in Div 1, repeat). Looking at this, there is a somewhat reasonable solution that can combine these ideas:
+
+| Problem # | 1  | 2  | 3  | 4 | 5  | 6  | 7 | 8  | 9  | 10 |
+| --------- | -- | -- | -- | - | -- | -- | - | -- | -- | -- |
+| Div 1     | \- | \- | \- | A | \- | B  | C | D  | E  | F  |
+| Div 2     | \- | A  | \- | B | C  | D  | E | F  | \- | \- |
+| Div 3     | A  | B  | C  | D | E  | \- | F | \- | \- | \- |
+
+This setup only needs 10 problems but the differences in each division should be significant enough. Even more, if we really wanted, there isn't anything really stopping a 4 division structure with 9 problems like this one below:
+
+| Problem # | 1  | 2  | 3  | 4 | 5 | 6 | 7  | 8  | 9  |
+| --------- | -- | -- | -- | - | - | - | -- | -- | -- |
+| Div 1     | \- | \- | \- | A | B | C | D  | E  | F  |
+| Div 2     | \- | \- | A  | B | C | D | E  | F  | \- |
+| Div 3     | \- | A  | B  | C | D | E | F  | \- | \- |
+| Div 4     | A  | B  | C  | D | E | F | \- | \- | \- |
+
+Asides from the gap between Div 1 and 2 being pretty small, this contest structure could be an interesting experiment, and in fairness, if CodeChef can have a 4 division structure with a smaller coderbase especially in the upper divisions, CodeForces could definitely try this. It would at least be a better implementation of Division 4 than the separate Div 4 contests that have been held on CodeForces, but this is seperate post entirely.
+:::
+
+Anyways, this was how the problems were split up for each division in Starters 224:
+
+![Contest Structure of Starters 224](diff.png)
+
+There are 3 easier problems that were not part of the contest I did in division 1, and these solution ideas can be found in the following dropdown before more complete discussion on the other problems I solved and any thoughts/attempts on the last two problems.
+
+::: {.callout-note collapse="true"}
 ## Division 1 Unranked Problems Upsolved
 
 ### [A: Qualified or Not](https://www.codechef.com/problems/QNOT)
@@ -139,5 +189,6 @@ for _ in range(readint()):
 
 ## Contest Reflection
 
-- tbh surprised I actually retained 6* given CF slump
-- G is a pretty good problem solve, would be about 1900-2000
+[Based on recent contests](https://clist.by/coder/alxwen711/) the consistency I was having even problems roughly at the Divison 2D level was rubbish, so retaining 2200 (6*) on CodeChef and actually going up in rating by 15 is a result that actually shows what I am capable of. Tree Walk 2 is a problem that would be about 1900-2000 on CodeForces from rough estimation, where as MEX Variation feels like it would be around 2200-2300. This contest did not have any penalty for wrong submissions, but it is worth noting that I wouldn't have a penalty anyways if there was one.
+
+Each of these CodeChef Starters contests take place on Wednesdays 6:30-8:30AM PST. Usually I have class at 8AM on Wednesdays with this contest being an exception, and the next Wednesday where I'd be able to take part would be March 11th. I probably will compete in that Starters contest then; even if I feel AtCoder and CodeForces tend to have better problem quality (another post to be written at some point as to why), the problems on CodeChef are useful here, most of the issue is just a lack of competitions at the absolute top level.
