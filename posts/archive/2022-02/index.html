@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Alexander Wen">
+<meta name="dcterms.date" content="2022-02-28">
+
+<title>February 2022 Archive Log – HonestCode</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-e31584831b205ffbb2d98406f31c2a5b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">HonestCode</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/alxwen711"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">February 2022 Archive Log</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">competitive programming</div>
+                <div class="quarto-category">2022</div>
+                <div class="quarto-category">archive</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Alexander Wen </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">February 28, 2022</p>
+      </div>
+    </div>
+    
+      <div>
+      <div class="quarto-title-meta-heading">Modified</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date-modified">February 7, 2026</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<section id="february-1st-14th" class="level2">
+<h2 class="anchored" data-anchor-id="february-1st-14th">February 1st-14th</h2>
+<p><em>Note: Both of the logs here are being written around the end of February/start of March and are relying on personal journal logs. As of next month all new logs will be completed at or within a few days of their ending time period.</em></p>
+<p>These two weeks marked the actual start of this “blog” where I log my own thoughts about recent projects I have completed, my CodeForces (mis)adventure, and other noteworthy life updates. In this case, asides from getting my first booster for the virus that has been causing a pandemic since March 2020 (yes, it has been that long), not too much event wise out of SFU has occurred in these two weeks, so I’ll just be recapping the 3 contests I took part in this two week period.</p>
+<p><a href="https://codeforces.com/contest/1634">Round 770</a> was the first contest of the month, and without wanting to sound repetitive, I ended up solving 3 of the 6 problems somewhat quickly, which led to my official starting rating after the first 6 rated contests being 1527. For context, my initial goal for CodeForces at the start of the year was to reach <span style="color:blue"><strong>Expert</strong></span> in 6 months, and with how close I was to reaching that goal after only 6 weeks, given that the rating floor for <span style="color:blue"><strong>Expert</strong></span> is only 1600, shortly after this contest I readjusted this goal to be more ambitious, to reach <span style="color:purple"><strong>Candidate Master</strong></span> by the end of the year, which requires a rating of 1900. After all, it would only take a few more contests to reach <span style="color:blue"><strong>Expert</strong></span> anyways.</p>
+<p>The above paragraph were my thoughts the day after the contest on February 7th. I am writing this at the beginning of March, and my rating has not crossed 1527 since then. The beginning of my fall began on February 12th with <a href="https://codeforces.com/contest/1637">Global Round 19</a>, a contest where I blundered the <a href="https://codeforces.com/contest/1637/problem/C">3rd relatively easy question</a>. In the contest, I made 5 wrong answer submissions that all failed on pretest 2 because my determinations for the setups of stones that would lead to an answer of -1 were incorrect. For example, a stone setup of [1,1,1,2,2,1,1,1,1] is possible with the following operations:</p>
+<pre><code>1,1,1,2,2,1,1,1,1
+1,2,1,0,2,1,2,1,1
+1,2,2,0,0,2,2,1,1
+1,0,2,0,0,2,2,2,1
+
+and then take each of the remaining 2 stone piles and distribute 1 stone to pile
+1, and the other stone to pile n.</code></pre>
+<p>In fact, as long as the middle n-2 piles are not all 1 stone each, then it is possible to move all the stones to piles 1 and n, assuming n is not 3. (For n = 3, the 2nd pile also must have an even number of stones.) Inexplicably, for the above example during the contest, I did not even think about anything after C being possible. My thoughts somehow revolved around counting the number of “2s” that could be used to make the odd stone piles even, but I failed to realize that in using up stones to make the odd piles have an even number of stones, I now had new piles of an even number of stones that could be used to fix remaining odd piles.</p>
+<p>This brings me to one of things I learned involving debugging code you write on CodeForces; usually, if your program WAs on pretest 2,3,4, basically any value close to 1, it usually means that there is some sort of error within your algorithm for solving the question, where as a wrong answer on a higher pretest like pretest 8 or 9 would likely mean that your program does not look at the edge cases properly. And of course, 99% of the time, TLE just means your program is running too slowly in terms of Big-O notation, with the most common difference I’ve found being between <span class="math inline">\(O(n^2)\)</span> and <span class="math inline">\(O(n \text{ log } n)\)</span>.</p>
+<p>Notice how I did not mention what is the likely problem in the case of Runtime Errors. I’m not exactly sure what is the main problem in this case, but at the moment, I would guess it is due to potential edge cases triggering out of index searches, but this type of error would plague me in <a href="https://codeforces.com/contest/1638">Round 771</a>, two days after the previous contest. In this case, instead of just the 3rd question being a problem, the entire contest as a whole was a complete mess for me, with two avoidable incorrect submissions on <a href="https://codeforces.com/contest/1638/problem/A">Problem A</a>, an excruciating long 35 minutes to solve <a href="https://codeforces.com/contest/1638/problem/B">Problem B</a>, and <em>eleven</em> unexplainable runtime errors on <a href="https://codeforces.com/contest/1638/problem/C">Problem C</a>.</p>
+<p>To put into context just how badly the previous two contests went, there are two statistics I would like to share with you. The first one is simply how my rating was affected after these two weak contests. Within the 4.5 hours these two contests took place, I went from a <strong>1527</strong> rated <span style="color:cyan"><strong>Specialist</strong></span> to a <strong>1384</strong> rated <span style="color:green"><strong>Pupil</strong></span>. Granted, the rating system could be argued to be an arbitrary metric, but from experience, it hurts when you spend two mornings at 6:30 AM grinding away only to pretty much lose all the progress you have built up from the previous month.</p>
+<p>The second statistic is the individual contest performance, which is a bit less obvious. To put it simply, I define performance from the contest as the rating the ELO system would expect you to be based on your results in a given contest. To put it in an example, if you performed equally as well as someone else who was rated 1500 in a contest, and the 1500-rated coder saw no change in rating after the contest, then your performance rating would be 1500. There are caveats to this method, being that there won’t always be such a person with a similar performance and 0 rating change, and the fact that <a href="https://codeforces.com/blog/entry/77890">CodeForces new method of rating calculation</a> means that the rating used for calculation is different from the one displayed for the first 6 contests, but this is a relatively accurate method to finding one’s own performance to within 10-20ish points. With that said, this is a table of the 8 rated contests so far I had participated in:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Contest</th>
+<th>Rating</th>
+<th>Difference</th>
+<th>Performance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Hello 2022</td>
+<td>1359</td>
+<td>-41</td>
+<td>1197</td>
+</tr>
+<tr class="even">
+<td>764</td>
+<td>1432</td>
+<td>+73</td>
+<td>1593</td>
+</tr>
+<tr class="odd">
+<td>766</td>
+<td>1426</td>
+<td>-6</td>
+<td>1404</td>
+</tr>
+<tr class="even">
+<td>767</td>
+<td>1450</td>
+<td>+24</td>
+<td>1517</td>
+</tr>
+<tr class="odd">
+<td>769</td>
+<td>1531</td>
+<td>+81</td>
+<td>1738</td>
+</tr>
+<tr class="even">
+<td>770</td>
+<td>1527</td>
+<td>-4</td>
+<td>1511</td>
+</tr>
+<tr class="odd">
+<td>Global 19</td>
+<td>1446</td>
+<td>-81</td>
+<td>1192</td>
+</tr>
+<tr class="even">
+<td>771</td>
+<td>1384</td>
+<td>-62</td>
+<td>1183</td>
+</tr>
+</tbody>
+</table>
+<p>Hello 2022 was the first contest I participated in and given the difference in performance that is understandable. However, it also puts into context just how badly the previous two went due to my ineffective debugging, an often unspoken skill within programming competitions as a whole. Thankfully, this is <em>definitely</em> the rock bottom in terms of rating I will reach, and <em>surely</em> in the next two weeks I will make a strong recovery.</p>
+<p>In other news, immediately after Global 19, as part of my prep term for a potential Co-op Term in Fall 2022, I went through 5 hours of workshops covering resumes, cover letters, and interviews. For future SFU Co-op students I would advise against this method and just take BOL I first as those workshops ended up building on concepts that I was supposed to learn first in BOL I.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>A Note on SFU’s Co-op System
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Since editing this, I did end up having a successful 8 month co-op work experience with Global Relay from September 2023 to April 2024, where much of the meaningful success and real work learning experience was mainly due to Global Relay and less SFU, even if the school took far more credit in “helping” me here than it really did. I will be fair; the internal job board for co-op with SFU is quite useful, but there are two important takeaways here for any undergraduates reading this that are considering co-op.</p>
+<ol type="1">
+<li><p>Even if you think you are not ready for co-op (as I felt until about 3rd year), you almost certainly are. I’d go as far to recommend taking the necessary preparation courses to be able to access the SFU job board if you wish to use it in 1st year so that you can start looking in 2nd year or earlier. If you happen to have a position in 2nd year or even 1st, it means the employer believes you are capable, and if it takes you a while, it’s alright since you already started early. In my case, I pretty much went through my co-op in 4th year with two blocks of classes before graduation, which was experience I’d be better off having earlier.</p></li>
+<li><p>The SFU job board is only one of the options for co-op, if you can always just take the preparation courses then look outside for co-op employment. The thing is that if you have a position found outside of SFU, you are best off making absolutely NO mention that you are in the SFU co-op program if you found this position outside of their job board. Else you end up like me and this co-op position mysteriously gets added to their system, and next thing you know, you are paying $3000 to SFU to pretty much detail your experiences to them as part of their co-op program. I suppose if you have serious concerns about your co-op position and really need a third party to hold the employer accountable (obviously not in my case) or you REALLY want the co-op distinction on your degree by completing 12 months recognized by SFU, then you can let them know.</p></li>
+</ol>
+<p>Now that I think of it the last post in this archive was written in August 2023. Probably a coincidence to be honest.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="february-15th-28th" class="level2">
+<h2 class="anchored" data-anchor-id="february-15th-28th">February 15th-28th</h2>
+<p>I’ve started writing this entry on March 2nd, so after this, entries will actually be written during or within a few days after the implied time period. Before I go over my bi-monthly CodeForces update, there is a much more important matter to discuss going on in the real world. For those in the future unsure of what I am referring to, on February 24th 2022, the Russian government initiated a large-scale military invasion into Ukraine. I’m not an expert on this conflict, but that does not change the fact that there is very little, if any, moral justification to Putin’s decision to invade Ukraine. It also does not help that in 2022, global military technology has become more powerful and violent, meaning that large scale conflicts have had increasing potential over the years to inflict increasingly large losses of life and suffering. From my viewpoint, the Russian oligarchs are the key perpetrators of this unnecessary war for their own self-absorbed motives, and I sincerely hope the best for the people of Ukraine in this unfortunate time.</p>
+<p>As for something less heavy, I have created a Google Sheets page <a href="https://docs.google.com/spreadsheets/d/1aQObaGKSDEtilQrLuxFZ6-naW-EMjr4uTE5LnnNn6tY/edit?usp=sharing">here</a> to document my performance on every CodeForces contest I have participated in so far as well as record additional statistics reflecting my performance. As an example, here is a chart showing all 11 rated contests I took part in so far with my rating graphed, as well as a scatterplot of my ELO performance on each contest.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Plans to Update This Google Sheet
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>This sheet was a thing I kept updated up until <a href="https://codeforces.com/contest/1864">Harbour 2023</a>, ie. about August 2023 with this initial blog. Part of it was due to myself being tired of updating this sheet manually and instead using an extension to compute my own contest performance ratings (which is actually surprisingly simple and effectively a simple linear regression). I am aiming to have a future post reviving this Google Sheet in a more automatable form that updates via the CodeForces API on a monthly basis.</p>
+</div>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="JanFebgraph.png" class="img-fluid figure-img"></p>
+<figcaption>Jan-Feb rating chart</figcaption>
+</figure>
+</div>
+<p>As such, we begin with the first of 3 contests I took part in during this 2 week period, being <a href="https://codeforces.com/contest/1635">Round 772</a>. This was a nice return to my previous contest form, as unlike the travesties that were my last 2 contests, I actually got through the first 3 problems without much difficulty. I also made some progress on <a href="https://codeforces.com/contest/1635/problem/D">Problem D</a>, but I was unable to find the error within my solution. The basic premise of my solution is as follows:</p>
+<pre><code>Express each of the n integers as a binary number. From there determine the "root"
+of each number as follows:
+
+The "root" is determined as the lowest possible integer that can reach the integer 
+given by applying the x = 2x + 1 and x = 4x operations. It is found when you are unable to strip a '00' or '1' from the right end of the integer's binary form. 
+
+For example, the "root" of 275 is 2 because:
+275 in binary is 100010011
+100010011 -&gt; 1000100 (remove '1' twice)
+1000100 -&gt; 10001 (remove '00')
+10001 -&gt; 1000 (remove '1')
+1000 -&gt; 10 (remove '00')
+
+As such, it is possible to obtain 275 using the operations starting from 2 as follows:
+2 -&gt; 8 -&gt; 17 -&gt; 68 -&gt; 137 -&gt; 275
+
+
+After finding each root of the numbers, group together numbers with the same root. 
+From there, only the shortest binary number of each group matters as it is able to
+obtain any other value within its group. The last step is to determine how many values
+is this number able to obtain. If the shortest number in this group has c digits,
+then it means up to p-c digits can be appended to this number to make new values.
+Let x = p-c, and f(x) be the number of possible values that can be created by adding
+exactly x digits. There are two ways to attain this:
+
+1. Have a number with x-1 digits added and append '1' to it
+2. Have a number with x-2 digits added and append '00' to it
+
+Thus, f(x) = f(x-1) + f(x-2). This clearly resembles the Fibonacci sequence, as:
+
+2 = 1 + 1, 3 = 2 + 1, 5 = 3 + 2, 8 = 5 + 3, 13 = 8 + 5, 21 = 13 + 8...
+
+Furthermore, given up to x digits to append, this means that the number of possible
+attainable values is equal to:
+
+f(x) + f(x-1) + f(x-2) ... + f(2) + f(1) + f(0).
+
+The above sum actually simplifies to f(x+2)-1, and by summing up the number of
+possible values from the shortest binary string for each root, we reach our answer.</code></pre>
+<p>At the moment I am still in the process of upsolving this problem as these two weeks I had a very heavy course load upon me and did not have much free time to practise. That said, there is a flaw in this solution that results in a wrong answer on pretest 5 that I only found after looking through the forums, and finding it will be left as an exercise to the reader, with the solution and link to my upsolved solution hopefully in the second March post.</p>
+<p>Now if you look at the graph I placed earlier in this post, you may notice that on my 10th rated contest, there is a severe drop in rating, and the green dot for my rating performance is nowhere to be found. That contest is <a href="https://codeforces.com/contest/1644">Education Round 123</a>, and that dip in rating is not an illusion. Remember how I had two really bad contests where my performance on each contest was comparable to someone rated 1200, and how both contests I performed about as badly as my first one, and how I had dropped from being a <span style="color:cyan"><strong>Specialist</strong></span> to a <span style="color:green"><strong>Pupil</strong></span> by losing 143 ELO within the span of 4.5 hours?</p>
+<p>In this contest, my overall performance was 722 ELO.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Surely It Can’t Get Worse
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Tragically, as of February 7th, this is not the largest rating drop I would have. It’s actually only the 6th lowest. If it’s anything I also will later have 8 contests with a rating gain exceeding +134 ELO. This contest does have the worst overall performance though being estimated by my system at 737 ELO. The slight difference is due to me using the Carrot extension for contest performance at this time which was probably not used to seeing these sort of implosions.</p>
+</div>
+</div>
+</div>
+<p>I wish I could be joking about the above statement, but my performance on this contest was so bad, there aren’t even CodeForces problems designed for this level of skill (or lack of in this case). The easiest problems on CodeForces are rated 800, and I somehow managed to underperform the rating of questions I literally can consistently solve in under 10 minutes each. To those readers who are genuinely trying to improve on CodeForces and are rated under 800 after 6 contests, I apologise, but in all fairness, in this contest, I literally performed at <strong>half</strong> my rating, and proceeded to lose 134 ELO points in probably the worst two hours of coding I’ve ever committed. <a href="https://codeforces.com/contest/1644/ratings?order=BY_RATING_CHANGE_ASC">You can even find me in the top 100 of largest rating losses for this contest</a>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>You sweet summer child.
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="yousweetsummerchild.png" class="img-fluid figure-img"></p>
+<figcaption>14th in largest rating loss here btw</figcaption>
+</figure>
+</div>
+<p>This was the aftermath of Round 858, which is my largest (thankfully this has NOT changed) rating loss ever. Also, I do cover this contest in the March 2023 archive post. That will be fun to reflect on.</p>
+</div>
+</div>
+</div>
+<p>As a final way of explaining just how out of character a performance this bad was for me, a few hours after the contest, I tried explaining to my brother how badly this contest went with a League of Legends analogy. He stopped me halfway saying that such a performance would not be possible because within an hour, I would be banned off the server for quite literally being that trash.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>A Final Sidenote on Implosion Contests.
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>I think it’s safe to say I like competitive programming as a sport if I’m still doing it after these implosions. Actually kind of cathartic in a way, seeing that even when I think things are going horribly as they are right now with me being sub 1900 as of writing this Feb 7th, 2026, it’s still quite the improvement over where I began. Also, the CodeForces rating system is such that recovering even from these horrible losses doesn’t take that long. (Pretty much to anyone that has recently experienced such a loss, don’t bother with alt accounts and compete on your main with dignity. ;) )</p>
+</div>
+</div>
+</div>
+<p>You might think I’m being too hard on myself, and in fairness, the last sentence in that rant paragraph was intended to be a joke, even though it didn’t really work out imo. But what question was it you ask, that caused this insanity? Turns out, <a href="https://codeforces.com/contest/1644/problem/B">Problem B</a> was the travesty that destroyed me. It’s a very simple problem, and this was my 2nd attempt on it, submitted 25 minutes into the contest:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">1423</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">4123</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">1432</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">4132</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">int</span>(sys.stdin.readline())):</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">int</span>(sys.stdin.readline())</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    a <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> n <span class="op">==</span> <span class="dv">3</span>:</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"2 3 1"</span>)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"1 3 2"</span>)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"3 1 2"</span>)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> n <span class="op">==</span> <span class="dv">4</span>:</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"1 4 2 3"</span>)</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"1 4 3 2"</span>)</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"4 3 2 1"</span>)</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"4 1 3 2"</span>)</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> n <span class="op">==</span> <span class="dv">5</span>:</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"5 1 4 2 3"</span>)</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"5 1 4 3 2"</span>)</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"5 4 3 2 1"</span>)</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"5 4 1 3 2"</span>)    </span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>        pairs <span class="op">=</span> n<span class="op">//</span><span class="dv">2</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>            a <span class="op">=</span> j</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(pairs):</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> a <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">1</span>: <span class="co">#reverse order</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>                    <span class="bu">print</span>(n<span class="op">-</span>k,k<span class="op">+</span><span class="dv">1</span>,end<span class="op">=</span><span class="st">" "</span>)</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>                <span class="cf">else</span>:</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>                    <span class="bu">print</span>(k<span class="op">+</span><span class="dv">1</span>,n<span class="op">-</span>k,end<span class="op">=</span><span class="st">" "</span>)</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>                a <span class="op">=</span> a<span class="op">//</span><span class="dv">2</span></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> n <span class="op">%</span> <span class="dv">2</span> <span class="op">==</span> <span class="dv">1</span>: <span class="bu">print</span>(n<span class="op">//</span><span class="dv">2</span><span class="op">+</span><span class="dv">1</span>,end<span class="op">=</span><span class="st">""</span>)</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Basically, I had a solution that could always print n proper permutations of length n for every value of n except for a few edge cases with small n values, so I just hard coded in the edge cases for n = 3,4, and 5. Now lets look at the second line of the problem statement again:</p>
+<pre><code>Your task is for a given number n print n **distinct** anti-Fibonacci permutations of length n.</code></pre>
+<p>Do you see the problem with the code yet? Let me emphasise the important part:</p>
+<pre><code>**n distinct anti-Fibonacci permutations of length n**</code></pre>
+<p>By now you should be able to see it. If you still cannot find the error, don’t worry, because it took me NINE attempts and <strong>106</strong> MINUTES to solve this question. And in SEVEN of those attempts I did not notice this error.</p>
+<p>Look at the solution I hard-coded in for n = 5.</p>
+<p>There’s only 4 print statements there, meaning I gave 4 anti-Fibonacci permutations of length 5. The question asked for n = 5, meaning I should give 5 distinct anti-Fibonacci permutations of length 5.</p>
+<p>I literally lost 134 ELO in a contest because <strong>I was unable to count to five.</strong></p>
+<p>Let that sink in for a moment. Part of this is clearly a problem with my debugging methods, as since the program failed so many times on the second pretest, it likely meant there was something clearly wrong with my solution method as a whole. However, it took nearly 1.5 hours for me to realize the error with my solution method was that in one of my hard-coded solutions, I failed at a task that unironically, literal babies are capable of doing: counting to five. Usually when I fail in a contest, there is a lesson to be taken, but this isn’t the case. I really don’t care what your rating is on CodeForces, or what really easy question you screwed up, I seriously doubt you can say that you not just screwed up at a “mathematical concept” that is taught at an age where most people are still in diapers, but then proceeded to not notice this mistake for EIGHTY minutes straight.</p>
+<p>That paragraph really was cathartic for me. I’m writing the second half of this entry the day after I went on a full blown rant last night, and it just shows the unspoken importance of being able to debug code in programming contests. While I did eventually get over this pathetic attempt at this contest, it took me a while to do so. In fact, after the contest, I was livid to the point that I entered <a href="https://codeforces.com/contest/1642">Round 773</a> pretty much solely out of spite. This does not sound like a big deal until you realize that this contest ran from <strong>2:10AM to 4:10AM</strong>. Most contests start at 6:35AM in my timezone, which is still manageable, but for this contest, I forced myself to bed at 7:30PM in an attempt to shift my own body clock in preparation for this contest. Needless to say, my body clock did not adjust to this sudden 3 hour shift in bedtime schedule, but despite this, I did surprisingly well on this contest and still managed to finish the first 3 questions relatively quickly. That said, I strongly recommend against trying to write coding contests at 2 in the morning, as the only reason it was possible for me that one time was because I had the luxury of taking this contest during SFU’s Reading Week, meaning I had several days afterwards to fix my sleep schedule.</p>
+<p>That concludes the recap of the previous two weeks on CodeForces. February as a whole shows that within programming contests, many people when asked how to improve, will likely mention learning data structures or algorithms for certain types of questions, but it is very rare that anyone mentions just how important debugging can be, as it can be the difference between a poor contest and a contest that starts off badly, but ends up being okay. For further detailed statistics on my CodeForces journey it will be best to refer to the Google Sheets page, as there I will also be writing general notes on my thoughts after each contest, while this blog will focus more on my specific approaches to certain questions that are either important overall or played a critical role within the contest for myself.</p>
+<p>It will be unlikely that I’ll be participating in a CodeForces contest in the next two weeks, as I still have a significant workload from SFU and the only contest on the site that does not overlap with my class times starts on Sunday at 2AM. However, this Saturday I’ll be part of an SFU team writing the Division 2 ICPC Pacific Northwest Regional Contest, and it will be my first in person programming competition, as well as my first team programming competition, so instead that will be the focus of my recap in the next entry.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/alxwen711\.github\.io\/HonestCode\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
