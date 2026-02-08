@@ -1,8 +1,8 @@
 ---
 title: March 2022 Archive Log
 author: "Alexander Wen"
-date: "2022-03-31"
-date-modified: "2026-02-07"
+date: "2022-05-10"
+date-modified: "2026-02-08"
 categories: [competitive programming,2022,archive]
 ---
 
@@ -18,12 +18,17 @@ The competition itself functioned similarly to most online competitions, but wit
 
 Anyways, that's enough explaining the format of the contest. [Here](http://www.acmicpc-pacnw.org/pacnw_div2_2022.pdf) is a link to the PDF containing the Division 2 questions. Note that the questions are not arranged in order of increasing difficulty. As for how our team did?
 
-![Results from the ICPC Pacific Northwest Regional 2022 Division 2](/docs/assets/images/icpcresults.png)
+![Results from the ICPC Pacific Northwest Regional 2022 Division 2](icpcresults.png)
 
 We crushed the contest, placing clear second overall in the division by two questions. If it wasn't for the fact that each school could only enter a maximum of 6 teams in Division 1, we probably would have also won the division outright, but that aside, our team was the only one to solve problem T, and that will be one of the three questions I'll be going over in this recap today, alongside problems S and Y.
 
-### Problem S, Rise and Fall
-This was one of the easier questions in the contest, and is similar to the kinds of problems one would find in CodeForces on a Div 2 contest as problem A or B. The first thing we can notice is that the key limitation on the input is that we'll be dealing with up to 10^5 digits in 1 second. This brings up a principle of coding contests that I will refer to as the "Rule of a Million", which is for a sample size of _n_, if your solution f(x) is to run within a reasonable timeframe (usually 1 second), then f(n) should be no greater than a million. With numerical examples, an O(n^2) solution will usually be good for sample sizes up to 1000 since 1000^2 = 1000000, O(n^(1.5)) solutions will likely be good for sample size up to 10000 since 10000^1.5 = 1000000, and O(2^n) solutions will usually work only up to n = 20. In this case, n = 100000, meaning that we'll likely need at least an O(n log n) solution, but in this case, the problem is solvable in linear time.
+### [Problem S, Rise and Fall](https://www.acmicpc.net/problem/24595)
+This was one of the easier questions in the contest, and is similar to the kinds of problems one would find in CodeForces on a Div 2 contest as problem A or B. The first thing we can notice is that the key limitation on the input is that we'll be dealing with up to 10^5 digits in 1 second. This brings up a principle of coding contests that I will refer to as the "Rule of a Million", which is for a sample size of $n$, if your solution $f(x)$ is to run within a reasonable timeframe (usually 1 second), then $f(n)$ should be no greater than a million. With numerical examples, an $O(n^2)$ solution will usually be good for sample sizes up to 1000 since $1000^2 = 1000000$, $O(n^{1.5})$ solutions will likely be good for sample size up to 10000 since $10000^{1.5} = 1000000$, and $O(2^n)$ solutions will usually work only up to n = 20. In this case, n = 100000, meaning that we'll likely need at least an $O(n \text{ log } n)$ solution, but in this case, the problem is solvable in linear time.
+
+::: {.callout-important}
+
+While the above time complexity analysis correctly deduces that $O(n \text{ log } n)$ is likely the highest time complexity allowed for this problem, the "Rule of a Million" part is extremely conservative. [This post (Rule of 100 Million: Estimating Big-O Runtime Expectations)](https://alxwen711.github.io/HonestCode/posts/2026/rule-of-100-million/) explains basic time complexity analysis more accurately.
+:::
 
 The one pass solution is to use a greedy approach in choosing the digits, and always attempt to choose the highest digit possible. This is relatively trivial as 3999999 < 4000000 because the first digit of the second number is greater, even if the other digits say otherwise. Our rise-and-fall number has to start with the digits nondecreasing, thus we copy the first digits of the number as our answer until we find two adjacent digits that are decreasing. From there, the nature of the rise-and-fall number means that the remaining digits have to either stay the same or decrease. From there, the remaining digits of the starting number are copied ONLY if they stay in a non-increasing subsequence. If the digits start increasing again, then we can copy the last digit in our answer and append it enough times until our final answer has the same number of digits as our given number. Such a case is seen with the value 137879620, for which the answer would be 137877777 since we start copying the 7 after we see the 5th and 6th digit increasing.
 
@@ -52,10 +57,14 @@ for i in range(int(input())):
     print(ans)
 ```
 
-### Problem Y, Dorm Room Divide
+### [Problem Y, Dorm Room Divide](https://www.acmicpc.net/problem/24601)
 This was actually a problem no one on our team could solve. As you'll see, we had the right solution, but there was some sort of implementation error that led to 18 failed attempts. Runtime speed was never an issue, as our attempts all used algorithms intended to run in O(n) time.
 
-### Problem T, Square Bounce
+::: {.callout-warning}
+This is not an edit, apparently I left this paragraph in and then just straight up forgot to add in the code or any actual explanation as to how the failed attempts occurred here. Looks like this might be a good HonestCode post in the future.
+:::
+
+### [Problem T, Square Bounce](https://www.acmicpc.net/problem/24607)
 The most complicated part of this question was outputting the final coordinate as a pair of fractions. That said, the algorithm itself isn't as complicated as some of the other problems in this contest, as the main difficulty comes from the mechanical implementation of the solution.
 
 The first step is to determine which side of the square the ray will end at. We’re given the slope of the ray’s direction, and in addition, the sides of the square are all 2 units each. This means if the ray had n bounces on vertical walls (referring to horizontal movement), then it would have (2ns+1)//2 bounces on horizontal walls, where s is the slope given by the question. From there we can use a binary search to find how many bounces on vertical walls occured in the ray path, and if the last bounce was on a vertical wall. The range that we are binary searching across is the number of bounces on vertical walls that occured in the ray. If you find that the ray ended on a vertical wall, then due to the format of the question asking you to output p,q,s,t that represents the co-ordinate (p/q, s/t), q must be 1 and p must be either 1 or -1 to represent the fact that the ray ended on a vertical wall. Determining which of these two walls is simply just checking if the number of vertical wall bounces is even or odd. A similar case applies to the horizontal walls if the ray ends on one of those two walls, with t = 1 and s = 1 or -1 depending on the parity of the number of horizontal wall bounces.
@@ -173,13 +182,19 @@ In all, even if this contest was arguably the most exhausting one being five hou
 
 ## March 16th-31st
 
-![so much for this being bi-monthly.](/docs/assets/images/lolhistory.png)
+![so much for this being bi-monthly.](lolhistory.png)
 
 For the single attentive unique visitor at the moment that has viewed this blog according to GitHub insights (which is probably me), you may have noticed that this entry was finished some time in May. Let’s just say that as early as mid-February, I was already having issues with my course load at SFU because even though I was only taking four courses, these four courses (CMPT300, CMPT307, MACM316, CMPT276) all happened to be relatively work intensive. Combine that with me trying to prepare for a Co-op term this fall, and some internal factors within the course load that made things much harder then they had to be, and what you get is the hardest term at SFU for me by far, and just an absolute storm that really was a struggle mentally. I keep a personal journal aside from this public one to write/vent out some of my afterthoughts, and looking back at the entries, the worst of this mental storm was around mid March when a lot of major assignments were due, and mid April, when finals were coming up soon. That said, I (somehow) managed to survive the mess that was the last 2 months, and your reward is me here recapping two Codeforces contests I took part in during these two weeks. That said, I had not really touched anything involving competitive programming since the ICPC contest up to this time, so my expectations for these contests were not high.
 
 The first of these contests was [Round 778](https://codeforces.com/contest/1654), based on Technocup 2022's Final Round. I'll just cut to how I did; it wasn't great. I would only end up getting the first two introductory (800) level questions correct in the contest, and while I had the right idea for the solution to Problem C, I pretty much imploded in my attempts to implement the solution. While I did lose 54 ELO from this contest going down to 1323, my performance on this contest wasn't atrocious like the "I can't count to five" contest. More importantly, this contest shows why having the proper physical and mental preparation is crucial for not just coding competitions, but any competition in general. It was already clear that mentally, I was not in it as I had been coming off of a lot of coursework which put me out of practice and my mind distracted on other coursework and exams due soon after this contest, but on top of that, for some inexplicable reason, I decided to go in this contest even though I had only 4 hours of sleep, so I was unprepared physically as well. The fact that I cannot understand what exactly I was trying to do on problem C ([All submissions for me in this contest are in this link](https://codeforces.com/contest/1654/status), add alxwen711 to status filter) even though I could understand the spaghetti code above from the ICPC submissions 2 months after it was written sums up how sloppy my form was here in general, partially from being out of practice, and partially because external physical and mental stress will do that to you.
 
 I also went in the contest immediately after this one, being [Round 779](https://codeforces.com/contest/1658). Given that 5 of the 7 last contests saw me effectively losing ELO, and that I was still in courseload hell (albeit I did have a short relief break of around 2 days during this time), my mentality going into this round was pretty bad, as I stated in my private journal on this day, _"Hopefully today’s contest is a start of the redemption arc."_. So it was a welcome surprise when I actually solved 3 of the 7 problems fast enough to actually gain 75 ELO, even if I'm still 133 points off my peak 2 months ago. More crucially, this was the first contest where I (technically) solved a D-level problem in a Division 2 contest, the problem being "[388535](https://codeforces.com/contest/1658/problem/D1)". Yes, it was the easy version, so I technically only solved D1 in this Division 2 contest, and I did completely miss Problem C, but the point is that this is still my first time actually solving a Problem D in a Division 2 contest. I will go into further details on the differences between each problem typically, but to summarise for this entry, on each Division 2 contest, there tends to be around 6 problems:
+
+::: {.callout-important}
+## The Following Is Outdated And Based on Vibes
+
+All I'll say is that I have a future data science based post that will explain all of this (typical solve rate, problem types) via more updated experience and actual data. This "analysis" here is based off entirely my thoughts after 5-6 months of CodeForces and is extremely unrepresentative of my current depth of knowledge. It's left up here for archival purposes to view what I expected on each problem in the contest. 
+:::
 
 - Problem A is usually a basic implementation or math problem that is intended to be solvable for everyone. The majority (80%) of coders will solve this question as it can always be solved without any complicated algorithms or data structures.
 
@@ -208,4 +223,4 @@ The solve rates can be summed up in this table, with low solve rate being for a 
 
 *Editted July 3rd, 2022 to reflect clear rate percentages more accurately. These values are accurate to within 5-10% of their relative actual values.*
 
-I am completing this entry on May 10th, so I can't exactly say what I think about what will happen in the upcoming weeks in April, since that has already happened. For that I'll simply refer to [next month's post](/blog/Apr22).
+I am completing this entry on May 10th, so I can't exactly say what I think about what will happen in the upcoming weeks in April, since that has already happened. For that I'll simply refer to [next month's post](https://alxwen711.github.io/HonestCode/posts/archive/2022-04/).
