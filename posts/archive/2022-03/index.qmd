@@ -2,7 +2,7 @@
 title: March 2022 Archive Log
 author: "Alexander Wen"
 date: "2022-05-10"
-date-modified: "2026-02-08"
+date-modified: "2026-02-09"
 categories: [competitive programming,2022,archive]
 ---
 
@@ -25,7 +25,7 @@ We crushed the contest, placing clear second overall in the division by two ques
 ### [Problem S, Rise and Fall](https://www.acmicpc.net/problem/24595)
 This was one of the easier questions in the contest, and is similar to the kinds of problems one would find in CodeForces on a Div 2 contest as problem A or B. The first thing we can notice is that the key limitation on the input is that we'll be dealing with up to 10^5 digits in 1 second. This brings up a principle of coding contests that I will refer to as the "Rule of a Million", which is for a sample size of $n$, if your solution $f(x)$ is to run within a reasonable timeframe (usually 1 second), then $f(n)$ should be no greater than a million. With numerical examples, an $O(n^2)$ solution will usually be good for sample sizes up to 1000 since $1000^2 = 1000000$, $O(n^{1.5})$ solutions will likely be good for sample size up to 10000 since $10000^{1.5} = 1000000$, and $O(2^n)$ solutions will usually work only up to n = 20. In this case, n = 100000, meaning that we'll likely need at least an $O(n \text{ log } n)$ solution, but in this case, the problem is solvable in linear time.
 
-::: {.callout-important}
+::: {.callout-tip}
 
 While the above time complexity analysis correctly deduces that $O(n \text{ log } n)$ is likely the highest time complexity allowed for this problem, the "Rule of a Million" part is extremely conservative. [This post (Rule of 100 Million: Estimating Big-O Runtime Expectations)](https://alxwen711.github.io/HonestCode/posts/2026/rule-of-100-million/) explains basic time complexity analysis more accurately.
 :::
