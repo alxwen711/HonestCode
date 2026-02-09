@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Alexander Wen">
+<meta name="dcterms.date" content="2022-06-08">
+
+<title>May 2022 Archive Log – HonestCode</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-e31584831b205ffbb2d98406f31c2a5b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">HonestCode</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/alxwen711"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">May 2022 Archive Log</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">competitive programming</div>
+                <div class="quarto-category">2022</div>
+                <div class="quarto-category">archive</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Alexander Wen </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">June 8, 2022</p>
+      </div>
+    </div>
+    
+      <div>
+      <div class="quarto-title-meta-heading">Modified</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date-modified">February 9, 2026</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<section id="may-1st-15th" class="level2">
+<h2 class="anchored" data-anchor-id="may-1st-15th">May 1st-15th</h2>
+<p>Well then, congratulations to myself (sarcastically) for actually beginning this post in the same month this post is supposed to recap. I can finally say that this blog will be updated on a more consistent up-to-date basis now that the Spring 2022 SFU Term is finally behind me. There isn’t much else to talk about other than the two contests that took place in these two weeks because after April 26th, being my last final exam of the term, I could completely chill and relax for a few weeks until the summer term started. There was absolutely nothing else that went wrong within those past few months.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="googlecodejam2022.png" class="img-fluid figure-img"></p>
+<figcaption>ah. forgot about that.</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>A Lookback on Google Code Jam
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I won’t lie, reading this now is a bit painful, seeing how unaware I was that 2022 would be the final year Google Code Jam would be held. The entirety of Google’s coding competitions would fall under the demise of “budget cuts” in the following years, because running an annual competition with roughly 30000 competitiors that was seen as one of the most pristine annual competitions for finding top algorithmic content at a relatively inexpensive financial cost in the low millions at most was simply not enough for the shareholders. To this day I’m of the belief this reason was given to cover up that Google just wanted to get in bed with their developments in Generative AI more, which I will generously evaluate as having mixed results.</p>
+<p>There is clearly much more I would discuss in a proper postmortem of this competition, as well as several problems within Google Code Jam that are quite intruiging deserving of their own posts, so I’ll just end this sidenote here to prevent myself from ranting further. I only hope this blog remains as a demonstration that there are coders that truly do competitive programming for the love of the sport as it was always intended to be.</p>
+</div>
+</div>
+<p>As it turns out, in the last few weeks as of writing while I was scrambling to update this blog’s March and April posts, I forgot about a little known competition that I participated in known as <a href="https://codingcompetitions.withgoogle.com/codejam/schedule"><strong>Google Code Jam</strong></a>. For those unaware, this is one of the largest individual competitive programming competitions hosted by Google. When you combine my recent CodeForces successes and the fact that much of last month was a course load dumpload, it becomes more apparent why I made the mistake of not preparing that much for this competition. This led to me barely missing entry into Round 2 by finishing Rounds 1B and 1C in the top 2000 contestants, but just outside of the top 1500 that would advance from each sub round. I actually scored enough points in each sub round, but ended up being too slow to move on, either because I had too much of a penalty from wrong submissions, or because in my infinite wisdom, I did Round 1C in a sleep deprived state at 2am. There were only 3 questions in each round, making the skill gap between each question huge and put simply, Round 1 of Google Code Jam was a severe case of “SpeedForces”, ie. the faster, not better, coder wins. Yes, I am still salty over being just short twice. As for the problems themselves, they are best left to the <a href="https://zibada.guru/gcj/">editorials (hosted on zibada unofficially, see the sidenote above)</a> put out by Google as with so few questions in each round, the questions I can recap are either relatively easy or ones I don’t completely understand how to solve, let alone begin.</p>
+<p>As it turns out the Google Code Jam debacle was arguably still the most interesting contest I took part in in terms of how I did. There were two CodeForces contests in these two weeks, and looking back at them at the start of June, they can be best summed up as decent. <a href="https://codeforces.com/contest/1670">Round 788</a> saw me getting Problems A through D correct on a relatively easy contest, and <a href="https://codeforces.com/contest/1680">Educational Round 128</a> saw me get Problems A and B correct very quickly, only to completely implode on a much harder <a href="https://codeforces.com/contest/1680/problem/C">Problem C</a> immediately afterwards. <a href="https://codeforces.com/contest/1680/submission/157073407">My last submission</a> was only able to be a working O(n^2) solution when linear time was required, and I’m still not exactly sure of how to properly approach this question.</p>
+<p>There wasn’t much of a rating change from these contests but one other thing I would note is my method for solving <a href="https://codeforces.com/contest/1670/problem/D">Problem D in Round 788</a>. This is a case where a programming question can be pretty much solved with only math and not much actual coding work. The way I solved this was by taking a hexagon grid, and simply trying to make as many triangles as possible using 1 line, then 2, 3, 4, and so on. This gave me the sequence 0, 2, 6, 10, 16, 24, 32. This is where the online resource <a href="https://oeis.org">OEIS</a> comes into play, as my guess was that this sequence of numbers had some sort of pattern. I had used OEIS before to figure out a programming problem where the solution ended up involving the Catalan numbers, so I assumed this would be a similar case. It turns out the sequence above does not show up in OEIS, but since all the values are even, I tried 0, 1, 3, 5, 8, 12, 16. This sequence ended up being f(x) = floor(x^2/3) and through some basic algebraic manipulation I came up with this humorously short solution for a normally complex problem:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> sqrt</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> ceil</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">int</span>(sys.stdin.readline())):</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">int</span>(sys.stdin.readline())</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> (n<span class="op">+</span><span class="dv">1</span>)<span class="op">//</span><span class="dv">2</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    ans <span class="op">=</span> ceil(sqrt(<span class="dv">3</span><span class="op">*</span>x))</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(ans)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>In other news, I began the SFU Summer Term by seeking a co-op position and one writing course in the form of CMPT 376W. Seeing that I’m writing this at the start of June, I can say that my plan to have only this one writing course reserved for its own term was a good one as the course is a lot of reading and writing. I know that sounds expected, but it was a welcome change considering that the last proper English course I took was back in high school. There’s not much else to recap on in these two weeks so let’s just go to the second half of May.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>My advice for good writing nowadays? Just write as you actually want to, then ask someone you represents your actual audience what they think of it. There is no need for the complex robotic doctrines I was subjected to in CMPT105W. If you think I’m being too harsh, I present the following sidenote.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>A Mildly Long Rant on Why CMPT105W is not a “Proper English Course”
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A bit of added context to this paragraph, I did take a lower level writing course in my SFU undergraduate called CMPT105W. The reason I do not consider it a proper English course is because of the overreliance on the textbook (which functioned more as a draconian manual) as the sole source for “correct” writing, the micromanaged structure of the assignments, reviews, pop quizzes, and a final exam that was proctored online and to put simply, was a complete trainwreck (you were not allowed to go back to questions once you answered them). It took a few years to undo many of the bad habits that were forcibly wired into my writing for reasons of academic grading, and this blog assisted in reverting many vices such as:</p>
+<ul>
+<li>Forced certainty when it does not exist</li>
+<li>Overemphasis on conciseness</li>
+<li>Writing as if this was a resume someone will spend 5 seconds looking at</li>
+<li>Utilizing approximately 11.5 words per T-unit to ensure clarity for a general audience while avoiding the pitfall of excessively complex vocabulary to bypass word count restrictions</li>
+<li>The entirety of the templates mandated for the informative and persuasive essays</li>
+<li>Using etc.; I’m sure this point has been made obvious enough, but ‘etc.’ was unironically considered a writing vice here.</li>
+</ul>
+<p>The end result of this was a persuasive essay that I am ashamed to even be associated with, let alone have actually written. Technically, it’s grammatically correct, which is the only positive I can state of it, as otherwise, it is garbage that even ChatGPT should not be able to defend.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Another Brief Sidetrack For ChatGPT to Evaluate This Essay
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>We are now in a sidenote of a sidenote. I feel like <a href="https://waitbutwhy.com/2015/01/artificial-intelligence-revolution-2.html">Tim Urban</a> now.</p>
+<p>Just to check if the above was valid, I ended up running this ‘persuasive’ essay through ChatGPT telling it to objectively evaluate the paper under the same evaluation system that was used originally, while also making no note of who wrote it. Somehow, ChatGPT rates this essay at an 88% score, which is even higher than the original grade it got being 78%. When I had my friends evaluate this anonymously a few years ago, they rated it 70% and 50% respectively. I myself would have given myself 75% if following the actual rubric and 35% if it was on how convincing it actually was. Either way, ChatGPT’s evaluation is impressively drunk, but I guess it finds a way to defend this paper. I will probably still upload said persuasive essay as a joke post some time in the future for further evaluation.</p>
+</div>
+</div>
+</div>
+<p>Even though it has nothing to do with data science or competitive programming, part of me wants to reupload the persuasive essay I ‘wrote’ on this course and see how the general public would evaluate this essay. It would make for a good April fools joke, even if I’m describing it right here.</p>
+<p>In case you actually are reading this monologue still, here’s a fun fact: The word “paragraph” comes from the Ancient Greek word παράγραφος (paragraph) which means “marked passage”. I state this as the most positive use I got out of this course and an example of a question that appeared on the final exam. It technically wasn’t this but asking about what number of words per T-unit corresponds to an 8th grade reading level is pretty close in obscurity and actual usefulness.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="may-16th-31st" class="level2">
+<h2 class="anchored" data-anchor-id="may-16th-31st">May 16th-31st</h2>
+<p>The fact that I am writing this entry on June 8th is a bit of a personal relief knowing that for once, I’m actually writing a recap on several contests that happened recently. Hopefully the future entries will follow this pattern and I will not end up writing an entry recapping June in something like October. Last entry I mentioned that I was taking one course in writing this term, and I would say that this blog is myself trying my best to explain technical matters (coding contests) in a comprehensible way. It’s not a direct reflection of my technical writing style as my tone in these entries is far too informal for that, but I think of this as practice for explaining concepts in writing. It’s also why I left previous entries exactly as I first drafted them, to showcase any improvement my writing made over these last few months. This is also the first entry that I’m actually writing in Google Docs rather than directly into a Vim text editor, so please excuse all of the grammatical and spelling mistakes I made in earlier entries.</p>
+<p>Anyways, there are three Codeforces contests to recap. I’m also experimenting with a easier to read format for the contest recaps, feel free to send me feedback by email (alxwen711@gmail.com):</p>
+<section id="round-792" class="level3">
+<h3 class="anchored" data-anchor-id="round-792"><a href="https://codeforces.com/contest/1684">Round 792</a></h3>
+<p>Problems Solved: A, B, C, D</p>
+<p>New Rating: <strong>1719</strong> (+117)</p>
+<p>Performance: <strong>2067</strong></p>
+<p>There’s no other way to say it: I did well on this one.</p>
+<p>Problems A and B were solved quickly without much trouble. <a href="https://codeforces.com/contest/1684/problem/C">Problem C</a> was interesting, but not because of the problem itself. The solution to C is quite simple:</p>
+<ul>
+<li><p>Check if each row is sorted. If they are, then no swap is needed, and something like “1 1” can be outputted.</p></li>
+<li><p>If a row is unsorted, copy it and check how many values differ.</p></li>
+<li><p>If exactly two values differ, swap the two columns with wrong values and check again. Otherwise, 3+ values differ, and 1 swap cannot fix the grid.</p></li>
+<li><p>If after a swap there is still an unsorted row, then 1 swap cannot fix the grid.</p></li>
+</ul>
+<p>It’s a simple solution, and I had no problems with it. So did around 6000 other coders, but what proceeded to happen is a phenomenon that I like to call a <strong>STA</strong>, a System Test Armageddon. From the 6736 coders who made a submission on Problem C, only 2935 received the Accepted verdict, meaning that nearly half of all submissions were victims of passing the pretests, but failing on a main test. This is a regular occurrence on CodeForces, but to see a STA of this scale is very rare, and is usually caused by pretests missing a key edge testcase. This wasn’t a language based issue like I initially thought, and the reasons behind this STA are still out of my grasp. What I can say is that within Python, there is already a built in sorting algorithm called with .sort(), and it’s best to rely on these in contests rather than creating ones that could be error prone, since most submissions that failed the main tests did so on a case where the array had duplicate values, something that could be unaccounted for by self-made sorting algorithms.</p>
+<p><a href="https://codeforces.com/contest/1684/problem/D">Problem D</a> was different in that I still have no idea why my algorithm works, but I somehow got the Accepted verdict. The method I used is as follows:</p>
+<ul>
+<li>Assign a “score” to each value in the array; the score is equal to the value minus how far away from the end of the array the value is. This score is meant to determine how much damage could be avoided by skipping the given trap. For instance, using the first example array:</li>
+</ul>
+<p>|Score|5|5|0|4| |Traps|8|7|1|4|</p>
+<ul>
+<li>Then jump over traps with the highest score. If there is a tie in score jump over the later trap. In the above example, the priority for traps to jump over is the 2nd one, then 1st one, then 4th one, then 3rd one.</li>
+</ul>
+<p>The score metric is not an actual representation of how much damage can be saved by skipping the given trap, and yet this algorithm works. Such success was found by 2225 other competitors, giving this problem a 17% clear rate, which is high for a Problem D until you account that this was an open rating contest, meaning that the success rate on mid level Problems C to E are likely inflated compared to normal Division 2 contests.</p>
+<p>Overall, I finished in the top 750 competitors in an open contest, I completed 4 problems in a Division 2 level contest for the 3rd time, and I nearly had a <span style="color:orange"><strong>Master</strong></span> level performance. Pretty good if I say so myself.</p>
+</section>
+<section id="round-794" class="level3">
+<h3 class="anchored" data-anchor-id="round-794"><a href="https://codeforces.com/contest/1686">Round 794</a></h3>
+<p>Problems Solved: A, B, C</p>
+<p>New Rating: <strong>1714</strong> (-5)</p>
+<p>Performance: <strong>1694</strong></p>
+<p>The loss in rating from this contest is more a result of myself inflating my rating from doing so well in the previous contest rather than underperforming here. If anything, this contest is a reflection of my goal for most contests. I solved the first three problems very quickly which left me over 90 minutes to attempt <a href="https://codeforces.com/contest/1686/problem/D">Problem D</a>. The only issue with this strategy is that this was a SpeedForces contest, seeing that the success rate from Problem C to Problem D dropped from 50.2% to 2.27%. Let’s just say, when there are coders in the top 300 that only solved 3 questions in this contest with nearly 10000 coders, that means Problem D was a massive difficulty spike. For those glancing at this question, it is not as simple as counting how many “AB” and “BA” sequences are possible. The problem tags indicate there is a greedy method to choosing which parts of the string are used for AB or BA; the furthest I got into solving this was that most likely you need to keep track of alternating substrings. Alternate substrings being substrings that are “ABABABA…” or “BABABAB…”, and allocate the 2 letter words to each of these starting from shortest to longest.</p>
+<p>Upon writing the above I think I may have an idea for how to solve this question. I will further update this if I do have a working solution.</p>
+</section>
+<section id="round-795" class="level3">
+<h3 class="anchored" data-anchor-id="round-795"><a href="https://codeforces.com/contest/1691">Round 795</a></h3>
+<p>Problems Solved: A, B, C</p>
+<p>New Rating: <strong>1677</strong>(-37)</p>
+<p>Performance: <strong>1573</strong></p>
+<p>I could almost copy and paste the first 3 sentences from the previous contest, except with <a href="https://codeforces.com/contest/1691/problem/C">Problem C</a> I ended up having 4 wrong submissions before solving it. This wasn’t due to lack of knowledge as was more myself not considering all possible cases in the question. <a href="https://codeforces.com/contest/1691/problem/D">Problem D</a> however is a sign that I might need to improve on questions involving binary search because the thought of using it never came to my mind.</p>
+<p>That sums up the contests from the fifth month this year. As a last note for this entry, my future plans for this blog are mainly for my writing skills. Originally this was meant to be a place to mainly discuss the coding work I have done with this website, but the entire thing is pretty much just basic Markdown usage, so there would not be much to discuss on that front. As such, future entries are more focused on retaining this biweekly post structure, but being “more effective” in writing. What I mean by this is expressing information in a more efficient manner, since I have the issue in formal and casual writing to sometimes use absurdly long (50+ words) sentences.</p>
+<p>That’s about it for May, and now I can officially say this blog is up to date. :D</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/alxwen711\.github\.io\/HonestCode\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

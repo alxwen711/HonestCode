@@ -205,7 +205,7 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Modified</div>
       <div class="quarto-title-meta-contents">
-        <p class="date-modified">February 8, 2026</p>
+        <p class="date-modified">February 9, 2026</p>
       </div>
     </div>
       
@@ -240,13 +240,13 @@ window.Quarto = {
 <section id="problem-s-rise-and-fall" class="level3">
 <h3 class="anchored" data-anchor-id="problem-s-rise-and-fall"><a href="https://www.acmicpc.net/problem/24595">Problem S, Rise and Fall</a></h3>
 <p>This was one of the easier questions in the contest, and is similar to the kinds of problems one would find in CodeForces on a Div 2 contest as problem A or B. The first thing we can notice is that the key limitation on the input is that we’ll be dealing with up to 10^5 digits in 1 second. This brings up a principle of coding contests that I will refer to as the “Rule of a Million”, which is for a sample size of <span class="math inline">\(n\)</span>, if your solution <span class="math inline">\(f(x)\)</span> is to run within a reasonable timeframe (usually 1 second), then <span class="math inline">\(f(n)\)</span> should be no greater than a million. With numerical examples, an <span class="math inline">\(O(n^2)\)</span> solution will usually be good for sample sizes up to 1000 since <span class="math inline">\(1000^2 = 1000000\)</span>, <span class="math inline">\(O(n^{1.5})\)</span> solutions will likely be good for sample size up to 10000 since <span class="math inline">\(10000^{1.5} = 1000000\)</span>, and <span class="math inline">\(O(2^n)\)</span> solutions will usually work only up to n = 20. In this case, n = 100000, meaning that we’ll likely need at least an <span class="math inline">\(O(n \text{ log } n)\)</span> solution, but in this case, the problem is solvable in linear time.</p>
-<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Important
+Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
