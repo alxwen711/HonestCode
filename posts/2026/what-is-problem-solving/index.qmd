@@ -2,17 +2,26 @@
 title: "What is Meant By 'Problem Solving' in Competitive Programming"
 subtitle: "Meta Hacker Cup 2024 Round 2, Problem 1B"
 author: "Alexander Wen"
-date: "2026-02-08"
+date: "2026-02-13"
 categories: [competitive programming,2026]
 draft: True
 ---
 
-::: {.callout-important collapse="true"}
-## Important Details About the Meta Hacker Cup
+When asked why I do competitive programming, I've always said that it is for the problem solving process. This is obviously unclear on its own, but there are certain problems that exhibit the full thought process I went through quite well. 
 
-MHC 
+In case you have not heard of Meta Hacker Cup, here is an overview of the contest structure:
+
+::: {.callout-important collapse="true"}
+## An Overview About the Meta Hacker Cup
+
+Once you start the main tests, you have a six minute timer to run your code on the main tests and submit your results. You will only know if you solved the problem correctly at the end of the competition. **If you do not submit your answers in the six minute window you will NOT be able to try again.** 
 :::
 
+This in particular is the critical point:
+
+> Once you start the main tests, you have a six minute timer to run your code on the main tests and submit your results. You will only know if you solved the problem correctly at the end of the competition. **If you do not submit your answers in the six minute window you will NOT be able to try again.**
+
+This means there is an emphasis on ensuring that your solution is **absolutely 100%** correct before attempting the main tests, as NO second chances are given otherwise. This is important to keep in mind as I overview this question and the reasonings I went through solving this.
 
 ## Summary of the Problem
 
