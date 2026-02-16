@@ -1,6 +1,6 @@
 ---
 title: "What is Meant By 'Problem Solving' in Competitive Programming"
-subtitle: "Meta Hacker Cup 2024 Round 2, Problem 1B"
+subtitle: "Meta Hacker Cup 2024 Round 2, Problem A2"
 author: "Alexander Wen"
 date: "2026-02-13"
 categories: [competitive programming,2026]
@@ -14,28 +14,77 @@ In case you have not heard of Meta Hacker Cup, here is an overview of the contes
 ::: {.callout-important collapse="true"}
 ## An Overview About the Meta Hacker Cup
 
-Once you start the main tests, you have a six minute timer to run your code on the main tests and submit your results. You will only know if you solved the problem correctly at the end of the competition. **If you do not submit your answers in the six minute window you will NOT be able to try again.** 
+The Meta Hacker Cup is about the last major open programming competition that actually focuses on data structures and algorithms still running. The general format consists of a series of rounds where a select number of the best performers advance to the next round until the Final, where the 25 best compete to be named champion and receive a cash prize. That and deep runs in this competition are of distinction when applying to Meta. Each round consists of roughly 4 to 6 problems. On each problem, once you are ready to submit a solution, you must run the code locally on the verification tests which never change. If the code is successful, you can then download the main tests, and when ready, you run your code locally on this main data and upload both your code and the solution generated. Once you start the main tests, you have a six minute timer to run your code on the main tests and submit your results. You will only know if you solved the problem correctly at the end of the competition. **If you do not submit your answers in the six minute window you will NOT be able to try again.**  Once the contest ends, all submissions will be revealed and assessed for correctness, where a correct solution scores some number of points depending on the question. Tiebreaker for the competition is the sum of submission times of all correct submissions made.
 :::
 
 This in particular is the critical point:
 
 > Once you start the main tests, you have a six minute timer to run your code on the main tests and submit your results. You will only know if you solved the problem correctly at the end of the competition. **If you do not submit your answers in the six minute window you will NOT be able to try again.**
 
-This means there is an emphasis on ensuring that your solution is **absolutely 100%** correct before attempting the main tests, as NO second chances are given otherwise. This is important to keep in mind as I overview this question and the reasonings I went through solving this.
+This means there is an emphasis on ensuring that your solution is **absolutely 100%** correct before attempting the main tests, as NO second chances are given otherwise. Also important is that you are running your code *locally* to produce the solution whereas most competitions have an online judge. With these points in mind, let's explore this problem.
 
 ## Summary of the Problem
+
+If you want to read the problem directly, this is the [problem statement](https://www.facebook.com/codingcompetitions/hacker-cup/2024/round-2/problems/A2). Here though I will summarize the problem:
+
+- A mountain number consists of $2k+1$ digits with the following conditions. 
+    - The first $k+1$ digits are non-decreasing (e.g. `112235`).
+    - The last $k+1$ digits are non-increasing (e.g. `553321`). 
+    - None of the digits are 0
+    - The middle digit is unique
+- We need to find the number of mountain numbers inbetween $A$ and $B$ inclusive that are a multiple of $M$. $A,B \in [0,10^{18}]$, $1 \leq M \leq 10^9$.
+- This problem will be asked up to 95 times (ie. number of testcases).
 
 
 ## Initial Observations
 
+By the contest format, there is emphasis on time complexity estimation, especially in this problem as it is unclear what formal time complexity a solution would be for this problem. Obviously something like $O(B - A)$ cannot work when this value can be up to $10^{18}$, so we need a method of finding mountain range numbers that is not brute force. Let's call the first $k+1$ digits of a mountain number a climb and the last $k+1$ digits a slope. By reading the mountain number definition, we can also note that the last digit of a climb and the first digit of a slope must always be a highest unique digit to satisfy the 'middle digit is unique' rule.
+
+:::{#nte-Lemma1 .callout-note}
+## Lemma 1: There are an equal number of climbs and slopes.
+
+You can take any climb (such as 1123578) and reverse it (to 8753211) to obtain a slope. Vice versa, every slope reversed maps to a unique climb. This creates a 1-to-1 bijection  between climb and slopes, thus there must be an equal number of climbs and slopes of any arbritary length $k$.
+:::
+
+Using @Lemma1, we can obtain an estimate for the number of mountain numbers possible up to 17 digits long by brute forcing the number of climbs up to 8 digits long. In this case you can precompute all of the climbs reasonably fast (there are only 99999999 positive integers of up to 8 digits, and this is disregarding the 'no zeroes' rule), and you will find there are about 25000 unique climbs possible. $25000^2 = 625000000$ potential mountain numbers, and if you really wanted to, you could find every climb-slope pair that makes a mountain number by pairing the last climb digit to be equal to the first slope digit, and doing so reveals that there are about 73 million mountain numbers.
+
 
 ## A "Monkey" Solution
 
+At this point, you might be asking this:
+
+> *If you get 6 minutes to upload the solution and code for the main tests, couldn't you just precompute all possible mountain numbers and brute force every single testcase?*
+
+This is why I am writing this post. In the actual contest, this monkey brute force idea was what most coders did successfully, even if it's actually unclear if it should work. Let's assume the extreme case:
+
+- The $A$ to $B$ range for each testcase is the maximum or close to the maximum size, making a passthrough of nearly all 73 million mountain numbers on each testcase necessary.
+- The $M$ value is unique each time, so no storing of previous answers will help.
+
+We can use [Rule of 100 Million](https://alxwen711.github.io/HonestCode/posts/2026/rule-of-100-million/) to estimate the runtime. Modulo checking is a basic operation, so 73 million times 95 is 6.935 billion. Add a bit more for actually reading the file containing all of the mountain numbers (which from testing, takes over a gigabyte of memory) and for storing answers and such, and we can round this to about 7 billion operations. As a review, these are the general cases and their runtimes under these computations:
+
+- 100 million operations per second: realistic C++ -> 70 seconds
+- 30 million operations per second: realistic Python/safe C++ -> 233 seconds
+- 10 million operations per second: safe Python -> 700 seconds
+
+Remember, **If you do not submit your answers in the six minute window you will NOT be able to try again.** For C++, you can more or less safely assume this brute force works. But for Python, this estimation is very scary. Further reason as to why I ruled out doing this immediately was because of a last year incident with this 6 minute time limit.
 
 ::: {.callout-note collapse="true"}
-## Scenario Where The Monkey Solution Could Have Failed
+## The Last Year Incident
 
-If maximum case with no preprocess -> yikes 
+This will be brief because truthfully, I'm still mad over myself for this and I'd rather not spend more time ranting than I need to. The problem involved was [2023 Round 2, Problem B](https://www.facebook.com/codingcompetitions/hacker-cup/2023/round-2/problems/B). It's more the entire round that I would say was a complete disaster in contest strategy, but this was what happened:
+
+- I went to attempting Problem B first. Note the tiebreaker here is the sum of solved submissions, so logically, going for the easier problem A should be the right call. This did not cross my mind.
+- I used [Sparse Tables](https://alxwen711.github.io/HonestCode/posts/2026/sparse-table/) for a sum check. This makes the solution $O(n \log^2 n)$ when a sliding window was far more than enough, which would've reduced runtime to $O(n \log n)$.
+- This results in the code taking 5.5 minutes to complete the main tests. While very tight with the time limit, it at least gives me 30 seconds to upload the solution and code for submission, so while inconsistent, there is a chance that it would be *just* fast enough.
+- The issue is that I started the timer and 4 minutes in, I get paranoid and reset my code to refactor it, thinking it would go faster.
+- The refactor was excessively minor like using `[]` instead of `list()`. Obviously this did not work.
+- Had I not interferred, the original solution I submitted would have been correct.
+- Also, Problem [A1 and A2](https://www.facebook.com/codingcompetitions/hacker-cup/2023/round-2/problems/A2) are basic DFS implementation that take at most 30 minutes.
+- I quite literally screwed myself out of not just Round 3, but even a Top 2000 t-shirt when doing NOTHING for an extra 90 seconds would have avoided this.
+- In my initial rant, I sum it up by describing this as a situation that I thought could not exist, thinking surely it could not get worse than ["I can't count to five"](https://alxwen711.github.io/HonestCode/posts/archive/2022-02/#february-15th-28th).
+- Unrelated, but there exists a AI-assisted 26 page "academic" joke paper about unethical biological Pokemon engineering that was almost entirely created as a method to emotionally cope with my frustration over my "performance". It also contains my initial rant after this contest where I sourced these points and is much angrier and explicit at myself.
+
+And that is what we in competitive programming call schadenfreude.
 :::
 
 
