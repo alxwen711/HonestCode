@@ -1,0 +1,64 @@
+---
+title: "Starters 224 Recap"
+author: "Alexander Wen"
+date: "2026-02-18"
+categories: [competitive programming,codechef,recap,2026]
+image: "icon.png"
+draft: true
+---
+
+Intro here
+
+::: {.callout-note collapse="true"}
+## Division 1 Unranked Problems Upsolved
+
+### [A: ]()
+
+```python
+```
+
+### [B: ]()
+
+```python
+```
+
+### [C: ]()
+
+```python
+```
+
+:::
+
+## Solved Problems
+
+### [D: ]()
+
+**[Sample code]()**
+
+### [E: ]()
+
+**[Sample code]()**
+
+### [F: ]()
+
+**[Sample code]()**
+
+### [G: ]()
+
+**[Sample code]()**
+
+### [H: ]()
+
+**[Sample code]()**
+
+### [I: ]()
+
+**[Sample code]()**
+
+
+## Unsolved Problems
+
+
+## Contest Reflection
+
+How did I do here? What is next?
