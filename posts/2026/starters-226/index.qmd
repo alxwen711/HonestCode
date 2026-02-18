@@ -9,51 +9,45 @@ draft: true
 
 Intro here
 
+- okay so this wasn't even ranked, oops
+
 ::: {.callout-note collapse="true"}
 ## Division 1 Unranked Problems Upsolved
 
-### [A: ]()
+### [A: Rush to Exam](https://www.codechef.com/problems/RUSHTOEXAM)
 
-```python
-```
+**[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20226/starta.py)**
 
-### [B: ]()
+### [B: IceCream Cones](https://www.codechef.com/problems/ICECONE6)
 
-```python
-```
+**[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20226/startb.py)**
 
-### [C: ]()
+### [C: Sub A Add B](https://www.codechef.com/problems/SUBAADDB)
 
-```python
-```
-
+**[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20226/startc.py)**
 :::
 
 ## Solved Problems
 
-### [D: ]()
+### [D: Minimum District](MINIDIS6)
 
-**[Sample code]()**
+**[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20226/a.py)**
 
-### [E: ]()
+### [E: Max Minus Min](https://www.codechef.com/problems/MAXMIN6)
 
-**[Sample code]()**
+**[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20226/b.py)**
 
-### [F: ]()
+### [F: Array Graph](https://www.codechef.com/problems/ARRGRAPH6)
 
-**[Sample code]()**
+**[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20226/c.py)**
 
-### [G: ]()
+### [G: Good Subarrays](https://www.codechef.com/problems/GOODSUB6)
 
-**[Sample code]()**
+**[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20226/d.py)**
 
-### [H: ]()
+### [H: At least One](https://www.codechef.com/problems/ATONE)
 
-**[Sample code]()**
-
-### [I: ]()
-
-**[Sample code]()**
+**[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20226/e.py)**
 
 
 ## Unsolved Problems
