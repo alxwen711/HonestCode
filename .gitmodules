@@ -1,0 +1,3 @@
+[submodule "projects/spread-analysis"]
+	path = projects/spread-analysis
+	url = https://github.com/alxwen711/spread-analysis
