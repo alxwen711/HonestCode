@@ -16,43 +16,84 @@ Intro here
 
 ### [A: Rush to Exam](https://www.codechef.com/problems/RUSHTOEXAM)
 
+Chef is able to read $N * A$ pages at most, just compare this to $M$.
+
 **[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20226/starta.py)**
 
 ### [B: IceCream Cones](https://www.codechef.com/problems/ICECONE6)
 
+Total amount of ice cream left is $X - YN$. If this is negative then the answer is 0.
+
 **[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20226/startb.py)**
 
 ### [C: Sub A Add B](https://www.codechef.com/problems/SUBAADDB)
+
+In this case since $A > B$ is forced, you know that after one replacement operation the length of the string must decrease. Since this string is at most 100 characters anyways this process can be simulated which for the constraints of this problem is reasonable and less error prone than determing the largest integer $X$ such that $X < N$ and $X \mod (A-B) = N \mod (A-B)$.
 
 **[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20226/startc.py)**
 :::
 
 ## Solved Problems
 
-### [D: Minimum District](MINIDIS6)
+### [D: Minimum District](https://www.codechef.com/problems/MINDIS6)
+
+NOTE: Fix ABC submissions, forgot to copy code from the CC interface
+
+- kinda trolled this problem for a while, this is fairly simple
 
 **[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20226/a.py)**
 
 ### [E: Max Minus Min](https://www.codechef.com/problems/MAXMIN6)
 
+- Problem setup makes it intuitive that at most $25n$ operations are used, and that this always happens on the lowest value (greedy) 
+- Python `heapq` is a thing
+- Took 0.91 seconds, technically could be faster if manually implementing heapq but this is a bit aggrevating
+
 **[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20226/b.py)**
 
 ### [F: Array Graph](https://www.codechef.com/problems/ARRGRAPH6)
+
+- Some experimenting -> there is always a solution?
+- greedily choose the values that appear the most, connect to the next most frequent
+- then worst case is if every value appears once, this method creates a line graph
 
 **[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20226/c.py)**
 
 ### [G: Good Subarrays](https://www.codechef.com/problems/GOODSUB6)
 
+- Show initial misread of the problem (image)
+- Only subarrays starting with 1 can actually work
+1121234
+7604000
+
+- find the last 1, manually compute dist
+- for each 1 afterwards, either:
+- it reaches with a possibly higher total (may extend further)
+- hits a snag and is early cut
+- optimaly each value is hit only once
+
+- Runtime is a bit trickier, but summary, on average every element of the array is checked twice at most, $O(n)$
+
 **[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20226/d.py)**
 
-### [H: At least One](https://www.codechef.com/problems/ATONE)
-
-**[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20226/e.py)**
 
 
 ## Unsolved Problems
 
+### [H: At least One](https://www.codechef.com/problems/ATONE)
+
+- problem constraints allowed for O(n^3) gimmick?
+- tried setting up O(n^2) dp, failed multiple times
+- This looked similar to pascal triangle, very unlikely this is the case
+- normal editorial doesn't actually exist here, going to update once I actually figure this solution out
+
+**[Attempt code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20226/e.py)**
+
+
 
 ## Contest Reflection
 
-How did I do here? What is next?
+How did I do? Okay I suppose
+
+Anyways, next Saturday will be it bit crazy. Normally I would have classes during this contest, but it is reading week at UBC. This partially leads to next Saturday where I will be doing the full competitive programming experience: [6:35 AM Codeforces](), [10 AM UCUP](), and [6:30 PM Leetcode](). Fun!
+
