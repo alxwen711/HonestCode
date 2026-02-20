@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Alexander Wen">
+<meta name="dcterms.date" content="2026-02-20">
+
+<title>Starters 226 Recap – HonestCode</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-e31584831b205ffbb2d98406f31c2a5b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">HonestCode</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/alxwen711"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Starters 226 Recap</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">competitive programming</div>
+                <div class="quarto-category">codechef</div>
+                <div class="quarto-category">recap</div>
+                <div class="quarto-category">2026</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Alexander Wen </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">February 20, 2026</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<p>I seem to have not checked if this contest was rated beforehand, and it just happens this Starters contest is unranked for 6 star and up. Either way, this is an overview of the general approaches I took to each problem.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Division 1 Unranked Problems Upsolved
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<section id="a-rush-to-exam" class="level3">
+<h3 class="anchored" data-anchor-id="a-rush-to-exam"><a href="https://www.codechef.com/problems/RUSHTOEXAM">A: Rush to Exam</a></h3>
+<p>Chef is able to read <span class="math inline">\(N * A\)</span> pages at most, just compare this to <span class="math inline">\(M\)</span>.</p>
+<p><strong><a href="https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20226/starta.py">Sample code</a></strong></p>
+</section>
+<section id="b-icecream-cones" class="level3">
+<h3 class="anchored" data-anchor-id="b-icecream-cones"><a href="https://www.codechef.com/problems/ICECONE6">B: IceCream Cones</a></h3>
+<p>Total amount of ice cream left is <span class="math inline">\(X - YN\)</span>. If this is negative then the answer is 0.</p>
+<p><strong><a href="https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20226/startb.py">Sample code</a></strong></p>
+</section>
+<section id="c-sub-a-add-b" class="level3">
+<h3 class="anchored" data-anchor-id="c-sub-a-add-b"><a href="https://www.codechef.com/problems/SUBAADDB">C: Sub A Add B</a></h3>
+<p>In this case since <span class="math inline">\(A &gt; B\)</span> is forced, you know that after one replacement operation the length of the string must decrease. Since this string is at most 100 characters anyways this process can be simulated which for the constraints of this problem is reasonable and less error prone than determing the largest integer <span class="math inline">\(X\)</span> such that <span class="math inline">\(X &lt; N\)</span> and <span class="math inline">\(X \mod (A-B) = N \mod (A-B)\)</span>.</p>
+<p><strong><a href="https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20226/startc.py">Sample code</a></strong></p>
+</section>
+</div>
+</div>
+</div>
+<section id="solved-problems" class="level2">
+<h2 class="anchored" data-anchor-id="solved-problems">Solved Problems</h2>
+<section id="d-minimum-district" class="level3">
+<h3 class="anchored" data-anchor-id="d-minimum-district"><a href="https://www.codechef.com/problems/MINDIS6">D: Minimum District</a></h3>
+<p>I ended up struggling with this problem more than expected. The first idea tried was to binary search if there were enough operations so that only characters in a set prefix of the array appeared throughout. This method fails against arrays like <code>[1, 2, 3, 3, 3, 3, 3, 3, 3, 3]</code>. Then I just assumed a greedy idea by only matching with the most frequent values in the list, except there are cases like <code>[7, 5, 5, 5, 8, 8, 8, 6, 2]</code> where it’s impossible to have everything match the 5 and 8. Only after this I then included the condition that the first value in the list must be included for the solution. Technically the only penalty due to wrong submissions on these contests is the time taken, which is not representative of most contests (usually there is some sort of penalty added in time from 5 to 20 minutes)</p>
+<p><strong><a href="https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20226/a.py">Sample code</a></strong></p>
+</section>
+<section id="e-max-minus-min" class="level3">
+<h3 class="anchored" data-anchor-id="e-max-minus-min"><a href="https://www.codechef.com/problems/MAXMIN6">E: Max Minus Min</a></h3>
+<p>There are two observations I initially made:</p>
+<ol type="1">
+<li><p>It is always optimal to either double the lowest value in the list or to leave it as is. Doubling any other value in the list will not increase the minimum but could increase the maximum, always leading to an inferior solution.</p></li>
+<li><p>If we take an array like <code>[1, 100000]</code>, it will only take 17 operations under the first observation to increase the maximum. From this point onwards the max minus min value will spiral out of control. Thus it is likely that the optimal value will be found after at most <span class="math inline">\(20n\)</span> or so operations, where <span class="math inline">\(n\)</span> is the length of the list. Just to be safe I ended up using <span class="math inline">\(25n\)</span>.</p></li>
+</ol>
+<p>To efficiently obtain the minimum of the values, the <code>heapq</code> library can be used for <span class="math inline">\(O(\log n)\)</span> retrival. The number of operations at most then means this algorithm has a run time of <span class="math inline">\(O(n \log n)\)</span>, although the higher coefficients make this function more like a <span class="math inline">\(O(n \log^2 n)\)</span> algorithm. Due to input size being limited to <span class="math inline">\(n \leq 10^5\)</span>, this is still fast enough for Python to solve this in 0.91 seconds (time limit is 2 seconds). Faster can be achieved via manual implementation of the heap.</p>
+<p><strong><a href="https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20226/b.py">Sample code</a></strong></p>
+</section>
+<section id="f-array-graph" class="level3">
+<h3 class="anchored" data-anchor-id="f-array-graph"><a href="https://www.codechef.com/problems/ARRGRAPH6">F: Array Graph</a></h3>
+<p>From experimenting I assume that there is always a solution possible, which turns this into more of a constructive problem. Part of the experimenting and what is generally a good starting point is to consider the extreme cases:</p>
+<pre><code>2
+6
+1 1 1 1 1 1
+6
+1 2 3 4 5 6</code></pre>
+<p>For the first case, no rearranging is required, as this creates a star graph with an extra self loop, where every node is connected to node 1. In the second case, the simplest rearrangement is <code>2 3 4 5 6 1</code>, which results in 1 connecting to 2, 2 connecting to 3, 3 connecting to 4, and so on until 6 connects to 1, making a cycle graph.</p>
+<p>When we consider cases in the middle, we can use a greedy idea. Begin by sorting the values in a list in order of decreasing frequency. You then want to use the values in this order to create edges that connect to each subsequent value in this list, ie. choosing the next most frequent value each time. Most likely, you will end up with several values that do not exist in the array being assigned edges to the already connected component at the end. If this isn’t the case, then every value in the list was unique which results in this method creating a cycle graph.</p>
+<p><strong><a href="https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20226/c.py">Sample code</a></strong></p>
+</section>
+<section id="g-good-subarrays" class="level3">
+<h3 class="anchored" data-anchor-id="g-good-subarrays"><a href="https://www.codechef.com/problems/GOODSUB6">G: Good Subarrays</a></h3>
+<p>There was a initial working through of the testcase I tried only to then realize I had misinterpreted the problem statement as subsequences when they are only subarrays.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="subsetd.png" class="img-fluid figure-img"></p>
+<figcaption>Initial workings of the last pretest assuming these are subsequences for some reason.</figcaption>
+</figure>
+</div>
+<p>Such is the advice of <strong>Read the problem statement carefully</strong>. Anyways, even with this misread, it can be noticed that only subarrays starting with 1 can actually work, and this partially implies that any prefix of a good subarray is also good. Furthermore, concating two good subarrays creates another good subarray. Using this we can compute the <code>dist</code> (short for distance) of each index in the array to be the length of the longest subarray that is good that starts at this prefix. For instance, the <code>dist</code> array for the example testcase shown below:</p>
+<pre><code>[1,1,2,1,2,3,4]
+[7,6,0,4,0,0,0]</code></pre>
+<p>It then follows that our answer will be <code>sum(dist)</code>. If we were to brute force each possible subarray, this would be <span class="math inline">\(O(n^2)\)</span>. But since adjacent good subarrays create a larger good subarray, we can then do the following:</p>
+<ul>
+<li>Traverse the array backwards, stopping on each 1</li>
+<li>For the first 1, naively compute the <code>dist</code> value, track what the highest value in the subarray is</li>
+<li>For each 1 afterwards, the following cases can happen:
+<ul>
+<li>The subarray does not connect with the next 1 in the array</li>
+<li>The subarray reaches the next 1; update the highest value, jump to the end of the found subarray, and continue if possible</li>
+</ul></li>
+</ul>
+<p>Under this method computing the <code>dist</code> for each value will ensure that only new unchecked values actually get accessed multiple times, and on average, every element of the array will be checked at most twice, reducing this to <span class="math inline">\(O(n)\)</span>.</p>
+<p><strong><a href="https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20226/d.py">Sample code</a></strong></p>
+</section>
+</section>
+<section id="unsolved-problems" class="level2">
+<h2 class="anchored" data-anchor-id="unsolved-problems">Unsolved Problems</h2>
+<section id="h-at-least-one" class="level3">
+<h3 class="anchored" data-anchor-id="h-at-least-one"><a href="https://www.codechef.com/problems/ATLONE">H: At least One</a></h3>
+<p>This problem there is definitely a dp equation that can be used for solving the problem. There is also a very significant loophole in that since <span class="math inline">\(N \leq 2000\)</span> and each answer will be at most 998244352 due to the modulo limit, it is possible to precomupte all 2000 possible answers to submit an “<span class="math inline">\(O(1)\)</span>” solution, even if the precomputation step takes longer than <span class="math inline">\(O(n^2)\)</span>. For a while I ended up trying this as I hypothesized the following <span class="math inline">\(O(n^3)\)</span> dp idea:</p>
+<ul>
+<li>Let <code>base[a][b]</code> be a temporary dp array, where <code>a</code> is the last integer value added to the set, <code>b</code> is the current function value, and this is tracking how many subsets have this combination. <code>0 &lt;= b &lt; a</code>.</li>
+<li>Base case is <code>base[1][0]</code> = 1.</li>
+<li>Then from each <code>base[a][b] = c</code>, any value from <code>a+1</code> to 2000 can be the next value, call this k.</li>
+<li>For each possible <code>k</code> value, increment <code>base[k][max(k-a,b)]</code> by <code>base[a][b]</code>, taking <code>mod m</code> if needed.</li>
+</ul>
+<p>Within my attempts I had rearranged the dp equation to compute each <code>base[a][b]</code> value directly from previously computed values, which ends up with the following attempt code that went unsubmitted due to incorrect value for <code>n = 2000</code>. (Even though the other pretests were correct, so I’m very unsure where exactly this goes wrong).</p>
+<p><strong><a href="https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20226/e.py">Attempt Code</a></strong></p>
+<p>As of Friday post contest, I then tried implementing the exact dp method I set up here without any variations. Noticably even though this is also <span class="math inline">\(O(n^3)\)</span> this feels like it takes longer and there seems to be more operations involved.</p>
+<p><strong><a href="https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20226/e2.py">Attempt Code Part 2</a></strong></p>
+<p>This still ends up with the wrong result for n = 2000 (645128103 instead of 904839774). In this scenario it is then best to return to this problem after a few days to relook at this dp equation as there is some sort of miscounting occurring here. As for looking at editorials, I don’t do it. I only use editorials VERY rarely when it’s a problem much easier than my level I should solve, and I’m absolutely confident after a few hours that I’m either overthinking it or the answer involves some basic fundamental concept that I have a knowledge gap in for some reason.</p>
+</section>
+</section>
+<section id="contest-reflection" class="level2">
+<h2 class="anchored" data-anchor-id="contest-reflection">Contest Reflection</h2>
+<p>Overall, if this was rated, I ended up performing about exactly to where my current 2219 rating would expect. That said I’d consider how I did here rather middling as D and G had several errors made that under most contest systems would be punished more heavily, and H feels very doable.</p>
+<p>Next Saturday will be a bit crazy. Normally I would have classes during this contest, but it is reading week at UBC. This partially leads to me being able to do near whatever next Saturday, which of course means I will be doing the full competitive programming experience: <a href="https://codeforces.com/contests/2192">6:35 AM Codeforces Round 1081</a>, <a href="https://contest.ucup.ac/contests">10 AM UCUP Stage 17</a> (contest link to be updated), and <a href="https://leetcode.com/contest/weekly-contest-490/">6:30 PM Leetcode Weekly 490</a>. Fun!</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/alxwen711\.github\.io\/HonestCode\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
