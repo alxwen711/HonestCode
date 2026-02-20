@@ -1,0 +1,80 @@
+---
+title: "February 21st's Full Competitive Programming Experience"
+author: "Alexander Wen"
+date: "2026-02-22"
+categories: [competitive programming,recap,2026]
+image: "icon.png"
+draft: True
+---
+
+Intro here
+
+# CodeForces Round 1081 (Div 2)
+
+## Solved Problems
+
+### [A: ]()
+
+**[Sample code]()**
+
+### [B: ]()
+
+**[Sample code]()**
+
+### [C: ]()
+
+**[Sample code]()**
+
+### [D: ]()
+
+**[Sample code]()**
+
+### [E: ]()
+
+**[Sample code]()**
+
+### [F: ]()
+
+**[Sample code]()**
+
+### [G: ]()
+
+**[Sample code]()**
+
+
+
+## Unsolved Problems
+
+
+## Contest Reflection
+
+How did I do here? What is next?
+
+
+# Universal Cup Stage 18
+
+
+
+
+# Leetcode Weekly 490
+
+### [A: ]()
+
+**[Sample code]()**
+
+### [B: ]()
+
+**[Sample code]()**
+
+### [C: ]()
+
+**[Sample code]()**
+
+### [D: ]()
+
+**[Sample code]()**
+
+
+## Contest Reflection
+
+How did I do here? What is next?
