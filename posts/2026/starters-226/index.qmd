@@ -1,10 +1,9 @@
 ---
-title: "Starters 224 Recap"
+title: "Starters 226 Recap"
 author: "Alexander Wen"
 date: "2026-02-20"
 categories: [competitive programming,codechef,recap,2026]
 image: "icon.png"
-draft: true
 ---
 
 I seem to have not checked if this contest was rated beforehand, and it just happens this Starters contest is unranked for 6 star and up. Either way, this is an overview of the general approaches I took to each problem.
@@ -73,9 +72,9 @@ When we consider cases in the middle, we can use a greedy idea. Begin by sorting
 
 There was a initial working through of the testcase I tried only to then realize I had misinterpreted the problem statement as subsequences when they are only subarrays.
 
-![Subsequence misread](subsetd.png)
+![Initial workings of the last pretest assuming these are subsequences for some reason.](subsetd.png)
 
-Such is the advice of `Read the problem statement carefully.` Anyways, even with this misread, it can be noticed that only subarrays starting with 1 can actually work, and this partially implies that any prefix of a good subarray is also good. Furthermore, concating two good subarrays creates another good subarray. Using this we can compute the `dist` (short for distance) of each index in the array to be the length of the longest subarray that is good that starts at this prefix. For instance, the `dist` array for the example testcase shown below:
+Such is the advice of **Read the problem statement carefully**. Anyways, even with this misread, it can be noticed that only subarrays starting with 1 can actually work, and this partially implies that any prefix of a good subarray is also good. Furthermore, concating two good subarrays creates another good subarray. Using this we can compute the `dist` (short for distance) of each index in the array to be the length of the longest subarray that is good that starts at this prefix. For instance, the `dist` array for the example testcase shown below:
 
 ```
 [1,1,2,1,2,3,4]
