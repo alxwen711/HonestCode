@@ -32,7 +32,6 @@ jobs:
 
       - name: Construct HTML
         run: |
-          quartodoc build
           quarto render
 
       - name: Render and Publish
