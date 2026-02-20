@@ -1,15 +1,13 @@
 ---
 title: "Starters 224 Recap"
 author: "Alexander Wen"
-date: "2026-02-18"
+date: "2026-02-20"
 categories: [competitive programming,codechef,recap,2026]
 image: "icon.png"
 draft: true
 ---
 
-Intro here
-
-- okay so this wasn't even ranked, oops
+I seem to have not checked if this contest was rated beforehand, and it just happens this Starters contest is unranked for 6 star and up. Either way, this is an overview of the general approaches I took to each problem.
 
 ::: {.callout-note collapse="true"}
 ## Division 1 Unranked Problems Upsolved
@@ -37,63 +35,89 @@ In this case since $A > B$ is forced, you know that after one replacement operat
 
 ### [D: Minimum District](https://www.codechef.com/problems/MINDIS6)
 
-NOTE: Fix ABC submissions, forgot to copy code from the CC interface
-
-- kinda trolled this problem for a while, this is fairly simple
+I ended up struggling with this problem more than expected. The first idea tried was to binary search if there were enough operations so that only characters in a set prefix of the array appeared throughout. This method fails against arrays like `[1, 2, 3, 3, 3, 3, 3, 3, 3, 3]`. Then I just assumed a greedy idea by only matching with the most frequent values in the list, except there are cases like `[7, 5, 5, 5, 8, 8, 8, 6, 2]` where it's impossible to have everything match the 5 and 8. Only after this I then included the condition that the first value in the list must be included for the solution. Technically the only penalty due to wrong submissions on these contests is the time taken, which is not representative of most contests (usually there is some sort of penalty added in time from 5 to 20 minutes)
 
 **[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20226/a.py)**
 
 ### [E: Max Minus Min](https://www.codechef.com/problems/MAXMIN6)
 
-- Problem setup makes it intuitive that at most $25n$ operations are used, and that this always happens on the lowest value (greedy) 
-- Python `heapq` is a thing
-- Took 0.91 seconds, technically could be faster if manually implementing heapq but this is a bit aggrevating
+There are two observations I initially made:
+
+1. It is always optimal to either double the lowest value in the list or to leave it as is. Doubling any other value in the list will not increase the minimum but could increase the maximum, always leading to an inferior solution.
+
+2. If we take an array like `[1, 100000]`, it will only take 17 operations under the first observation to increase the maximum. From this point onwards the max minus min value will spiral out of control. Thus it is likely that the optimal value will be found after at most $20n$ or so operations, where $n$ is the length of the list. Just to be safe I ended up using $25n$.
+
+To efficiently obtain the minimum of the values, the `heapq` library can be used for $O(\log n)$ retrival. The number of operations at most then means this algorithm has a run time of $O(n \log n)$, although the higher coefficients make this function more like a $O(n \log^2 n)$ algorithm. Due to input size being limited to $n \leq 10^5$, this is still fast enough for Python to solve this in 0.91 seconds (time limit is 2 seconds). Faster can be achieved via manual implementation of the heap.
 
 **[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20226/b.py)**
 
 ### [F: Array Graph](https://www.codechef.com/problems/ARRGRAPH6)
 
-- Some experimenting -> there is always a solution?
-- greedily choose the values that appear the most, connect to the next most frequent
-- then worst case is if every value appears once, this method creates a line graph
+From experimenting I assume that there is always a solution possible, which turns this into more of a constructive problem. Part of the experimenting and what is generally a good starting point is to consider the extreme cases:
+
+```
+2
+6
+1 1 1 1 1 1
+6
+1 2 3 4 5 6
+```
+
+For the first case, no rearranging is required, as this creates a star graph with an extra self loop, where every node is connected to node 1. In the second case, the simplest rearrangement is `2 3 4 5 6 1`, which results in 1 connecting to 2, 2 connecting to 3, 3 connecting to 4, and so on until 6 connects to 1, making a cycle graph.
+
+When we consider cases in the middle, we can use a greedy idea. Begin by sorting the values in a list in order of decreasing frequency. You then want to use the values in this order to create edges that connect to each subsequent value in this list, ie. choosing the next most frequent value each time. Most likely, you will end up with several values that do not exist in the array being assigned edges to the already connected component at the end. If this isn't the case, then every value in the list was unique which results in this method creating a cycle graph.
 
 **[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20226/c.py)**
 
 ### [G: Good Subarrays](https://www.codechef.com/problems/GOODSUB6)
 
-- Show initial misread of the problem (image)
-- Only subarrays starting with 1 can actually work
-1121234
-7604000
+There was a initial working through of the testcase I tried only to then realize I had misinterpreted the problem statement as subsequences when they are only subarrays.
 
-- find the last 1, manually compute dist
-- for each 1 afterwards, either:
-- it reaches with a possibly higher total (may extend further)
-- hits a snag and is early cut
-- optimaly each value is hit only once
+![Subsequence misread](subsetd.png)
 
-- Runtime is a bit trickier, but summary, on average every element of the array is checked twice at most, $O(n)$
+Such is the advice of `Read the problem statement carefully.` Anyways, even with this misread, it can be noticed that only subarrays starting with 1 can actually work, and this partially implies that any prefix of a good subarray is also good. Furthermore, concating two good subarrays creates another good subarray. Using this we can compute the `dist` (short for distance) of each index in the array to be the length of the longest subarray that is good that starts at this prefix. For instance, the `dist` array for the example testcase shown below:
+
+```
+[1,1,2,1,2,3,4]
+[7,6,0,4,0,0,0]
+```
+
+It then follows that our answer will be `sum(dist)`. If we were to brute force each possible subarray, this would be $O(n^2)$. But since adjacent good subarrays create a larger good subarray, we can then do the following:
+
+- Traverse the array backwards, stopping on each 1
+- For the first 1, naively compute the `dist` value, track what the highest value in the subarray is
+- For each 1 afterwards, the following cases can happen:
+    - The subarray does not connect with the next 1 in the array
+    - The subarray reaches the next 1; update the highest value, jump to the end of the found subarray, and continue if possible
+
+Under this method computing the `dist` for each value will ensure that only new unchecked values actually get accessed multiple times, and on average, every element of the array will be checked at most twice, reducing this to $O(n)$.
 
 **[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20226/d.py)**
 
-
-
 ## Unsolved Problems
 
-### [H: At least One](https://www.codechef.com/problems/ATONE)
+### [H: At least One](https://www.codechef.com/problems/ATLONE)
 
-- problem constraints allowed for O(n^3) gimmick?
-- tried setting up O(n^2) dp, failed multiple times
-- This looked similar to pascal triangle, very unlikely this is the case
-- normal editorial doesn't actually exist here, going to update once I actually figure this solution out
+This problem there is definitely a dp equation that can be used for solving the problem. There is also a very significant loophole in that since $N \leq 2000$ and each answer will be at most 998244352 due to the modulo limit, it is possible to precomupte all 2000 possible answers to submit an "$O(1)$" solution, even if the precomputation step takes longer than $O(n^2)$. For a while I ended up trying this as I hypothesized the following $O(n^3)$ dp idea:
 
-**[Attempt code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20226/e.py)**
+- Let `base[a][b]` be a temporary dp array, where `a` is the last integer value added to the set, `b` is the current function value, and this is tracking how many subsets have this combination. `0 <= b < a`.
+- Base case is `base[1][0]` = 1.
+- Then from each `base[a][b] = c`, any value from `a+1` to 2000 can be the next value, call this k.
+- For each possible `k` value, increment `base[k][max(k-a,b)]` by `base[a][b]`, taking `mod m` if needed.
 
+Within my attempts I had rearranged the dp equation to compute each `base[a][b]` value directly from previously computed values, which ends up with the following attempt code that went unsubmitted due to incorrect value for `n = 2000`. (Even though the other pretests were correct, so I'm very unsure where exactly this goes wrong).
 
+**[Attempt Code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20226/e.py)**
+
+As of Friday post contest, I then tried implementing the exact dp method I set up here without any variations. Noticably even though this is also $O(n^3)$ this feels like it takes longer and there seems to be more operations involved. 
+
+**[Attempt Code Part 2](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20226/e2.py)**
+
+This still ends up with the wrong result for n = 2000 (645128103 instead of 904839774). In this scenario it is then best to return to this problem after a few days to relook at this dp equation as there is some sort of miscounting occurring here. As for looking at editorials, I don't do it. I only use editorials VERY rarely when it's a problem much easier than my level I should solve, and I'm absolutely confident after a few hours that I'm either overthinking it or the answer involves some basic fundamental concept that I have a knowledge gap in for some reason.
 
 ## Contest Reflection
 
-How did I do? Okay I suppose
+Overall, if this was rated, I ended up performing about exactly to where my current 2219 rating would expect. That said I'd consider how I did here rather middling as D and G had several errors made that under most contest systems would be punished more heavily, and H feels very doable.
 
-Anyways, next Saturday will be it bit crazy. Normally I would have classes during this contest, but it is reading week at UBC. This partially leads to next Saturday where I will be doing the full competitive programming experience: [6:35 AM Codeforces](), [10 AM UCUP](), and [6:30 PM Leetcode](). Fun!
+Next Saturday will be a bit crazy. Normally I would have classes during this contest, but it is reading week at UBC. This partially leads to me being able to do near whatever next Saturday, which of course means I will be doing the full competitive programming experience: [6:35 AM Codeforces Round 1081](https://codeforces.com/contests/2192), [10 AM UCUP Stage 17](https://contest.ucup.ac/contests) (contest link to be updated), and [6:30 PM Leetcode Weekly 490](https://leetcode.com/contest/weekly-contest-490/). Fun!
 
