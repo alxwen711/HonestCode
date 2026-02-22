@@ -13,37 +13,56 @@ Intro here
 
 ## Solved Problems
 
-### [A: ]()
+### [A: String Rotation Game](https://codeforces.com/contest/2192/problem/A)
+
+- check for number of blocks first
+- if they are same letter start/end, already optimal
+- else try to make a new block by splitting an existing one (unless only 1 block or all single length)
 
 **[Sample code]()**
 
-### [B: ]()
+### [B: Flipping Binary String](https://codeforces.com/contest/2192/problem/B)
+
+- parity logic (also order of operations does not matter)
+- if odd 1's count, hold all 1's
+- else, check if 0's count is odd, then hold all 0's if yes
 
 **[Sample code]()**
 
-### [C: ]()
+### [C: All-in-one Gun](https://codeforces.com/contest/2192/problem/C)
+
+- number of cycles through the magazine endurable?
+- then optimize for fewest bullets from last magazine needed
+- could use binary search here, not actually necessary with careful math implementation
 
 **[Sample code]()**
 
-### [D: ]()
+### [D: Cost of Tree](https://codeforces.com/contest/2192/problem/D)
+
+- track total (sum of subtree), score of subtree (without changes), best improvement, depth values, and depth of each node
+- base case is single node at bottom of tree
+- then try doing parents, 1 child just take best of child, else do some computation stuff to recompute best based on new depths (using md and md2)
+- O(n) with multiple steps
 
 **[Sample code]()**
-
-### [E: ]()
-
-**[Sample code]()**
-
-### [F: ]()
-
-**[Sample code]()**
-
-### [G: ]()
-
-**[Sample code]()**
-
-
 
 ## Unsolved Problems
+
+### [E: Swap to Rearrange](https://codeforces.com/contest/2192/problem/E)
+
+- For a while tried to setup some sort of greedy flipping pattern
+- eventually thought this felt similar to 2-SAT -> use a graph?
+- every node has even degree, can we just make a bunch of cycles to create the config? (turns out yes, even deg condition is enough)
+- how to cycle decompose? turns out here greedy works
+- very short on time to complete, and then this ends up exceeding memory limit
+- really now. (replace here with the upsolve code with less of a memory mess)
+
+**[Sample code]()**
+
+### [F: Fish Fight](https://codeforces.com/contest/2192/problem/F)
+
+- due to above did not really observe this question at all
+- Probably some weird O(n^2) greedy?
 
 
 ## Contest Reflection
@@ -51,7 +70,7 @@ Intro here
 How did I do here? What is next?
 
 
-# Universal Cup Stage 18
+# ICPC European Championship 2026 Practice Run
 
 
 
@@ -60,19 +79,15 @@ How did I do here? What is next?
 
 ### [A: ]()
 
-**[Sample code]()**
 
 ### [B: ]()
 
-**[Sample code]()**
 
 ### [C: ]()
 
-**[Sample code]()**
 
 ### [D: ]()
 
-**[Sample code]()**
 
 
 ## Contest Reflection
