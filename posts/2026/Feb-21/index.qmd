@@ -77,18 +77,28 @@ How did I do here? What is next?
 
 # Leetcode Weekly 490
 
-### [A: ]()
+### [A: Find the Score Difference in a Game](https://leetcode.com/contest/weekly-contest-490/problems/find-the-score-difference-in-a-game/description/)
+
+- I now remember why I don't really do leetcode that often
+
+- it's not difficult, just very much a wording mess
+
+### [B: Check Digitorial Permutation](https://leetcode.com/contest/weekly-contest-490/problems/check-digitorial-permutation/description/)
+
+- rearranging digits will not change sum of factorials
+- thus just check for digit identicality between factioral sum and number
+
+### [C: Maximum Bitwise XOR After Rearrangement](https://leetcode.com/contest/weekly-contest-490/problems/maximum-bitwise-xor-after-rearrangement/description/)
+
+- greedy
+
+- it's just greedy
 
 
-### [B: ]()
+### [D: Count Sequences to K](https://leetcode.com/contest/weekly-contest-490/problems/count-sequences-to-k/description/)
 
-
-### [C: ]()
-
-
-### [D: ]()
-
-
+- more intruiging, we can use modulo math to track totals more easily
+- 3^19 would be too much -> meet in the middle technique
 
 ## Contest Reflection
 
