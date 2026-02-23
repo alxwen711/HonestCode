@@ -126,5 +126,10 @@ Next Saturday will be a bit crazy. Normally I would have classes during this con
 
 It is the Monday after with this update, and while I initially planned to have each of these three contests recapped in a single post, many changes have occurred that I find it easier to have individual posts for each contest recap. The UCUP session practice will also not be recapped here since after some thought this is a more private practice session where we did Stage 16's contest instead, and based on the number of problems our team solved in practice it would be difficult to properly recap this contest. Turns out the ICPC European Championship has some very difficult problems. There will be a note on each of these posts linking the related contests on either February 21st or 23rd as well as in this callout here once all of the recaps are done.
 
+[Feb 21st CF Round 1081](https://alxwen711.github.io/HonestCode/posts/2026/CF-1081/)
+
+[Feb 21st LC Weekly 490](https://alxwen711.github.io/HonestCode/posts/2026/LC-weekly-490/)
+
+[Feb 23rd CF Round 1082](https://alxwen711.github.io/HonestCode/posts/2026/CF-1082/) (in progress)
 :::
 
