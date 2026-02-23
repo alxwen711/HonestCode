@@ -1,8 +1,9 @@
 ---
-title: "February 21st's Full Competitive Programming Experience"
+title: "CodeForces Round 1081 Recap"
+subtitle: "February 21st's Full Competitive Programming Experience"
 author: "Alexander Wen"
-date: "2026-02-22"
-categories: [competitive programming,recap,2026]
+date: "2026-02-23"
+categories: [codeforces,recap,2026]
 draft: True
 ---
 
