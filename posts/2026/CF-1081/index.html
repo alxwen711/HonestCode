@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Alexander Wen">
-<meta name="dcterms.date" content="2026-02-20">
+<meta name="dcterms.date" content="2026-02-23">
 
-<title>Starters 226 Recap – HonestCode</title>
+<title>CodeForces Round 1081 Recap – HonestCode</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +21,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -141,10 +176,10 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Starters 226 Recap</h1>
+      <h1 class="title">CodeForces Round 1081 Recap</h1>
+            <p class="subtitle lead">The February 21st-23rd Competitive Programming Experience</p>
                                 <div class="quarto-categories">
-                <div class="quarto-category">competitive programming</div>
-                <div class="quarto-category">codechef</div>
+                <div class="quarto-category">codeforces</div>
                 <div class="quarto-category">recap</div>
                 <div class="quarto-category">2026</div>
               </div>
@@ -164,16 +199,10 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">February 20, 2026</p>
+        <p class="date">February 23, 2026</p>
       </div>
     </div>
     
-      <div>
-      <div class="quarto-title-meta-heading">Modified</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date-modified">February 23, 2026</p>
-      </div>
-    </div>
       
     </div>
     
@@ -189,126 +218,141 @@ window.Quarto = {
 
 
 
-<p>I seem to have not checked if this contest was rated beforehand, and it just happens this Starters contest is unranked for 6 star and up. Either way, this is an overview of the general approaches I took to each problem.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="doop.png" class="img-fluid figure-img"></p>
+<figcaption>This has been quite the chaotic programming day.</figcaption>
+</figure>
+</div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Division 1 Unranked Problems Upsolved
+<span class="screen-reader-only">Note</span>Context to the Icon Image
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<section id="a-rush-to-exam" class="level3">
-<h3 class="anchored" data-anchor-id="a-rush-to-exam"><a href="https://www.codechef.com/problems/RUSHTOEXAM">A: Rush to Exam</a></h3>
-<p>Chef is able to read <span class="math inline">\(N * A\)</span> pages at most, just compare this to <span class="math inline">\(M\)</span>.</p>
-<p><strong><a href="https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20226/starta.py">Sample code</a></strong></p>
-</section>
-<section id="b-icecream-cones" class="level3">
-<h3 class="anchored" data-anchor-id="b-icecream-cones"><a href="https://www.codechef.com/problems/ICECONE6">B: IceCream Cones</a></h3>
-<p>Total amount of ice cream left is <span class="math inline">\(X - YN\)</span>. If this is negative then the answer is 0.</p>
-<p><strong><a href="https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20226/startb.py">Sample code</a></strong></p>
-</section>
-<section id="c-sub-a-add-b" class="level3">
-<h3 class="anchored" data-anchor-id="c-sub-a-add-b"><a href="https://www.codechef.com/problems/SUBAADDB">C: Sub A Add B</a></h3>
-<p>In this case since <span class="math inline">\(A &gt; B\)</span> is forced, you know that after one replacement operation the length of the string must decrease. Since this string is at most 100 characters anyways this process can be simulated which for the constraints of this problem is reasonable and less error prone than determing the largest integer <span class="math inline">\(X\)</span> such that <span class="math inline">\(X &lt; N\)</span> and <span class="math inline">\(X \mod (A-B) = N \mod (A-B)\)</span>.</p>
-<p><strong><a href="https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20226/startc.py">Sample code</a></strong></p>
-</section>
+<p>This post is part of the Februrary 21st-23rd set of posts detailing a rather chaotic day of competitive programming, hence why I have an old classic introduction image of Days of Our Programmers, a somewhat satrical introduction method I used in a few archive logs when preceeding some really unfortunate competitive programming implosions. If you want an idea of what said implosions look like, <a href="https://alxwen711.github.io/HonestCode/posts/archive/2022-11/#november-16st-30th">November 2022’s Archive Log</a> is an example of what such implosions can look like. The good news is that it’ll be apparent that there wasn’t a massive underachievement in any of the contests recapped in this miniseries.</p>
 </div>
 </div>
 </div>
-<section id="solved-problems" class="level2">
-<h2 class="anchored" data-anchor-id="solved-problems">Solved Problems</h2>
-<section id="d-minimum-district" class="level3">
-<h3 class="anchored" data-anchor-id="d-minimum-district"><a href="https://www.codechef.com/problems/MINDIS6">D: Minimum District</a></h3>
-<p>I ended up struggling with this problem more than expected. The first idea tried was to binary search if there were enough operations so that only characters in a set prefix of the array appeared throughout. This method fails against arrays like <code>[1, 2, 3, 3, 3, 3, 3, 3, 3, 3]</code>. Then I just assumed a greedy idea by only matching with the most frequent values in the list, except there are cases like <code>[7, 5, 5, 5, 8, 8, 8, 6, 2]</code> where it’s impossible to have everything match the 5 and 8. Only after this I then included the condition that the first value in the list must be included for the solution. Technically the only penalty due to wrong submissions on these contests is the time taken, which is not representative of most contests (usually there is some sort of penalty added in time from 5 to 20 minutes)</p>
-<p><strong><a href="https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20226/a.py">Sample code</a></strong></p>
-</section>
-<section id="e-max-minus-min" class="level3">
-<h3 class="anchored" data-anchor-id="e-max-minus-min"><a href="https://www.codechef.com/problems/MAXMIN6">E: Max Minus Min</a></h3>
-<p>There are two observations I initially made:</p>
-<ol type="1">
-<li><p>It is always optimal to either double the lowest value in the list or to leave it as is. Doubling any other value in the list will not increase the minimum but could increase the maximum, always leading to an inferior solution.</p></li>
-<li><p>If we take an array like <code>[1, 100000]</code>, it will only take 17 operations under the first observation to increase the maximum. From this point onwards the max minus min value will spiral out of control. Thus it is likely that the optimal value will be found after at most <span class="math inline">\(20n\)</span> or so operations, where <span class="math inline">\(n\)</span> is the length of the list. Just to be safe I ended up using <span class="math inline">\(25n\)</span>.</p></li>
-</ol>
-<p>To efficiently obtain the minimum of the values, the <code>heapq</code> library can be used for <span class="math inline">\(O(\log n)\)</span> retrival. The number of operations at most then means this algorithm has a run time of <span class="math inline">\(O(n \log n)\)</span>, although the higher coefficients make this function more like a <span class="math inline">\(O(n \log^2 n)\)</span> algorithm. Due to input size being limited to <span class="math inline">\(n \leq 10^5\)</span>, this is still fast enough for Python to solve this in 0.91 seconds (time limit is 2 seconds). Faster can be achieved via manual implementation of the heap.</p>
-<p><strong><a href="https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20226/b.py">Sample code</a></strong></p>
-</section>
-<section id="f-array-graph" class="level3">
-<h3 class="anchored" data-anchor-id="f-array-graph"><a href="https://www.codechef.com/problems/ARRGRAPH6">F: Array Graph</a></h3>
-<p>From experimenting I assume that there is always a solution possible, which turns this into more of a constructive problem. Part of the experimenting and what is generally a good starting point is to consider the extreme cases:</p>
-<pre><code>2
-6
-1 1 1 1 1 1
-6
-1 2 3 4 5 6</code></pre>
-<p>For the first case, no rearranging is required, as this creates a star graph with an extra self loop, where every node is connected to node 1. In the second case, the simplest rearrangement is <code>2 3 4 5 6 1</code>, which results in 1 connecting to 2, 2 connecting to 3, 3 connecting to 4, and so on until 6 connects to 1, making a cycle graph.</p>
-<p>When we consider cases in the middle, we can use a greedy idea. Begin by sorting the values in a list in order of decreasing frequency. You then want to use the values in this order to create edges that connect to each subsequent value in this list, ie. choosing the next most frequent value each time. Most likely, you will end up with several values that do not exist in the array being assigned edges to the already connected component at the end. If this isn’t the case, then every value in the list was unique which results in this method creating a cycle graph.</p>
-<p><strong><a href="https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20226/c.py">Sample code</a></strong></p>
-</section>
-<section id="g-good-subarrays" class="level3">
-<h3 class="anchored" data-anchor-id="g-good-subarrays"><a href="https://www.codechef.com/problems/GOODSUB6">G: Good Subarrays</a></h3>
-<p>There was a initial working through of the testcase I tried only to then realize I had misinterpreted the problem statement as subsequences when they are only subarrays.</p>
+<p>To properly understand the importance of this contest we need some context. In the short term this is the most important of the competitions I did from February 21st to 23rd as there are only so many of these competitions I can do since they basically have to either be on the weekend, or I have to be at UBC by 6:30AM in the cases where I want to do these contests and attend classes. Further more, we have my CodeForces history via CLIST since November:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="subsetd.png" class="img-fluid figure-img"></p>
-<figcaption>Initial workings of the last pretest assuming these are subsequences for some reason.</figcaption>
+<p><img src="cfoof.png" class="img-fluid figure-img"></p>
+<figcaption>The downfall of my CF rating.</figcaption>
 </figure>
 </div>
-<p>Such is the advice of <strong>Read the problem statement carefully</strong>. Anyways, even with this misread, it can be noticed that only subarrays starting with 1 can actually work, and this partially implies that any prefix of a good subarray is also good. Furthermore, concating two good subarrays creates another good subarray. Using this we can compute the <code>dist</code> (short for distance) of each index in the array to be the length of the longest subarray that is good that starts at this prefix. For instance, the <code>dist</code> array for the example testcase shown below:</p>
-<pre><code>[1,1,2,1,2,3,4]
-[7,6,0,4,0,0,0]</code></pre>
-<p>It then follows that our answer will be <code>sum(dist)</code>. If we were to brute force each possible subarray, this would be <span class="math inline">\(O(n^2)\)</span>. But since adjacent good subarrays create a larger good subarray, we can then do the following:</p>
+<p>Yes, rating is not everything, but dropping 254 ELO over the course of 6 contests is not exactly good. Screwing up here means that unless I decide to go to UBC early Monday morning, the next chance I will have to get back to 1900 ELO will be <strong>March 16th</strong>. I’d much rather not wait that long. So it suffices that this is quite critical. Adding to that as some sort of omen was the night before, CodeForces got hacked.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="hack.png" class="img-fluid figure-img"></p>
+<figcaption>Very reassuring.</figcaption>
+</figure>
+</div>
+<p>The hack only really consisted of these pop-ups last night but this was a genuinely new experience for me. Thankfully it seemed that around 11PM the night before this situation was mostly controlled, so the contest now goes as planned.</p>
+<section id="solved-problems" class="level2">
+<h2 class="anchored" data-anchor-id="solved-problems">Solved Problems</h2>
+<section id="a-string-rotation-game" class="level3">
+<h3 class="anchored" data-anchor-id="a-string-rotation-game"><a href="https://codeforces.com/contest/2192/problem/A">A: String Rotation Game</a></h3>
+<p>We can first check the number of blocks in the string without any rotation. Then we have several cases where this is the maximum number of blocks:</p>
 <ul>
-<li>Traverse the array backwards, stopping on each 1</li>
-<li>For the first 1, naively compute the <code>dist</code> value, track what the highest value in the subarray is</li>
-<li>For each 1 afterwards, the following cases can happen:
-<ul>
-<li>The subarray does not connect with the next 1 in the array</li>
-<li>The subarray reaches the next 1; update the highest value, jump to the end of the found subarray, and continue if possible</li>
-</ul></li>
+<li>The first and last character of the string are identical; if a cyclic shift occurs, these endpoints may be combined and any new block that would be created would be neutralized as a result. (Also covers the case where there is only one block)</li>
+<li>Every block is of length 1, then every character is different from its neighbours and shifting does nothing.</li>
 </ul>
-<p>Under this method computing the <code>dist</code> for each value will ensure that only new unchecked values actually get accessed multiple times, and on average, every element of the array will be checked at most twice, reducing this to <span class="math inline">\(O(n)\)</span>.</p>
-<p><strong><a href="https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20226/d.py">Sample code</a></strong></p>
+<p>Otherwise, then a shift will not combine the first and last characters into a single block, and there exists a block of at least length two that can be split to the first and last characters by this method, thus increasing the number of blocks by 1 (which is the maximum).</p>
+<p><strong><a href="https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/1081/a.py">Sample code</a></strong></p>
 </section>
-</section>
-<section id="unsolved-problems" class="level2">
-<h2 class="anchored" data-anchor-id="unsolved-problems">Unsolved Problems</h2>
-<section id="h-at-least-one" class="level3">
-<h3 class="anchored" data-anchor-id="h-at-least-one"><a href="https://www.codechef.com/problems/ATLONE">H: At least One</a></h3>
-<p>This problem there is definitely a dp equation that can be used for solving the problem. There is also a very significant loophole in that since <span class="math inline">\(N \leq 2000\)</span> and each answer will be at most 998244352 due to the modulo limit, it is possible to precomupte all 2000 possible answers to submit an “<span class="math inline">\(O(1)\)</span>” solution, even if the precomputation step takes longer than <span class="math inline">\(O(n^2)\)</span>. For a while I ended up trying this as I hypothesized the following <span class="math inline">\(O(n^3)\)</span> dp idea:</p>
+<section id="b-flipping-binary-string" class="level3">
+<h3 class="anchored" data-anchor-id="b-flipping-binary-string"><a href="https://codeforces.com/contest/2192/problem/B">B: Flipping Binary String</a></h3>
+<p>The order in which the bits are flipped do not matter (flipping bit i then j will have the same string as flipping bit j then i), which implies only the parity of 0’s and 1’s matter.</p>
+<p>Let <code>x</code> be the number of 1’s and <code>y</code> be the number of 0’s.</p>
 <ul>
-<li>Let <code>base[a][b]</code> be a temporary dp array, where <code>a</code> is the last integer value added to the set, <code>b</code> is the current function value, and this is tracking how many subsets have this combination. <code>0 &lt;= b &lt; a</code>.</li>
-<li>Base case is <code>base[1][0]</code> = 1.</li>
-<li>Then from each <code>base[a][b] = c</code>, any value from <code>a+1</code> to 2000 can be the next value, call this k.</li>
-<li>For each possible <code>k</code> value, increment <code>base[k][max(k-a,b)]</code> by <code>base[a][b]</code>, taking <code>mod m</code> if needed.</li>
+<li>If <code>x</code> is even, then perform the operation on all of the 1’s. The 0’s will be flipped x times, an even number, meaning they’ll stay as 0’s. The 1’s will be flipped x-1 times, an odd number, meaning they’ll change to 0’s.</li>
+<li>If <code>x</code> is odd, then check if <code>y</code> is odd. If it is, then performing the operation on all the 0’s will ensure each 1 is flipped an odd number of times and each 0 is flipped an even number of times.</li>
+<li>If <code>x</code> is odd and <code>y</code> is even, this is impossible. There is no reason to consider if only part of the 0’s/1’s need to be flipped.</li>
 </ul>
-<p>Within my attempts I had rearranged the dp equation to compute each <code>base[a][b]</code> value directly from previously computed values, which ends up with the following attempt code that went unsubmitted due to incorrect value for <code>n = 2000</code>. (Even though the other pretests were correct, so I’m very unsure where exactly this goes wrong).</p>
-<p><strong><a href="https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20226/e.py">Attempt Code</a></strong></p>
-<p>As of Friday post contest, I then tried implementing the exact dp method I set up here without any variations. Noticably even though this is also <span class="math inline">\(O(n^3)\)</span> this feels like it takes longer and there seems to be more operations involved.</p>
-<p><strong><a href="https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20226/e2.py">Attempt Code Part 2</a></strong></p>
-<p>This still ends up with the wrong result for n = 2000 (645128103 instead of 904839774). In this scenario it is then best to return to this problem after a few days to relook at this dp equation as there is some sort of miscounting occurring here. As for looking at editorials, I don’t do it. I only use editorials VERY rarely when it’s a problem much easier than my level I should solve, and I’m absolutely confident after a few hours that I’m either overthinking it or the answer involves some basic fundamental concept that I have a knowledge gap in for some reason.</p>
+<p><strong><a href="https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/1081/b.py">Sample code</a></strong></p>
 </section>
+<section id="c-all-in-one-gun" class="level3">
+<h3 class="anchored" data-anchor-id="c-all-in-one-gun"><a href="https://codeforces.com/contest/2192/problem/C">C: All-in-one Gun</a></h3>
+<p>Regardless of what swap in the bullet sequence is made, the enemy will always survive through <code>h//x</code> magazines, where <code>x</code> is the sum of the damage done by all bullets. After computing this, we then consider how to optimize the magazine to deal the remaining damage as fast as possible.</p>
+<p>For some first <code>k</code> bullets, the optimal method is to swap the lowest value in the first <code>k</code> bullets with a higher one in the last <code>n-k</code> bullets if it exists. I find the simplest way to track this is to use suffix array to track the maximums, which is for a magazine array <code>A</code>, the suffix maximums <code>B</code> would be the following:</p>
+<pre><code>A = [4,2,3,5,3]
+B = [5,5,5,3,3]
+C = [0,4,6,9,14]</code></pre>
+<p><code>C</code> is basic prefix sum for the first 0 to <code>n-1</code> bullets. Then the maximum damage possible with <code>k</code> bullets is <code>C[k-1]+B[k-1]</code>. Since <code>C[k] &lt;= C[k+1]</code> for every <code>0 &lt;= k &lt; n</code>, it is possible to compute the optimal <code>k</code> with a binary search as that is an idea I initially thought of and one of this problem’s tags, which results in a similar computation process.</p>
+<p><strong><a href="https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/1081/c.py">Sample code</a></strong></p>
 </section>
-<section id="contest-reflection" class="level2">
-<h2 class="anchored" data-anchor-id="contest-reflection">Contest Reflection</h2>
-<p>Overall, if this was rated, I ended up performing about exactly to where my current 2219 rating would expect. That said I’d consider how I did here rather middling as D and G had several errors made that under most contest systems would be punished more heavily, and H feels very doable.</p>
-<p>Next Saturday will be a bit crazy. Normally I would have classes during this contest, but it is reading week at UBC. This partially leads to me being able to do near whatever next Saturday, which of course means I will be doing the full competitive programming experience: <a href="https://codeforces.com/contests/2192">6:35 AM Codeforces Round 1081</a>, <a href="https://contest.ucup.ac/contests">10 AM UCUP Stage 17</a> (contest link to be updated), and <a href="https://leetcode.com/contest/weekly-contest-490/">6:30 PM Leetcode Weekly 490</a>. Fun!</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
+<section id="d-cost-of-tree" class="level3">
+<h3 class="anchored" data-anchor-id="d-cost-of-tree"><a href="https://codeforces.com/contest/2192/problem/D">D: Cost of Tree</a></h3>
+<p>This is where the interesting contest strategy occurs, because when I reached this problem, I noticed that Problem E already had 6 solves while this problem had none, so I was tempted to skip this first especially since this is a tree problem. After looking at both problems though, I ended up trusting myself and went for D since I had a much better idea of where to begin. There is quite a lot of necessary information to store about each node for this problem, so to explain my thought process, it’s best to show how I defined a node, with comments describing what each attribute represents:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Node:</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>,v):</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.val <span class="op">=</span> v <span class="co"># value of the node</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.depth <span class="op">=</span> <span class="op">-</span><span class="dv">1</span> <span class="co"># depth of the node from the root which has depth 0</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.edges <span class="op">=</span> {} <span class="co"># set-like structure for tracking neighbouring nodes</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.total <span class="op">=</span> v <span class="co"># sum of the values of the nodes in this subtree</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.score <span class="op">=</span> <span class="dv">0</span> <span class="co"># cost of this subtree without making an operation</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.best <span class="op">=</span> <span class="dv">0</span> <span class="co"># highest possible cost increase in this subtree from an operation</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.md <span class="op">=</span> <span class="op">-</span><span class="dv">1</span> <span class="co"># highest depth of a node from a child's subtree</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.md2 <span class="op">=</span> <span class="op">-</span><span class="dv">1</span> <span class="co"># self.md while excluding all nodes from the child subtree self.md came from</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>February 23rd Update
+<span class="screen-reader-only">Caution</span>Classes in Python Should Be Used More Than What I Do Here
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<p>It is the Monday after with this update, and while I initially planned to have each of these three contests recapped in a single post, many changes have occurred that I find it easier to have individual posts for each contest recap. The UCUP session practice will also not be recapped here since after some thought this is a more private practice session where we did Stage 16’s contest instead, and based on the number of problems our team solved in practice it would be difficult to properly recap this contest. Turns out the ICPC European Championship has some very difficult problems. There will be a note on each of these posts linking the related contests on either February 21st or 23rd as well as in this callout here once all of the recaps are done.</p>
+<p>While it is pretty clear that competitive programming code in terms of structural quality tends to be very low for proper software development standards, there is merit in actually having good code structure as I find it helps organizes my thoughts more easily. In this sense, most of the classes I create within competitive programming code are containers for objects to store their traits for which I then manipulate outside the class structure. In this sense I’m effectively using the Python classes like C <code>struct</code> types due to the lack of methods, which is something for myself to work on.</p>
 </div>
+</div>
+</div>
+<p>From all of this, the main technique I know for tree dynamic programming problems is to work from the leaves of the tree and go upwards to the root. This method then works as follows:</p>
+<ul>
+<li>First determine all the proper <code>val</code>, <code>depth</code>, and <code>edges</code> values for each node.</li>
+<li>Determine some method for travering the nodes from the leaves and upwards, saving root for last. Going in highest to lowest node depth works.</li>
+<li><code>total</code> can be computed by adding a node’s child totals to it, where the base case for a node with no children is its own value.</li>
+<li><code>score</code> can be computed by adding a node’s child totals AND child scores to it, where the base case for a node with no children is 0.</li>
+<li>If a node has no children, then <code>best</code> must be 0 (due to having no further nodes to move around).</li>
+<li>If a node has 1 child, then <code>best</code> is equal to the <code>best</code> value of the child because you cannot detach current node from child as an operation.</li>
+<li>If a node has mutiple chidren, then for each child node, determine the depth of the deepest node of the subtree not in this child’s subtree (using <code>md</code> and <code>md2</code>). The difference in depth times the child’s <code>total</code> is the increase in cost performing this operation. Repeat with all child nodes to update <code>best</code>.</li>
+</ul>
+<p>This entire process will then have each node processed in <span class="math inline">\(O(1)\)</span> time at most three times: once to find it’s own answer which is <code>score+best</code> and possibly up to two times as a child node to a direct parent. This then summarizes the entire algorithm in <span class="math inline">\(O(n)\)</span> time.</p>
+<p><strong><a href="https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/1081/d.py">Sample code</a></strong></p>
+</section>
+</section>
+<section id="unsolved-problems" class="level2">
+<h2 class="anchored" data-anchor-id="unsolved-problems">Unsolved Problems</h2>
+<section id="e-swap-to-rearrange" class="level3">
+<h3 class="anchored" data-anchor-id="e-swap-to-rearrange"><a href="https://codeforces.com/contest/2192/problem/E">E: Swap to Rearrange</a></h3>
+<p>Before going back to solve D, I initially looked at this question and hypothesized a greedy idea, as my initial thought was to compute <code>D[x]</code> where for a value <code>x</code>, D[x] equals the number of times <code>x</code> shows up in <code>A</code> minus the number of times <code>x</code> shows up in <code>B</code>. Then a positive value indicates that <code>x</code> values need to be swapped from <code>A</code> to <code>B</code>, negatives mean <code>x</code> should go from <code>B</code> to <code>A</code>, and if every <code>D[x]</code> is 0 then the arrays are balanced. This then divides the possible operations by index into 3 groups. For a pair <code>(x = A[i],y = B[i])</code> swapping these brings either both, one, or none of the values <code>D[x]</code> and <code>D[y]</code> closer to 0. I then tried finding ideas to perform operations in the first group as often as possible, only considering the second group when necessary, but I gave up on this idea after about 20 minutes when it became ambiguous as to how to choose between operations in the same group.</p>
+<p>After thinking about this longer, I then thought this problem felt similar to the <a href="https://cp-algorithms.com/graph/2SAT.html">2-SAT</a> problem, which constructs the boolean restrictions as a graph to solve the problem. I already made the initial observation that if a solution exists, then each value shows up across both arrays an even amount of times. I then constructed a graph where an edge was created for each <code>(A[i],B[i])</code> pair, ensuring that every node in the graph was of even degree. This means that the graph can be decomposed into cycles; ie. there exists a way to assign directions to all the edges so that the resulting graph ends up being a set of disjoint cycle graphs. We can then take the directed edges as the configuration for which to balance <code>A</code> and <code>B</code> to, swapping pairs where needed to match the directed edge configuration.</p>
+<p>At this point though, partially since this at the time was something I only assumed was correct, I wasn’t actually sure how to decompose the graph into cycles. It turns out while decomposing a graph into the fewest number of cycles possible is an NP-Hard problem, finding any valid cycle decomposition can be done near abritarily; I wrote during the contest I was using some greedy method but the reality was that I just threw random edges and it kept making cycles. Part of this also was that I ended up submitting a solution to this problem with about 5 minutes in the contest left. Strangely, this ended up with a <code>Memory Limit Exceeded</code> verdict on pretest 2, which is an error I have seen on about one problem before this. At this point I had no clue how to resolve this and attempted some memory optimization but this wasn’t enough to solve the problem in time. Post contest, I tried using <code>Counter</code> instead of standard dictionaries to track edges thinking this may reduce the memory limit, which didn’t work. Then after further debugging, I end up with <a href="https://codeforces.com/contest/2192/submission/363967501">WA test 3</a> and <a href="https://codeforces.com/contest/2192/submission/363967555">Runtime error on test 2</a> cases that use near the exact same method, just with a few sanity checks to make sure the dictionary setups were never getting negative counts of edges. It’s at this point that I’m reasonably sure the MLE was a weird implementation error side effect, as further reading on this problem shows that every connected component of this graph can be expressed as an <a href="https://cp-algorithms.com/graph/euler_path.html">Euler Path</a>, ie. only one cycle per component is needed, and that the formula for such is simpler than my implementation suggests otherwise.</p>
+<p><strong><a href="https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/1081/e.py">Sample code</a></strong></p>
+</section>
+<section id="f-fish-fight" class="level3">
+<h3 class="anchored" data-anchor-id="f-fish-fight"><a href="https://codeforces.com/contest/2192/problem/F">F: Fish Fight</a></h3>
+<p>Due to the above mess taking up quite a while of the weekend to resolve, I was unable to really observe this problem in depth. From a basic look I am assuming there is some sort of weird <span class="math inline">\(O(n^2)\)</span> greedy idea to compute the fish behaviours and the respective probabilities.</p>
+</section>
+</section>
+<section id="contest-reflection" class="level2">
+<h2 class="anchored" data-anchor-id="contest-reflection">Contest Reflection</h2>
+<p>Due to a higher than expected solve rate for problems D and E, even though I made few significant time errors and no wrong submissions, I ended up gaining only +10 ELO to go to 1880, meaning I’m still in Expert somehow. It’s very much a contest where I clearly met my floor expectation for performance, and there is some credit to me for actually getting reasonably close to solving E since I’ve had cases recently where I’d get completely stuck at that level. I still at least have CF Round 1082 on February 23rd if I can wake up for it to try and reach 1900. But surely I’m not that nuts to actually wake up at 5am for this.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="sleep.png" class="img-fluid figure-img"></p>
+<figcaption>Sleep is for the weak.</figcaption>
+</figure>
 </div>
 
 
