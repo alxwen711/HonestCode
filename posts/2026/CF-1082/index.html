@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Alexander Wen">
-<meta name="dcterms.date" content="2026-02-20">
+<meta name="dcterms.date" content="2026-02-24">
 
-<title>Starters 226 Recap – HonestCode</title>
+<title>CodeForces Round 1082 Recap – HonestCode</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +21,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -141,10 +176,10 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Starters 226 Recap</h1>
+      <h1 class="title">CodeForces Round 1082 Recap</h1>
+            <p class="subtitle lead">The February 21st-23rd Competitive Programming Experience</p>
                                 <div class="quarto-categories">
-                <div class="quarto-category">competitive programming</div>
-                <div class="quarto-category">codechef</div>
+                <div class="quarto-category">codeforces</div>
                 <div class="quarto-category">recap</div>
                 <div class="quarto-category">2026</div>
               </div>
@@ -164,16 +199,10 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">February 20, 2026</p>
+        <p class="date">February 24, 2026</p>
       </div>
     </div>
     
-      <div>
-      <div class="quarto-title-meta-heading">Modified</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date-modified">February 24, 2026</p>
-      </div>
-    </div>
       
     </div>
     
@@ -189,130 +218,151 @@ window.Quarto = {
 
 
 
-<p>I seem to have not checked if this contest was rated beforehand, and it just happens this Starters contest is unranked for 6 star and up. Either way, this is an overview of the general approaches I took to each problem.</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Division 1 Unranked Problems Upsolved
+<span class="screen-reader-only">Important</span>Subtitle Context
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<section id="a-rush-to-exam" class="level3">
-<h3 class="anchored" data-anchor-id="a-rush-to-exam"><a href="https://www.codechef.com/problems/RUSHTOEXAM">A: Rush to Exam</a></h3>
-<p>Chef is able to read <span class="math inline">\(N * A\)</span> pages at most, just compare this to <span class="math inline">\(M\)</span>.</p>
-<p><strong><a href="https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20226/starta.py">Sample code</a></strong></p>
-</section>
-<section id="b-icecream-cones" class="level3">
-<h3 class="anchored" data-anchor-id="b-icecream-cones"><a href="https://www.codechef.com/problems/ICECONE6">B: IceCream Cones</a></h3>
-<p>Total amount of ice cream left is <span class="math inline">\(X - YN\)</span>. If this is negative then the answer is 0.</p>
-<p><strong><a href="https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20226/startb.py">Sample code</a></strong></p>
-</section>
-<section id="c-sub-a-add-b" class="level3">
-<h3 class="anchored" data-anchor-id="c-sub-a-add-b"><a href="https://www.codechef.com/problems/SUBAADDB">C: Sub A Add B</a></h3>
-<p>In this case since <span class="math inline">\(A &gt; B\)</span> is forced, you know that after one replacement operation the length of the string must decrease. Since this string is at most 100 characters anyways this process can be simulated which for the constraints of this problem is reasonable and less error prone than determing the largest integer <span class="math inline">\(X\)</span> such that <span class="math inline">\(X &lt; N\)</span> and <span class="math inline">\(X \mod (A-B) = N \mod (A-B)\)</span>.</p>
-<p><strong><a href="https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20226/startc.py">Sample code</a></strong></p>
-</section>
+<p>This contest was part of a sequence of contests done in rapid succession, for which further context can be found in the February 23rd update for <a href="https://alxwen711.github.io/HonestCode/posts/2026/starters-226/#contest-reflection">this post</a>.</p>
 </div>
 </div>
 </div>
+<p>So here we are again. Once this recap is done it will be the third post that I will have published in a little over 24 hours alongside <a href="https://alxwen711.github.io/HonestCode/posts/2026/CF-1081/">CF Round 1081</a> and <a href="https://alxwen711.github.io/HonestCode/posts/2026/LC-weekly-490/">Leetcode Weekly 490</a>. Not much else to say other than that I got up at 5AM just to bus to UBC early enough for this, so surely I get to 1900 ELO and regain Candidate Master on CodeForces right?</p>
 <section id="solved-problems" class="level2">
 <h2 class="anchored" data-anchor-id="solved-problems">Solved Problems</h2>
-<section id="d-minimum-district" class="level3">
-<h3 class="anchored" data-anchor-id="d-minimum-district"><a href="https://www.codechef.com/problems/MINDIS6">D: Minimum District</a></h3>
-<p>I ended up struggling with this problem more than expected. The first idea tried was to binary search if there were enough operations so that only characters in a set prefix of the array appeared throughout. This method fails against arrays like <code>[1, 2, 3, 3, 3, 3, 3, 3, 3, 3]</code>. Then I just assumed a greedy idea by only matching with the most frequent values in the list, except there are cases like <code>[7, 5, 5, 5, 8, 8, 8, 6, 2]</code> where it’s impossible to have everything match the 5 and 8. Only after this I then included the condition that the first value in the list must be included for the solution. Technically the only penalty due to wrong submissions on these contests is the time taken, which is not representative of most contests (usually there is some sort of penalty added in time from 5 to 20 minutes)</p>
-<p><strong><a href="https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20226/a.py">Sample code</a></strong></p>
+<section id="a-parkour-design" class="level3">
+<h3 class="anchored" data-anchor-id="a-parkour-design"><a href="https://codeforces.com/contest/2202/problem/A">A: Parkour Design</a></h3>
+<p>With all three moves, the sum of the new <code>x</code> and <code>y</code> positions always increases by 3, thus the final <code>x+y</code> sum must be divisible by 3. Let <code>m = (x+y)//3</code> for the number of moves that are made. Then the final <code>x</code> value can be any integer inbetween <code>2m</code> and <code>4m</code>. Assuming these conditions hold there is a solution.</p>
+<p><strong><a href="https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/1082/a.py">Sample code</a></strong></p>
 </section>
-<section id="e-max-minus-min" class="level3">
-<h3 class="anchored" data-anchor-id="e-max-minus-min"><a href="https://www.codechef.com/problems/MAXMIN6">E: Max Minus Min</a></h3>
-<p>There are two observations I initially made:</p>
-<ol type="1">
-<li><p>It is always optimal to either double the lowest value in the list or to leave it as is. Doubling any other value in the list will not increase the minimum but could increase the maximum, always leading to an inferior solution.</p></li>
-<li><p>If we take an array like <code>[1, 100000]</code>, it will only take 17 operations under the first observation to increase the maximum. From this point onwards the max minus min value will spiral out of control. Thus it is likely that the optimal value will be found after at most <span class="math inline">\(20n\)</span> or so operations, where <span class="math inline">\(n\)</span> is the length of the list. Just to be safe I ended up using <span class="math inline">\(25n\)</span>.</p></li>
-</ol>
-<p>To efficiently obtain the minimum of the values, the <code>heapq</code> library can be used for <span class="math inline">\(O(\log n)\)</span> retrival. The number of operations at most then means this algorithm has a run time of <span class="math inline">\(O(n \log n)\)</span>, although the higher coefficients make this function more like a <span class="math inline">\(O(n \log^2 n)\)</span> algorithm. Due to input size being limited to <span class="math inline">\(n \leq 10^5\)</span>, this is still fast enough for Python to solve this in 0.91 seconds (time limit is 2 seconds). Faster can be achieved via manual implementation of the heap.</p>
-<p><strong><a href="https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20226/b.py">Sample code</a></strong></p>
+<section id="b-abab-construction" class="level3">
+<h3 class="anchored" data-anchor-id="b-abab-construction"><a href="https://codeforces.com/contest/2202/problem/B">B: ABAB Construction</a></h3>
+<p>I initially split this problem into cases where the <code>n</code> is odd or even because then the balance of characters would vary (even strings have the same number of a and b characters while odd strings have an extra a character). Our even string is of some form <code>abab...abab</code>. If an ‘a’ is removed from this string, then the remainder is <code>bab...abab</code> and a ‘b’ must follow. Likewise if ‘b’ is chosen first, then an ‘a’ must follow, so for even cases, we only need to check if each of the adjacent character pairs of <span class="math inline">\(X\)</span> can contain one ‘a’ and one ‘b’. In pseudo code, checking the following on X suffices:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>valid <span class="op">=</span> <span class="st">"YES"</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(X)<span class="op">//</span><span class="dv">2</span>):</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> X[<span class="dv">2</span><span class="op">*</span>i] <span class="op">==</span> <span class="st">"a"</span> <span class="kw">and</span> X[<span class="dv">2</span><span class="op">*</span>i<span class="op">+</span><span class="dv">1</span>] <span class="op">==</span> <span class="st">"a"</span> <span class="kw">or</span> X[<span class="dv">2</span><span class="op">*</span>i] <span class="op">==</span> <span class="st">"b"</span> <span class="kw">and</span> X[<span class="dv">2</span><span class="op">*</span>i<span class="op">+</span><span class="dv">1</span>] <span class="op">==</span> <span class="st">"b"</span>:</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        valid <span class="op">=</span> <span class="st">"NO"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Then when I tried solving odd case, the first character is always going to be ‘a’, so check that first. What is left is identical to solving the even case, as even if the first ‘a’ was chosen, the string ‘bababa’ is functionally identical in the problem to ‘ababab’.</p>
+<p><strong><a href="https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/1082/b.py">Sample code</a></strong></p>
 </section>
-<section id="f-array-graph" class="level3">
-<h3 class="anchored" data-anchor-id="f-array-graph"><a href="https://www.codechef.com/problems/ARRGRAPH6">F: Array Graph</a></h3>
-<p>From experimenting I assume that there is always a solution possible, which turns this into more of a constructive problem. Part of the experimenting and what is generally a good starting point is to consider the extreme cases:</p>
-<pre><code>2
-6
-1 1 1 1 1 1
-6
-1 2 3 4 5 6</code></pre>
-<p>For the first case, no rearranging is required, as this creates a star graph with an extra self loop, where every node is connected to node 1. In the second case, the simplest rearrangement is <code>2 3 4 5 6 1</code>, which results in 1 connecting to 2, 2 connecting to 3, 3 connecting to 4, and so on until 6 connects to 1, making a cycle graph.</p>
-<p>When we consider cases in the middle, we can use a greedy idea. Begin by sorting the values in a list in order of decreasing frequency. You then want to use the values in this order to create edges that connect to each subsequent value in this list, ie. choosing the next most frequent value each time. Most likely, you will end up with several values that do not exist in the array being assigned edges to the already connected component at the end. If this isn’t the case, then every value in the list was unique which results in this method creating a cycle graph.</p>
-<p><strong><a href="https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20226/c.py">Sample code</a></strong></p>
-</section>
-<section id="g-good-subarrays" class="level3">
-<h3 class="anchored" data-anchor-id="g-good-subarrays"><a href="https://www.codechef.com/problems/GOODSUB6">G: Good Subarrays</a></h3>
-<p>There was a initial working through of the testcase I tried only to then realize I had misinterpreted the problem statement as subsequences when they are only subarrays.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="subsetd.png" class="img-fluid figure-img"></p>
-<figcaption>Initial workings of the last pretest assuming these are subsequences for some reason.</figcaption>
-</figure>
-</div>
-<p>Such is the advice of <strong>Read the problem statement carefully</strong>. Anyways, even with this misread, it can be noticed that only subarrays starting with 1 can actually work, and this partially implies that any prefix of a good subarray is also good. Furthermore, concating two good subarrays creates another good subarray. Using this we can compute the <code>dist</code> (short for distance) of each index in the array to be the length of the longest subarray that is good that starts at this prefix. For instance, the <code>dist</code> array for the example testcase shown below:</p>
-<pre><code>[1,1,2,1,2,3,4]
-[7,6,0,4,0,0,0]</code></pre>
-<p>It then follows that our answer will be <code>sum(dist)</code>. If we were to brute force each possible subarray, this would be <span class="math inline">\(O(n^2)\)</span>. But since adjacent good subarrays create a larger good subarray, we can then do the following:</p>
-<ul>
-<li>Traverse the array backwards, stopping on each 1</li>
-<li>For the first 1, naively compute the <code>dist</code> value, track what the highest value in the subarray is</li>
-<li>For each 1 afterwards, the following cases can happen:
-<ul>
-<li>The subarray does not connect with the next 1 in the array</li>
-<li>The subarray reaches the next 1; update the highest value, jump to the end of the found subarray, and continue if possible</li>
-</ul></li>
-</ul>
-<p>Under this method computing the <code>dist</code> for each value will ensure that only new unchecked values actually get accessed multiple times, and on average, every element of the array will be checked at most twice, reducing this to <span class="math inline">\(O(n)\)</span>.</p>
-<p><strong><a href="https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20226/d.py">Sample code</a></strong></p>
-</section>
-</section>
-<section id="unsolved-problems" class="level2">
-<h2 class="anchored" data-anchor-id="unsolved-problems">Unsolved Problems</h2>
-<section id="h-at-least-one" class="level3">
-<h3 class="anchored" data-anchor-id="h-at-least-one"><a href="https://www.codechef.com/problems/ATLONE">H: At least One</a></h3>
-<p>This problem there is definitely a dp equation that can be used for solving the problem. There is also a very significant loophole in that since <span class="math inline">\(N \leq 2000\)</span> and each answer will be at most 998244352 due to the modulo limit, it is possible to precomupte all 2000 possible answers to submit an “<span class="math inline">\(O(1)\)</span>” solution, even if the precomputation step takes longer than <span class="math inline">\(O(n^2)\)</span>. For a while I ended up trying this as I hypothesized the following <span class="math inline">\(O(n^3)\)</span> dp idea:</p>
-<ul>
-<li>Let <code>base[a][b]</code> be a temporary dp array, where <code>a</code> is the last integer value added to the set, <code>b</code> is the current function value, and this is tracking how many subsets have this combination. <code>0 &lt;= b &lt; a</code>.</li>
-<li>Base case is <code>base[1][0]</code> = 1.</li>
-<li>Then from each <code>base[a][b] = c</code>, any value from <code>a+1</code> to 2000 can be the next value, call this k.</li>
-<li>For each possible <code>k</code> value, increment <code>base[k][max(k-a,b)]</code> by <code>base[a][b]</code>, taking <code>mod m</code> if needed.</li>
-</ul>
-<p>Within my attempts I had rearranged the dp equation to compute each <code>base[a][b]</code> value directly from previously computed values, which ends up with the following attempt code that went unsubmitted due to incorrect value for <code>n = 2000</code>. (Even though the other pretests were correct, so I’m very unsure where exactly this goes wrong).</p>
-<p><strong><a href="https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20226/e.py">Attempt Code</a></strong></p>
-<p>As of Friday post contest, I then tried implementing the exact dp method I set up here without any variations. Noticably even though this is also <span class="math inline">\(O(n^3)\)</span> this feels like it takes longer and there seems to be more operations involved.</p>
-<p><strong><a href="https://github.com/alxwen711/contestSubmissionArchive/blob/main/codechef/starters%20226/e2.py">Attempt Code Part 2</a></strong></p>
-<p>This still ends up with the wrong result for n = 2000 (645128103 instead of 904839774). In this scenario it is then best to return to this problem after a few days to relook at this dp equation as there is some sort of miscounting occurring here. As for looking at editorials, I don’t do it. I only use editorials VERY rarely when it’s a problem much easier than my level I should solve, and I’m absolutely confident after a few hours that I’m either overthinking it or the answer involves some basic fundamental concept that I have a knowledge gap in for some reason.</p>
-</section>
-</section>
-<section id="contest-reflection" class="level2">
-<h2 class="anchored" data-anchor-id="contest-reflection">Contest Reflection</h2>
-<p>Overall, if this was rated, I ended up performing about exactly to where my current 2219 rating would expect. That said I’d consider how I did here rather middling as D and G had several errors made that under most contest systems would be punished more heavily, and H feels very doable.</p>
-<p>Next Saturday will be a bit crazy. Normally I would have classes during this contest, but it is reading week at UBC. This partially leads to me being able to do near whatever next Saturday, which of course means I will be doing the full competitive programming experience: <a href="https://codeforces.com/contests/2192">6:35 AM Codeforces Round 1081</a>, <a href="https://contest.ucup.ac/contests">10 AM UCUP Stage 17</a> (contest link to be updated), and <a href="https://leetcode.com/contest/weekly-contest-490/">6:30 PM Leetcode Weekly 490</a>. Fun!</p>
-<div class="callout callout-style-default callout-important callout-titled">
+<section id="c1-lost-civilization-easy-version" class="level3">
+<h3 class="anchored" data-anchor-id="c1-lost-civilization-easy-version"><a href="https://codeforces.com/contest/2202/problem/C1">C1: Lost Civilization (Easy Version)</a></h3>
+<p>The first part of this problem is determining the shortest subsequence that could create the full array. Implicitly, I assumed there was some sort of greedy idea. Initially, this was my starting idea:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(readint()):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> readint()</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    ar <span class="op">=</span> readar()</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    prev <span class="op">=</span> <span class="dv">462387463874678364873264783624</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    rv <span class="op">=</span> <span class="dv">48762834687326487364</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    ans <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> ar:</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> i <span class="op">&gt;</span> rv <span class="kw">or</span> i <span class="op">&lt;=</span> prev:</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>            ans <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>            prev <span class="op">=</span> i</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>            rv <span class="op">=</span> prev<span class="op">+</span><span class="dv">1</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>            rv <span class="op">=</span> <span class="bu">max</span>(i<span class="op">+</span><span class="dv">1</span>,rv)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(ans)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This was due to the idea after some experimentation in the last test case, the <code>2 3 4 4 5 3</code> sequence was creatable by <code>2</code> -&gt; <code>2 3</code> -&gt; <code>2 3 3</code> -&gt; <code>2 3 4 3</code> -&gt; <code>2 3 4 4 3</code> -&gt; <code>2 3 4 4 5 3</code>, which I then assumed meant that assuming a new value creates a new “chain” (ie. cannot be created from either the previous chain start or the start of the list), every value afterwards had to both be higher than the chain start and at most 1 higher than the current maximum. This ended with Wrong Answer on pretest 3, which post contest analysis shows consists of various small <code>n</code> cases. I didn’t know this at the time but I assumed WA on a earlyish pretest meant there was some hole in the algorithm as placing these small case tests as one of the first pretests is very common. In this case, trying something like <code>1 2 3 4 2 4 2 4</code> will return an incorrect value since the consecutive values in a chain can never increase by more than 1. Once this fix was made I had the problem solved.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Important</span>February 23rd Update
+Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>It is the Monday after with this update, and while I initially planned to have each of these three contests recapped in a single post, many changes have occurred that I find it easier to have individual posts for each contest recap. The UCUP session practice will also not be recapped here since after some thought this is a more private practice session where we did Stage 16’s contest instead, and based on the number of problems our team solved in practice it would be difficult to properly recap this contest. Turns out the ICPC European Championship has some very difficult problems. There will be a note on each of these posts linking the related contests on either February 21st or 23rd as well as in this callout here once all of the recaps are done.</p>
-<p><a href="https://alxwen711.github.io/HonestCode/posts/2026/CF-1081/">Feb 21st CF Round 1081</a></p>
-<p><a href="https://alxwen711.github.io/HonestCode/posts/2026/LC-weekly-490/">Feb 21st LC Weekly 490</a></p>
-<p><a href="https://alxwen711.github.io/HonestCode/posts/2026/CF-1082/">Feb 23rd CF Round 1082</a></p>
+<p>Deriving information from a wrong verdict only works in competitions like CodeForces and CodeChef due to being more open with the failure information. With most ICPC contests, you will be told why the code failed but you won’t know what testcase it was on, furthermore, there is a less rigid structure with the testcases. That said, there is no reason you can’t just manually create all the small cases, solve them via a naive brute force solution you know is correct, and then compare the results with your algorithm intended to solve the problem.</p>
 </div>
 </div>
+<p><strong><a href="https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/1082/c.py">Sample code</a></strong></p>
+</section>
+<section id="c2-lost-civilization-hard-version" class="level3">
+<h3 class="anchored" data-anchor-id="c2-lost-civilization-hard-version"><a href="https://codeforces.com/contest/2202/problem/C2">C2: Lost Civilization (Hard Version)</a></h3>
+<p>In this second part we now need to compute C1 but for every single subarray. I initially tried computing the length of each chain, and then using this information to compute the total sum. For instance, the array <code>[1 2 3 1 2 1 1 2]</code> has chains of length 3, 2, 1, and 2. Then by traversing right to left, we can create the following 2D grid structure containing the f values:</p>
+<pre><code>11122334
+-1122334
+--122344
+---11233
+----1233
+-----122
+------11
+-------1</code></pre>
+<p>With this grid the value in the ith row and jth column represents the f value for the subarray from the ith to jth element. This ends up over counting on the last example because if we made this structure based on what was actually happening and not by simple backwards traversal of chain count, we get this:</p>
+<pre><code>122333333
+-11222222
+--1222222
+---111111
+----11112
+-----1112
+------112
+-------12
+--------1</code></pre>
+<p>Mainly, the added <code>2</code> is necessary to make <code>3 4 4 5 3</code> a single chain, which was not reflected in the inital thinking. Where this gets strange is I then tried determining what the shortest subarray is that would have a given value be ‘buildable’. In this case, a value in the array is buildable if it could be generated from a previous element in the array without starting a new chain. This means for a given value <code>x</code>, I needed to track the latest instance of <code>x-1</code> before this value in the array. With the last example case <span class="math inline">\(X\)</span>, we generate the following array <span class="math inline">\(A\)</span>:</p>
+<pre><code>X = [9,8,9,2,3,4,4,5,3]
+A = [0,1,1,3,3,4,4,6,3]</code></pre>
+<p>Then for each of the index values i where <code>A[i] != i</code>, we consider the subarray from index <code>A[i]</code> to <code>i</code> and count how many subarrays of <code>X</code> fully contain this subarray. The sum of all of these can be expressed as <code>Y</code>. <code>Y</code> can be thought of as the number of chain starts saved from the maximum possible answer for an array of length <code>n</code> can be expressed by <span class="math inline">\(f(n)\)</span>, defined as:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(n):</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,n<span class="op">+</span><span class="dv">1</span>):</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>        x <span class="op">+=</span> i<span class="op">*</span>(n<span class="op">+</span><span class="dv">1</span><span class="op">-</span>i)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>It then results in the answer being <span class="math inline">\(f(n)-Y\)</span> for some reason that I’m not entirely sure of. In this case I could understand how this solution solves the basic extreme cases (an array of all 1’s produces the maximum result while an array from 1 to n consecutive produces the minimum result), and I submitted this once I confirmed this was passing example cases, but the formal mathematical understanding here is somewhat hazy.</p>
+<p><strong><a href="https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/1082/c2.py">Sample code</a></strong></p>
+</section>
+<section id="d-recollect-numbers" class="level3">
+<h3 class="anchored" data-anchor-id="d-recollect-numbers"><a href="https://codeforces.com/contest/2202/problem/D">D: Recollect Numbers</a></h3>
+<p>I started by figuring out what <span class="math inline">\(k\)</span> values could be possible, which is <span class="math inline">\(n \leq x \leq 2n\)</span>. This is because you require <span class="math inline">\(n\)</span> flips at minimum to actually open all the cards at least once, and any individual card will never be flipped more than twice. Assuming a card’s first flip does not create a match, it will not be flipped again unless a new card flipped matches it. By this thinking, I also could tell <span class="math inline">\(k = 2n\)</span> was impossible, although this is obvious on <span class="math inline">\(n = 1\)</span>. Thus the question was how to construct up to a <span class="math inline">\(2n - 1\)</span> move arrangement.</p>
+<p>My first idea for arrangements solved up to <span class="math inline">\(n + n//2\)</span> cards. We could use an arrangement like <code>1 2 3 4 5 6 1 2 3 4 5 6</code> on the first 12 cards, and then place the remaining pairs in order for a <code>n+3</code> solution. We then observe the one example case where this idea could not work, which is <span class="math inline">\(n = 3, k = 5\)</span>. The solution given is <code>1 2 3 1 2 3</code>, which wastes moves more optimally because when a match is not found, only one new distinct value is revealed as compared to my previous two. This inspires the following setup:</p>
+<pre><code>1 2 3 1 4 2 5 3 6 4 ... n n-2 n-1 n</code></pre>
+<p>Then after the first move, a sequence of discover one new value in a wrong match with a previously found followed by matching the seen pair persists as long as necessary. Simulating on the sequence for <span class="math inline">\(n = 4\)</span> (<code>1 2 3 1 4 2 3 4</code>) takes 7 moves, so this appears to be the <span class="math inline">\(2n - 1\)</span> solution. Then for specific <code>k</code> values we can mathematically determine how long to repeat this setup before it suffices to line up the remaining pairs in order.</p>
+<p><strong><a href="https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/1082/d.py">Sample code</a></strong></p>
+</section>
+</section>
+<section id="unsolved-problems" class="level2">
+<h2 class="anchored" data-anchor-id="unsolved-problems">Unsolved Problems</h2>
+<section id="e-rigged-bracket-sequence" class="level3">
+<h3 class="anchored" data-anchor-id="e-rigged-bracket-sequence"><a href="https://codeforces.com/contest/2202/problem/E">E: Rigged Bracket Sequence</a></h3>
+<p>I first just setup the bracket prefix sum, which is to let <code>(</code> characters represent +1 and <code>)</code> represent -1, then run prefix sum over this number array. Since this is a regular bracket sequence, all values in this prefix array must be non-negative. From this point on, I made several observations in an attempt to create a <code>dp</code> solution that went unsubmitted due to consistently overcounting on the last two examples, but this is what I had:</p>
+<ul>
+<li>Any time our subsequence contains only <code>(</code> or only <code>)</code> is always possible to shift.</li>
+<li>Assuming the subsequence contains both <code>(</code> and <code>)</code>, the main concern is if <code>)</code> is at the end of the subsequence. This is because shifting it would place a -1 in our prefix sum earlier than expected, which may cause some of the values to go into negatives (thus making this bracket sequence irregular).</li>
+<li>If a <code>(</code> is at the end of the subsequence, then shifting it brings it to the front and effectively changes the -1 in the first index of the subsequence to a +1 for the prefix array, meaning that this should always be valid.</li>
+<li>Otherwise, every current index in the prefix array corresponding to a <code>(</code> must have a value of at least 2 to remain nonnegative after a shift. Looking back here, this part of the reasoning may have been flawed since it’s assuming a <code>)</code> will be shifted to the place of each <code>(</code> when it may not be true, but that should be mean the algorithm is undercounting when it’s the opposite. Very confusing.</li>
+<li>In either case, from these observations, I identified 8 subscenarios:
+<ul>
+<li>empty strings</li>
+<li>only containing <code>(</code> with values 2+</li>
+<li>only containing <code>(</code> with any value</li>
+<li>only containing <code>)</code></li>
+<li>ending in <code>(</code>, all <code>(</code> have value 2+</li>
+<li>ending in <code>(</code>, not all <code>(</code> have value 2+</li>
+<li>ending in <code>)</code>, all <code>(</code> have value 2+</li>
+<li>ending in <code>)</code>, not all <code>(</code> have value 2+</li>
+</ul></li>
+<li>Then a dp was used to track how many of each scenario was possible, and the answer should’ve been the number of states in all scenarios combined except for empty and ending in <code>)</code>, not all <code>(</code> have value 2+.</li>
+</ul>
+<p><strong><a href="https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/1082/e.py">Attempt code</a></strong></p>
+</section>
+</section>
+<section id="did-not-start" class="level2">
+<h2 class="anchored" data-anchor-id="did-not-start">Did Not Start</h2>
+<p><a href="https://codeforces.com/contest/2202/problem/F">F: Binary Not Search and Queries</a></p>
+<p><a href="https://codeforces.com/contest/2202/problem/G1">G1: Monotone Monochrome Matrices (Easy Version)</a></p>
+<p><a href="https://codeforces.com/contest/2202/problem/G2">G2: Monotone Monochrome Matrices (Hard Version)</a></p>
+</section>
+<section id="contest-reflection" class="level2">
+<h2 class="anchored" data-anchor-id="contest-reflection">Contest Reflection</h2>
+<p>The difficulty spike from D to E is quite significant, and overall, this felt like one of those contests I tend have more commonly, where I’m consistent on easier problems and then hit a significant wall around E. If anything, compared to where I started, the wall has moved from problem D to problem E on a fairly routine basis. This contest also was enough to get me back over 1900 ELO.</p>
+<p>As for the reflection process, given that this is coming out Tuesday after having uploaded three contest recaps over the last 30 hours or so, this feels more like an anomaly in that parts of these recaps feel rather condensed to my liking. For the readers, feel free to contact me (alxwen711@ gmail.com) if further clarification is needed. The next few posts for this blog will have more of a data science focus in them.</p>
 
 
 </section>
