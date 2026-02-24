@@ -2,7 +2,7 @@
 title: "Starters 226 Recap"
 author: "Alexander Wen"
 date: "2026-02-20"
-date-modified: "2026-02-23"
+date-modified: "2026-02-24"
 categories: [competitive programming,codechef,recap,2026]
 image: "icon.png"
 ---
@@ -130,6 +130,6 @@ It is the Monday after with this update, and while I initially planned to have e
 
 [Feb 21st LC Weekly 490](https://alxwen711.github.io/HonestCode/posts/2026/LC-weekly-490/)
 
-[Feb 23rd CF Round 1082](https://alxwen711.github.io/HonestCode/posts/2026/CF-1082/) (in progress)
+[Feb 23rd CF Round 1082](https://alxwen711.github.io/HonestCode/posts/2026/CF-1082/)
 :::
 
