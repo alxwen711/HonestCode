@@ -19,16 +19,55 @@ So here we are again. It's currently 8:40 PM when I'm recapping this contest, ma
 
 ### [A: Parkour Design](https://codeforces.com/contest/2202/problem/A)
 
+With all three moves, the sum of the new `x` and `y` positions always increases by 3, thus the final `x+y` sum must be divisible by 3. Let `m = (x+y)//3` for the number of moves that are made. Then the final `x` value can be any integer inbetween `2m` and `4m`. Assuming these conditions hold there is a solution.
+
 **[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/1082/a.py)**
 
 
 ### [B: ABAB Construction](https://codeforces.com/contest/2202/problem/B)
+
+I initially split this problem into cases where the `n` is odd or even because then the balance of characters would vary (even strings have the same number of a and b characters while odd strings have an extra a character). Our even string is of some form `abab...abab`. If an 'a' is removed from this string, then the remainder is `bab...abab` and a 'b' must follow. Likewise if 'b' is chosen first, then an 'a' must follow, so for even cases, we only need to check if each of the adjacent character pairs of $X$ can contain one 'a' and one 'b'. In pseudo code, checking the following on X suffices:
+
+```python
+valid = "YES"
+for i in range(len(X)//2):
+    if X[2*i] == "a" and X[2*i+1] == "a" or X[2*i] == "b" and X[2*i+1] == "b":
+        valid = "NO"
+```
+
+Then when I tried solving odd case, the first character is always going to be 'a', so check that first. What is left is identical to solving the even case, as even if the first 'a' was chosen, the string 'bababa' is functionally identical in the problem to 'ababab'.
 
 **[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/1082/b.py)**
 
 
 
 ### [C1: Lost Civilization (Easy Version)](https://codeforces.com/contest/2202/problem/C1)
+
+The first part of this problem is determining the shortest subsequence that could create the full array. Implicitly, I assumed there was some sort of greedy idea. Initially, this was my starting idea:
+
+```python
+for _ in range(readint()):
+    n = readint()
+    ar = readar()
+    prev = 462387463874678364873264783624
+    rv = 48762834687326487364
+    ans = 0
+    for i in ar:
+        if i > rv or i <= prev:
+            ans += 1
+            prev = i
+            rv = prev+1
+        else:
+            rv = max(i+1,rv)
+    print(ans)
+```
+
+This was due to the idea after some experimentation in the last test case, the `2 3 4 4 5 3` sequence was creatable by `2` -> `2 3` -> `2 3 3` -> `2 3 4 3` -> `2 3 4 4 3` -> `2 3 4 4 5 3`, which I then assumed meant that assuming a new value creates a new "chain" (ie. cannot be created from either the previous chain start or the start of the list), every value afterwards had to both be higher than the chain start and at most 1 higher than the current maximum. This ended with Wrong Answer on pretest 3, which post contest analysis shows consists of various small `n` cases. I didn't know this at the time but I assumed WA on a earlyish pretest meant there was some hole in the algorithm as placing these small case tests as one of the first pretests is very common. In this case, trying something like `1 2 3 4 2 4 2 4` will return an incorrect value since the consecutive values in a chain can never increase by more than 1. Once this fix was made I had the problem solved.
+
+:::{.callout-tip}
+
+Deriving information from a wrong verdict only works in competitions like CodeForces and CodeChef due to being more open with the failure information. With most ICPC contests, you will be told why the code failed but you won't know what testcase it was on, furthermore, there is a less rigid structure with the testcases. That said, there is no reason you can't just manually create all the small cases, solve them via a naive brute force solution you know is correct, and then compare the results with your algorithm intended to solve the problem.
+:::
 
 **[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/1082/c.py)**
 
