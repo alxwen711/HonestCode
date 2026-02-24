@@ -1,0 +1,64 @@
+---
+title: "CodeForces Round 1082 Recap"
+subtitle: "The February 21st-23rd Competitive Programming Experience"
+author: "Alexander Wen"
+date: "2026-02-23"
+categories: [codeforces,recap,2026]
+---
+
+:::{.callout-important collapse="true"}
+
+## Subtitle Context
+
+This contest was part of a sequence of contests done in rapid succession, for which further context can be found in the February 23rd update for [this post](https://alxwen711.github.io/HonestCode/posts/2026/starters-226/#contest-reflection).
+:::
+
+So here we are again. It's currently 8:40 PM when I'm recapping this contest, making this now the third post that I will have published today alongside [CF Round 1081](https://alxwen711.github.io/HonestCode/posts/2026/CF-1081/) and [Leetcode Weekly 490](https://alxwen711.github.io/HonestCode/posts/2026/LC-weekly-490/). Not much else to say other than that I got up at 5AM just to bus to UBC early enough for this, so surely I get to 1900 ELO and regain Candidate Master on CodeForces right?
+
+## Solved Problems
+
+### [A: Parkour Design](https://codeforces.com/contest/2202/problem/A)
+
+**[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/1082/a.py)**
+
+
+### [B: ABAB Construction](https://codeforces.com/contest/2202/problem/B)
+
+**[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/1082/b.py)**
+
+
+
+### [C1: Lost Civilization (Easy Version)](https://codeforces.com/contest/2202/problem/C1)
+
+**[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/1082/c.py)**
+
+
+### [C1: Lost Civilization (Hard Version)](https://codeforces.com/contest/2202/problem/C2)
+
+**[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/1082/c2.py)**
+
+
+
+
+### [D: Recollect Numbers](https://codeforces.com/contest/2202/problem/D)
+
+**[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/1082/d.py)**
+
+
+## Unsolved Problems
+
+### [E: Rigged Bracket Sequence](https://codeforces.com/contest/2202/problem/E)
+
+**[Attempt code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/1082/e.py)**
+
+
+## Did Not Start
+
+[F: Binary Not Search and Queries](https://codeforces.com/contest/2202/problem/F)
+
+[G1: Monotone Monochrome Matrices (Easy Version)](https://codeforces.com/contest/2202/problem/G1)
+
+[G2: Monotone Monochrome Matrices (Hard Version)](https://codeforces.com/contest/2202/problem/G2)
+
+
+## Contest Reflection
