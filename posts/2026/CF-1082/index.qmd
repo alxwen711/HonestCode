@@ -2,7 +2,7 @@
 title: "CodeForces Round 1082 Recap"
 subtitle: "The February 21st-23rd Competitive Programming Experience"
 author: "Alexander Wen"
-date: "2026-02-23"
+date: "2026-02-24"
 categories: [codeforces,recap,2026]
 ---
 
@@ -13,7 +13,7 @@ categories: [codeforces,recap,2026]
 This contest was part of a sequence of contests done in rapid succession, for which further context can be found in the February 23rd update for [this post](https://alxwen711.github.io/HonestCode/posts/2026/starters-226/#contest-reflection).
 :::
 
-So here we are again. It's currently 8:40 PM when I'm recapping this contest, making this now the third post that I will have published today alongside [CF Round 1081](https://alxwen711.github.io/HonestCode/posts/2026/CF-1081/) and [Leetcode Weekly 490](https://alxwen711.github.io/HonestCode/posts/2026/LC-weekly-490/). Not much else to say other than that I got up at 5AM just to bus to UBC early enough for this, so surely I get to 1900 ELO and regain Candidate Master on CodeForces right?
+So here we are again. Once this recap is done it will be the third post that I will have published in a little over 24 hours alongside [CF Round 1081](https://alxwen711.github.io/HonestCode/posts/2026/CF-1081/) and [Leetcode Weekly 490](https://alxwen711.github.io/HonestCode/posts/2026/LC-weekly-490/). Not much else to say other than that I got up at 5AM just to bus to UBC early enough for this, so surely I get to 1900 ELO and regain Candidate Master on CodeForces right?
 
 ## Solved Problems
 
@@ -72,7 +72,54 @@ Deriving information from a wrong verdict only works in competitions like CodeFo
 **[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/1082/c.py)**
 
 
-### [C1: Lost Civilization (Hard Version)](https://codeforces.com/contest/2202/problem/C2)
+### [C2: Lost Civilization (Hard Version)](https://codeforces.com/contest/2202/problem/C2)
+
+In this second part we now need to compute C1 but for every single subarray. I initially tried computing the length of each chain, and then using this information to compute the total sum. For instance, the array `[1 2 3 1 2 1 1 2]` has chains of length 3, 2, 1, and 2. Then by traversing right to left, we can create the following 2D grid structure containing the f values:
+
+```
+11122334
+-1122334
+--122344
+---11233
+----1233
+-----122
+------11
+-------1
+```
+
+With this grid the value in the ith row and jth column represents the f value for the subarray from the ith to jth element. This ends up over counting on the last example because if we made this structure based on what was actually happening and not by simple backwards traversal of chain count, we get this:
+
+```
+122333333
+-11222222
+--1222222
+---111111
+----11112
+-----1112
+------112
+-------12
+--------1
+```
+
+Mainly, the added `2` is necessary to make `3 4 4 5 3` a single chain, which was not reflected in the inital thinking. Where this gets strange is I then tried determining what the shortest subarray is that would have a given value be 'buildable'. In this case, a value in the array is buildable if it could be generated from a previous element in the array without starting a new chain. This means for a given value `x`, I needed to track the latest instance of `x-1` before this value in the array. With the last example case $X$, we generate the following array $A$:
+
+```
+X = [9,8,9,2,3,4,4,5,3]
+A = [0,1,1,3,3,4,4,6,3]
+```
+
+Then for each of the index values i where `A[i] != i`, we consider the subarray from index `A[i]` to `i` and count how many subarrays of `X` fully contain this subarray. The sum of all of these can be expressed as `Y`. `Y` can be thought of as the number of chain starts saved from the maximum possible answer for an array of length `n` can be expressed by $f(n)$, defined as:
+
+```python
+def f(n):
+    x = 0
+    for i in range(1,n+1):
+        x += i*(n+1-i)
+    return x
+```
+
+It then results in the answer being $f(n)-Y$ for some reason that I'm not entirely sure of. In this case I could understand how this solution solves the basic extreme cases (an array of all 1's produces the maximum result while an array from 1 to n consecutive produces the minimum result), and I submitted this once I confirmed this was passing example cases, but the formal mathematical understanding here is somewhat hazy.
+
 
 **[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/1082/c2.py)**
 
@@ -81,6 +128,16 @@ Deriving information from a wrong verdict only works in competitions like CodeFo
 
 ### [D: Recollect Numbers](https://codeforces.com/contest/2202/problem/D)
 
+I started by figuring out what $k$ values could be possible, which is $n \leq x \leq 2n$. This is because you require $n$ flips at minimum to actually open all the cards at least once, and any individual card will never be flipped more than twice. Assuming a card's first flip does not create a match, it will not be flipped again unless a new card flipped matches it. By this thinking, I also could tell $k = 2n$ was impossible, although this is obvious on $n = 1$. Thus the question was how to construct up to a $2n - 1$ move arrangement.
+
+My first idea for arrangements solved up to $n + n//2$ cards. We could use an arrangement like `1 2 3 4 5 6 1 2 3 4 5 6` on the first 12 cards, and then place the remaining pairs in order for a `n+3` solution. We then observe the one example case where this idea could not work, which is $n = 3, k = 5$. The solution given is `1 2 3 1 2 3`, which wastes moves more optimally because when a match is not found, only one new distinct value is revealed as compared to my previous two. This inspires the following setup:
+
+```
+1 2 3 1 4 2 5 3 6 4 ... n n-2 n-1 n
+```
+
+Then after the first move, a sequence of discover one new value in a wrong match with a previously found followed by matching the seen pair persists as long as necessary. Simulating on the sequence for $n = 4$ (`1 2 3 1 4 2 3 4`) takes 7 moves, so this appears to be the $2n - 1$ solution. Then for specific `k` values we can mathematically determine how long to repeat this setup before it suffices to line up the remaining pairs in order.
+
 **[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/1082/d.py)**
 
 
@@ -88,6 +145,23 @@ Deriving information from a wrong verdict only works in competitions like CodeFo
 
 ### [E: Rigged Bracket Sequence](https://codeforces.com/contest/2202/problem/E)
 
+I first just setup the bracket prefix sum, which is to let `(` characters represent +1 and `)` represent -1, then run prefix sum over this number array. Since this is a regular bracket sequence, all values in this prefix array must be non-negative. From this point on, I made several observations in an attempt to create a `dp` solution that went unsubmitted due to consistently overcounting on the last two examples, but this is what I had:
+
+- Any time our subsequence contains only `(` or only `)` is always possible to shift.
+- Assuming the subsequence contains both `(` and `)`, the main concern is if `)` is at the end of the subsequence. This is because shifting it would place a -1 in our prefix sum earlier than expected, which may cause some of the values to go into negatives (thus making this bracket sequence irregular).
+- If a `(` is at the end of the subsequence, then shifting it brings it to the front and effectively changes the -1 in the first index of the subsequence to a +1 for the prefix array, meaning that this should always be valid.
+- Otherwise, every current index in the prefix array corresponding to a `(` must have a value of at least 2 to remain nonnegative after a shift. Looking back here, this part of the reasoning may have been flawed since it's assuming a `)` will be shifted to the place of each `(` when it may not be true, but that should be mean the algorithm is undercounting when it's the opposite. Very confusing.
+- In either case, from these observations, I identified 8 subscenarios:
+    - empty strings
+    - only containing `(` with values 2+
+    - only containing `(` with any value
+    - only containing `)`
+    - ending in `(`, all `(` have value 2+
+    - ending in `(`, not all `(` have value 2+
+    - ending in `)`, all `(` have value 2+
+    - ending in `)`, not all `(` have value 2+
+- Then a dp was used to track how many of each scenario was possible, and the answer should've been the number of states in all scenarios combined except for empty and ending in `)`, not all `(` have value 2+.
+    
 **[Attempt code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/1082/e.py)**
 
 
@@ -101,3 +175,7 @@ Deriving information from a wrong verdict only works in competitions like CodeFo
 
 
 ## Contest Reflection
+
+The difficulty spike from D to E is quite significant, and overall, this felt like one of those contests I tend have more commonly, where I'm consistent on easier problems and then hit a significant wall around E. If anything, compared to where I started, the wall has moved from problem D to problem E on a fairly routine basis. This contest also was enough to get me back over 1900 ELO.
+
+As for the reflection process, given that this is coming out Tuesday after having uploaded three contest recaps over the last 30 hours or so, this feels more like an anomaly in that parts of these recaps feel rather condensed to my liking. For the readers, feel free to contact me (alxwen711@ gmail.com) if further clarification is needed. The next few posts for this blog will have more of a data science focus in them.
