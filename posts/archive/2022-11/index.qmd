@@ -33,14 +33,24 @@ Basically, it’s Problem B, the solution is probably pretty simple, and stop ov
 
 Normally I would be more aggravated by my attempts on [Problem C](https://codeforces.com/contest/1748/problem/C) but here it wasn’t that bad. The [first submission](https://codeforces.com/contest/1748/submission/180625229) was an aggressive attempt 19 minutes in the contest since B was still giving me trouble, which was a reasonable decision since I saw the problem, knew I could implement an attempt quickly, and went with it. The only issue was that this attempt only considered the first zero in the array.
 
-My later attempts though were something. As a spoiler, this [second submission](https://codeforces.com/contest/1748/submission/180650505) is algorithmically correct but TLEs on testcase 8. I then make 4 more failed attempts to optimise my code which is excessive since one change was desperately swapping from PyPy-64 to PyPy. Spoiler alert, this does not work. But then I figured it out. You may recall the misery that an anti hash table attack caused me. Well I can now give a formal thanks to Beethoven97, for had this not occurred, I would not have solved this problem. My [correct C submission](https://codeforces.com/contest/1748/submission/180653423) is the equivalent of Norton Antivirus on my dictionary setups by xoring each value by a predetermined random value, but it did prevent what could’ve been an abysmally crap ~1284 ELO performance and made it into a moderately crap 1540 ELO performance. 
+My later attempts though were something. As a spoiler, this [second submission](https://codeforces.com/contest/1748/submission/180650505) is algorithmically correct but TLEs on testcase 8. I then make 4 more failed attempts to optimise my code which is excessive since one change was desperately swapping from PyPy-64 to PyPy. Spoiler alert, this does not work. But then I figured it out. You may recall the misery that an anti hash table attack caused me. Well I can now give a formal thanks to [Beethoven97](https://codeforces.com/profile/beethoven97), for had this not occurred, I would not have solved this problem. My [correct C submission](https://codeforces.com/contest/1748/submission/180653423) is the equivalent of Norton Antivirus on my dictionary setups by xoring each value by a predetermined random value, but it did prevent what could’ve been an abysmally crap ~1284 ELO performance and made it into a moderately crap 1540 ELO performance. 
 
 I guess welcome back? There’s still time for me to return to CM before the end of this year, but I pretty much need to be at my best in each of the remaining contests. Well, may the odds be ever in my favour.
 
 
+
 ## November 16th-30th
 
-[![why.](docs/assets/images/doop.png)](https://www.youtube.com/watch?v=98T3PVaRrHU)
+:::{.callout-warning}
+
+## Important Context to the Following Recap of Pinely Round 1
+
+If you are finding this post from [CF Round 1081 Recap](https://alxwen711.github.io/HonestCode/posts/2026/CF-1081/), you are aware this contest was a complete disaster at the time for me. This is also the point where I should acknowledge that 2022 Alex had a more 'emotional' writing style and did not have a very strong mental game at this time. This contest's performance was so inexplicably terrible that I turned it into a script for a drama episode. At this time I had been watching various NFL Youtubers, which is somewhat reflected in this script as it is meant to be in a similar style to [Days of Our Steelers](https://www.youtube.com/watch?v=NDOgN6Q5xyo), which is [Urinatingtree](https://www.youtube.com/@UrinatingTree)'s way of (angrily) commentating the 2018 Pittsburgh Steelers' drama and eventual collapse to their season. 
+
+I did say that 2022-2023 Alex is an experience. Anyways, you have been warned.
+:::
+
+[![why.](doop.png)](https://www.youtube.com/watch?v=98T3PVaRrHU)
 
 *The above image is clickable by the way.*
 
@@ -60,7 +70,12 @@ _The search continues as he finally finds the problem as 40 minutes and [REDACTE
 
 _That is until the program runs out of time on pretest 5. Time is running short, and a quick look at his scuffed code shows that the slowdown was in scuffed implementation. Knowing his solution is logically correct, desperation creeps in again. Many optimizations occur, yet it falls short. And then, time runs out. For the first time since April, our protagonist only solves 1 problem. The collapse has been completed. But in this collapse, a goal is achieved: The Proponent of Python is no longer in the ELO hell that is Expert. A truly amazing result. There is absolutely no copium involved with our writer of this episode here. As our protagonist finds that his contest of self destruction has landed himself in truly a "special" place, what shall he do to cope with this new predicament? Perhaps he'll be more inclined to take part in the dark arts of C++ to distract himself that pretty much all of these failures had nothing to do with language choice and more to do with overthinking solutions and abysmal implementation skills. Whatever the Proponent of Python decides to do in response to this dumpster fire, we can only hope that he recovers his mental for the next episode, of **Days of Our Programmers.**_
 
-![I mean, what do I even.](docs/assets/images/congrats.png)
+
+:::{.callout-warning}
+
+In sticking with the fact that I was and still watch a lot of [Urinatingtree](https://www.youtube.com/@UrinatingTree)'s content, this next part of the recap was then modelled similarly to that of a [Congrats!](https://www.youtube.com/watch?v=JyQ6Bbu8jvE) video where he pretty much rips into a team for some ridiculous implosion/failure that could be considered funny for the scale of the implosion, hence why congratulations is spelled incorrectly with an extra "L" for satire. Again, let's just say that looking back on this, the mental game for me was not a strong point, but maybe you will find this schadenfreude funny.
+
+:::
 
 ### [Pinely Round 1](https://codeforces.com/contest/1761)
 
@@ -69,6 +84,8 @@ Problem~~s~~ Solved: A
 New Rating: **1533** (-140)
 
 Performance: **890**
+
+![I mean, what do I even.](congrats.png)
 
 Please excuse my introduction. I sometimes use satirical comedy as a method of alleviating mental and/or emotional pain. Here’s a proper recap/debriefing of this disgrace.
 
@@ -84,7 +101,15 @@ Now for the next part, given a ring, try and find an optimal sequence of removal
 
 Now let me ask you, is knowing an optimal sequence necessary for solving the question? No. And why did I make this basic error?
 
-It’s because I did not read the damn question properly. The question only asks for the MAXIMUM number of possible removals. The question only asks for a NUMBER, not a SEQUENCE. It’s amazing how being able to properly read and understand the question is SUCH an important skill. And I’ve made this mistake before in past contests. Thanks to this debacle, I’m 448 ELO below my peak and literally 6 ELO above my official starting rating. I don’t care that my peak was partially luck, being 448 under is just abject choking failure. The fact that I’ve made no progress since February is appalling. Yes I did learn some important things in these 10 months and my current rating is probably an underestimate, but really. I mean what can I even say here? “Good job! At least you tried?! You learned something? Congrats!” This is still an abject failure. At this point, I only have one thing to tell myself. Pull your shit together and at least finish this disaster of a year strong. There is still 4-5 contests left for this year. Don’t make me rant even harder this year for my own mental sanity.
+It’s because I did not read the damn question properly. 
+
+:::{.callout-note}
+
+Upon 2026 re-reading of this archive log, I have no other notes other than [Um_nik was right](https://codeforces.com/blog/entry/62730).
+
+:::
+
+The question only asks for the MAXIMUM number of possible removals. The question only asks for a NUMBER, not a SEQUENCE. It’s amazing how being able to properly read and understand the question is SUCH an important skill. And I’ve made this mistake before in past contests. Thanks to this debacle, I’m 448 ELO below my peak and literally 6 ELO above my official starting rating. I don’t care that my peak was partially luck, being 448 under is just abject choking failure. The fact that I’ve made no progress since February is appalling. Yes I did learn some important things in these 10 months and my current rating is probably an underestimate, but really. I mean what can I even say here? “Good job! At least you tried?! You learned something? Congrats!” This is still an abject failure. At this point, I only have one thing to tell myself. Pull your shit together and at least finish this disaster of a year strong. There is still 4-5 contests left for this year. Don’t make me rant even harder this year for my own mental sanity.
 
 ### [Round 836](https://codeforces.com/contest/1758)
 
@@ -132,6 +157,6 @@ Now suppose we split the nodes into two groups A and B, where any node in group 
 
 Update: the dp tag has been added to Problem D, so I may have a basis for this solution after all.
 
-![Contests in final month](docs/assets/images/lastmonth.png)
+![Contests in final month](lastmonth.png)
 
 December will have a lot of contests that I can enter, so the CM before the end of 2022 dream isn’t dead yet. It will take incredible performance and some luck, but it’s doable.
