@@ -2,7 +2,7 @@
 title: November 2022 Archive Log
 author: "Alexander Wen"
 date: "2022-12-01"
-date-modified: "2026-02-25"
+date-modified: "2026-02-28"
 categories: [competitive programming,2022,archive]
 ---
 
