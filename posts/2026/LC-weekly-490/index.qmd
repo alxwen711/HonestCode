@@ -3,7 +3,7 @@ title: "LeetCode Weekly 490 Editorial"
 subtitle: "The February 21st-23rd Full Competitive Programming Experience"
 author: "Alexander Wen"
 date: "2026-02-23"
-categories: [codeforces,recap,2026]
+categories: [leetcode,recap,2026]
 ---
 
 

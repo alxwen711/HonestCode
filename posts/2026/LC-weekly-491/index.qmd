@@ -1,0 +1,204 @@
+---
+title: "LeetCode Weekly 491 Editorial"
+author: "Alexander Wen"
+date: "2026-02-28"
+categories: [leetcode,recap,2026]
+---
+
+### [A: Trim Trailing Vowels](https://leetcode.com/contest/weekly-contest-491/problems/trim-trailing-vowels/description/)
+
+The simplest method is to check each character of the string starting from the back. Once you find a non-vowel character then return the prefix up to that point. If you go through all characters then just return an empty string.
+
+**Example Solution**
+
+```python
+class Solution:
+    def trimTrailingVowels(self, s: str) -> str:
+        x = len(s)-1
+        while x != -1:
+            if s[x] == "a" or s[x] == "e" or s[x] == "o" or s[x] == "i" or s[x] == "u":
+                x -= 1
+            else: break
+        return s[:x+1]
+```
+
+### [B: Minimum Cost to Split Into Ones](https://leetcode.com/contest/weekly-contest-491/problems/minimum-cost-to-split-into-ones/description/)
+
+If you break `x` into `x-1` and `1`, then this costs `x-1`. This can be expressed as a recursive function `f(x)` where:
+
+```
+f(1) = 0
+f(x) = f(x-1) + f(1) + (x-1) = f(x-1) + (x-1) = (x-1) + (x-2) + (x-3) + ... + 1 = (x*x-x)/2
+```
+
+This ends up being the optimal solution, if you try any other split of `x` into `a` and `b`, it should follow that `f(x) <= f(a) + f(b) + a*b`. We can then prove this also knowing that `x = a + b` must hold:
+
+```
+f(x) <= f(a) + f(b) + ab
+(x*x-x)/2 <= (a*a-a)/2 + (b*b-b)/2 + ab
+x*x-x <= a*a-a + b*b-b + 2ab
+(x*x) - x <= (a*a + 2ab + b*b) - a - b  
+x*x <= a*a + 2ab + b*b 
+(a+b)*(a+b) <= a*a + 2ab + b*b
+a*a + 2ab + b*b <= a*a + 2ab + b*b
+```
+
+These two sides of the equation are equal, thus ANY split sequence is actually optimal.
+
+**Example Solution**
+
+```python
+class Solution:
+    def minCost(self, n: int) -> int:
+        return (n*n-n)//2
+```
+
+### [C: Bitwise OR From Grid](https://leetcode.com/contest/weekly-contest-491/problems/minimum-bitwise-or-from-grid/description/)
+
+
+Greedy works because $2^i > 2^{i-1} + 2^{i-2} + ... + 2^2 + 2^1 + 2^0$ for any positive integer $i$. To then simulate maximum flexibility, we have the general sequence of steps:
+
+```
+1. Compute v = 2^i (starting with a large enough i, 20 should suffice)
+2. Determine if any row has all of its values x such that x & v != 0
+3. If step 2 is yes, add v to the answer (cannot avoid including v in the sum)
+4. If step 2 is no, only keep any value x in the grid where x & v = 0
+5. Divide v by 2 and go to step 2 until v = 1 
+```
+
+**Example Solution**
+
+```python
+class Solution:
+    def minimumOR(self, grid: List[List[int]]) -> int:
+        """
+        greedily try to remove bits (if any of them have full set, must add)
+        """
+        ans = 0
+        n = len(grid)
+        for i in range(20,-1,-1):
+            v = 2**i
+            flag = True
+            for j in range(n):
+                x = 0
+                for k in range(len(grid[j])):
+                    if v & grid[j][k] != 0: x += 1
+                if x == len(grid[j]): 
+                    flag = False
+                    break
+            if flag: # choose only those NOT in the or set
+                ngrid = list()
+                for a in grid:
+                    tmp = list()
+                    for b in a:
+                        if v & b == 0: tmp.append(b)
+                    ngrid.append(tmp)
+                grid = ngrid
+            else:
+                ans += v
+        return ans
+```
+
+
+### [D: Count Subarrays With K Distinct Integers](https://leetcode.com/contest/weekly-contest-491/problems/count-subarrays-with-k-distinct-integers/description/)
+
+Let `A` and `B` be arrays of length `n`. `A[i] = j` will represent the **minimum** value `j` such that the subarray from `i` to `j` is a valid array according to problem conditions, whereas `B[i] = j` will represent the **maximum** `j` such that the subarray from `i` to `j` is a valid array. Each of these subarrays can be computed efficiently using a sliding window; with two full sliding window passes, the example solution here completes in $O(n)$.
+
+**Annotated Solution**
+
+```python
+class Solution:
+    def countSubarrays(self, nums: list[int], k: int, m: int) -> int:
+        n = len(nums)
+
+        d = {}
+        a,b = 0,0
+        lp = 0
+        ansa = [-1]*n
+        ansb = [-1]*n
+
+        # finding minimal cases
+        for ii in range(n):
+            # Add new value to window
+            i = nums[ii]
+            if d.get(i,0) == 0:
+                d[i] = 1
+                a += 1
+                if d[i] == m: b += 1
+            else:
+                d[i] += 1
+                if d[i] == m: b += 1
+            if a == k and b == k: # valid array
+                ansa[lp] = ii
+                while True: # shorten left end of window until invalid
+                    d[nums[lp]] -= 1
+                    if d[nums[lp]] == m-1:
+                        b -= 1
+                    if d[nums[lp]] == 0:
+                        a -= 1
+                    lp += 1
+                    if a != k or b != k: break
+                    ansa[lp] = ii
+            elif a > k: # too many distinct, must remove until there is k left
+                while True:
+                    d[nums[lp]] -= 1
+                    if d[nums[lp]] == m-1:
+                        b -= 1
+                    if d[nums[lp]] == 0:
+                        a -= 1
+                    lp += 1
+                    if a == k: break
+                if a == k and b == k: ansa[lp] = ii # check if now valid
+        d = {}
+        a,b = 0,0
+        lp = 0
+                        
+        # finding maximal cases
+        for ii in range(n):
+            i = nums[ii]
+            if d.get(i,0) == 0:
+                if a == k: # if adding the next value would cause problems, start shifting lp
+                    # start pushing until a == k-1
+                    while True:
+                        d[nums[lp]] -= 1
+                        if d[nums[lp]] == m-1:
+                            b -= 1
+                        if d[nums[lp]] == 0:
+                            a -= 1
+                        lp += 1
+                        if a == k-1: break
+                        if a == k and b == k: ansb[lp] = ii-1
+                d[i] = 1
+                a += 1
+                if d[i] == m: b += 1
+            else:
+                d[i] += 1
+                if d[i] == m: b += 1
+            if a == k and b == k: 
+                ansb[lp] = ii
+            
+            elif a > k: # must remove until there is k left (dummy code)
+                while True:
+                    d[nums[lp]] -= 1
+                    if d[nums[lp]] == m-1:
+                        b -= 1
+                    if d[nums[lp]] == 0:
+                        a -= 1
+                    lp += 1
+                    if a == k: break
+                if a == k and b == k: ansb[lp] = ii
+            if ii == n-1 and a == k and b == k:
+                while a == k and b == k and lp != n:
+                    ansb[lp] = ii
+                    d[nums[lp]] -= 1
+                    if d[nums[lp]] == m-1:
+                        b -= 1
+                    if d[nums[lp]] == 0:
+                        a -= 1
+                    lp += 1
+        ans = 0
+        for iii in range(n):
+            if ansa[iii] != -1: ans += (ansb[iii]-ansa[iii]+1)
+        #print(ansa,ansb)
+        return ans©leetcode
+```
