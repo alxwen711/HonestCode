@@ -199,6 +199,6 @@ class Solution:
         ans = 0
         for iii in range(n):
             if ansa[iii] != -1: ans += (ansb[iii]-ansa[iii]+1)
-        #print(ansa,ansb)
-        return ans©leetcode
+        
+        return ans
 ```
