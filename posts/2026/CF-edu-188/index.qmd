@@ -1,0 +1,57 @@
+---
+title: "CodeForces Educational Round 188 Recap"
+author: "Alexander Wen"
+date: "2026-03-17"
+categories: [codeforces,recap,2026]
+---
+
+
+NAC yippee (also I've been on dashboard in the last long bit, it has been 16 days since last contest)
+
+## Solved Problems
+
+### [A: Passing the Ball](https://codeforces.com/contest/2204/problem/A)
+
+**[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/e188/a.py)**
+
+
+### [B: Right Maximum](https://codeforces.com/contest/2204/problem/B)
+
+**[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/e188/b.py)**
+
+
+### [C: Spring](https://codeforces.com/contest/2204/problem/C)
+
+**[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/e188/c.py)**
+
+
+### [Alternating Path](https://codeforces.com/contest/2204/problem/D)
+
+**[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/e188/d.py)**
+
+
+### [E: Sum of Digits (and Again)](https://codeforces.com/contest/2204/problem/E)
+
+**[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/e188/e.py)**
+
+
+
+
+
+
+## Unsolved Problems
+
+### [F: Sum of Fractions](https://codeforces.com/contest/2204/problem/F)
+
+
+
+### [G: Grid Path](https://codeforces.com/contest/2204/problem/G)
+
+**[Attempt code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/e188/g.py)**
+
+
+
+
+
+## Contest Reflection
+
