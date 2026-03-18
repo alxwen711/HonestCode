@@ -12,27 +12,64 @@ NAC yippee (also I've been on dashboard in the last long bit, it has been 16 day
 
 ### [A: Passing the Ball](https://codeforces.com/contest/2204/problem/A)
 
+This problem could be simulated given the constraints. Eventual solution I ended up with was the following:
+
+- If the first character is `R`, then keep traversing the string until an `L` is found. The ball would then be passed through all these `R`s to the `L` and then a back-and-forth passing pattern occurs.
+- Otherwise, traverse the string backwards until a `R` is found, then the same back-and-forth pass pattern occurs.
+
 **[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/e188/a.py)**
 
 
 ### [B: Right Maximum](https://codeforces.com/contest/2204/problem/B)
+
+- trial and error type solve method
+- if same or larger, +1
 
 **[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/e188/b.py)**
 
 
 ### [C: Spring](https://codeforces.com/contest/2204/problem/C)
 
+- Venn diagram for inclusion/exclusion
+- There are more routine methods to this I'm pretty sure (if there were 10 people this would be a problem) but this suffices.
+- Considered further complexion like https://codeforces.com/blog/entry/64625
+- Also a general rule of add odds and subtract evens when subset counting, would not really apply here I think?
+
 **[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/e188/c.py)**
 
 
-### [Alternating Path](https://codeforces.com/contest/2204/problem/D)
+### [D: Alternating Path](https://codeforces.com/contest/2204/problem/D)
+
+- 2 colouring of graph was first thought (triangle is impossible for sure)
+- initial error on number of beautiful nodes ((n+1)//2 from samples? 2-colouring a sun graph is different)
 
 **[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/e188/d.py)**
 
 
 ### [E: Sum of Digits (and Again)](https://codeforces.com/contest/2204/problem/E)
 
-**[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/e188/e.py)**
+- "It is always possible to rearrange the digits to the constraints" 
+- Math solution?
+
+```
+max sum of digits is 900000
+max of this iteration is 899999 -> 53
+third max is 49 -> 13 -> 4
+4 <- 13 <- 49 <- 888889 <- ???
+ 
+method: brute force the chains, something has to work
+ 
+try building a base 53 chain
+if this fails, isolate 1 val, check for sum match and subset
+if this fails,
+ 
+actually what if just make dictionary setup up to 899999?
+then conditions are to check for digit sum match and subset rule
+```
+
+- second rework idea was due to being concerned about TLE, ended up being fine here (671 ms)
+
+**[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/e188/e2.py)**
 
 
 
@@ -43,11 +80,17 @@ NAC yippee (also I've been on dashboard in the last long bit, it has been 16 day
 
 ### [F: Sum of Fractions](https://codeforces.com/contest/2204/problem/F)
 
-
+- Looked at this and had little clue
+- post contest this was 2238 vs 2620 for G, so both are very iffy
 
 ### [G: Grid Path](https://codeforces.com/contest/2204/problem/G)
 
-**[Attempt code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/e188/g.py)**
+- attempted a pseudo matrix multiplication attempt (not really but it's dp)
+- idea from fast fib number computation
+- end code was somehow overcounting
+- I had a better idea of how to start this problem than F
+
+**[Attempt code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/e188/g2.py)**
 
 
 
@@ -55,3 +98,4 @@ NAC yippee (also I've been on dashboard in the last long bit, it has been 16 day
 
 ## Contest Reflection
 
++9
