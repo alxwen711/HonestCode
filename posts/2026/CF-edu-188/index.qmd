@@ -1,12 +1,12 @@
 ---
 title: "CodeForces Educational Round 188 Recap"
 author: "Alexander Wen"
-date: "2026-03-17"
+date: "2026-03-19"
 categories: [codeforces,recap,2026]
 ---
 
+This post is up today solely to let you all know I'm currently in Orlando for the ICPC NA Championships. Also that I've been on dashboard in the last long bit and that there was a genuine 16 day gap since [LC Weekly 491](https://alxwen711.github.io/HonestCode/posts/2026/LC-weekly-491/).
 
-NAC yippee (also I've been on dashboard in the last long bit, it has been 16 days since last contest)
 
 ## Solved Problems
 
@@ -22,8 +22,18 @@ This problem could be simulated given the constraints. Eventual solution I ended
 
 ### [B: Right Maximum](https://codeforces.com/contest/2204/problem/B)
 
-- trial and error type solve method
-- if same or larger, +1
+Part of educational contests I find in the earlier problems is that it is practice for 'trial and error' type solving, ie. making a bunch of small testcases, solving them manually, finding the pattern, and then implementing the solution. In this case, I tried roughly the following sequence of sequences:
+
+```
+1 1 1 1 1  returns 5
+1 2 3 4 5 returns 5
+5 4 3 2 1  returns 1
+1 1 2 2 3 returns 5
+2 1 2 3 1  returns 3
+2 2 3 returns 3
+```
+
+From these samples, it appeared that the method was to traverse left to right, and any time you find a value that is at least tied for the highest so far, add 1 to the answer.
 
 **[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/e188/b.py)**
 
@@ -35,13 +45,77 @@ This problem could be simulated given the constraints. Eventual solution I ended
 - Considered further complexion like https://codeforces.com/blog/entry/64625
 - Also a general rule of add odds and subtract evens when subset counting, would not really apply here I think?
 
+![Venn diagram sketch work for C](c.png)
+
+In this case making a diagram to manually compute the size of each of the 8 sections is easiest. We can define 7 constants `a, b, c, ab, bc, ac, abc` to indicate the number of days where the people indicated by the characters (e.g. `ab` is for Alice and Bob) are at the spring. Note that `a` also includes cases where other people than Alice are at the spring, but we'll deal with that complication later. Computing `a`, `b`, and `c` is just `n//a`/`n//b`/`n//c` respectively. The rest involve taking the `lcm` (least common multiple, ie. for `ab`, the smallest value x such that `x % a = 0` and `x % b = 0`) of the indicated people.
+
+:::{.callout-tip}
+The easiest method in Python is to just use `from math import lcm`. If you forget this then you could use the [Euclidian Algorithm](https://en.wikipedia.org/wiki/Euclidean_algorithm) to compute `gcd` first, which in a nutshell is that you replace the larger of two values you are taking the `gcd` for with the remainder when divided by the smaller number until one of the values is 0. For instance, `gcd(720,200) = gcd(120,200) = gcd(120,80) = gcd(40,80) = gcd(40,0) = 40`. Then `lcm` is computable via `gcd(a,b) * lcm(a,b) = a*b`, to which the proof is left as an exercise to the reader. (Hint: consider the prime factorizations of `a` and `b`.)
+:::
+
+Once you have the 7 constants, it's then a careful setup of adding and subtracting them to obtain the 7 individual segments in the Venn diagram above.
+
+:::{.callout-note collapse="true"}
+# Spoiler: Annotated Solution for the segments
+
+```python
+import sys
+from math import lcm
+
+#input functions
+readint = lambda: int(sys.stdin.readline())
+readints = lambda: map(int,sys.stdin.readline().split())
+readar = lambda: list(map(int,sys.stdin.readline().split()))
+flush = lambda: sys.stdout.flush()
+readin = lambda: sys.stdin.readline()[:-1]
+readins = lambda: map(str,sys.stdin.readline().split())
+
+for _ in range(readint()):
+    a,b,c,m = readints()
+    # Computing the 7 constants
+    ao = m//a
+    bo = m//b
+    co = m//c
+    ab = m//lcm(a,b)
+    ac = m//lcm(a,c)
+    bc = m//lcm(b,c)
+    abc = m//lcm(a,b,c)
+
+    # Considering each section of the Venn diagram
+    ansa,ansb,ansc = abc*2,abc*2,abc*2 # Case a, b, and c are at the spring
+    
+    # Cases where only two people are at the spring
+    ansa += 3*(ab+ac-(2*abc)) 
+    ansb += 3*(ab+bc-(2*abc))
+    ansc += 3*(bc+ac-(2*abc))
+
+    # Cases where only one person is at the spring
+    ansa += 6*(ao-ab-ac+abc)
+    ansb += 6*(bo-ab-bc+abc)
+    ansc += 6*(co-bc-ac+abc)
+    print(ansa,ansb,ansc)
+```
+
+:::
+
 **[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/e188/c.py)**
 
 
 ### [D: Alternating Path](https://codeforces.com/contest/2204/problem/D)
 
-- 2 colouring of graph was first thought (triangle is impossible for sure)
-- initial error on number of beautiful nodes ((n+1)//2 from samples? 2-colouring a sun graph is different)
+In this case, much of the visual notes I wrote provide my thought process more clearly:
+
+![Various scribbles on D.](d.png)
+
+- I immediately considered 2 colouring of the graph (checking if a graph segment's vertices can be coloured black and white such that no edge has it's nodes with the same colour) because if a triangle exists (or just any odd length cycle), there is no chance any node in that connected component can be beautiful.
+
+- I initally coded up a solution where it just assumed all nodes in connected components with valid 2-colourings were beautiful only to find it failed sample cases, that's where the middle drawing comes into play. From here due to rushing I just assumed the maximum number of beautiful nodes in a connected component of n nodes was `(n+1)//2`.
+
+- After that WA, then I determined the sun graph is a counter example:
+
+![Sidenote: Please excuse this scuffed drawing. I did it on trackpad as this image was created away from normal setup in Orlando.](sun.png)
+
+- From there it was just tracking how many nodes of each colour were in the component and choosing the higher value.
 
 **[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/e188/d.py)**
 
