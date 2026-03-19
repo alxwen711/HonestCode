@@ -122,31 +122,28 @@ In this case, much of the visual notes I wrote provide my thought process more c
 
 ### [E: Sum of Digits (and Again)](https://codeforces.com/contest/2204/problem/E)
 
-- "It is always possible to rearrange the digits to the constraints" 
-- Math solution?
+> "It is always possible to rearrange the digits to the constraints."
+
+This is a very strange addition to the problem statement as there are cases where a set of digits could not be rearranged in such a way such as `999`. Thus this entire thought process assumes there is a solution. First thing I did was compute the frequencies of each digit since they were being rearranged anyways. Then since this is a constructive problem (ie. any sort of problem that involves constructing a valid solution, post about constructive problems coming eventually) I then started considering the constraints of the sequence. There are at most 100000 digits, thus the maximum sum of these digits can only be 900000. At this point it is clear that whatever this sequence could be, it can't be that long; as an example, `number with digit sum 899999 -> 899999 -> 53 -> 8` is only a length 4 sequence, and the longest length of a sequence under these constraints could only be around 5. More importantly, we can then compute the digit sum of each sequence that starts from an integer of at most 900000, and then computing one more hypothetical step in a chain is simple. Then for a chain, the only two conditions to check are if the digit sum of a chain matches the digit sum of the given digits, and if we have the specific digits necessary to build the ending of the chain. The remaining digits can then be rearranged in decreasing order to guarantee a valid number.
+
+All of this is probably better explained via example. Suppose we have a number `8989593990123456789...987654321` which has a digit sum of 900068. We can then determine that this can be rearranged into some form `9999...111000000899999538` based on the two conditions:
 
 ```
-max sum of digits is 900000
-max of this iteration is 899999 -> 53
-third max is 49 -> 13 -> 4
-4 <- 13 <- 49 <- 888889 <- ???
- 
-method: brute force the chains, something has to work
- 
-try building a base 53 chain
-if this fails, isolate 1 val, check for sum match and subset
-if this fails,
- 
-actually what if just make dictionary setup up to 899999?
-then conditions are to check for digit sum match and subset rule
+A chain starting at 899999 will require a digit sum of 900068 by these computations:
+- Initial value with digit sum 899999 -> 899999
+- 8 + 9 + 9 + 9 + 9 + 9 = 53
+- 5 + 3 = 8
+- 8 (needed to end the chain on a single digit)
+- 899999 + 53 + 8 + 8 = 900068 
+
+To build the above chain, the digits in 899999 -> 53 -> 8 are required to be in the string.
 ```
 
-- second rework idea was due to being concerned about TLE, ended up being fine here (671 ms)
+The first part can be optimized heavily using a dictionary to store the sums. The distribution of chain sums is even enough that there is no significant concern of having multiple possible chains on the same sum. The second part is then computable fast enough by using a hashmap and reconstructing the chain; each chain has at most 5 values, so while traditional Big-O complexity computation is somewhat difficult, we can reasonably assume this is at most $O(\log n)$, which is generally the criteria used for considering it a "fast" operation.
+
+The other thing notable in my approach to this problem is that I initially considered a potentially faster (but also much more error prone) making a smaller setup where only the chains up to 53 were stored; in this case I would then have to consider if there was 1 or 2 extra values to be added in an answer chain. That method was dropped for the final approach as initial implementation of the 900000 chain approach also precomputed step 2 for EVERY chain, which gave me initial concerns of TLE as this took about 5 seconds on my computer. Since there are only 100000 strings in each test case at most (realistically 50000 since single digit strings are a base case), it is more efficient to not precompute these.
 
 **[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/e188/e2.py)**
-
-
-
 
 
 
