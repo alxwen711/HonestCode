@@ -1,11 +1,11 @@
 ---
 title: "CodeForces Educational Round 188 Recap"
 author: "Alexander Wen"
-date: "2026-03-19"
+date: "2026-03-21"
 categories: [codeforces,recap,2026]
 ---
 
-This post is up today solely to let you all know I'm currently in Orlando for the ICPC NA Championships. Also that I've been on dashboard in the last long bit and that there was a genuine 16 day gap since [LC Weekly 491](https://alxwen711.github.io/HonestCode/posts/2026/LC-weekly-491/).
+This post is up today solely to let you all know I'm currently in Orlando for the ICPC NA Championships. As of posting this, said competition is happening in roughly 14 hours, and I would've spent more time writing this properly, but this recap had to go up at some point. Also that I've been on dashboard in the last long bit and that there was a genuine 16 day gap since [LC Weekly 491](https://alxwen711.github.io/HonestCode/posts/2026/LC-weekly-491/).
 
 
 ## Solved Problems
@@ -151,17 +151,22 @@ The other thing notable in my approach to this problem is that I initially consi
 
 ### [F: Sum of Fractions](https://codeforces.com/contest/2204/problem/F)
 
-- Looked at this and had little clue
-- post contest this was 2238 vs 2620 for G, so both are very iffy
+I ended up attempting the next problem much more seriously under the assumption that I had a better chance of solving G than F. Post contest statistics via CLIST show that this problem's effective rating was 2238 while G was 2620, so there was a significant difficulty gap. Then again, knowing how I have a low success rate on 2200+ problems to begin with, I think I made the right decision purely on the basis that my first part of the struggle was just figuring out how to track the most optimal use of the operations for a given $k$. It's not entirely greedy because suppose for the fraction 1/100, if `k = 10`, then the greedy option is correct to just change this to 11/100. But if `k = 100`, then doing the short-term 'best' move on each operation only results in 101/100 while the optimal fraction would be 2/1.
 
 ### [G: Grid Path](https://codeforces.com/contest/2204/problem/G)
 
-- attempted a pseudo matrix multiplication attempt (not really but it's dp)
-- idea from fast fib number computation
-- end code was somehow overcounting
-- I had a better idea of how to start this problem than F
+Both of my attempts tried a matrix exponentiation idea, mostly because the setup of this problem felt familiar to one of the methods used for [fast Fibonacci computation](https://cp-algorithms.com/algebra/fibonacci-numbers.html#matrix-form). The first attempt could be summed up as the following:
 
-**[Attempt code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/e188/g2.py)**
+- Design an enumeration for all the possible row colourings, being the tiles from $i$ to $j$ where $1 \leq i \leq j \leq n$.
+- Compute the matrix $M_1$ for transforming from any row to the next subsequent row. Suppose row $a$, column $b$ represents the connection between a row colouring from $(a_1,a_2)$ to a row colouring from $(b_1,b_2)$. If row colouring $(a_1,a_2)$ overlaps with $(b_1,b_2)$, $M_1[a][b] = 1$ else $M_1[a][b] = 0$.
+- Binary exponentiation can then be used to compute $M_2, M_4, M_8, M_{16}, ...$. Multiplying a specific combination of these can determine $M_{N-1}$.
+- A base matrix $B$ can be constructed for the first row by only setting the row colourings cells where $i = 1$ to 1. This step I only partially implemented before realizing there would be a time complexity issue, but had this worked, the answer would have been the sum of the values in $BM_{n-1}$.
+
+[G Attempt 1](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/e188/g.py)
+
+There is a significant problem in runtime here which is why I ended up changing my approach. Matrix multiplication itself is $O(n^3)$ for competitive programming purposes, but in this case, the size of my matrix relative to $n$ is $O(m^2)$. Combined with binary exponentiation, this means even if I had completed the implementation, the time complexity would be the unusual $O(m^6 \log n)$, and this is insufficient for $m = 150$. What then proceeded to occur was a very scuffed attempt at reducing the matrix part to a m by m matrix $O(m^3 \log n)$, which also wasn't actual matrix multiplication but some fancy dp attempt that was somehow drastically overcounting.
+
+**[G Attempt 2](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/e188/g2.py)**
 
 
 
@@ -169,4 +174,4 @@ The other thing notable in my approach to this problem is that I initially consi
 
 ## Contest Reflection
 
-+9
+Going for G in retrospect was a fairly strange decision that looking at it might have been impulsive. This situation of starting a harder problem just because it looks more approachable is actually quite common in competitive programming, and from some talks at the NAC programming camps, I can definitely show some examples in the next post. Going back to the recap summary, I did solve 5 problems, even if D was a sub 1400-rated problem which I don't remember happening very recently, so at the very least, the consistency looks to be back for the NAC tomorrow.
