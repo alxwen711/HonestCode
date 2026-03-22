@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Alexander Wen">
-<meta name="dcterms.date" content="2026-02-01">
+<meta name="dcterms.date" content="2026-03-21">
 
-<title>A Simple String Hashing Method – HonestCode</title>
+<title>CodeForces Educational Round 188 Recap – HonestCode</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -178,9 +178,10 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">A Simple String Hashing Method</h1>
+      <h1 class="title">CodeForces Educational Round 188 Recap</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">data structures</div>
+                <div class="quarto-category">codeforces</div>
+                <div class="quarto-category">recap</div>
                 <div class="quarto-category">2026</div>
               </div>
                   </div>
@@ -199,7 +200,7 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">February 1, 2026</p>
+        <p class="date">March 21, 2026</p>
       </div>
     </div>
     
@@ -218,102 +219,179 @@ window.Quarto = {
 
 
 
-<section id="modular-arithmetic-review" class="level2">
-<h2 class="anchored" data-anchor-id="modular-arithmetic-review">Modular Arithmetic Review</h2>
-<p>Modular arithmetic simplified is the remainder of integer division; in the example sense, for any values <span class="math inline">\(a,b\)</span> and a non-zero value <span class="math inline">\(m\)</span>, <span class="math inline">\(a \cong b \text{ (mod } m)\)</span> if and only if when dividing <span class="math inline">\(a\)</span> by <span class="math inline">\(n\)</span> the remainder is equal to that of dividing <span class="math inline">\(b\)</span> by <span class="math inline">\(n\)</span>. So <span class="math inline">\(8 \cong 5 \text{ (mod } 3)\)</span> because 8 divided by 3 has remainder 2, and 5 divided by 3 has remainder 2. Most operations are simple in modular arithmetic, addition/subtraction/multiplication can be done normally then taking the modulo of the total. Division is a bit more complex as it requires determing the inverse; for any integers <span class="math inline">\(a,m\)</span>, <span class="math inline">\(b\)</span> is an inverse of <span class="math inline">\(a\)</span> if <span class="math inline">\(ab \cong 1 \text{ (mod } m)\)</span>. This equation can be solved as a <a href="https://cp-algorithms.com/algebra/linear-diophantine-equation.html">Diophantine Equation</a> or by utilization of <a href="https://en.wikipedia.org/wiki/Euler%27s_theorem">Euler’s Theorem</a>. Specifically, if the modulo <span class="math inline">\(m\)</span> is prime, then this can be similifed further to <a href="https://en.wikipedia.org/wiki/Fermat%27s_little_theorem">Fermat’s Little Theorem</a> and the inverse for ANY non-zero integer <span class="math inline">\(a\)</span> in modulo <span class="math inline">\(p\)</span> is equal to <span class="math inline">\(a^{p-2} \text{ mod } p\)</span>.</p>
+<p>This post is up today solely to let you all know I’m currently in Orlando for the ICPC NA Championships. As of posting this, said competition is happening in roughly 14 hours, and I would’ve spent more time writing this properly, but this recap had to go up at some point. Also that I’ve been on dashboard in the last long bit and that there was a genuine 16 day gap since <a href="https://alxwen711.github.io/HonestCode/posts/2026/LC-weekly-491/">LC Weekly 491</a>.</p>
+<section id="solved-problems" class="level2">
+<h2 class="anchored" data-anchor-id="solved-problems">Solved Problems</h2>
+<section id="a-passing-the-ball" class="level3">
+<h3 class="anchored" data-anchor-id="a-passing-the-ball"><a href="https://codeforces.com/contest/2204/problem/A">A: Passing the Ball</a></h3>
+<p>This problem could be simulated given the constraints. Eventual solution I ended up with was the following:</p>
+<ul>
+<li>If the first character is <code>R</code>, then keep traversing the string until an <code>L</code> is found. The ball would then be passed through all these <code>R</code>s to the <code>L</code> and then a back-and-forth passing pattern occurs.</li>
+<li>Otherwise, traverse the string backwards until a <code>R</code> is found, then the same back-and-forth pass pattern occurs.</li>
+</ul>
+<p><strong><a href="https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/e188/a.py">Sample code</a></strong></p>
+</section>
+<section id="b-right-maximum" class="level3">
+<h3 class="anchored" data-anchor-id="b-right-maximum"><a href="https://codeforces.com/contest/2204/problem/B">B: Right Maximum</a></h3>
+<p>Part of educational contests I find in the earlier problems is that it is practice for ‘trial and error’ type solving, ie. making a bunch of small testcases, solving them manually, finding the pattern, and then implementing the solution. In this case, I tried roughly the following sequence of sequences:</p>
+<pre><code>1 1 1 1 1  returns 5
+1 2 3 4 5 returns 5
+5 4 3 2 1  returns 1
+1 1 2 2 3 returns 5
+2 1 2 3 1  returns 3
+2 2 3 returns 3</code></pre>
+<p>From these samples, it appeared that the method was to traverse left to right, and any time you find a value that is at least tied for the highest so far, add 1 to the answer.</p>
+<p><strong><a href="https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/e188/b.py">Sample code</a></strong></p>
+</section>
+<section id="c-spring" class="level3">
+<h3 class="anchored" data-anchor-id="c-spring"><a href="https://codeforces.com/contest/2204/problem/C">C: Spring</a></h3>
+<ul>
+<li>Venn diagram for inclusion/exclusion</li>
+<li>There are more routine methods to this I’m pretty sure (if there were 10 people this would be a problem) but this suffices.</li>
+<li>Considered further complexion like https://codeforces.com/blog/entry/64625</li>
+<li>Also a general rule of add odds and subtract evens when subset counting, would not really apply here I think?</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="c.png" class="img-fluid figure-img"></p>
+<figcaption>Venn diagram sketch work for C</figcaption>
+</figure>
+</div>
+<p>In this case making a diagram to manually compute the size of each of the 8 sections is easiest. We can define 7 constants <code>a, b, c, ab, bc, ac, abc</code> to indicate the number of days where the people indicated by the characters (e.g.&nbsp;<code>ab</code> is for Alice and Bob) are at the spring. Note that <code>a</code> also includes cases where other people than Alice are at the spring, but we’ll deal with that complication later. Computing <code>a</code>, <code>b</code>, and <code>c</code> is just <code>n//a</code>/<code>n//b</code>/<code>n//c</code> respectively. The rest involve taking the <code>lcm</code> (least common multiple, ie. for <code>ab</code>, the smallest value x such that <code>x % a = 0</code> and <code>x % b = 0</code>) of the indicated people.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Python Power Implemenation Fun Sidenote
+Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Most competitive programmers use C++, and the common method to implementing modular exponentiation uses <a href="https://cp-algorithms.com/algebra/binary-exp.html">Binary Exponentiation</a>. Conviniently in Python, this is already implemented in the built in <code>pow</code> function, so by the above, running <code>pow(a,p-2,p)</code> will compute the modular inverse in <span class="math inline">\(O(\log p)\)</span> time, which for most practical cases is fast enough. Even if you forget Euler’s Theorem, the modular inverse can still be computed via <code>pow(a,-1,p)</code> (assuming it exists).</p>
+<p>The easiest method in Python is to just use <code>from math import lcm</code>. If you forget this then you could use the <a href="https://en.wikipedia.org/wiki/Euclidean_algorithm">Euclidian Algorithm</a> to compute <code>gcd</code> first, which in a nutshell is that you replace the larger of two values you are taking the <code>gcd</code> for with the remainder when divided by the smaller number until one of the values is 0. For instance, <code>gcd(720,200) = gcd(120,200) = gcd(120,80) = gcd(40,80) = gcd(40,0) = 40</code>. Then <code>lcm</code> is computable via <code>gcd(a,b) * lcm(a,b) = a*b</code>, to which the proof is left as an exercise to the reader. (Hint: consider the prime factorizations of <code>a</code> and <code>b</code>.)</p>
 </div>
 </div>
-</section>
-<section id="general-hashing-formula" class="level2">
-<h2 class="anchored" data-anchor-id="general-hashing-formula">General Hashing Formula</h2>
-<p>We can then use modular arithmetic to effectively hash (assign) each character in a string array a unique value. Let character <code>c</code> be in index <code>i</code> in a string. This character is assigned the value ord(c). <code>ord(c)+1</code> is used to convert a character to a positive integer from 1 to 128 (usually) depending on its ASCII value. This setup will be sufficient for most general strings comprising of uppercase/lowercase characters, numbers, and symbols. Most problems don’t use all of these and this part of the expression can vary slightly. For instance, if only lower case letters are being used, then <code>ord(c)-96</code> may be more ideal to map all the lower case letters to the integers from 1 to 26. Using this mapping system, we can map the string “helloworld” to the array [8,5,12,12,15,23,15,18,12,4].</p>
-<p>We can now use this array to precompute the hash values for ALL of the possible substrings in <span class="math inline">\(O(n^2)\)</span> where <span class="math inline">\(n\)</span> is the length of the array using the following code:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># create reference table</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>hashstrings <span class="op">=</span> <span class="bu">list</span>()</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(n):</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    tmp <span class="op">=</span> [<span class="dv">0</span>]<span class="op">*</span>n</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    hashstrings.append(tmp)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> <span class="dv">10</span><span class="op">**</span><span class="dv">17</span><span class="op">-</span><span class="dv">3</span> <span class="co"># large prime for avoiding hash collisions</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">29</span> <span class="co"># base for exponents</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n):</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    h <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(i,n):</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        h <span class="op">=</span> (h<span class="op">*</span>b <span class="op">+</span> ar[j]) <span class="op">%</span> p</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        hashstrings[i][j] <span class="op">=</span> h</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>This code works by induction where for a substring from index i to j, the hash value is</p>
-<p><span class="math display">\[
-\sum_{k = i}^j 29^{j-k}*\text{ar[k]} \mod {10^{17}-3}
-\]</span></p>
-<p>Another way to interpret it is that the hash value of the substring equals the hash value of the last character, 29 times the hash value of the second last character, <span class="math inline">\(29^2\)</span> times the hash value of the third last character, and every previous character is 29 times the value of the previous. Our base case is an empty string, which has a hash value of 0. Then multiplying by 29 “shifts” all of the characters in the string 1 place to the left, alowing for the new character’s hash value to be added. This way, each new substring’s hash is computed from the hash value of the prefix of the string missing the last character.</p>
-</section>
-<section id="example-problem" class="level2">
-<h2 class="anchored" data-anchor-id="example-problem">Example Problem</h2>
-<p><a href="https://codeforces.com/contest/271/problem/D">Codeforces Round 166 (Div 2.) Problem D</a></p>
-<p>We can then observe usage of this basic hashing method in this example problem. For this problem, the above code can be slightly modified to compute the hash value of each substring that has at most k bad characters. Once this limit is reached, the inner loop can be broken as all further strings would not be good. To track number of unique substrings, you can store the hash values in a dictionary and then count the number of keys.</p>
+<p>Once you have the 7 constants, it’s then a careful setup of adding and subtracting them to obtain the 7 individual segments in the Venn diagram above.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Solution Implementation
+<span class="screen-reader-only">Note</span>Spoiler: Annotated Solution for the segments
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#input functions</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>readint <span class="op">=</span> <span class="kw">lambda</span>: <span class="bu">int</span>(sys.stdin.readline())</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>readints <span class="op">=</span> <span class="kw">lambda</span>: <span class="bu">map</span>(<span class="bu">int</span>,sys.stdin.readline().split())</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>readar <span class="op">=</span> <span class="kw">lambda</span>: <span class="bu">list</span>(<span class="bu">map</span>(<span class="bu">int</span>,sys.stdin.readline().split()))</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>flush <span class="op">=</span> <span class="kw">lambda</span>: sys.stdout.flush()</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>readin <span class="op">=</span> <span class="kw">lambda</span>: sys.stdin.readline()[:<span class="op">-</span><span class="dv">1</span>]</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>readins <span class="op">=</span> <span class="kw">lambda</span>: <span class="bu">map</span>(<span class="bu">str</span>,sys.stdin.readline().split())</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> readin()</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>goodbadstr <span class="op">=</span> readin()</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> readint()</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co"># determine bad characters</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>badch <span class="op">=</span> {}</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">26</span>):</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> goodbadstr[i] <span class="op">==</span> <span class="st">"0"</span>: badch[<span class="bu">chr</span>(i<span class="op">+</span><span class="dv">97</span>)] <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co"># compute hashes</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> <span class="dv">10</span><span class="op">**</span><span class="dv">17</span><span class="op">-</span><span class="dv">3</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">29</span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>hashvals <span class="op">=</span> {}</span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="bu">len</span>(s)</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n):</span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    badcount <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    h <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(i,n):</span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> badch.get(s[j]) <span class="op">==</span> <span class="dv">1</span>: badcount <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> badcount <span class="op">&gt;</span> k: <span class="cf">break</span> <span class="co"># too many bad characters</span></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>        h <span class="op">=</span> (h<span class="op">*</span>b <span class="op">+</span> <span class="bu">ord</span>(s[j])<span class="op">-</span><span class="dv">96</span>) <span class="op">%</span> m <span class="co"># update hash</span></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>        hashvals[h] <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(<span class="bu">list</span>(hashvals.keys())))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> lcm</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#input functions</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>readint <span class="op">=</span> <span class="kw">lambda</span>: <span class="bu">int</span>(sys.stdin.readline())</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>readints <span class="op">=</span> <span class="kw">lambda</span>: <span class="bu">map</span>(<span class="bu">int</span>,sys.stdin.readline().split())</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>readar <span class="op">=</span> <span class="kw">lambda</span>: <span class="bu">list</span>(<span class="bu">map</span>(<span class="bu">int</span>,sys.stdin.readline().split()))</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>flush <span class="op">=</span> <span class="kw">lambda</span>: sys.stdout.flush()</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>readin <span class="op">=</span> <span class="kw">lambda</span>: sys.stdin.readline()[:<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>readins <span class="op">=</span> <span class="kw">lambda</span>: <span class="bu">map</span>(<span class="bu">str</span>,sys.stdin.readline().split())</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(readint()):</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    a,b,c,m <span class="op">=</span> readints()</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Computing the 7 constants</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    ao <span class="op">=</span> m<span class="op">//</span>a</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    bo <span class="op">=</span> m<span class="op">//</span>b</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    co <span class="op">=</span> m<span class="op">//</span>c</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    ab <span class="op">=</span> m<span class="op">//</span>lcm(a,b)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    ac <span class="op">=</span> m<span class="op">//</span>lcm(a,c)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    bc <span class="op">=</span> m<span class="op">//</span>lcm(b,c)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    abc <span class="op">=</span> m<span class="op">//</span>lcm(a,b,c)</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Considering each section of the Venn diagram</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    ansa,ansb,ansc <span class="op">=</span> abc<span class="op">*</span><span class="dv">2</span>,abc<span class="op">*</span><span class="dv">2</span>,abc<span class="op">*</span><span class="dv">2</span> <span class="co"># Case a, b, and c are at the spring</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Cases where only two people are at the spring</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    ansa <span class="op">+=</span> <span class="dv">3</span><span class="op">*</span>(ab<span class="op">+</span>ac<span class="op">-</span>(<span class="dv">2</span><span class="op">*</span>abc)) </span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    ansb <span class="op">+=</span> <span class="dv">3</span><span class="op">*</span>(ab<span class="op">+</span>bc<span class="op">-</span>(<span class="dv">2</span><span class="op">*</span>abc))</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    ansc <span class="op">+=</span> <span class="dv">3</span><span class="op">*</span>(bc<span class="op">+</span>ac<span class="op">-</span>(<span class="dv">2</span><span class="op">*</span>abc))</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Cases where only one person is at the spring</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    ansa <span class="op">+=</span> <span class="dv">6</span><span class="op">*</span>(ao<span class="op">-</span>ab<span class="op">-</span>ac<span class="op">+</span>abc)</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>    ansb <span class="op">+=</span> <span class="dv">6</span><span class="op">*</span>(bo<span class="op">-</span>ab<span class="op">-</span>bc<span class="op">+</span>abc)</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    ansc <span class="op">+=</span> <span class="dv">6</span><span class="op">*</span>(co<span class="op">-</span>bc<span class="op">-</span>ac<span class="op">+</span>abc)</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(ansa,ansb,ansc)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
+<p><strong><a href="https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/e188/c.py">Sample code</a></strong></p>
+</section>
+<section id="d-alternating-path" class="level3">
+<h3 class="anchored" data-anchor-id="d-alternating-path"><a href="https://codeforces.com/contest/2204/problem/D">D: Alternating Path</a></h3>
+<p>In this case, much of the visual notes I wrote provide my thought process more clearly:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="d.png" class="img-fluid figure-img"></p>
+<figcaption>Various scribbles on D.</figcaption>
+</figure>
+</div>
+<ul>
+<li><p>I immediately considered 2 colouring of the graph (checking if a graph segment’s vertices can be coloured black and white such that no edge has it’s nodes with the same colour) because if a triangle exists (or just any odd length cycle), there is no chance any node in that connected component can be beautiful.</p></li>
+<li><p>I initally coded up a solution where it just assumed all nodes in connected components with valid 2-colourings were beautiful only to find it failed sample cases, that’s where the middle drawing comes into play. From here due to rushing I just assumed the maximum number of beautiful nodes in a connected component of n nodes was <code>(n+1)//2</code>.</p></li>
+<li><p>After that WA, then I determined the sun graph is a counter example:</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="sun.png" class="img-fluid figure-img"></p>
+<figcaption>Sidenote: Please excuse this scuffed drawing. I did it on trackpad as this image was created away from normal setup in Orlando.</figcaption>
+</figure>
+</div>
+<ul>
+<li>From there it was just tracking how many nodes of each colour were in the component and choosing the higher value.</li>
+</ul>
+<p><strong><a href="https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/e188/d.py">Sample code</a></strong></p>
+</section>
+<section id="e-sum-of-digits-and-again" class="level3">
+<h3 class="anchored" data-anchor-id="e-sum-of-digits-and-again"><a href="https://codeforces.com/contest/2204/problem/E">E: Sum of Digits (and Again)</a></h3>
+<blockquote class="blockquote">
+<p>“It is always possible to rearrange the digits to the constraints.”</p>
+</blockquote>
+<p>This is a very strange addition to the problem statement as there are cases where a set of digits could not be rearranged in such a way such as <code>999</code>. Thus this entire thought process assumes there is a solution. First thing I did was compute the frequencies of each digit since they were being rearranged anyways. Then since this is a constructive problem (ie. any sort of problem that involves constructing a valid solution, post about constructive problems coming eventually) I then started considering the constraints of the sequence. There are at most 100000 digits, thus the maximum sum of these digits can only be 900000. At this point it is clear that whatever this sequence could be, it can’t be that long; as an example, <code>number with digit sum 899999 -&gt; 899999 -&gt; 53 -&gt; 8</code> is only a length 4 sequence, and the longest length of a sequence under these constraints could only be around 5. More importantly, we can then compute the digit sum of each sequence that starts from an integer of at most 900000, and then computing one more hypothetical step in a chain is simple. Then for a chain, the only two conditions to check are if the digit sum of a chain matches the digit sum of the given digits, and if we have the specific digits necessary to build the ending of the chain. The remaining digits can then be rearranged in decreasing order to guarantee a valid number.</p>
+<p>All of this is probably better explained via example. Suppose we have a number <code>8989593990123456789...987654321</code> which has a digit sum of 900068. We can then determine that this can be rearranged into some form <code>9999...111000000899999538</code> based on the two conditions:</p>
+<pre><code>A chain starting at 899999 will require a digit sum of 900068 by these computations:
+- Initial value with digit sum 899999 -&gt; 899999
+- 8 + 9 + 9 + 9 + 9 + 9 = 53
+- 5 + 3 = 8
+- 8 (needed to end the chain on a single digit)
+- 899999 + 53 + 8 + 8 = 900068 
+
+To build the above chain, the digits in 899999 -&gt; 53 -&gt; 8 are required to be in the string.</code></pre>
+<p>The first part can be optimized heavily using a dictionary to store the sums. The distribution of chain sums is even enough that there is no significant concern of having multiple possible chains on the same sum. The second part is then computable fast enough by using a hashmap and reconstructing the chain; each chain has at most 5 values, so while traditional Big-O complexity computation is somewhat difficult, we can reasonably assume this is at most <span class="math inline">\(O(\log n)\)</span>, which is generally the criteria used for considering it a “fast” operation.</p>
+<p>The other thing notable in my approach to this problem is that I initially considered a potentially faster (but also much more error prone) making a smaller setup where only the chains up to 53 were stored; in this case I would then have to consider if there was 1 or 2 extra values to be added in an answer chain. That method was dropped for the final approach as initial implementation of the 900000 chain approach also precomputed step 2 for EVERY chain, which gave me initial concerns of TLE as this took about 5 seconds on my computer. Since there are only 100000 strings in each test case at most (realistically 50000 since single digit strings are a base case), it is more efficient to not precompute these.</p>
+<p><strong><a href="https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/e188/e2.py">Sample code</a></strong></p>
+</section>
+</section>
+<section id="unsolved-problems" class="level2">
+<h2 class="anchored" data-anchor-id="unsolved-problems">Unsolved Problems</h2>
+<section id="f-sum-of-fractions" class="level3">
+<h3 class="anchored" data-anchor-id="f-sum-of-fractions"><a href="https://codeforces.com/contest/2204/problem/F">F: Sum of Fractions</a></h3>
+<p>I ended up attempting the next problem much more seriously under the assumption that I had a better chance of solving G than F. Post contest statistics via CLIST show that this problem’s effective rating was 2238 while G was 2620, so there was a significant difficulty gap. Then again, knowing how I have a low success rate on 2200+ problems to begin with, I think I made the right decision purely on the basis that my first part of the struggle was just figuring out how to track the most optimal use of the operations for a given <span class="math inline">\(k\)</span>. It’s not entirely greedy because suppose for the fraction 1/100, if <code>k = 10</code>, then the greedy option is correct to just change this to 11/100. But if <code>k = 100</code>, then doing the short-term ‘best’ move on each operation only results in 101/100 while the optimal fraction would be 2/1.</p>
+</section>
+<section id="g-grid-path" class="level3">
+<h3 class="anchored" data-anchor-id="g-grid-path"><a href="https://codeforces.com/contest/2204/problem/G">G: Grid Path</a></h3>
+<p>Both of my attempts tried a matrix exponentiation idea, mostly because the setup of this problem felt familiar to one of the methods used for <a href="https://cp-algorithms.com/algebra/fibonacci-numbers.html#matrix-form">fast Fibonacci computation</a>. The first attempt could be summed up as the following:</p>
+<ul>
+<li>Design an enumeration for all the possible row colourings, being the tiles from <span class="math inline">\(i\)</span> to <span class="math inline">\(j\)</span> where <span class="math inline">\(1 \leq i \leq j \leq n\)</span>.</li>
+<li>Compute the matrix <span class="math inline">\(M_1\)</span> for transforming from any row to the next subsequent row. Suppose row <span class="math inline">\(a\)</span>, column <span class="math inline">\(b\)</span> represents the connection between a row colouring from <span class="math inline">\((a_1,a_2)\)</span> to a row colouring from <span class="math inline">\((b_1,b_2)\)</span>. If row colouring <span class="math inline">\((a_1,a_2)\)</span> overlaps with <span class="math inline">\((b_1,b_2)\)</span>, <span class="math inline">\(M_1[a][b] = 1\)</span> else <span class="math inline">\(M_1[a][b] = 0\)</span>.</li>
+<li>Binary exponentiation can then be used to compute <span class="math inline">\(M_2, M_4, M_8, M_{16}, ...\)</span>. Multiplying a specific combination of these can determine <span class="math inline">\(M_{N-1}\)</span>.</li>
+<li>A base matrix <span class="math inline">\(B\)</span> can be constructed for the first row by only setting the row colourings cells where <span class="math inline">\(i = 1\)</span> to 1. This step I only partially implemented before realizing there would be a time complexity issue, but had this worked, the answer would have been the sum of the values in <span class="math inline">\(BM_{n-1}\)</span>.</li>
+</ul>
+<p><a href="https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/e188/g.py">G Attempt 1</a></p>
+<p>There is a significant problem in runtime here which is why I ended up changing my approach. Matrix multiplication itself is <span class="math inline">\(O(n^3)\)</span> for competitive programming purposes, but in this case, the size of my matrix relative to <span class="math inline">\(n\)</span> is <span class="math inline">\(O(m^2)\)</span>. Combined with binary exponentiation, this means even if I had completed the implementation, the time complexity would be the unusual <span class="math inline">\(O(m^6 \log n)\)</span>, and this is insufficient for <span class="math inline">\(m = 150\)</span>. What then proceeded to occur was a very scuffed attempt at reducing the matrix part to a m by m matrix <span class="math inline">\(O(m^3 \log n)\)</span>, which also wasn’t actual matrix multiplication but some fancy dp attempt that was somehow drastically overcounting.</p>
+<p><strong><a href="https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/e188/g2.py">G Attempt 2</a></strong></p>
+</section>
+</section>
+<section id="contest-reflection" class="level2">
+<h2 class="anchored" data-anchor-id="contest-reflection">Contest Reflection</h2>
+<p>Going for G in retrospect was a fairly strange decision that looking at it might have been impulsive. This situation of starting a harder problem just because it looks more approachable is actually quite common in competitive programming, and from some talks at the NAC programming camps, I can definitely show some examples in the next post. Going back to the recap summary, I did solve 5 problems, even if D was a sub 1400-rated problem which I don’t remember happening very recently, so at the very least, the consistency looks to be back for the NAC tomorrow.</p>
 
 
 </section>
