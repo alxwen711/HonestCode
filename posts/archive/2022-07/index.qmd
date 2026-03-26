@@ -1,8 +1,8 @@
 ---
 title: July 2022 Archive Log
 author: "Alexander Wen"
-date: "2022-07-04"
-date-modified: "2026-03-23"
+date: "2022-08-02"
+date-modified: "2026-03-26"
 categories: [competitive programming,2022,archive]
 ---
 
