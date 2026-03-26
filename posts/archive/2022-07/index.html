@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Alexander Wen">
+<meta name="dcterms.date" content="2022-08-02">
+
+<title>July 2022 Archive Log – HonestCode</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-a0f9fd0d421825b736dc1bbcbcba2219.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">HonestCode</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/alxwen711"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">July 2022 Archive Log</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">competitive programming</div>
+                <div class="quarto-category">2022</div>
+                <div class="quarto-category">archive</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Alexander Wen </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">August 2, 2022</p>
+      </div>
+    </div>
+    
+      <div>
+      <div class="quarto-title-meta-heading">Modified</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date-modified">March 26, 2026</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<section id="july-1st-14th" class="level2">
+<h2 class="anchored" data-anchor-id="july-1st-14th">July 1st-14th</h2>
+<p>I’m marking off this first half a day early because next week is a contest fest.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="CodeforcesSuperWeek.png" class="img-fluid figure-img"></p>
+<figcaption>4 contests in a week.</figcaption>
+</figure>
+</div>
+<p>4 contests in a single week with a fifth one on the 24th. It will be an interesting experiment to see if such an aggressive rate of participation yields results. Before this however we must recap the two contests that occurred in these two weeks:</p>
+<section id="round-804" class="level3">
+<h3 class="anchored" data-anchor-id="round-804"><a href="https://codeforces.com/contest/1699">Round 804</a></h3>
+<p>Problems Solved: A, B, C</p>
+<p>New rating: <strong>1740</strong> (+32)</p>
+<p>Performance: <strong>1828</strong></p>
+<p>Unlike those past two contests I only managed to solve up to <a href="https://codeforces.com/contest/1699/problem/C">Problem C</a>. This was negated by the fact that this contest only had 5 problems. <a href="https://codeforces.com/blog/entry/104316#comment-927069">This comment</a> best explains why 6 problem contests feel more “fair” than 5 problem contests, but tl;dr is that with only 5 problems, the difficulty curve going from the introductory A and B problems to the “endgame” last problem is steeper since there are only 2 questions to bridge this gap. This usually results in Problems C and D having much lower clear rates to accommodate for the hardest problem being at E instead of F, and this contest was no exception (C and D had 18.6% and 1.5% clear rates respectively).</p>
+<p>This contest was a continuation off the consistency streak I’ve been recently on. If you look at the last 3 contests my performance ratings have been 1794, 1819, and 1828. It also marks my 10th contest in a row with at least a <span style="color:cyan"><strong>Specialist</strong></span> level performance. It’s nice to finally be out of the whole choking habit I had earlier this year with these contests.</p>
+</section>
+<section id="educational-round-131" class="level3">
+<h3 class="anchored" data-anchor-id="educational-round-131"><a href="https://codeforces.com/contest/1701">Educational Round 131</a></h3>
+<p>Problems Solved: A, B, <del>C</del></p>
+<p>New rating: <strong>1639</strong> (-101)</p>
+<p>Performance: <strong>1328</strong></p>
+<p><em>This contest was a continuation off the consistency streak I’ve been recently on. If you look at the last 3 contests my performance ratings have been 1794, 1819, and 1828. It also marks my 10th contest in a row with at least a <span style="color:cyan"><strong>Specialist</strong></span> level performance. It’s nice to finally be out of the whole choking habit I had earlier this year with these contests.</em></p>
+<p>So that previous paragraph lasted for a grand total of 4 days. This is only the second time I have lost over 100 ELO in a single contest, but this time, it doesn’t mentally hurt as badly as it did the first time. This is partially due to having done more contests since that first huge loss to the point that losing rating is something I’m more accustomed to, but it’s more because unlike the first time, where the loss was because of a trivial counting error, this loss came from a genuine error I can learn from.</p>
+<p>Problems A and B were not problems as I got through those in ten minutes, quick even for my standards. <a href="https://codeforces.com/contest/1701/problem/C">Problem C</a> was where the struggles began. It took me 50 minutes to get an accepted verdict here. Since there was only 200000 tasks at most to be completed, I determined that simulating the work process in this question would be a viable solution. Through a creative (albeit slightly ridiculous) use of dictionaries and lists, I could keep track of how many of each kind of task was remaining on each day. This meant that my solution assigned tasks to each worker on each day optimally, thus leading to the correct answer.</p>
+<p><a href="https://codeforces.com/contest/1701/problem/D">Problem D</a> was where I faltered. For this question I correctly got the first step in determining the range of values each position in the array could have, but was unable to find a way to create a permutation with these range restrictions. There is one improvement I made over previous contests present in this question: <a href="https://codeforces.com/contest/1701/submission/163295242">Here is an earlier submission</a> that I made for this question in the contest, compared to a <a href="https://codeforces.com/contest/1701/submission/163299236">later one</a>. The first one ends in a runtime error because I forgot to account for the possibility that in the last for loop constructing the array, the “value” variable would not change if no remaining values for the position could be chosen, which would result in index 99999999998 being “accessed” in an array. This is clearly outside of the array and caused a runtime error, but without finding this, I would not know if my solution was fundamentally wrong or if it was an edge case issue. The revised code confirmed that my method of choosing values for the array was flawed with the wrong answer verdict. Even still, I had made it through the 2 hours with 3 solved problems. Then the system tests happened.</p>
+<p>Problem C took 1356ms at most to clear each of the 8 pretests, but on main test #15, the judge ruled my solution as Time Limit Exceeded. This is the first problem I have received a System Test Fail on; this is when you think you have solved a problem based on the pretests, only for the main tests to occur and fail your code. Main test #14 actually cleared in 1996ms, just 4 milliseconds under the time limit, and it seemed at first glance that this was a language issue. I mean, it is well known that Python 3 compared to mainstream competitive programming languages such as C++ and Java is nowhere near as fast.</p>
+<p>I would not consider the failure above to be solely because of language choice. Technically, if I coded the exact same solution in another language it might’ve been just fast enough to pass, but <a href="https://codeforces.com/contest/1701/submission/164213557">further upsolving</a> shows that the main issue is that there was a faster algorithm. A binary search can be used to narrow down the optimal number of days to allocate for the workers to finish the tasks by having the lower boundary start at 1 day and the higher boundary start at 2m days, where m is the number of tasks. This would result in an O(n log n) solution. My original solution was technically an O(n) solution (from personal analysis, I’m not entirely sure on this. It is definitely faster than O(n^2) though), but involves creating up to 200000 dictionary structures. All of the other arrays and linear scans done meant that even though my solution may have been an order faster theoretically, the constant attached to it was so high that the O(n log n) rewrite ended up being about 18 times faster. Amusingly (or tragically), this also meant that my initial solution was <em>just barely</em> too slow; after analysing the times taken for each test case in the rewrite, I can conclude that had the time limit been 3 seconds, or even 2.5 seconds, my initial solution would have been fast enough. This question was unironically one of those rare times where micro-optimization would have saved me.</p>
+<p>Anyways, I’m writing this on the 15th, and I have Round 806 tomorrow. I’ll recap the results of Codeforces Super Week in the next entry. Also, “Super Week” is a name I made up.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Editor’s Note on the C System Fail
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://codeforces.com/contest/1701/submission/163272117">https://codeforces.com/contest/1701/submission/163272117</a> was the initial submission that ended up system failing on test case 15. From analysis the idea is actually reasonable; from what I could tell I was simulating the entire task list properly by first assigning proficient tasks on each worker if available, then if no proficient tasks when left then to consider adding in a suplementary task, prioritizing tasks with the highest frequency left. This solution actually could work in <span class="math inline">\(O(n)\)</span>, but the problem is in these lines of implementation:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>d[h[spec[g]]].remove(spec[g])</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>task <span class="op">=</span> d[progress].pop(<span class="dv">0</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>pop()</code> is only a <span class="math inline">\(O(1)\)</span> operation when popping from the back of the list; running <code>pop(0)</code> is effectively <span class="math inline">\(O(n)\)</span> since this is shifting every element in the list one position to the left to perform this. <code>remove()</code> in itself also is a <span class="math inline">\(O(n)\)</span> operation. This then causes the algorithm to be <span class="math inline">\(O(n^2)\)</span> if we can create a case where the initial frequencies of each task are equal, or in otherwords, if there are 200000 tasks that only appear once. Interestingly, test case 14 appears to be an instance of this scenario (1 2 3 4 5… 100000) but the program passes (barely). Testcase 15 then does a similar scenario but uses the full input size for TLE.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="july-15th-31st" class="level2">
+<h2 class="anchored" data-anchor-id="july-15th-31st">July 15th-31st</h2>
+<p><em>Note: Please excuse me if there are grammatical errors in this post. It ended up being much longer than expected.</em></p>
+<p>So anyways,</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="6contests.png" class="img-fluid figure-img"></p>
+<figcaption>SIX</figcaption>
+</figure>
+</div>
+<p>No point in waiting anymore, here is the recap of the previous SIX contests, five of which took place in a 10 day span.</p>
+<section id="round-807" class="level3">
+<h3 class="anchored" data-anchor-id="round-807"><a href="https://codeforces.com/contest/1705">Round 807</a></h3>
+<p>Problems Solved: A, B, C, D</p>
+<p>New rating: <strong>1768</strong> (+129)</p>
+<p>Performance: <strong>2094</strong></p>
+<p>My results on this contest felt similar to <a href="https://codeforces.com/contest/1684">Round 792</a>, in that I popped off and only had my best overall performance ever in a contest. Solving A through D in under an hour is the main cause of this. <a href="https://codeforces.com/contest/1705/problem/D">Problem D</a> in particular was a case where for the solution, there was a relatively simple trick to it where given the bit flipping rules, the number of groups of consecutive 1 bits always has to remain the same. This observation meant that solving the problem was actually simpler than expected, even though I literally have no understanding of how the tutorial explains and proves the solution.</p>
+<p>My performance in this contest has the following honours going for it:</p>
+<ul>
+<li><p>Highest ranking ever in a contest (Ranked 251 out of 13633)</p></li>
+<li><p>Highest ELO performance ever (2094, only 6 short of <span style="color:orange"><strong>Master</strong></span> tier performance)</p></li>
+<li><p>Fastest A through D solve (also first sub hour A through D solve)</p></li>
+<li><p>Highest overall rating post contest ever (1768)</p></li>
+</ul>
+<p>This sort of performance may have been in part to all of the questions conveniently being around my stronger areas, but this was a great start to Super Week. Surely the following contests would see similar or at least comparable success right?</p>
+<p>Right?</p>
+<p><em>Oh no-</em></p>
+</section>
+<section id="round-808" class="level3">
+<h3 class="anchored" data-anchor-id="round-808"><a href="https://codeforces.com/contest/1708">Round 808</a></h3>
+<p>Problems Solved: A, B</p>
+<p>New rating: <strong>1678</strong> (-90)</p>
+<p>Performance: <strong>1372</strong></p>
+<p><em>It’s nice to finally be out of the whole choking habit I had earlier this year with these contests.</em></p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This whole choking thing where I have the random contest where my brain doesn’t work tragically still hasn’t stopped. The good difference though is that here this is an implosion on problem C where as now it would be considered an implosion if I don’t solve problem D.</p>
+</div>
+</div>
+<p>Yeah, this statement aged like milk. This entire contest was a mess. I ended up solving B before A, but <a href="https://codeforces.com/contest/1708/problem/C">Problem C</a> was where everything went to complete pot. Put simply, my mistake was that I kept trying to directly figure out the optimal setup of tests for Doremy to take. After the contest ended, I saw that one of the problem tags was “binary search”.</p>
+<p>The whole time I could’ve just binary searched to find the maximum number of tests Doremy could take and then output any solution containing that many tests, instead of trying to directly figure out the optimal number of tests to take. I basically fell into the same trap as I did in Educational Round 131. Let’s just move on to the next contest.</p>
+</section>
+<section id="round-809" class="level3">
+<h3 class="anchored" data-anchor-id="round-809"><a href="https://codeforces.com/contest/1706">Round 809</a></h3>
+<p>Problems Solved: A, B, C</p>
+<p>New rating: <strong>1670</strong> (-8)</p>
+<p>Performance: <strong>1647</strong></p>
+<p>This contest might have won the award for “most average contest performance” so far, because the only interesting thing that occurred was that I solved <a href="https://codeforces.com/contest/1706/problem/C">Problem C</a> before <a href="https://codeforces.com/contest/1706/problem/B">Problem B</a>. Both problems had a similar method where a greedy method could be used to narrow down the problem into a handful of potential “optimal” solutions; in B’s case, it is focusing on only a single colour of block, and for C’s case, if n is even, there are only two ways for there to be n/2-1 cool buildings. I just happened to figure out the greedy solution for C first, which isn’t surprising since it was only worth 1250 points compared to B’s 1000, meaning that it wasn’t meant to be much harder. <a href="https://codeforces.com/contest/1706/problem/D1">Problem D1</a> was a problem where I could not see the solution at all. The furthest I got was figuring out the minimum and maximum values possible for each element. That said, one of the tags for this problem was AGAIN “binary search”, meaning that in the last 4 contests, I lost rating in 3 of them due to binary search. Aside from Round 807, Super Week is not looking great right now.</p>
+</section>
+<section id="educational-round-132" class="level3">
+<h3 class="anchored" data-anchor-id="educational-round-132"><a href="https://codeforces.com/contest/1709">Educational Round 132</a></h3>
+<p>Problems Solved: A, B, D</p>
+<p>New rating: <strong>1667</strong> (-3)</p>
+<p>Performance: <strong>1655</strong></p>
+<p>I don’t care that I lost rating. I did very well on this contest. <a href="https://codeforces.com/contest/1709/problem/A">Problem A</a> was quite trivial, but <a href="https://codeforces.com/contest/1709/problem/B">Problem B</a> is a good introductory dp problem. <a href="https://codeforces.com/contest/1709/problem/C">Problem C</a> actually had fewer solves in contest compared to <a href="https://codeforces.com/contest/1709/problem/D">Problem D</a>, even though mechanically it is simpler. It’s understandable that I missed this question about brackets since the entire difficulty with C was realizing that there actually exists a greedy solution, which I would have never figured out.</p>
+<p>Problem D is the sole reason why I’m proud of how I did in this contest. The easy part is determining if the robot can reach the finish cell or not. There are only 2 ways a robot that travels k tiles at a time in a single direction cannot reach the finish cell:</p>
+<ol type="1">
+<li><p>The horizontal distance or vertical distance between the start and finish is not a multiple of k</p></li>
+<li><p>There exists a column between the start and finish that the robot cannot pass through due to having too many cells blocked off.</p></li>
+</ol>
+<p>The second condition is a bit trickier, but the simplest way to calculate this is to find the maximum number of cells blocked in a column in between the start and finish values which involves finding the maximum in a subarray. Checking if the robot can pass through the maximally blocked column is done by finding how far upwards can the robot move. This means that the only part left unsolved in this question is finding the maximum of a subarray, which happens to be the hard part of the question.</p>
+<p>If I only had to deal with 1 query asking if the robot can travel between two arbitrary cells, then this would not be Problem D. For Problem D, there are up to 200000 queries each with different paths to determine for the robot, meaning that I would have to determine 200000 subarray maximums for a given array. Something trivial like max(A[i:j]) would be unfeasible since for n queries and an array of length x, the worst case runtime would be O(nx). X’s maximum value is also 200000, so linear time for each query effectively results in an O(n^2) runtime for the problem when I needed at minimum O(n log n). So there has to be a way to determine a subarray’s maximum value in O(log n) time, with at most O(n log n) preparation.</p>
+<p>This resulted in myself creating something known as a segment tree. Below is a visual example explained in this paragraph. The maximum value of a subarray with a single element is trivial, so n nodes can be created for an array A of n elements with each node holding the information that A[i:i], 0 &lt;= i &lt; n, has a maximum of A[i]. From there, parent nodes can be created for adjacent subarrays. The value stored for the ranges these parents nodes cover is the larger of the two maximums from its children. The process continues until a final parent node covering the entire array is created. This results in a binary tree containing various subarray ranges alongside their maximum values. To find the maximum value in any subarray, the tree can be traversed using a binary search-like method to obtain subarray segments that make up the full subarray.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="segtree.png" class="img-fluid figure-img"></p>
+<figcaption>seg tree graphic</figcaption>
+</figure>
+</div>
+<p>The segment tree can be set up in O(n) time (2n nodes are created) and it allows me to find the maximum of any subarray in O(log n) time. This meant for n queries, my program could now take only O(n log n) time to run. Even still, there were a few more challenges. <a href="https://codeforces.com/contest/1709/submission/165197822">My first accurate implementation</a> TLEd because for creating the segment tree, I was using an array to store nodes in a queue structure. To dequeue nodes, I called nodes.pop(0) (array name is nodes) but for Python, the pop() command only takes constant time if the last element in an array is being removed. Otherwise, pop() will take linear time, meaning that my queue setup was making the setup of the segment tree take O(n^2) time. <a href="https://codeforces.com/contest/1709/submission/165203755">My final submission</a> resolved this issue with a different queue setup, but you may notice that I received 3 accepted verdicts for this question. The first accepted version took 1949ms to run, and the time limit is 2 seconds. This was more due to how I implemented the solution since there were other Python solutions that finished in under a second, but it doesn’t hide the fact that this was very concerning not just because the solution had not run on main tests yet, but also because this is an Educational Round, meaning that after the contest, there would be a 12-hour period where anyone could try to hack my solution with their own testcases. After some adjustments, my final submission completed pretests in about 1800ms. Amusingly, all three submissions would be <em>just barely</em> fast enough to pass all the main tests, taking over 1900ms each.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For a better overall description on segment trees, check out the <a href="https://alxwen711.github.io/HonestCode/posts/2026/database-segment-tree/">second written post on HonestCode</a>.</p>
+<p>Also funny sidenote, this was my actual tree implementation with the general searching function used:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Tree:</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>,val,lr,rr,lc,rc):</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.val,<span class="va">self</span>.lr,<span class="va">self</span>.rr,<span class="va">self</span>.lc,<span class="va">self</span>.rc <span class="op">=</span> val,lr,rr,lc,rc</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> look(l,r,n):</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> l <span class="op">==</span> n.lr <span class="kw">and</span> r <span class="op">==</span> n.rr: <span class="cf">return</span> n.val</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> n.lc <span class="op">==</span> <span class="va">None</span>: <span class="cf">return</span> look(l,r,n.rc)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">#dual node setup</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    a,b,c,d <span class="op">=</span> n.lc.lr,n.lc.rr,n.rc.lr,n.rc.rr</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    x,y <span class="op">=</span> <span class="dv">0</span>,<span class="dv">0</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> l <span class="op">&lt;=</span> b: <span class="co">#left is involved</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> l <span class="op">==</span> a <span class="kw">and</span> r <span class="op">&gt;=</span> b: <span class="co">#all left</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>            x <span class="op">=</span> n.lc.val</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>: x <span class="op">=</span> look(l,<span class="bu">min</span>(b,r),n.lc)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> r <span class="op">&gt;=</span> c: <span class="co">#right is involved</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> r <span class="op">==</span> d <span class="kw">and</span> l <span class="op">&lt;=</span> c: <span class="co">#all right</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>            y <span class="op">=</span> n.rc.val</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>: y <span class="op">=</span> look(<span class="bu">max</span>(c,l),r,n.rc)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">max</span>(x,y)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Goes without saying, but please don’t code <code>Tree</code> like this. Even in a competitive programming setting I have no clue why I had to also put all the variables in one line.</p>
+</div>
+</div>
+<p>Oh, and I haven’t even mentioned this yet:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="hackdefence.png" class="img-fluid figure-img"></p>
+<figcaption>hahahahahahahahaha.</figcaption>
+</figure>
+</div>
+<p>As if the near TLE shenanigans weren’t enough for my blood pressure, a total of <strong>16</strong> attempts from 5 different people were made to break my solution. AND my solution defended all of them successfully. Just about every attempt made was to try and make my solution exceed the time limit, and the closest any of them got was about 882ms. If anyone who tried hacking my solution is reading this, then to you specifically, thank you for trying to hack me, defending all of the hacking attempts actually felt good. That said, given how a segment tree works, there may be a very specific testcase that could cause a TLE. (I only thought of the potential case on August 3rd.). Either way, the fact that I actually used a tree to solve a problem for the first time combined with the whole hacking saga caps off the most glorious loss of 3 ELO. Despite the “loss”, I definitely felt much more confident going into the next contest in Super Week. Little did I know the absolute chaos that would result from that contest.</p>
+</section>
+<section id="round-810" class="level3">
+<h3 class="anchored" data-anchor-id="round-810"><a href="https://codeforces.com/contest/1711">Round 810</a></h3>
+<p>Problems Solved: A, B, C</p>
+<p>New rating: <strong>1748</strong> (+81)</p>
+<p>Performance: <strong>1952</strong></p>
+<p><a href="https://codeforces.com/blog/entry/105129#comments">Blog post</a></p>
+<p>This is a unique case where only the blog post for this round could really explain part of what happened in this contest, because while I did put up a statistically impressive performance, this was partially due to this being a SpeedForces contest. There was supposed to be 6 problems in this contest, but one of the problems was removed for unknown reasons. My theory is that the original Problem D for the Division 2 contest was removed, and that Problems E and F were moved to the D and E positions. This is based on the fact that <a href="https://codeforces.com/contest/1711/problem/C">Problem C</a> was solved 2891 times in the contest while <a href="https://codeforces.com/contest/1711/problem/D">Problem D</a> only had 53 solves. Compounding this was that I found C to have a relatively simple solution (which involves painting the area with stripes of at least two tiles wide) while having no idea how to even start D. Overall I did well here to conclude Super Week, but it feels overshadowed by how scuffed this contest was. I didn’t even mention the mess with Division 1, which is better off explained by the blog post.</p>
+</section>
+<section id="codeton-round-2" class="level3">
+<h3 class="anchored" data-anchor-id="codeton-round-2"><a href="https://codeforces.com/contest/1704">CodeTON Round 2</a></h3>
+<p>Problems Solved: A, B, C, D</p>
+<p>New rating: <strong>1863</strong> (+115)</p>
+<p>Performance: <strong>2170</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="TON.png" class="img-fluid figure-img"></p>
+<figcaption>TWO TON COIN</figcaption>
+</figure>
+</div>
+<p>Please excuse me as I lord over the fact that 650th place earned me about 2 dollars worth of cryptocurrency. Yes, luck did play a bit of a role in this success since all of the problems I solved were relatively easy greedy or math problems, but solving A through D in 40 minutes is my fastest pace yet. <a href="https://codeforces.com/contest/1704/problem/D">Problem D</a> in particular has a surprisingly simple solution. For each array, determine it’s “score” as follows:</p>
+<pre><code>[a,b,c,d,e] -&gt; a*0+b*1+c*2+d*3+e*4
+[3,6,1,0,2] -&gt; 3*0+6*1+1*2+0*3+2*4 = 16
+[0,1,2,3,4] -&gt; 0*0+1*1+2*2+3*3+4*4 = 30</code></pre>
+<p>Using this score metric, we can make an important revelation: No matter how many times Operation 1 is used on an array, its score will remain the same, whereas every time Operation 2 is used, the array’s score increases by 1. Thus if we calculate the score for each array given, one will have a score x higher than the rest to represent the x times Operation 2 was used on it.</p>
+<p>I wouldn’t say this was the hardest problem I’ve ever solved, but the overall success on the other three problems helped to make this my first ever <span style="color:orange"><strong>Master</strong></span> level performance. Combine this with smashing my previous all time overall ELO high by nearly 100 points, and I’m now within actual striking range of reaching <span style="color:purple"><strong>Candidate Master</strong></span> (1900 ELO) in my next contest. <a href="https://www.desmos.com/calculator/1uzr6qbblz">I’ve graphed out the relationship between ELO change and ELO difference from expected performance after each contest here</a>, and I estimate that if I perform at minimum a 1997 ELO level in my next contest, I will be eligible for some Division 1 contests. To further help me on this endeavour that will begin on August 4th with Educational Round 133, I have begun a <a href="https://github.com/alxwen711/py-competitive-library">Python repository for competitive programming</a>. It’s a WIP project intended to provide useful templates for algorithms, data structures, and other useful files for competitive programming in Python. After all, the main objective of this blog is to log my Codeforces progression since the start of this year, and to show that Python is actually viable in competitive programming.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/alxwen711\.github\.io\/HonestCode\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
