@@ -6,68 +6,29 @@ categories: [codeforces,recap,2026]
 draft: True
 ---
 
-Okay I did say a NAC post (or posts) would be coming up soon and there is content there. I did make a [Linkedin Post](https://www.linkedin.com/feed/update/urn:li:activity:7442079537053638656/) about it, which seeing that the only other post ever made there was about my acceptance into the MDS program, is a pretty high bar. If this was a slow week with not many competitions, I'd write more on something involving NAC. Alas, because Daylight Savings is permanent now, the Nebius Round 2 was at 7:35 AM, but more importantly, I even get to have a mini AtCoder recap!
-
-
-:::{.callout-note collapse="true"}
-## Mini Atcoder Beginner Contest 451 Recap + Leetcode Weekly 495 Fun Notes
-
-![Okay so not exactly a great return to AtCoder.](abc451.png)
-
-So it turns out it might take me a few weeks to get used to having my brain work at 5AM again. A few notes here:
-
-- Interestingly since the last time I was on AtCoder last September, an [announcement about AtCoder Regular Contests](https://atcoder.jp/posts/2026ARC_en) was made which has a very interesting table for intended problem difficulties:
-
-![Rating estimates for problems in ARC.](atcoderdiff.png)
-
-This table shows the intended problem difficulty given the number of points allocated to the problem, so for instance, we'd expect a 400 point problem to be of roughly 1000 difficulty, so someone rated 1000 would theoretically have about a 50% chance of solving it. This scoring setup is meant for regular contests, but we can utilize it for beginner contests, even if extrapolating for 100 and 200 point problems is somewhat tricky. For now, we'll just assume a piecewise linear function with linear segments from 100 to 200 points and 200 and 300 points so that a 100 point problem equals a 0 rating and 200 points equals a 200 point rating. 
-
-Viewing my performance above, the highest problem I solved was [E: Tree Distance](https://atcoder.jp/contests/abc451/tasks/abc451_e) at 475 points, which is roughly expected to be around a 1300 rated problem. Also [F: Make Bipartite 3](https://atcoder.jp/contests/abc451/tasks/abc451_f) is 500 points and I just missed this. 500 points translates to around a 1400 rating, although it is typical for there to be more of a solve rate dropoff from E to F than this point difference indicates. Generally assuming a linear setup, the estimated problem difficulties from the score range are listed in this table:
-
-
-| Problem| A | B | C| D| E| F|G|
-|---|---|---|---|--|-|-|-|
-|Score|100|200|300|400|475|500|600|
-|Estimated by Score Table|0|200|600|1000|1300|1400|1800|
-|[Kenkoooo Projection](https://kenkoooo.com/atcoder/#/table/)|11|36|275|856|1215|1540|TBD|
-(CList projection and Kenkoooo G will be added once available)
-
-According to Kenkoooo, the earlier problems tend to be overestimated if going by score alone, but E and F are actually quite close to expected. It may be interesting to see if this pattern starts to become more prevalent in the long run.
-
-- A 36 rating for B kinda checks out given that I solve A and B in 3 minutes.
-
-- Python really hates tuples for sorting/hashing/anything purposes, it is almost always better to hash tuples to an integer value. That explains how there are 3 wrong submissions in E. That and I missed a line in my Djisktra implementation that ensure no redundant states were being checked.
-
-- I absolutely had the correct idea for F. The main idea is to use union find to track which components are connected efficiently, then any time there is two components being connected, you are able to flip the colours of all the nodes on the smaller component if necessary to ensure the 2 colouring of the graph is upheld. If at any point an edge is added that does not colour a new node, does not connect any components, and connects two same coloured nodes together, then the bipartite condition is impossible from then on. Tracking the minimum number of black nodes is where I tripped up as I had to pretty much keep track of the number of nodes of each colour on each connected component. The actual computation when connecting components is reasonably simple; subtract the black node count on the two components and readd the minimum black count on the combined component. It just happens that I had some implementation issues here.
-
-- Funny enough, Leetcode Weekly 495's [last problem](https://leetcode.com/problems/incremental-even-weighted-cycle-queries/) also happened to use a very similar node flipping and union technique. So by some dumb luck, I'm pretty sure my practice at 5AM ended up prepping me for the 7:30PM Leetcode I only did because well... you'll see from the Nebius recap.
-
-- Unbeliveably, I'm also projected to drop in Leetcode rating in spite of solving all four problems in an hour. 2400+ ELO on Leetcode is pain.
-:::
-
-Okay so that was a very long sidenote. Now for the actual recap:
+Well here we are post [Nebius Round 2](https://alxwen711.github.io/HonestCode/posts/2026/CF-1088/) implosion. And thus begins a FOURTH contest completed in 26 hours!
 
 ## Solved Problems
 
-### [A: ](https://codeforces.com/contest/2211/problem/A)
+### [A: ](https://codeforces.com/contest/2210/problem/A)
 
-**[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/1088/a.py)**
+**[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/1089/a.py)**
 
-### [B: ](https://codeforces.com/contest/2211/problem/B)
+### [B: ](https://codeforces.com/contest/2210/problem/B)
 
-**[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/1088/b.py)**
+**[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/1089/b.py)**
 
-### [C1: ](https://codeforces.com/contest/2211/problem/C1)
+### [C1: ](https://codeforces.com/contest/2210/problem/C1)
 
-**[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/1088/c1.py)**
+**[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/1089/c1.py)**
 
-### [C2: ](https://codeforces.com/contest/2211/problem/C2)
+### [C2: ](https://codeforces.com/contest/2210/problem/C2)
 
-**[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/1088/c2.py)**
+**[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/1089/c2.py)**
 
-### [D: ](https://codeforces.com/contest/2211/problem/D)
+### [D: ](https://codeforces.com/contest/2210/problem/D)
 
-**[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/1088/d.py)**
+**[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/1089/d.py)**
 
 
 
@@ -75,18 +36,12 @@ Okay so that was a very long sidenote. Now for the actual recap:
 
 
 
-### [F: ](https://codeforces.com/contest/2211/problem/F)
+### [F: ](https://codeforces.com/contest/2210/problem/F)
 
 
 ## Did Not Attempt
 
-### [E: ](https://codeforces.com/contest/2211/problem/E)
-
-### [G: ](https://codeforces.com/contest/2211/problem/G)
-
-### [H: ](https://codeforces.com/contest/2211/problem/H)
-
-
+### [E: ](https://codeforces.com/contest/2210/problem/E)
 
 
 
