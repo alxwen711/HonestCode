@@ -1,8 +1,9 @@
 ---
-title: "CodeForces Round 1088 (Nebius Round 2) Recap"
+title: "CodeForces Round 1089"
 author: "Alexander Wen"
-date: "2026-03-28"
+date: "2026-03-29"
 categories: [codeforces,recap,2026]
+draft: True
 ---
 
 Okay I did say a NAC post (or posts) would be coming up soon and there is content there. I did make a [Linkedin Post](https://www.linkedin.com/feed/update/urn:li:activity:7442079537053638656/) about it, which seeing that the only other post ever made there was about my acceptance into the MDS program, is a pretty high bar. If this was a slow week with not many competitions, I'd write more on something involving NAC. Alas, because Daylight Savings is permanent now, the Nebius Round 2 was at 7:35 AM, but more importantly, I even get to have a mini AtCoder recap!
@@ -48,63 +49,23 @@ Okay so that was a very long sidenote. Now for the actual recap:
 
 ## Solved Problems
 
-### [A: Antimedian Deletion](https://codeforces.com/contest/2211/problem/A)
-
-This was a bit of a mini gaslighting problem in that I kept thinking for a while that this was more complex than either putting `1` for a length `1` array or a bunch of 2's since there would always be either the smallest or largest value that could be deleted instead of whatever `i` was. It turns out it really is that easy.
+### [A: ](https://codeforces.com/contest/2211/problem/A)
 
 **[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/1088/a.py)**
 
-### [B: Mickey Mouse Constructive](https://codeforces.com/contest/2211/problem/B)
-
-This problem it's best to explain the solution I ended up with first.
-- check divisors, number of them is the answer due to grouping theory and recursion (remaining array will have sum of n-c, repeat k times)
-- setup is just all 1's and all -1's
-- If sum is 0, then there's only 1 case
+### [B: ](https://codeforces.com/contest/2211/problem/B)
 
 **[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/1088/b.py)**
 
-Now that the solution is clear, here is the very much not painful to recap at all process of how I ended up drunkenly stumbling to this solution:
-
-:::{.callout-warning}
-## What I Did on B, A Brief Comedy Act of How Even CMs Can Be Silly
-
-- mod limit was completely useless
-- even/odd parity?
-- surely my testing was secure
-- It's problem B, I'll just rush and oops WA pretest 1
-- I did that twice by the way
-- This problem took an hour
-- C1 also had some accidents
-- This is a 900 rated problem, C1 is 1200 rated
-- This problem took an hour. It has to be said again.
-
-:::
-
-
-### [C1: Equal Multisets (Easy Version)](https://codeforces.com/contest/2211/problem/C1)
-
-Truthfully, after the mess that was the previous problem, I ended up solving this problem almost entirely by proxy of solving C2. I'll just add my submitted solution here and explain it fully in C2.
+### [C1: ](https://codeforces.com/contest/2211/problem/C1)
 
 **[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/1088/c1.py)**
 
-### [C2: Equal Multisets (Hard Version)](https://codeforces.com/contest/2211/problem/C2)
-
-- Tried greedy insertion for some reason for a while
-- Eventually made the window observation from the second example
-- Hashmap check + window check
-- Not entirely sure if this was enough of a check, but given how far behind I was I just went "screw it" and submitted
+### [C2: ](https://codeforces.com/contest/2211/problem/C2)
 
 **[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/1088/c2.py)**
 
-### [D: AND-array](https://codeforces.com/contest/2211/problem/D)
-
-- We're rushing through this now
-- Only need to find a solution, AND it exists
-- working out case got `7 7 7 1 0`, general idea works kinda
-- Worst case initial estimate was $O(n^2)$ due to each index possibly contributing
-- "Only bits could be involved in this??"
-- Each addition contributing 1 bit resolves this to $O(n \log A)$
-- Not sure how each addition only added bits and there was no weird interchanging
+### [D: ](https://codeforces.com/contest/2211/problem/D)
 
 **[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/1088/d.py)**
 
@@ -114,27 +75,20 @@ Truthfully, after the mess that was the previous problem, I ended up solving thi
 
 
 
-### [F: Learning Binary Search](https://codeforces.com/contest/2211/problem/F)
+### [F: ](https://codeforces.com/contest/2211/problem/F)
 
-- Spent the last 25 minutes on this trying to determine any sort of DP idea
-- In fairness this had more solves than E and E...
 
 ## Did Not Attempt
 
-### [E: Minimum Path Cover](https://codeforces.com/contest/2211/problem/E)
+### [E: ](https://codeforces.com/contest/2211/problem/E)
 
-- Interactive tree and uhh... what's a path cover?
-- Not approachable, not understandable, yeah I think F was a smidge more likely.
+### [G: ](https://codeforces.com/contest/2211/problem/G)
 
-### [G: Rational Bubble Sort](https://codeforces.com/contest/2211/problem/G)
+### [H: ](https://codeforces.com/contest/2211/problem/H)
 
-### [H: Median Deletion](https://codeforces.com/contest/2211/problem/H)
+
+
 
 
 ## Contest Reflection
 
-Well the first hour was a dumpster fire. I was considering writing this in the "Days of Our Programmers" style I had used in past journal logs when I wanted to cope with an inexplicably horrible contest. The thing is though most of the catastrophe was restricted to one problem in the first hour, and it is commendable that I managed to solve C2 and D quickly enough to at least salvage this to a contest that could be considered just eh. It's actually a miracle I'm even still in Candidate Master after all this.
-
-Surely I wouldn't just out of a mild rage do another CF contest the very next day.
-
-[Anyways, here's CF Round 1089 that happened the very next day.](https://alxwen711.github.io/HonestCode/posts/2026/CF-1089/)
