@@ -1,7 +1,7 @@
 ---
 title: "CodeForces Round 1088 (Nebius Round 2) Recap"
 author: "Alexander Wen"
-date: "2026-03-28"
+date: "2026-03-30"
 categories: [codeforces,recap,2026]
 ---
 
@@ -56,28 +56,123 @@ This was a bit of a mini gaslighting problem in that I kept thinking for a while
 
 ### [B: Mickey Mouse Constructive](https://codeforces.com/contest/2211/problem/B)
 
-This problem it's best to explain the solution I ended up with first.
-- check divisors, number of them is the answer due to grouping theory and recursion (remaining array will have sum of n-c, repeat k times)
-- setup is just all 1's and all -1's
-- If sum is 0, then there's only 1 case
+This problem it's best to explain the solution I ended up with first.  This idea then carries on to how factors are involved; the entire sum of the array will be `x-y`, where `x` is the number of 1's and `y` is the number of 0's. Regardless of how the numbers are arranged, if `c` divides `x-y` (assuming `x-y` is not 0) and `(x-y)/c` is positive, it is always possible to make this exact number of subarrays each with sum `c`, which can be shown via a recursive procedure (take a prefix of the array until it sums to `c`, repeat with the remaining suffix until all subarrays are made). Thus the number of positive factors of `x-y` is the answer. As for a possible setup, I first made the correct assumption that placing all the 1's and the all the -1's sequentially would be optimal. This is more clear if the number of 1's and -1's are equal; the sum of the entire array must be 0, so any division must have each subarray sum to 0.
 
 **[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/1088/b.py)**
 
 Now that the solution is clear, here is the very much not painful to recap at all process of how I ended up drunkenly stumbling to this solution:
 
 :::{.callout-warning}
-## What I Did on B, A Brief Comedy Act of How Even CMs Can Be Silly
+## What I Did on B For Over An Hour, A Brief Comedy Act of How Even CMs Can Be Silly
 
-- mod limit was completely useless
-- even/odd parity?
-- surely my testing was secure
-- It's problem B, I'll just rush and oops WA pretest 1
-- I did that twice by the way
-- This problem took an hour
-- C1 also had some accidents
-- This is a 900 rated problem, C1 is 1200 rated
-- This problem took an hour. It has to be said again.
+Here is an interesting part of the problem statement:
 
+> You are given two integers 𝑥 and 𝑦. Find the minimum value of 𝑓(𝑎) over all arrays 𝑎 of length 𝑥+𝑦, consisting of 𝑥 copies of the number 1, and 𝑦 copies of the number −1 in some order. Since this answer may be large, output the answer modulo 676767677. Additionally, you should construct one array that achieves this minimal value.
+
+Now, seeing the solution above, we know this modulo is basically meaningless in this question since `x-y` is only going up to 200000. The slight issue the following:
+
+1. I read through this problem very fast and just assumed something basic in the solution had to be taken with a modulo 
+2. My brain was smooth
+
+I know this is supposed to be critical analysis of my mistakes here, but I really can't defend it. I mean, look at this first attempt:
+
+```python
+for _ in range(readint()):
+    x,y = readints()
+    ans = list()
+    for _ in range(x):
+        ans.append(1)
+    for _ in range(y):
+        ans.append(-1)
+    if x != 0 and y != 0:
+        if (x+y) % 2 == 0: print(2) 
+        else: print(1)
+    else:
+        print(pow(2,x+y-1,m))
+    print(*ans)
+```
+
+Pretty much I first guessed that if there are only 1's or 0's, for some reason it meant any partition could work (`1 | 1 1` does not), and otherwise, there was some strange even/odd parity attempt being done. This error was due to oversimplifying the observations made by the samples; yes usually it is possible to get away with this in problem A, but definitely not here. Oh and also this fails pretest 1 entirely. [And somehow I'd have a second submission that also had WA pretest 1.](https://codeforces.com/contest/2211/submission/368549507).
+
+By the second WA pretest 1 submission (and 4th overall), I had already been jumping back and forth between this problem and C1 for 45 minutes, so at this point desperation was kicking in. Then [attempt 5](https://codeforces.com/contest/2211/submission/368550400) fails. In fairness, I had done some actual testing in the comment of this submission shown below:
+
+```python
+"""
+x 1's, y -1's
+if there is a -1, split to end
+ 
+ 
+1 1 -1 -1
+ 
+1 1 1 1 1 -1
+ 
+5 3
+1 1 1 1 1 -1 -1 -1
+ 
+ 
+3 4
+1 1 1 -1 -1 -1 -1 -1 -1
+ 
+odd length is definitely 1 partition
+if x == y, must be 1
+x and y are even, must be 1
+ 
+1 1 1 1 -1 -1
+ 
+x and y are odd, must be 2
+"""
+```
+
+The slight issue is that I had concluded that if x and y are even, the answer must be 1, and then wrote out a literal test case `1 1 1 1 -1 -1` where this is obviously not the case. I of course respond appropriately in the next submission:
+
+```python
+ 
+"""
+x 1's, y -1's
+if there is a -1, split to end
+ 
+ 
+1 1 -1 -1
+ 
+1 1 1 1 1 -1
+ 
+5 3
+1 1 1 1 1 -1 -1 -1
+ 
+ 
+3 4
+1 1 1 -1 -1 -1 -1 -1 -1
+ 
+odd length is definitely 1 partition
+if x == y, must be 1
+x and y are even, must be 1
+ 
+1 1 1 1 -1 -1
+ 
+x and y are odd, must be 2
+ 
+how drunk are we
+ 
+1   ?????      1 1 1 -1 -1
+ 
+x and y are even or x and y are odd MUST be 2 IF x != y
+ 
+ 
+1 4 screws this thinking up
+1 -1 -1 | -1 | -1
+ 
+3 6?
+1 1 1 -1 -1 -1 -1 -1 -1
+"""
+```
+
+`how drunk are we`
+
+Masterful stuff. Also at this point I had still not recognized the whole factor observation. Thankfully [attempt 7](https://codeforces.com/contest/2211/submission/368559498) was where this was finally adjusted, and then that's when I finally look back and see the whole `print(pow(2,x+y-1,m))` accident and finally get AC on [attempt 8](https://codeforces.com/contest/2211/submission/368564197). This took over an hour to finish up a problem that is roughly 900 rated.
+
+![The end result of this insanity.](submissionswtf.png)
+
+Did I mention this problem took an actual CM an hour.
 :::
 
 
@@ -89,14 +184,19 @@ Truthfully, after the mess that was the previous problem, I ended up solving thi
 
 ### [C2: Equal Multisets (Hard Version)](https://codeforces.com/contest/2211/problem/C2)
 
-- Tried greedy insertion for some reason for a while
-- Eventually made the window observation from the second example
-- Hashmap check + window check
-- Not entirely sure if this was enough of a check, but given how far behind I was I just went "screw it" and submitted
+For some reason I tried greedy insertion techniques for a while, assuming that I'd have to insert some value as early as possible. This already is a flawed thinking process as all we actually have to do is determine if the equal multiset can be made; we don't actually have to make it. There is two main observations that solve this:
 
-**[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/1088/c2.py)**
+1. We can compare every gap of `k` elements in array A to see what value gets removed and what value gets added to the length `k` subarray each time. If these values are different, then array B MUST match these indices exactly. Otherwise they are the same, and it is okay for array B to just remove and add any same value. Note that for C1, the values removed and added to the subarray in A will always be different.
+
+2. A basic hashmap check can be used to ensure trivial inconsistencies are caught; obviously if B contains a 4 but A never has a 4, then the rearrangement is impossible.
+
+Admittedly I am unsure why these two conditions alone are enough to determine a valid arrangement exists. But for context, I had just taken over an hour to solve B and was badly in need of catching up, which led to this somewhat reckless but correct submission.
+
+**[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/1088/c2-1.py)**
 
 ### [D: AND-array](https://codeforces.com/contest/2211/problem/D)
+
+At this point of the contest I was just rushing as fast as I could.
 
 - We're rushing through this now
 - Only need to find a solution, AND it exists
@@ -112,17 +212,18 @@ Truthfully, after the mess that was the previous problem, I ended up solving thi
 
 ## Unsolved Problems
 
-
-
 ### [F: Learning Binary Search](https://codeforces.com/contest/2211/problem/F)
 
-- Spent the last 25 minutes on this trying to determine any sort of DP idea
-- In fairness this had more solves than E and E...
+I ended up spending the last 25 minutes on this trying to determine any sort of DP idea with little actual progress other than this diagram:
+
+![Sketch of what I had gotten to for F](f.png)
+
 
 ## Did Not Attempt
 
 ### [E: Minimum Path Cover](https://codeforces.com/contest/2211/problem/E)
 
+- F was already having much more solves than E at this point
 - Interactive tree and uhh... what's a path cover?
 - Not approachable, not understandable, yeah I think F was a smidge more likely.
 
@@ -137,4 +238,6 @@ Well the first hour was a dumpster fire. I was considering writing this in the "
 
 Surely I wouldn't just out of a mild rage do another CF contest the very next day.
 
-[Anyways, here's CF Round 1089 that happened the very next day.](https://alxwen711.github.io/HonestCode/posts/2026/CF-1089/)
+
+### Update:
+
