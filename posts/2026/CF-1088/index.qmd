@@ -241,3 +241,6 @@ Surely I wouldn't just out of a mild rage do another CF contest the very next da
 
 ### Update:
 
+![Mistakes were made](furk.png)
+
+I was considering making this a seperate post but I only solved A, B, and C1, and spending more time discussing how I went up short on C2 and D for 100 minutes would make me more sad than I already am. It's here that it feels clear to me that doing an AtCoder, then a CF round, then a Leetcode, then another CF round in the span of under 30 hours might have been a bit ambitious mentally.
