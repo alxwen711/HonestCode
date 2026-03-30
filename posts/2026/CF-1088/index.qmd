@@ -1,7 +1,7 @@
 ---
 title: "CodeForces Round 1088 (Nebius Round 2) Recap"
 author: "Alexander Wen"
-date: "2026-03-30"
+date: "2026-03-29"
 categories: [codeforces,recap,2026]
 ---
 
@@ -196,15 +196,27 @@ Admittedly I am unsure why these two conditions alone are enough to determine a 
 
 ### [D: AND-array](https://codeforces.com/contest/2211/problem/D)
 
-At this point of the contest I was just rushing as fast as I could.
+At this point of the contest I was just rushing as fast as I could, somewhat like how I'm writing this recap as fast as I can because I'd much rather not delay getting this up much longer. The fact that a solution must exist by the problem statement ([reading problem statements strikes again](https://codeforces.com/blog/entry/62730)) allows for all sorts of simplifications. The solution ends up being more clear through manual computation of the second example `B = [22, 24, 10, 1, 0]`, which can be done systematically by considering the length 5 subsequences, then length 4, then length 3, then 2, and lastly 1. For length 5, since the 5th B value is 0, we know that the AND of all values in the initial array must be 0, so for simplicity, we can just set the 5th value of our array A to 0. The 4th B value being 1 means the AND of the remaining 4 array values must be 1, thus we set our 4th A value to 1 by adding 1 to the 1st to 4th values of A, making our current array `A = [1,1,1,1,0]`. The 3rd value is trickier; due to the 4 1's, there are 4 possible sets of 3 values that have all 1's, so subtracting this from the 3rd B value leaves us with 6. We can then add 6 to the 1st to 3rd values of A to get `[7, 7, 7, 1, 0]`, and working through the remaining B values does not change this array further. This array can then be manually checked to show it does recreate `B = [22, 24, 10, 1, 0]`. The shorthand notes here were what I used to get to this idea:
 
-- We're rushing through this now
-- Only need to find a solution, AND it exists
-- working out case got `7 7 7 1 0`, general idea works kinda
-- Worst case initial estimate was $O(n^2)$ due to each index possibly contributing
-- "Only bits could be involved in this??"
-- Each addition contributing 1 bit resolves this to $O(n \log A)$
-- Not sure how each addition only added bits and there was no weird interchanging
+```python
+"""
+number of times a bit shows up
+subsequences thus order does not matter
+ 
+start constructing from the last value
+22 24 10 1 0
+0 0 0 0 0 (0) subtract is now 0
+1 1 1 1 0 (1-0*5 = 1) subtract is now 0+1
+7 7 7 1 0 (10-1*4-0*10 = 6) subtract is now 0+4+6
+7 7 7 1 0 (24-6*3-1*6-0*10 = 0) subtract is now 0+6+18
+7 7 7 1 0 (22-0*2-6*3-1*4-0*5 = 0) subtract is now 0+4+18+0 
+ 
+there are only about 30 or so bits that can be added, so most of these
+will evaluate to 0?
+"""
+```
+
+The last comment is critical as technically, if every B value required adding to A, then this would turn into a $O(n^2)$ algorithm due to all the icky combinatorics math involved. But due to each addition effectively adding one or more bits, this can reduce the runtime to $O(n \log A)$. As to why other additions that flipped bits never occurred, I'm not sure. It's more likely that this is just inherent in my method of deriving the answer as something like `8 4 2 1 0` and `15 0 0 0 0` would create the same B arrays.
 
 **[Sample code](https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-1/1088/d.py)**
 
