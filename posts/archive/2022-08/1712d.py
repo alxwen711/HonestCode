@@ -7,6 +7,8 @@ readar = lambda: list(map(int,sys.stdin.readline().split()))
 flush = lambda: sys.stdout.flush()
 
 """
+CF AC link: https://codeforces.com/contest/1712/submission/369045717
+
 Goal is to maximize the distance of the shortest path between any two nodes
 Only have to consider paths from node i to i+1 (by condition all other pairs cannot be longer)
 if n = 2, minimum value is forced

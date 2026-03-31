@@ -56,6 +56,21 @@ What happened here was a combination of the previous two contests. A similar str
 
 Turns out for [Problem D](https://codeforces.com/contest/1712/submission/168175221) I really am unsure how to solve this. My [in contest submissions](https://codeforces.com/contest/1712/submission/168175221) likely TLEd because using a segment tree for minimum queries is O(log n), but with 1.5 seconds and n = 100000, this time limit is very iffy. Using a sparse table with O(1) minimum queries reduced the runtime but resulted in [WA verdict](https://codeforces.com/contest/1712/submission/168435686). This could be because I am assuming paths like 1->2->5 will always be less expensive than 1->3->2->5, ie. the shortest path contains at most 2 edges. Having spent three hours on this problem and still not making any progress, only now I decide to look at the tutorial just to see how close I actually was in solving the problem. And it turns out that the easiest method to solve this is to binary search for the answer. 
 
+:::{.callout-tip}
+## [Empty Graph](https://codeforces.com/contest/1712/problem/D) Upsolve in 2026
+
+How I approached this problem is actually quite funny because somehow it's even less complicated than I made it out to be here. I think at this point in 2022 I had the habit of assuming that a problem having a graph automatically made it a graph problem, even though this solution does not actually have much graph knowledge or implementation required. There is definitely a key observation missed before with how I was going on about sparse tables and segment trees in that we only have to consider the paths from `i` to `i+1` for any `i` from `1` to `n-1`. For instance, the distance from node 1 to 2 will be `min(a[1],a[2],a[j]*2)`, where j is any other element in the array as the option for `1 -> j -> 2` exists. Node 1 to 3 distance then will be `min(a[1],a[2],a[3],a[j]*2), j not in {1,2,3}` which visibly can never be higher than the distance from node 1 to 2. Similar reasoning can be observed with any other attempts to extend from a node i to i+1 path.
+
+Within my upsolve, I then crafted the solution for n >= 4; n = 2 and n = 3 cases are easily brute forcable. Suppose we are checking if the diameter can be extended to `x`. We then need to use the `k` operations to satisfy the two conditions below:
+
+1. No value in the array is less than `x/2`. Other wise any path for nodes a to b can be shorter than `x` via a `a -> j -> b` case.
+2. There must exist `1 <= i <= n-1` such that `A[i] >= x and A[i+1] >= x`. This ensures a path between two nodes must be at least `x`.
+
+It follows that if a diameter of distance `x` is possible then any lower diameter requirement will be satisfied, meaning this can be binary searched. Somehow this was apparently a 2000-rated problem back in 2022, which does feel a little bit like difficulty creep.
+
+[Updated solution](1712d.py)
+:::
+
 ```python
 def solution(id: char):
 	if id == "A" or id == "B": return simpleStuff()
