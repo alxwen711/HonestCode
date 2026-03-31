@@ -1,5 +1,5 @@
 ---
-title: July 2022 Archive Log
+title: August 2022 Archive Log
 author: "Alexander Wen"
 date: "2022-08-28"
 date-modified: "2026-03-31"
@@ -151,6 +151,6 @@ I’m not even mad over Problem D though. Had I avoided the 2 incorrect submissi
 
 ![clown moment](eduB.png)
 
-Problem C is not much better. I got the first submission wrong, which sure, it happens. So why am I submitting again 5 minutes later with only a single line edit?? The program failed on pretest 2, so I should be relooking at the entire algorithm, not thinking there is some edge case breaking everything. A fail on pretest 2 either means something in your algorithm is wrong, or you made a [blatantly idiotic error](https://alxwen711.github.io/blog/Feb22). The one line edit I made didn’t even affect the program at all so the second submission was just me handicapping myself with more unnecessary penalties. The third submission finally worked, which only took 26 minutes after the previous one. I have finished Problems A to C in that time before. 
+Problem C is not much better. I got the first submission wrong, which sure, it happens. So why am I submitting again 5 minutes later with only a single line edit?? The program failed on pretest 2, so I should be relooking at the entire algorithm, not thinking there is some edge case breaking everything. A fail on pretest 2 either means something in your algorithm is wrong, or you made a [blatantly idiotic error](https://alxwen711.github.io/HonestCode/posts/archive/2022-02/). The one line edit I made didn’t even affect the program at all so the second submission was just me handicapping myself with more unnecessary penalties. The third submission finally worked, which only took 26 minutes after the previous one. I have finished Problems A to C in that time before. 
 
 I guess you could say that at least I didn’t mind block C completely to the point of not solving it at all but for where I am right now, that is the bare minimum of what is expected. I’m not sure what the hell happened to my early question consistency in this contest. At least I still have one more chance on September 2nd to return to <span style="color:purple">**Candidate Master**</span> before school starts again.
