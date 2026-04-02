@@ -28,8 +28,7 @@ Viewing my performance above, the highest problem I solved was [E: Tree Distance
 |---|---|---|---|--|-|-|-|
 |Score|100|200|300|400|475|500|600|
 |Estimated by Score Table|0|200|600|1000|1300|1400|1800|
-|[Kenkoooo Projection](https://kenkoooo.com/atcoder/#/table/)|11|36|275|856|1215|1540|TBD|
-(CList projection and Kenkoooo G will be added once available)
+|[Kenkoooo Projection](https://kenkoooo.com/atcoder/#/table/)|11|36|275|856|1215|1540|>1600|
 
 According to Kenkoooo, the earlier problems tend to be overestimated if going by score alone, but E and F are actually quite close to expected. It may be interesting to see if this pattern starts to become more prevalent in the long run.
 
