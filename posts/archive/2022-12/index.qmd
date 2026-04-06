@@ -1,8 +1,8 @@
 ---
 title: December 2022 Archive Log
 author: "Alexander Wen"
-date: "2022-12-28"
-date-modified: "2026-04-02"
+date: "2023-01-04"
+date-modified: "2026-04-06"
 categories: [competitive programming,2022,archive]
 ---
 
@@ -90,6 +90,30 @@ Problems Solved: A, ~~B,~~ C, D, B
 New Rating: **1772** (+27)
 
 Performance: **1841**
+
+::: {.callout-note}
+
+On another note, I may as well note my CodeForces Contest of the Year in 2023, 2024 and 2025, ie. the contests I found were of the greatest impact and significance for me either by actually good problem design or just overall chaos.
+
+### 2023
+
+This is a joint award between [CodeForces Round 858](https://codeforces.com/contest/1806) and [Educational CodeForces Round 145](https://codeforces.com/contest/1809). It just happens that both of these contests together provide both the insane highs and lows of competitive programming ability from me. Once the [March 2023](https://alxwen711.github.io/HonestCode/posts/archive/2023-03/) archive post is up, it will explain why. This also happened the after [February 2023](https://alxwen711.github.io/HonestCode/posts/archive/2023-02/) in which my first Division 1 ICPC competition occurred (the previous was Division 2), so to bottom out to practically an all time low and then reach a high I quite literally have never matched since makes this pair very deserving.
+
+### 2024
+
+[Round 975 (Div. 1)](https://codeforces.com/contest/2018) was not just a well designed competition, but also the main contest I go to when showing that rating does not mean everything. To this day, this is the only solo Division 1 contest I have solved at least 3 problems. The actuality is that I solved 4 problems, and even if they were somewhat easier in rating (B was 1900 and C was 1700), [Problem D](https://codeforces.com/contest/2018/problem/D) was a 2200 rated problem, which is well in the upper range of difficulty of what I've even solved.
+
+![Bar graph of every contest problem I've solved in CodeForces.](probdiff.png)
+
+Somehow despite all this, I (hilariously) lost 7 ELO going from 2201 to 2194. But given how Divison 1 contests had been a wall for me previously with rank gains only occurring mostly due to luck and solving the easy problems faster, this case where I showed I can actually compete legitamitely in Division 1 was quite important.
+
+There is also a notable (unsure if honourable) mention to Meta Hacker Cup 2024 Round 2 here, mainly due to problem A2. I may or may not have wrote a rant on this problem due to how much more beautiful the solution can be when monkey brute force is not used.
+
+### 2025
+
+There were fewer contests I took part in this year mainly since I truly thought the ICPC dream was over during the first half of the year and had shifted my attention to career preparation, leaving competitive programming more as a side hobby of sorts. Then UBC happened and I found that I still had one more shot. Admittedly, there was also the issue that even now I find myself increasingly inconsistent in that my ability seems to peak and dip cyclically. Even as of writing this I've gone under 1900 ELO again. But the important thing is that I know and can at least show at times I am capable of big performances, and it just happened during the UBC team tryouts that's when I started kicking it in again. But to say this was a fluke would be incorrect since this was also when Meta Hacker Cup 2025 Round 1 occurred, where I secured a very strong placing (roughly around top 1000) to qualify for the next round (which didn't go as well, but in fairness, that was on the same day as ICPC Pacific Northwest Regionals 2025), but for the purposes of this award, [CodeForces Round 1061 (Div 2.)](https://codeforces.com/contest/2156), or as I call it, the only other International Grand Master level performance I've had in a contest. This also happens to be the closest I've been to replicating the Educational Round 145 run. The contest itself also has some very high quality problems that created an interesting spread overall as well, and is one of my best demonstrations of both speed and depth of problem solving.
+
+:::
 
 ### [Round 841](https://codeforces.com/contest/1731)
 

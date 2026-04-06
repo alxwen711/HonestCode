@@ -1,8 +1,8 @@
 ---
 title: October 2022 Archive Log
 author: "Alexander Wen"
-date: "2022-10-28"
-date-modified: "2026-04-02"
+date: "2022-11-01"
+date-modified: "2026-04-06"
 categories: [competitive programming,2022,archive]
 ---
 
@@ -12,7 +12,7 @@ Note: My school term is being a massive pain at the moment and has required most
 
 After manually estimating performance ratings over the last 9 months, I have the results graphed out here:
 
-![desmos graph](docs/assets/images/desmos.png)
+![desmos graph](desmos.png)
 
 Each purple dot represents one ranked contest I have participated in on CodeForces. Based on these results I created a linear piecewise approximation to estimate performance based on rating change. This method is usually within 20 points of the method I’ve been using before so I’ll be switching, but past calculations are archived on the stat sheet.
 
@@ -28,7 +28,7 @@ Performance: **1730**
 
 *Anytime I complete a full A through D solve on a contest is usually a good sign, and this was no exception.*
 
-And in the next contest right after I wrote that, I lose rating. Well then. The loss here was caused not by missing questions I should’ve gotten but more just sloppy execution. Solving [B](https://codeforces.com/contest/1735/problem/B) before [A](https://codeforces.com/contest/1735/problem/A) was mainly me getting confused over edge accuracy issues, which I still ended up getting a wrong submission for, but then there’s [Problem D](https://codeforces.com/contest/1735/problem/D)
+And in the next contest right after I wrote that, I lose rating. Well then. The loss here was caused not by missing questions I should’ve gotten but more just sloppy execution. Solving [B](https://codeforces.com/contest/1735/problem/B) before [A](https://codeforces.com/contest/1735/problem/A) was mainly me getting confused over edge accuracy issues, which I still ended up getting a wrong submission for, but then there’s [Problem D](https://codeforces.com/contest/1735/problem/D).
 
 <details>
 <summary> How to mind block on Problem D (solution spoilers)</summary>
