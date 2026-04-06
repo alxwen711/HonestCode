@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Alexander Wen">
+<meta name="dcterms.date" content="2022-10-10">
+
+<title>September 2022 Archive Log – HonestCode</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-a0f9fd0d421825b736dc1bbcbcba2219.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">HonestCode</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/alxwen711"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">September 2022 Archive Log</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">competitive programming</div>
+                <div class="quarto-category">2022</div>
+                <div class="quarto-category">archive</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Alexander Wen </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">October 10, 2022</p>
+      </div>
+    </div>
+    
+      <div>
+      <div class="quarto-title-meta-heading">Modified</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date-modified">April 6, 2026</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<section id="september-1st-15th" class="level2">
+<h2 class="anchored" data-anchor-id="september-1st-15th">September 1st-15th</h2>
+<p>As of posting this, I’ll be back to school in a 6 course term. This means that my time for competitive programming in the next four months is limited at best, and with the “contest” that occurred at the end of August, I need to make every contest count to return to CM (1900 ELO).</p>
+<section id="round-818" class="level3">
+<h3 class="anchored" data-anchor-id="round-818"><a href="https://codeforces.com/contest/1717">Round 818</a></h3>
+<p>Problems Solved: A, B, C, D</p>
+<p>New Rating: <strong>1880</strong> (-3)</p>
+<p>Performance: <strong>1868</strong></p>
+<p>I’m not sure if I’m being too hard on myself, or it’s been a poor mentality I’ve recently been having, or both, but even though this is statistically the 8th best contest I’ve had, I’m still not happy with this result. Yes, I solved A through D, but <a href="https://codeforces.com/contest/1717/problem/C">Problem C</a> should not have taken 38 minutes to solve. The 38% clear rate it had puts it on the easier end of C problems, and I spent an egregious amount of time stumbling by overcomplicating my attempted solutions. Mainly, I was trying to find how to turn array A to array B when what I should’ve been doing was determining if it was possible to turn array A into array B. These two ideas are clearly different. For instance, if I asked you to determine if <code>987.83979*202.100971503 &gt; 1000</code> is true, you would use common sense/basic estimation to determine that the answer is “yes”. What you would not do is manually take out a piece of paper and start creating abstract art in the name of “common core multiplication” to determine the exact value, then compare that to 1000. Solve only what the problem requires you to solve.</p>
+<p>Then we go to <a href="https://codeforces.com/contest/1717/problem/D">Problem D</a>. I’ll give credit to myself for figuring out the solution because noticing how Pascal’s triangle is involved with this problem is actually well done. I’ll also excuse myself for the unsuccessful hacking attempt I desperately made since the benefits of potentially passing 92 other coders was worth the risk of dropping 32 places. What cannot be excused is how I had 4 wrong submissions for this problem.</p>
+<p><em>Note: originally I was going to excuse the first wrong submission because I was unsure why it inexplicably failed on test case 8. It is now 6 hours after the contest and put simply, I’m just sad now. The next paragraph may contain excessive amounts of salt.</em></p>
+<p>The <a href="https://codeforces.com/contest/1717/submission/170630493">first submission</a> fail can be described as follows:</p>
+<pre><code>Let a = 2, b = 5, c = 3
+My line of code: a = a + b % c
+
+What I assumed would happen:
+a = (2 + 5) % 3 = 7 % 3 = 1
+
+What ended up happening:
+a = 2 + (5 % 3) = 2 + 2 = 4</code></pre>
+<p>Yeah, instead of failing due to not being able to count to five, now I only failed due to 7th grade mathematics. I assume that’s when modular arithmetic is introduced. Oh but wait! What about the other wrong submissions? <a href="https://codeforces.com/contest/1717/submission/170633298">Number 2</a> I thought my factorial algorithm that I took directly from my <a href="https://github.com/alxwen711/pythonCompetitiveLibrary/blob/main/algorithms/math/combinatorics/fermatCombinatorics.py">competitive library</a> was bugged so I increased the memory allocated for no reason, EVEN THOUGH I already did extensive testing to confirm the algorithm was accurate. <a href="https://codeforces.com/contest/1717/submission/170634542">Number 3</a>? Oh boy. I fixed the modulo error unknowingly and reverted the edit from the second submission, but OH BOY WHAT DID I REPLACE THE LINE WITH???</p>
+<p><code>arLen = max(n+k)+3 #array length</code></p>
+<p>Wow. I guess now we’re imploding on basic aspects of Python now. Note that if I had ran the program on the 3 given pretests this would have been caught, but instead I lost 50 more points for failing a pretest that is literally visible in the problem description. You think I’d realize this after seeing “Runtime error on pretest 2”, but nope. For <a href="https://codeforces.com/contest/1717/submission/170634783">submission 4</a>, what did I think the error was??? I thought <code>print(ans%m)</code> wasn’t working properly. Now excuse me while I go scream at this disaster class in a corner somewhere.</p>
+<p>Okay I’m done screaming. Here’s the real kicker behind the Problem D disasterclass:</p>
+<ul>
+<li><p>I ended up with 3676 points at the end of the contest, landing me in 668th place with an 1868 ELO performance.</p></li>
+<li><p>1088 of those points came from Problem D.</p></li>
+<li><p>Had I not made the modulo blunder, I would’ve had a successful submission for D 1:18 in the contest, netting me 1376 points.</p></li>
+<li><p>Furthermore, I would not lose an additional 50 points because the hacking attempt I made was one out of desperation to reach a performance level just good enough to reach CM.</p></li>
+<li><p>Thus, the blunder cost me 338 points and had it not happened, I would finish this contest with 4014 points.</p></li>
+<li><p>4014 points would equate to 380th place, an approximate performance of 2004 ELO (1709 base + 82 net gain * 3.6)</p></li>
+<li><p>A 2004 ELO performance would’ve given me about a 34 ELO gain bringing me to 1917 ELO.</p></li>
+<li><p>Even if I made that first wrong submission, had I corrected it on my second attempt, I would still be at 3936 points -&gt; 443rd place -&gt; 1966 ELO performance -&gt; 23 ELO gain -&gt; 1906 ELO -&gt; Still CM</p></li>
+</ul>
+<p>Agony, thy name is 7th grade modular arithmetic.</p>
+</section>
+<section id="round-819" class="level3">
+<h3 class="anchored" data-anchor-id="round-819"><a href="https://codeforces.com/contest/1726">Round 819</a></h3>
+<p>Problems Solved: A, B, C</p>
+<p><del>New Rating: <strong>1870</strong> (-10)</del></p>
+<p><del>Performance: <strong>1840</strong></del></p>
+<p><em>EDIT: It turns out Problem F was copied from a past contest, so this entire contest is unrated. At least I didn’t lose rating?</em></p>
+<p>Contests like these are why I was so mad over how rubbish I performed on the previous round. In the previous round, Problem C was a greedy problem where the induction step was the main challenge, and Problem D was a combinatorics problem where my success depended on finding a pattern. Both of these questions played directly into my strengths, so I should’ve been able to reach CM.</p>
+<p>For this contest, <a href="https://codeforces.com/contest/1726/problem/C">Problem C</a> was solved mainly due to luck. My solution that involved counting the number of “()” in the sequence was me throwing ideas randomly. I did not even bother trying <a href="https://codeforces.com/contest/1726/problem/D">Problem D</a> because I found <a href="https://codeforces.com/contest/1726/problem/E">Problem E</a> more approachable. D was a graph/tree problem that took me 10 minutes to understand the problem statement, and even after that I had no clue how to begin. E turned out to not be much better as one of the problem tags for this question was fast fourier transform, something I still have no clue of. My attempts at E involved finding the answer for small n values to create some sort of pattern. For 2 to 9, I got <code>[2,4,12,32,100,312,1076,3772]</code>. I suspect there is some sort of recurrence relation here but I could not find it. I have attempted this sort of method of brute forcing small n values to see a pattern before with mixed success, but here I feel this idea may have been a pitfall. I also attempted to find some sort of dp method for E but nothing was found.</p>
+<p>With C being a lucky solve, D being a graph problem, and E requiring a technique I have no clue of, this contest was better executed than the previous one. Yes it was worse overall, but my only mistakes were a slow B solve and rushing my first attempt on C. It still hurts though that I’m only <del>30</del> 20 points away from CM, but with school starting tomorrow (September 7th), it feels so far away.</p>
+<p>This blog was posted a week early, mainly due to the fact that there are no more contests coming in this two week period. I am starting classes at SFU again, 6 in fact. You can still expect frequent activity on other Github projects I’m working on as well as the rating post sometime at the end of this month. Alas, my goal of returning to CM by the end of this year is significantly harder now due to fewer contests and having much less time than normal to prepare.</p>
+</section>
+<section id="september-8th-update" class="level3">
+<h3 class="anchored" data-anchor-id="september-8th-update">September 8th update</h3>
+<p>Well, it turns out I’m incompetent when it comes to reading CodeForces schedule, because it turns out there was a contest today. Even better, my classes start later on Thursdays so I conveniently was able to attend today’s round. Let’s see how it went.</p>
+</section>
+<section id="educational-round-135" class="level3">
+<h3 class="anchored" data-anchor-id="educational-round-135"><a href="https://codeforces.com/contest/1726">Educational Round 135</a></h3>
+<p>Problems Solved: A, B, <del>C,</del> D</p>
+<p>New Rating: <strong>1808</strong> (-72)</p>
+<p>Performance: <strong>1585</strong></p>
+<p>On second thought, I’d say it’s just best to end this entry here.</p>
+<p>Okay fine, I’ll explain what happened. The contest opened with a strong Problem A-C solve in 30 minutes that had no major errors. Yes, there is a massive issue I’m ignoring here, we’ll discuss that, but first let me how I did <a href="https://codeforces.com/contest/1728/problem/D">Problem D</a>. I approached this question perfectly.</p>
+<p>The first thing I noticed is that the input size is much smaller than normal; the number of characters <em>s</em> will be at most 2000. 2000^2 is only 4 million, so an O(n^2) will actually be fast enough. O(n^2) is special because it means that a dp approach is more likely since 2d array representation usually won’t timeout. That said, I tried finding a greedy option first that involved trying to pick the best move for each player in a game. I soon realised that most of my greedy attempts were incredibly scuffed, and that a game with a 2 character string is trivial: if both characters are the same, the game is a draw, else Alice wins. From there, a dp approach can be used to calculate the result for 4-char substrings, 6-char substrings, and so on.</p>
+<p>Using an example, consider the string <code>abbcca</code>. The algorithm determines that <code>ab</code>,<code>bc</code>, and <code>ca</code> are wins for Alice, while <code>bb</code> and <code>cc</code> are draws. This info is represented in the array <code>[1,0,1,0,1]</code>, where 1 = Alice and 0 = Draw. Now consider the 4 character strings. The first one is <code>abbc</code>, and only the middle 2-char substring <code>bb</code> is a draw. However <code>abbc</code> is not a draw because even though Bob can force <code>bb</code> to be the remaining string, Alice could choose the <code>a</code> from earlier to finish with a string of <code>ba</code> to Bob’s <code>bc</code>. Thus <code>abbc</code> = 1. <code>bbcc</code> however is a draw because if Alice chooses b, Bob copies to get to <code>cc</code>, and if Alice chooses c, Bob copies to get to <code>bb</code>; both of these scenarios play out in a draw. For <code>bcca</code>, similar logic to <code>abbc</code> applies to show this is a win for Alice. This info is stored as <code>[1,0,1]</code></p>
+<p>This leaves the main string <code>abbcca</code>. Note that Alice choosing from the left leaves either a draw or win [0,1], and choosing from the right leaves either a win or draw [1,0]. Since the middle 4 characters lead to a draw, and the end characters are equal, the entire string is a draw. The array notation I used to track this data also helps in simplifying the logic for the program.</p>
+<p>Thus concludes my Problem D approach. I even had the right idea for <a href="https://codeforces.com/contest/1728/problem/E">Problem E</a>. You can find the maximum value for using x red peppers and n-x black peppers by first tracking the difference in tastiness between the two for each dish. Then find the total tastiness when using n red peppers, and then swap in black peppers from most to least effective to get the best result for every combination. This part can be done in O(n log n), and each shop query is likely solvable in O(log n) time each by using Euclid’s algorithm to solve each Diophantine equation. Unfortunately, I was running short on time to implement this part, and resorted to a brute force to attempt a hail mary solve. The submission made it past 6 test cases before TLE occurred, so it’s safe to assume I had the right approach.</p>
+<p>And then there’s <a href="https://codeforces.com/contest/1728/problem/C">Problem C</a>. Had I not been hacked, my submission would have fully passed the test cases, I would have gained about 30 ELO, and I’d be writing this contest as a storybook ending where I finally return to CM again. <a href="https://codeforces.com/contest/1728/submission/171539249">I even resubmitted the original solution to confirm this</a>. Alas, I’m now 92 ELO out of CM, and only a miracle can really get me back there before this year ends. (I’d need another Master level performance to make it back, or several CM performances. Both are longshots at best right now.) The cause of this successful hack is due to how Python hashmaps work. Hashmaps are incredibly useful for key value pairs by using additional memory for O(1) lookups. However, this is only possible if the hash function maps keys to the hashmap’s memory in a relatively even distribution. For most datasets this isn’t a problem, but specific key values will cause many hash collisions, which tl;dr, makes the lookup go from O(1) to a worst case O(n). This can make a program slow down to O(n^2), but this is incredibly unlikely for random number sequences. In fact, you’d need a key sequence intentionally designed in a way that makes the hash function map keys all map to the same value to cause an O(n) blowup.</p>
+<p>You can probably tell what happened. It turns out the hash function for Python is simple enough that the following code can generate an array of values that can cause such a blowup:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> screwpythonhashtables():</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    arr <span class="op">=</span> []</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    mask <span class="op">=</span> (<span class="dv">1</span> <span class="op">&lt;&lt;</span> <span class="dv">17</span>) <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    fill <span class="op">=</span> <span class="bu">int</span>((<span class="dv">1</span> <span class="op">&lt;&lt;</span> <span class="dv">15</span>) <span class="op">*</span> <span class="fl">1.3</span> <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    arr <span class="op">=</span> []</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># arr = [1]*199998</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    arr <span class="op">+=</span> [mask <span class="op">+</span> <span class="dv">2</span>] <span class="op">*</span> <span class="dv">2</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> <span class="dv">6</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, fill):</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        arr <span class="op">+=</span> [x] <span class="op">+</span> [x]</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> x <span class="op">*</span> <span class="dv">5</span> <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> x <span class="op">&amp;</span> mask</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    arr <span class="op">+=</span> [<span class="dv">1</span>] <span class="op">*</span> (n <span class="op">-</span> <span class="bu">len</span>(arr))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>A Quick Note on Hashtable Hacks
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Given several extra years of dealing with hashtable hacks being a thing (and having been hacked at some point at least one more time), nowadays the hacking system in Codeforces is not much of a factor as even in some Div 2 contests the contest will explicitly say that hacks on the early problems (A-D) are disabled. Knowing that they are hackable though is still useful for interview purposes. Also from experience, there is a tradeoff in the complexity of a hashing algorithm and the added amount of time/potential for errors that can occur; I have been able to get away with very simple hash alterations such as adding and multiplying fixed values to the hash values and this is sufficient since when these testcases are made to break hashtables, they almost always only test base implementations.</p>
+</div>
+</div>
+<p>For future contests a possible solution is to run all values used for a hashmap in a self made hash function to generate a more even distribution of values. I’m currently working on such a solution to be added to the Python comp lib, partially because it’s important, and partially because I’m still hurting over this contest. Also, such hashmap hacks also exist in C++, so programming language was never the issue. With school already loading up work on me at a rapid pace, I’ll be lucky if I have the time to join CodeForces contests consistently in these next 4 months, let alone have actual practice time. And to think that a hashmap exploit, the last thing on my mind immediately after that contest, would be why I’m sad now. I think this past excerpt from August is fitting here: <em>Oh, and I haven’t even mentioned this yet:</em></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="hackdefence.png" class="img-fluid figure-img"></p>
+<figcaption>hahahahahahahahaha.</figcaption>
+</figure>
+</div>
+<p><em>As if the near TLE shenanigans weren’t enough for my blood pressure, a total of </em><strong><em>16</em></strong>* attempts from 5 different people were made to break my solution. AND my solution defended all of them successfully. Just about every attempt made was to try and make my solution exceed the time limit, and the closest any of them got was about 882ms. If anyone who tried hacking my solution is reading this, then to you specifically, thank you for trying to hack me, defending all of the hacking attempts actually felt good.*</p>
+<p>The inverse really is true. Defending a hack makes you feel amazing, while being hacked is about the worst feeling imaginable on CodeForces. As a final note, please do not search or harass the person who hacked me; hacking on CodeForces is an innovative and fair aspect of the contests. If you do hack someone, you deserve the reward of increasing your own rank in the contest, and if you are hacked, then your solution failed a legitimate test case within the constraints of the problem and doesn’t deserve to be correct. That said, this sort of pain is nothing like the rage I felt over Round 818. It’s more of an agonising sadness that tears at you, like finally qualifying for a national sports competition two weeks away, only to get in a car crash hospitalising you long term. It is hyperbole, but unfortunately, it’s been two days since that contest as of writing this, and I don’t think I’ll forget this moment anytime soon.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Disclaimer on the Whole Car Crash Analogy
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I do apologize for using the car crash analogy, as it is somewhat inappropriate here even if I was relatively frustrated at this time. The idea of being in technical accomplishment only to be robbed via factors out of your own control was primarily an extension over my time in competitive swimming. The short part of the story is that I had been stagnant in speed for about a year and a half but finally had a good swim meet with significant improvement, and was looking forwards to continuing the momentum. Unfortunately, that meet was in February 2020, and given how COVID turned out, I never actually got that chance.</p>
+<p>It’s also somewhat laughable that while I do still recall this moment, it’s not even close to being in the top ten of bad competitive programming gaffes I’ve had. I mean, the contest following this was probably worse.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="september-16th-30th" class="level2">
+<h2 class="anchored" data-anchor-id="september-16th-30th">September 16th-30th</h2>
+<section id="round-821" class="level3">
+<h3 class="anchored" data-anchor-id="round-821"><a href="https://www.youtube.com/watch?v=-iOzHoxsor4">Round 821</a></h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The above video link is broken now, but since the Internet is forever (<a href="https://github.com/TheTechRobo/youtubevideofinder/">and TheTechRobo made a project that can retrive original videos from deleted Youtube links</a>), we have <a href="https://youtu.be/nUWmbL28g50?si=2HaCxREgu7odr9g6">this</a> as a fine suitable replacement.</p>
+<p>It’s also at this point that it should be noted how rubbish my mental game was.</p>
+</div>
+</div>
+<p>Problems Solved: B, D1, A, C</p>
+<p>New Rating: <strong>1758</strong> (-50)</p>
+<p>Performance: <strong>1606</strong></p>
+<p>(<a href="https://codeforces.com/contest/1733">Actual contest link</a>)</p>
+<p>The link above summarises my thoughts on this contest: a clown show. Excuse my language for a moment, but it needs to be asked:</p>
+<p><em>what in the actual hell was that.</em></p>
+<p>In a contest where I was expected to begin a recovery after losing rating in 3 consecutive agonising contest failures, I proceeded to have such a ridiculous contest that this blog entry is the only way I can explain that I was not trolling. The ordering of the problems solved is intentional; I really solved <a href="https://codeforces.com/contest/1733/problem/D1">Problem D1</a> before <a href="https://codeforces.com/contest/1733/problem/A">Problem A</a>. I’ll ignore the fact that the amount of time I spent thinking on how to solve A is about the same amount of time for bamboo to have a visible growth spurt since fixating on solving A first would’ve made this contest even more of a dumpster fire but there were still MANY execution mistakes in this contest.</p>
+<p><a href="https://codeforces.com/contest/1733/problem/B">Problem B</a>’s first submission was inaccurate as all hell. I somehow thought its output for a test case like <code>7 1 2</code> was correct because I forgot some competitors would have no wins. Not much was really wrong with <a href="https://codeforces.com/contest/1733/problem/C">Problem C</a> except for the fact that I kept overcomplicating the potential solution; it took an agonising amount of time for me to notice the very easy method of making the entire array the same value. Choosing to try and solve <a href="https://codeforces.com/contest/1733/problem/E">E</a> instead of <a href="https://codeforces.com/contest/1733/problem/D2">D2</a>. D2 ended up having 522 solves while E had 18 solves. E was worth much more in points but this was essentially a Hail Mary sort of attempt. The above choice only makes sense if I was absolutely sure that I had no idea how to progress for D2. Thing is that D2 had a giveaway clue in the constraints being <code>n &lt;= 5000</code>. I should’ve realised this meant a O(n^2) solution could work, meaning dp could be a legit idea. Unsurprisingly, there is a dp solution for D2.</p>
+<p>In total there were at least 3 significant errors that cost me in this contest. Even if I did not solve D2 the points lost from burning time on overcomplicating the answers and an idiotic B attempt would have at least prevented yet another 50 ELO loss. I may have been overrated when I first reached CM, but this is now four rated contests in a row where I have lost rating, 3 of which being significant losses. I’m 220 points off of my peak and 142 out from CM. At this point this is less of a knowledge issue, right now I need to regroup myself and stop crapping the bed on questions I should be solving efficiently.</p>
+<p>And it’s not like I’m not capable of having a strong contest. Look at this practice contest for <a href="https://codeforces.com/contest/1729/standings/participant/140177174#p140177174">Round 820 (Div 3)</a>. 6 out of 7 correct with E and F being 1800 and 1900 rated problems respectively. This would’ve been good for 42nd in the live contest for a performance rating of around 2204. This may be clearly overrated but E and F are easily Div 2 D-level problems. I clearly have the capability of doing better than these choke jobs, so to see myself struggling on Problem fricking A is just, how??? I swear if the contest on September 25th ends up being a shitshow I am going to lose it.</p>
+</section>
+<section id="round-822" class="level3">
+<h3 class="anchored" data-anchor-id="round-822"><a href="https://codeforces.com/contest/1734">Round 822</a></h3>
+<p>Problems Solved: A, B, C, D</p>
+<p>New Rating: <strong>1770</strong> (+11)</p>
+<p>Performance: <strong>1793</strong></p>
+<p>Well this is a surprise. I wasn’t even supposed to be in this contest, but due to incredible luck, this contest was 2.5 hours earlier than normal to avoid a scheduling conflict with a contest on CodeChef. Sure, this contest is happening at 5am in my local time, but <a href="https://codeforces.com/contest/1642/standings/participant/128907106#p128907106">past</a> <a href="https://codingcompetitions.withgoogle.com/codejam/submissions/0000000000877b42/0000000000a52684">experiences</a> make this endurable.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>And now I do AtCoder somewhat regularly, which is always at 5am. Fun!</p>
+</div>
+</div>
+<p>Sure, <a href="https://codeforces.com/contest/1734/problem/C">Problem C</a> was a bit of a mess with it taking 41 minutes due to logic errors in my solution, and the contest as a whole had problems with significantly higher clear rates than normal, but for once, I completed an A-D solve without major issues. My Round 818 performance may be statistically better, but for once, I am recapping a contest where I don’t end up writing an essay ranting on all the blunders I made. <a href="https://codeforces.com/contest/1734/problem/D">Problem D</a> in particular was surprisingly well done with myself finding the idea of using a “back-and-forth path” solution quickly, and it was the main reason I ended up with a positive rating gain since the contest I reached CM. The contest may not have been perfect, but this pretty much sums up my thoughts on it (the image below was made right after the contest, rating changes can slightly fluctuate a few days after the contest):</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="slide.png" class="img-fluid figure-img"></p>
+<figcaption>yea</figcaption>
+</figure>
+</div>
+<p>Hopefully I can continue this momentum into this Sunday’s contest.</p>
+</section>
+<section id="round-823" class="level3">
+<h3 class="anchored" data-anchor-id="round-823"><a href="https://codeforces.com/contest/1734">Round 823</a></h3>
+<p>Problems Solved: A, <del>B</del>, C</p>
+<p>New Rating: <strong>1709</strong> (-61)</p>
+<p>Performance: <strong>1535</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="systemFail.png" class="img-fluid figure-img"></p>
+<figcaption>oof</figcaption>
+</figure>
+</div>
+<p>To myself, conglaturations. I was considering making the recap of this contest and several of the other disasters into its own post portraying reaching CM as an ironic “curse”, but there was a chance that it could’ve been quickly outdated since Educational Round 136 and Global Round 22 happen this Thursday and Friday respectively. Had I got <a href="https://codeforces.com/contest/1730/problem/B">Problem B</a>, this would’ve been a peaceful recap where the main focus is myself making the questionable decision to attempt a <a href="https://codeforces.com/contest/1730/problem/E">Problem E</a> with only 5 solves instead of <a href="https://codeforces.com/contest/1730/problem/D">Problem D</a> with 286 solves. In fairness, I did have more of an idea on how to start E, and I actually succeeded in creating a logically sound solution; I just incorrectly estimated its runtime to be O(n log n) when it was actually O(n^1.71).</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>…okay actually now that I think of it, <a href="https://youtu.be/nUWmbL28g50?si=2HaCxREgu7odr9g6">the clown music</a> was somewhat justified. I really don’t remember, let alone understand why exactly I thought problem E was more solvable than problem D or how I even ended up at the <span class="math inline">\(O(n^{1.71})\)</span> computation. If anything, after going through all of these scuffed contest recaps, I may need to make a post just titled “Upsolving My Past CF Contest Blunders”.</p>
+</div>
+</div>
+<p>Now, Problem B. After the contest (and an undisclosed amount of time in the first four stages of grief), I tried figuring out how everything went to pot by recording my analysis of the failed submissions in a semi-structured rant on Discord. The <a href="https://codeforces.com/contest/1730/submission/173450078">first attempt</a> was me trying to get the absolute error under 10^-6. I decided to be safe by aiming for an abs error under 10^-8, but this caused a TLE for the following reason:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="a.png" class="img-fluid figure-img"></p>
+<figcaption>L</figcaption>
+</figure>
+</div>
+<p>To prevent a TLE in <a href="https://codeforces.com/contest/1730/submission/173452108">Attempt 2</a>, I forced the binary search to do a specific number of iterations. I tried 20 first, since (1/2)^20 is about 10^(-6) and taking the middle of the two values would likely get me within the relative error of 10^(-6). I knew this had a chance of failure due to it being very borderline, so when it did, I adjusted to 25 iterations, and it passed pretests.</p>
+<p>We all know what happened after that. You may also have noticed I completely misunderstood the meaning of relative error:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="b.png" class="img-fluid figure-img"></p>
+<figcaption>L again</figcaption>
+</figure>
+</div>
+<p>My overall reaction after this contest: <a href="https://www.youtube.com/watch?v=kKW2IxrOuh4">Do I even have to say it?</a></p>
+<p>I’m now 272 ELO below my all time peak. The only other time I was over 200 points below my peak was after the “I can’t count to five” contest. Even still, there is no reason for me to quit now. At this point, any contest performance that isn’t an implosion will help in bringing me back up, and even though the previous contests have been trainwrecks, I have still shown I’m capable of doing well. Round 822 went smoothly even though it was at 5am. I still got 4 problems correct in 3 of my last 6 contests, and had I not been hacked, I’d even have made it back to CM after e134. Mean regression is cruel, but at this point, I’m likely below my mean. I may be stuck in this hole, but only an idiot would wallow in self pity instead of finding a way to get out.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Just ignore that I’m 366 ELO below my peak at the moment of writing this. In fairness I haven’t practiced at the same frequency as I was a few years ago and I feel that earlier 1800 rated problems are relatively easier compared to 1800 rated problems now. Again, this is a whole idea for its own post.</p>
+</div>
+</div>
+</section>
+<section id="educational-round-136" class="level3">
+<h3 class="anchored" data-anchor-id="educational-round-136"><a href="https://codeforces.com/contest/1739/">Educational Round 136</a></h3>
+<p>Problems Solved: A, B, C</p>
+<p>New Rating: <strong>1738</strong> (+29)</p>
+<p>Performance: <strong>1817</strong></p>
+<p>I had a suboptimal initial approach for <a href="https://codeforces.com/contest/1739/problem/C">Problem C</a>, mainly because I really thought I could just OEIS the sequences. I should not be using this as my first approach since it’s pretty much me “hoping” for the sequence to have been created before. Relying on “hope” strategies is usually an easy way to fail since most of the time it’s equal to trying to “cheese” a solution. It could work, but in practice it usually doesn’t. At least I figured out the formula in C using a dp like method. The low constraint for n also means no fancy factorial methods are needed.</p>
+<p>From there most of the time I tried to solve <a href="https://codeforces.com/contest/1739/problem/D">Problem D</a>. The first 20 of about 80 minutes were burnt on <a href="https://codeforces.com/contest/1739/problem/E">Problem E</a> since I looked at D, saw it was a tree problem, then quickly assumed E was easier. Turns out that I’m actually decent at tree problems now since I ended up having more progress on D. I properly determined how many nodes are on each level of the tree. Where I got stuck was figuring out which layers to cut, for which I tried to create a dp like idea for, but ran out of time. Even if it was implemented properly I’d probably need a sparse table to get the needed O(1) lookup times for a O(n log n) solution. Still, this was a pretty difficult problem, and I did get A and B very quickly to place myself in the top 1000. Now I just hope <a href="https://codeforces.com/contest/1739/problem/C">Problem B</a> didn’t get hacked because as of writing this, there have been so many hacks for B that for a short time, the CodeForces website literally went down. I’m writing this 100 minutes after the contest and the solve rate for B is still collapsing.</p>
+</section>
+<section id="global-round-22" class="level3">
+<h3 class="anchored" data-anchor-id="global-round-22"><a href="https://codeforces.com/contest/1738">Global Round 22</a></h3>
+<p>Problems Solved: A, B, C, D</p>
+<p>New Rating: <strong>1809</strong> (+71)</p>
+<p>Performance: <strong>2009</strong></p>
+<p>Anytime I complete a full A through D solve on a contest is usually a good sign, and this was no exception. The only questionable play was <a href="https://codeforces.com/contest/1738/problem/B">Problem B</a> where solutions kept screwing up because I forgot about the n = 1 edge case. Everything else though was done relatively well. <a href="https://codeforces.com/contest/1738/problem/C">Problem C</a> is a simple game logic puzzle that went about as perfectly as possible. Implementation is not really a challenge for C, but it mainly determines who wins given a current game state.</p>
+<details>
+<summary>
+Problem C Important Observation
+</summary>
+<p>The only thing that matters about the values are if they’re even or odd, which means the solution is reliant on how many even/odd values there are at the starting state. Let x = # of even vals and y = # of odd vals.</p>
+With some basic game simulation you can find that the game result can vary depending on if x is odd or even and on what the value of y % 4 is. This gives 8 possible game states that can have the winner determined manually.
+</details>
+<p><a href="https://codeforces.com/contest/1738/problem/D">Problem D</a> was pretty ugly with how long it took and 2 wrong submissions, but I did solve it.</p>
+<details>
+<summary>
+Thoughts on Problem D’s solution
+</summary>
+<p>This problem actually has two independent parts, being to determine what the k value is, and what the original array is. I figured the original array surprisingly easily and my wrong submissions actually came from the wrong k value. The array building method somewhat resembles a DFS except out of each layer only one of the nodes can have children, thus every value will be added in the array.</p>
+Funny how this is technically a “tree” problem and I yet again solve it without even thinking of it as a tree.
+</details>
+<p>I even had time to try <a href="https://codeforces.com/contest/1738/problem/F">Problem F</a>, which was a tactically correct decision since the solve count between E and F was 483 and 344 respectively, not much of a difference. That said, both problems are pretty much out of my current skill level. I ended up running out of time to actually complete a proper implementation of my solution to F, and even if I did fix it properly in time, the solution breaks down on graphs with more than n edges.</p>
+<p>Thus concludes another two week span where I ran in 5 contests. It was looking incredibly ugly at first, but I am recovering my rating now and may return to CM in time. SFU courses are still weighing down on me so I’m more focused on outlining the end of year recap post first right now. It also wouldn’t really make sense for someone who barely touched CM to be explaining what each rating means. Maybe for that post I’ll split into parts describing a few rating groups as I actually climb the elo ladder of CodeForces. For now though, this post marks the end of the 3rd quarter of this year where on average I participated in a CodeForces contest once every 4.38 days, or just under 2% of my life in the last 3 months has been in a CodeForces contest. Pretty insane to think about.</p>
+<p>Oh, and this contest’s Problem B also had a System Test Armageddon. That makes two contests in a row where Problem B decided to be a troll and cause lots of post contest failures. And this was right after I system failed Problem B in Round 823. What a coincidence.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/alxwen711\.github\.io\/HonestCode\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
