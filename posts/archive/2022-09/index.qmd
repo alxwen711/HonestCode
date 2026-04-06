@@ -25,6 +25,7 @@ Then we go to [Problem D](https://codeforces.com/contest/1717/problem/D). I’ll
 *Note: originally I was going to excuse the first wrong submission because I was unsure why it inexplicably failed on test case 8. It is now 6 hours after the contest and put simply, I’m just sad now. The next paragraph may contain excessive amounts of salt.*
 
 The [first submission](https://codeforces.com/contest/1717/submission/170630493) fail can be described as follows:
+
 ```
 Let a = 2, b = 5, c = 3
 My line of code: a = a + b % c
@@ -126,18 +127,38 @@ def screwpythonhashtables():
     arr += [1] * (n - len(arr))
 ```  
 
+:::{.callout-note}
+## A Quick Note on Hashtable Hacks
+
+Given several extra years of dealing with hashtable hacks being a thing (and having been hacked at some point at least one more time), nowadays the hacking system in Codeforces is not much of a factor as even in some Div 2 contests the contest will explicitly say that hacks on the early problems (A-D) are disabled. Knowing that they are hackable though is still useful for interview purposes. Also from experience, there is a tradeoff in the complexity of a hashing algorithm and the added amount of time/potential for errors that can occur; I have been able to get away with very simple hash alterations such as adding and multiplying fixed values to the hash values and this is sufficient since when these testcases are made to break hashtables, they almost always only test base implementations.
+:::
+
 For future contests a possible solution is to run all values used for a hashmap in a self made hash function to generate a more even distribution of values. I’m currently working on such a solution to be added to the Python comp lib, partially because it’s important, and partially because I’m still hurting over this contest. Also, such hashmap hacks also exist in C++, so programming language was never the issue. With school already loading up work on me at a rapid pace, I’ll be lucky if I have the time to join CodeForces contests consistently in these next 4 months, let alone have actual practice time. And to think that a hashmap exploit, the last thing on my mind immediately after that contest, would be why I’m sad now. I think this past excerpt from August is fitting here:
 *Oh, and I haven’t even mentioned this yet:*
 
-![hahahahahahahahaha.](docs/assets/images/hackdefence.png)
+![hahahahahahahahaha.](hackdefence.png)
 
 *As if the near TLE shenanigans weren’t enough for my blood pressure, a total of ****16**** attempts from 5 different people were made to break my solution. AND my solution defended all of them successfully. Just about every attempt made was to try and make my solution exceed the time limit, and the closest any of them got was about 882ms. If anyone who tried hacking my solution is reading this, then to you specifically, thank you for trying to hack me, defending all of the hacking attempts actually felt good.*
 
 The inverse really is true. Defending a hack makes you feel amazing, while being hacked is about the worst feeling imaginable on CodeForces. As a final note, please do not search or harass the person who hacked me; hacking on CodeForces is an innovative and fair aspect of the contests. If you do hack someone, you deserve the reward of increasing your own rank in the contest, and if you are hacked, then your solution failed a legitimate test case within the constraints of the problem and doesn’t deserve to be correct. That said, this sort of pain is nothing like the rage I felt over Round 818. It’s more of an agonising sadness that tears at you, like finally qualifying for a national sports competition two weeks away, only to get in a car crash hospitalising you long term. It is hyperbole, but unfortunately, it’s been two days since that contest as of writing this, and I don’t think I’ll forget this moment anytime soon.
 
+:::{.callout-note}
+## Disclaimer on the Whole Car Crash Analogy
+
+I do apologize for using the car crash analogy, as it is somewhat inappropriate here even if I was relatively frustrated at this time. The idea of being in technical accomplishment only to be robbed via factors out of your own control was primarily an extension over my time in competitive swimming. The short part of the story is that I had been stagnant in speed for about a year and a half but finally had a good swim meet with significant improvement, and was looking forwards to continuing the momentum. Unfortunately, that meet was in February 2020, and given how COVID turned out, I never actually got that chance.
+
+It's also somewhat laughable that while I do still recall this moment, it's not even close to being in the top ten of bad competitive programming gaffes I've had. I mean, the contest following this was probably worse.
+:::
+
 ## September 16th-30th
 
 ### [Round 821](https://www.youtube.com/watch?v=-iOzHoxsor4)
+
+:::{.callout-note}
+The above video link is broken now, but since the Internet is forever ([and TheTechRobo made a project that can retrive original videos from deleted Youtube links](https://github.com/TheTechRobo/youtubevideofinder/)), we have [this](https://youtu.be/nUWmbL28g50?si=2HaCxREgu7odr9g6) as a fine suitable replacement.
+
+It's also at this point that it should be noted how rubbish my mental game was.
+:::
 
 Problems Solved: B, D1, A, C
 
@@ -172,9 +193,13 @@ Performance: **1793**
 
 Well this is a surprise. I wasn’t even supposed to be in this contest, but due to incredible luck, this contest was 2.5 hours earlier than normal to avoid a scheduling conflict with a contest on CodeChef. Sure, this contest is happening at 5am in my local time, but [past](https://codeforces.com/contest/1642/standings/participant/128907106#p128907106) [experiences](https://codingcompetitions.withgoogle.com/codejam/submissions/0000000000877b42/0000000000a52684) make this endurable.
 
+:::{.callout-note}
+And now I do AtCoder somewhat regularly, which is always at 5am. Fun!
+:::
+
 Sure, [Problem C](https://codeforces.com/contest/1734/problem/C) was a bit of a mess with it taking 41 minutes due to logic errors in my solution, and the contest as a whole had problems with significantly higher clear rates than normal, but for once, I completed an A-D solve without major issues. My Round 818 performance may be statistically better, but for once, I am recapping a contest where I don’t end up writing an essay ranting on all the blunders I made. [Problem D](https://codeforces.com/contest/1734/problem/D) in particular was surprisingly well done with myself finding the idea of using a “back-and-forth path” solution quickly, and it was the main reason I ended up with a positive rating gain since the contest I reached CM. The contest may not have been perfect, but this pretty much sums up my thoughts on it (the image below was made right after the contest, rating changes can slightly fluctuate a few days after the contest):
 
-![yea](docs/assets/images/slide.png)
+![yea](slide.png)
 
 Hopefully I can continue this momentum into this Sunday’s contest.
 
@@ -186,23 +211,31 @@ New Rating: **1709** (-61)
 
 Performance: **1535**
 
-![oof](docs/assets/images/systemFail.png)
+![oof](systemFail.png)
 
 To myself, conglaturations. I was considering making the recap of this contest and several of the other disasters into its own post portraying reaching CM as an ironic “curse”, but there was a chance that it could’ve been quickly outdated since Educational Round 136 and Global Round 22 happen this Thursday and Friday respectively. Had I got [Problem B](https://codeforces.com/contest/1730/problem/B), this would’ve been a peaceful recap where the main focus is myself making the questionable decision to attempt a [Problem E](https://codeforces.com/contest/1730/problem/E) with only 5 solves instead of [Problem D](https://codeforces.com/contest/1730/problem/D) with 286 solves. In fairness, I did have more of an idea on how to start E, and I actually succeeded in creating a logically sound solution; I just incorrectly estimated its runtime to be O(n log n) when it was actually O(n^1.71). 
 
+:::{.callout-warning}
+...okay actually now that I think of it, [the clown music](https://youtu.be/nUWmbL28g50?si=2HaCxREgu7odr9g6) was somewhat justified. I really don't remember, let alone understand why exactly I thought problem E was more solvable than problem D or how I even ended up at the $O(n^{1.71})$ computation. If anything, after going through all of these scuffed contest recaps, I may need to make a post just titled "Upsolving My Past CF Contest Blunders".
+:::
+
 Now, Problem B. After the contest (and an undisclosed amount of time in the first four stages of grief), I tried figuring out how everything went to pot by recording my analysis of the failed submissions in a semi-structured rant on Discord. The [first attempt](https://codeforces.com/contest/1730/submission/173450078) was me trying to get the absolute error under 10^-6. I decided to be safe by aiming for an abs error under 10^-8, but this caused a TLE for the following reason:
 
-![L](docs/assets/images/1730B/a.png) 
+![L](a.png) 
 
 To prevent a TLE in [Attempt 2](https://codeforces.com/contest/1730/submission/173452108), I forced the binary search to do a specific number of iterations. I tried 20 first, since (1/2)^20 is about 10^(-6) and taking the middle of the two values would likely get me within the relative error of 10^(-6). I knew this had a chance of failure due to it being very borderline, so when it did, I adjusted to 25 iterations, and it passed pretests.
 
 We all know what happened after that. You may also have noticed I completely misunderstood the meaning of relative error:
 
-![L again](docs/assets/images/1730B/b.png)
+![L again](b.png)
 
 My overall reaction after this contest: [Do I even have to say it?](https://www.youtube.com/watch?v=kKW2IxrOuh4)
 
 I’m now 272 ELO below my all time peak. The only other time I was over 200 points below my peak was after the “I can’t count to five” contest. Even still, there is no reason for me to quit now. At this point, any contest performance that isn’t an implosion will help in bringing me back up, and even though the previous contests have been trainwrecks, I have still shown I’m capable of doing well. Round 822 went smoothly even though it was at 5am. I still got 4 problems correct in 3 of my last 6 contests, and had I not been hacked, I’d even have made it back to CM after e134. Mean regression is cruel, but at this point, I’m likely below my mean. I may be stuck in this hole, but only an idiot would wallow in self pity instead of finding a way to get out.
+
+:::{.callout-note}
+Just ignore that I'm 366 ELO below my peak at the moment of writing this. In fairness I haven't practiced at the same frequency as I was a few years ago and I feel that earlier 1800 rated problems are relatively easier compared to 1800 rated problems now. Again, this is a whole idea for its own post.
+:::
 
 
 ### [Educational Round 136](https://codeforces.com/contest/1739/)
