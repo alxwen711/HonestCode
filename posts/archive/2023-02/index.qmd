@@ -89,22 +89,23 @@ BALSUFF is a constructive algorithm that requires a sort of greedy solution as w
 
 ### [ICPC Pacific Northwest 2022](http://acmicpc-pacnw.org/ProblemSet/Spring2023/pacnw_div1.pdf)
 
-![1](/docs/assets/images/icpc2022.png)
+![1](icpc2022.png)
 
-This is the first time I’ve dreaded having to reflect on a contest. Let’s get this clear first, my teammates did well. The only problem I actually solved in this contest was F, and Shea and Rishi are why SFU-Lavender made it to 5 problems. Looking back I probably could have got A faster than 292 minutes in the contest had I spent more time looking at it, but I made an error thinking that there would be up to 3^15 = 14348907 possible dice to test by fixing the first 3 letter word. Turns out I forgot how to do mathematics because a dice with letters “abcdef” is equivalent to one with “defcab”. In reality there is at most C(15,5)xC(10,5) = 756756 possible dice setups with fixing the first word which is much more reasonably doable.
+:::{.callout-important}
+I'll be quite blunt, my performance on this contest was a shitshow. To sum it up that succintly is mercy, and while I do try to keep this archive as is, I've decided to remove several parts of this log, mainly since while I am okay with it being viewable and if someone really wanted to for the full experience they could, I'd prefer not to display the misery here in a public setting. But I will give a synopsis summary of what was removed:
 
-This however ignores the real problem being H. I’m very, VERY sure I had the solution because I made 6 attempts that all ended in TLE, so the issue was almost certainly implementation. This question feels like one literally from a CodeForces contest, except with 5 second time limit. The solution I determined is as follows:
+- SFU Lavander ended up solving 5 problems; I myself was only responsible for one of these and that was a borderline pity problem (F).
 
-<details>
-<summary>Branch Manager</summary>
-There will be 3 possible colours for each node: call these {1,2,3}. Nodes labelled 1 can be accessed by the next person, nodes labelled 2 are on the leftmost path of the tree, and nodes labelled 3 are inaccessible. Initially, there are no nodes labelled 3, and only leftmost path is labelled 2; rest of the nodes are 1. The leftmost path is initially determined as the path a person would take if they took the lowest labelled child each time.
+- I also spent 6 attempts and roughly 4 hours on my own failing at problem H Branch Manager, also burning roughly half the team's computer time in the contest.
 
-Then begins processing each person’s path. If they’re going to a node labelled 3, then it’s impossible and the program ends. If they’re going to a node labelled 2, then it’s possible and no changes need to be made. The tricky part is going to a node labelled 1, call this destination node x. For this, determine the lowest ancestor of x that is part of the left most path. This can be done by traversing the parents of x, which is necessary as this will form the new leftmost path. Once the ancestor is reached you then check if there are any children that are to the left of the new leftmost path. If so, use DFS/BFS to label all nodes in the child’s subtree 3.
+- The solution I had ranted about Branch Manager discussed finding a new node's ancestors with the current path, which is technically correct but absurdly convoluted. The simplest method is to just eject the last node in the current path and replace it with the next child if it exists and to repeat this until no further nodes can be accessed.
 
-Each node can only be changed from 1->2, 2->3, or 1->3. No other colour changes are possible. With proper tree traversal each node is getting visited at most 3 times for each colour adjustment, and by storing the colours in an array for lookup, the overall runtime should be O(n), where n is the number of nodes.
-</details>
+- I contemplated making this contest recap a Days of Our Programmers type recap to cope emotionally. Thing is that it only works on funny implosions, where as this was just sad. I did note this was worse than Pinely Round 1 (see Nov 2022 archive log)
 
-Go ahead and correct me if I’m wrong. Either way, it’s not a good look. Either my solution idea was wrong meaning that I spent 4 hours on a problem with the wrong idea, or my solution idea is right and I spent 4 hours screwing up implementing a relatively simple tree problem. The one contest where I needed to be at least decent I proceed to lay a massive egg. There is pain, and then there is the contemplation that the my literal boogeyman with tree problems showed up at the worst possible time, causing me to choke horrifically and all but cost my team the chance to reach the North American Championship. I can at least take solace in knowing that I’ll have at least one more chance in October.
+- I left a few bits of this contest recap in at the end of month recap. The parts removed are more emotional. There also exists an actual private log which I refuse to elaborate on.
+
+Alas, I suppose to understand the progress one has made the failures have to be acknowledged. If it's anything, when I was writing Days of Our Programmers there was a saying I had for myself, *The stars shine brightest in the darkness.* This contest was the start of said darkness, but ultimately did eventually lead to the bright success of the North American Championship in 2026.
+:::
 
 ### [Educational Round 144](https://codeforces.com/contest/1796)
 
@@ -138,7 +139,5 @@ So I guess I’m back to idiotic typo blunders now. Somehow I’m not that surpr
 
 Thus concludes another month of trials and tribulations in competitive programming. This was a difficult month as most of the improvement I supposedly found this week was in consistency. That narrative pretty much died off after ICPC, and alongside it Google’s programming competitions. As of writing this it has been about two weeks since Google announced that Google Code Jam and all other competitions will not be happening this year, and it’s pretty much set in stone that it’s over since there is a Farewell Round in April. I found this out the day after Starters 78, so it just about makes February 23rd to 25th one of the worst times in competitive programming personally. I did not record it much here, but Google Code Jam was one of the major competitions I was looking towards this year. I was just outside of reaching Round 2 last year, and it was motivation for me to prepare for a deep run this year. Alas, now it won’t happen. There was also the day before the Pacific Northwest Regional. I pledged the night before that my efforts in the contest the next day would be to honour the death of Google Code Jam. And now Google Code Jam is gone and I’ve thrown a critical opportunity to go to the North American Championships for my team.
 
-I was considering making the ICPC recap into an episode of ***Days of Our Programmers***. After all, it is similar to [my recap of Pinely Round 1](https://alxwen711.github.io/blog/Nov22) in that it featured a spectacularly bad contest performance that it was worthy of satirical scorn for comedic purposes. This is different. With Codeforces, the consequences of a bad contest are a loss of virtual rating points. Furthermore, there was at least a ridiculous buildup to the contest and inexplicable mistakes made that could be construed as funny. It’s different here. My failure last week pretty much cost the entire team our berth to the North American Championship, for one in particular, it was his last contest. 
-
-There’s more I would write here, but I just cannot bring myself to place it here. I know almost no one actually reads this asides from myself so it’s kind of a private journal, but it just is not like that. Just know that my sole motivation for me now in competitive programming is next October.
+There’s more I would write here, but I just cannot bring myself to place it here. Just know that my sole motivation for me now in competitive programming is next October.
 
