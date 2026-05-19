@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Alexander Wen">
+<meta name="dcterms.date" content="2026-05-18">
+
+<title>CodeForces Educational Round 190 Recap – HonestCode</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-a0f9fd0d421825b736dc1bbcbcba2219.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">HonestCode</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/alxwen711"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">CodeForces Educational Round 190 Recap</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">codeforces</div>
+                <div class="quarto-category">recap</div>
+                <div class="quarto-category">2026</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Alexander Wen </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">May 18, 2026</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<p>3 weeks after an <a href="https://codeforces.com/contest/2222/standings/participant/235935685#p235935685">open contest with 5 problems solved</a> that led to what was somehow barely a CM level performance (CF in 2026!), we have me actually remembering to wake up for an educational round. I forgot last Saturday, my bad. We now observe if I actually drag myself back to 1900 after this one.</p>
+<section id="solved-problems" class="level2">
+<h2 class="anchored" data-anchor-id="solved-problems">Solved Problems</h2>
+<section id="a-optimal-purchase" class="level3">
+<h3 class="anchored" data-anchor-id="a-optimal-purchase"><a href="https://codeforces.com/contest/2230/problem/A">A: Optimal Purchase</a></h3>
+<p>There are two primary cases:</p>
+<ol type="1">
+<li><p>If individual keys are at least as cost efficient as group keys (<span class="math inline">\(3a \leq b\)</span>), then buying only individual keys is a minimally optimal cost of <code>n*a</code>.</p></li>
+<li><p>Otherwise, generally buying group keys should be better, so as many of these should be bought as possible. There are cases where 1 or 2 individual keys should be bought as remainder if it’s less optimal than getting another group key for the remaining students. This makes the solution either <code>floor(n/3)*b+(n%3)*a</code> or <code>ceil(n/3)*b</code>.</p></li>
+</ol>
+<p><strong><a href="https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-2/e190/a.py">Sample code</a></strong></p>
+</section>
+<section id="b-digit-string" class="level3">
+<h3 class="anchored" data-anchor-id="b-digit-string"><a href="https://codeforces.com/contest/2230/problem/B">B: Digit String</a></h3>
+<p>Using the digits from 1 to 4, these are the possible multiples of 4 to avoid:</p>
+<p><code>x4, x12, x32</code></p>
+<p><code>x</code> can be replaced with any sequence of digits. Thus we need to remove all the 4’s in the string first. Then an optimal number of removals is needed so that all the remaining 2’s are at the start of the string. The two extreme solutions are either to remove all existing 2’s or to remove all remaining 1’s and 3’s that are in front of a 2. But I figured there could be some sort of idea that combines both of these optimally; <code>122223332313</code> for instance would only require 2 removals. We then consider every combination of removing 1/3 from the left part of the list and removing 2 from the right part of the list. This can be done through a single traversal by setting a variable <code>v</code> to the number of 2’s, then traversing the remaining string, subtracting 1 to <code>v</code> if it’s a 2 and adding 1 otherwise. Then the minimal <code>v</code> value obtained at any given point would be the answer.</p>
+<p><strong><a href="https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-2/e190/b.py">Sample code</a></strong></p>
+</section>
+<section id="c-arrange-the-numbers-in-a-circle" class="level3">
+<h3 class="anchored" data-anchor-id="c-arrange-the-numbers-in-a-circle"><a href="https://codeforces.com/contest/2230/problem/C">C: Arrange the Numbers in a Circle</a></h3>
+<p>I somewhat guessed the answer here based on the testcases and other tested scenarios. These can be explained here. Suppose we have the following case:</p>
+<pre><code>5
+2 2 2 2 2</code></pre>
+<p>This can be arranged in a full circle of 10 values (<code>1 1 2 2 3 3 4 4 5 5</code>); in fact the only problems we have is if we only have 1 copy of a number.</p>
+<pre><code>5
+4 6 1 1 1</code></pre>
+<p>A full circle can also be arranged here as <code>1 1 3 1 1 2 2 4 2 2 5 2 2</code>. Generally, if there is <code>x</code> of a value, then <code>(x-2)//2</code> additional unique values can be inserted to split the majority into groups of two, which will still preserve the circle condition.</p>
+<pre><code>3
+4 1 1</code></pre>
+<p>In the edge case where only 1 value of high frequency exists, this can still make a full circle <code>1 1 2 1 1 3</code>, so if only 1 value is at least 2, then another unique value can be included. These conditions are sufficient for a correct answer.</p>
+<p><strong><a href="https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-2/e190/c.py">Sample code</a></strong></p>
+</section>
+<section id="d-good-schedule" class="level3">
+<h3 class="anchored" data-anchor-id="d-good-schedule"><a href="https://codeforces.com/contest/2230/problem/D">D: Good Schedule</a></h3>
+<p>We first determine the conditions on which a segment would be good. Suppose Alice and Bob need to watch episode <code>x</code> next. Then if they are on day <code>i</code>, there must be a day <code>j</code> such that <code>A[j] = x</code> and <code>B[j] = x</code> and no such <code>k</code> where <code>i &lt; k &lt; j</code> and only one of <code>A[k] = x</code> or <code>B[k] = x</code> hold. Furthermore, we can also notice there will be a lot of repetitive computation occurring:</p>
+<pre><code>2 3 4 1 2 3 4 5 1
+3 2 2 1 2 3 4 5 6</code></pre>
+<p>We can see here that the 4th to 8th day is a valid sequence, as well as any prefix of this. Furthermore, if we start from days 1, 2, or 3, the first episode is still going to be watched on day 4, and the other episodes still end up being watched in the same 4th to 8th day sub sequence. <strong>Also importantly, any prefix of a valid sequence is valid.</strong> This then leads to a pseudo-dp idea where we will solve the number of subsequences starting at each index going from back to front of the array. For each starting point <code>i</code>, we have 3 possible cases:</p>
+<ol type="1">
+<li><p><code>ar[i] == 1 and br[i] == 1</code> - This scenario can be called a chain start; the task here is to extend this sequence as far as possible by checking if the second episode can be watched before encountering a case where only one person would watch the episode. If so, repeat with the next episode and so on or until the end of the array is reached.</p></li>
+<li><p><code>ar[i] != 1 and br[i] != 1</code> - By extending this sequence, you either have a case where only one of <code>ar[j] = 1</code> or <code>br[j] = 1</code> is true, in which case any prefix of <code>[i,j-1]</code> is valid, or you reach a chain start, in which case with memomization the maximum length sequence from this point can be computed.</p></li>
+<li><p><code>ar[i] == 1 xor br[i] == 1</code> - If only one condition holds then no sequence can ever start from this index as only one person would watch the first episode.</p></li>
+</ol>
+<p>To then optimize the computations, we define the following reference arrays that are updated after each index <code>i</code> (recall these are still being traversed from <code>n-1</code> to <code>1</code>):</p>
+<ul>
+<li><code>synch[x] = i</code> is the lowest value index <code>i</code> found such that <code>ar[i] = br[i] = x</code>.</li>
+<li><code>disruption[x] = i</code> is the lowest value index <code>i</code> found such that <code>ar[i] = x and ar[i] != br[i]</code> or similarly <code>br[i] = x and ar[i] != br[i]</code>.</li>
+<li><code>nextpos[i] = j</code> is only defined when <code>ar[i] = br[i]</code> and is the earliest index <code>j</code> such that <code>i &lt; j</code> and index <code>j</code> contains either <code>ar[j] = ar[i]+1</code> and/or <code>br[j] = br[i]+1</code>. This is utilized to determine the next index to check for Case 1, as without it, the chain traversal could go backwards in the array such as this test case which failed the first attempt on this problem:</li>
+</ul>
+<pre><code>1 1 3 1 2
+1 1 3 1 2</code></pre>
+<ul>
+<li><code>chains[i] = j</code> is updated after each Case 1 occurrance with the ending point of the chain logged for each new index traversed. This is mainly to prevent cases like below resulting in TLE as it would result in the full chain being traversed on each new instance where <code>ar[i] = br[i] = 1</code>.</li>
+</ul>
+<pre><code>1 1 1 1 1 ... 1 2 3 4 5 6 ...
+1 1 1 1 1 ... 1 2 3 4 5 6 ...</code></pre>
+<p><strong><a href="https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2026-2/e190/d.py">Sample code</a></strong></p>
+</section>
+</section>
+<section id="unsolved-problems" class="level2">
+<h2 class="anchored" data-anchor-id="unsolved-problems">Unsolved Problems</h2>
+<section id="e-minimum-influence" class="level3">
+<h3 class="anchored" data-anchor-id="e-minimum-influence"><a href="https://codeforces.com/contest/2230/problem/E">E: Minimum Influence</a></h3>
+<p>This is a case where I’m reasonably sure I have a solution idea, the issue is that I’m extremely sure there is something less complicated and I knew with about 20 minutes left it would be impossible to implement all of this. Each user can be thought of as a query that needs to be answered in at most <span class="math inline">\(O(\log^2 n)\)</span> time. Normally this would be <span class="math inline">\(O(\log n)\)</span> but there are two parameters to consider. We can map out the 9 possible influence scenarios below:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="e.png" class="img-fluid figure-img"></p>
+<figcaption>Scuffed case diagram</figcaption>
+</figure>
+</div>
+<p>Let <code>c</code> be the culture value of the news item, <code>tc</code> be the user’s tolerance for culture, <code>p</code> and <code>tp</code> be the same values but with politics, and <code>d</code> be the influence value, or range of possible tolerance scores.</p>
+<ol type="1">
+<li><code>c &lt; tc, p &lt; tp</code> - In this case the influence score is 0.</li>
+<li><code>tc &lt;= c &lt; tc+d, p &lt; tp</code> - Only culture score affects influence, thus score would be <code>c</code>.</li>
+<li><code>tc+d &lt;= c, p &lt; tp</code> - Only culture score affects influence, thus score would be <code>tc+d</code>.</li>
+<li><code>c &lt; tc, tp &lt;= p &lt; tp+d</code> - Similar to Case 2, score would be <code>p</code>.</li>
+<li><code>tc &lt;= c &lt; tc+d, tp &lt;= p &lt; tp+d</code> - Only culture score affects influence, thus score would be <code>c</code>.</li>
+<li><code>tc+d &lt;= c, tp &lt;= p &lt; tp+d</code> - Culture score is <code>tc+d</code>, political score is <code>p</code>, total is <code>tc+d+p</code>.</li>
+<li><code>c &lt; tc, tp+d &lt;= p</code> - Similar to Case 3, score would be <code>tp+d</code>.</li>
+<li><code>tc &lt;= c &lt; tc+d, tp+d &lt;= p</code> - Similar to case 6, score would be <code>tp+d+c</code>.</li>
+<li><code>tc+d &lt;= c, tp+d &lt;= p</code> - Score would be <code>tc+d+tp+d</code> (both influence values hit maximum cap)</li>
+</ol>
+<p>For cases 1, 3, 7 and 9, we can use a 2D segment tree (which I think is a segment tree but with four children at each node for each “quadrant” of the range to search further) to check for existance of an item in these ranges. Every other case except for 5 has only one parameter that is being aimed at being minimized so searching in those cases may be possible with a 2D sparse table (the segment tree can still be used but I find sparse table to be easier to setup here). Case 5 is the complete mess that I have a semblance of a clue on what to do; it seems possible to track <code>c+p</code> sums in each node of the segment tree and to only store minimums in the parents, then use this somehow for searching. The thing is, while I’m fairly sure this solution idea can technically work, actually implementing this is a complete nightmare and likely overkill for what is actually intended.</p>
+<p>Now that I’ve written all of this, for some reason I did not consider that the queries in this case can be offline computed (ie. not done in order). This probably means there may be some sort of weird sweeping algorithm that can be used.</p>
+</section>
+</section>
+<section id="not-attempted" class="level2">
+<h2 class="anchored" data-anchor-id="not-attempted">Not Attempted</h2>
+<section id="f-game-on-growing-tree" class="level3">
+<h3 class="anchored" data-anchor-id="f-game-on-growing-tree"><a href="https://codeforces.com/contest/2230/problem/F">F: Game on Growing Tree</a></h3>
+</section>
+</section>
+<section id="contest-reflection" class="level2">
+<h2 class="anchored" data-anchor-id="contest-reflection">Contest Reflection</h2>
+<p>I remember back in the day when 4 problems was an automatic CM performance. I suppose now the average competitive programmer skill level has increased significantly even compared to a few years ago. Somehow this contest felt like I did quite solidly with only problem D really having significant errors made.</p>
+<p>Now that I observe it, quite literally of the 16 contests where I had 5 problems solved, the last 5 cases of this are also the 5 contests with the overall lowest performance for me:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="5solve.png" class="img-fluid figure-img"></p>
+<figcaption>Okay this cannot be a coincidence.</figcaption>
+</figure>
+</div>
+<p>There is a slight note that 2 of the last 5 are technically 4 problem solves where one problem had multiple parts, but this has occurred before this such as in <a href="https://codeforces.com/submissions/SnowLucario_Z/contest/1984">Global Round 26</a>. There is also consideration that my pace isn’t used to be, but I would think that at least one of these last 5 contests with 5 solves would be at least at a master level performance. Very unusual indeed.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/alxwen711\.github\.io\/HonestCode\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
