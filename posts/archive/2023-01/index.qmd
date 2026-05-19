@@ -3,7 +3,7 @@ title: January 2023 Archive Log
 author: "Alexander Wen"
 date: "2023-02-04"
 date-modified: "2026-05-10"
-categories: [competitive programming,2022,archive]
+categories: [competitive programming,2023,archive]
 ---
 
 :::{.callout-note}
