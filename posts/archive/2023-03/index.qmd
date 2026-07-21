@@ -1,10 +1,17 @@
 ---
-title: February 2023 Archive Log
+title: March 2023 Archive Log
 author: "Alexander Wen"
 date: "2023-04-04"
-date-modified: "2026-05-23"
+date-modified: "2026-07-21"
 categories: [competitive programming,2023,archive]
 ---
+
+
+:::{.callout-note collapse="false"}
+# Important Note:
+
+I'm fairly sure in previous archive posts such as [Feb 2022](https://alxwen711.github.io/HonestCode/posts/archive/2022-02/), [Sep 2022](https://alxwen711.github.io/HonestCode/posts/archive/2022-09/), [Dec 2022](https://alxwen711.github.io/HonestCode/posts/archive/2022-12/) mentions to this month have been made. You will see why. Seeing that it has been months since my last update on this HonestCode thing do keep in mind that 2022-2023 Alex was definitely an experience. Then again thinking of it now, even 2026 Alex is a bit crazy.
+:::
 
 ## March 1st-15th
 
@@ -34,6 +41,13 @@ Curse you cheaters. I was actually about to celebrate reaching CM from this cont
 
 With that minor rant out of the way, this was actually a good contest for me. [B](https://codeforces.com/contest/1804/problem/B) felt slightly harder than [C](https://codeforces.com/contest/1804/problem/C) which is understandable since they both had the same point value, but more importantly, I actually solved a [D](https://codeforces.com/contest/1804/problem/D) problem again. My process for finding minimums is very simple and accurate; just assign 2 window rooms to as many “11”’s as possible. For maximums, it’s the exact inverse, place 2 window rooms anywhere except “11”’s. My first 3 attempts thought there was a difference in priority between “01”/”10” and “00” pairs, but turns out that this causes an incorrect answer given a specific setup. This contest as a whole feels like one where in a rare occurrence, I did not shoot myself in the foot. There was a bit of progress made on [E](https://codeforces.com/contest/1804/problem/E) as well; The solution involves checking between each of the 2**n possible groups of nodes if a cycle exists between them, and if it does, does this cycle and its neighbouring nodes consist the full graph. The issue is that determining if a cycle exists between x given nodes in a graph of n nodes is a bit complicated.
 
+:::{.callout-note}
+# lmao
+
+This entire mini rant on cheaters looking back on it is hilarious. Is it a bad time to mention that recently my account was pretty much the Exhibit A for observing [Codeforces rating deflation](https://codeforces.com/blog/entry/154620) due to the increasing prevalance of AI cheaters? Needless to say I wasn't exactly happy seeing the blatant rating falloff recently being used as a data point even if it can be argued that my last few contests having 4 solves consistently imply they aren't terrible.
+
+Anyways, it's not like this petulant complaining will suffer extreme karmic retribution in the very next contest.
+:::
 
 
 
@@ -87,6 +101,82 @@ New Rating: **1726** (-173)
 Performance: **not worth mentioning (857)**
 
 I already recapped this contest in the above episode/rant. I would normally give a more proper explanation to what went wrong here, but at least with Educational Round 123, it was just one unfortunate case of not being able to count to five. Whatever I say to explain how this catastrophe occurred will only make me look more like an idiot.
+
+:::{.callout-tip}
+# Solution Code to Problem C
+
+```python
+import sys
+
+#input functions
+readint = lambda: int(sys.stdin.readline())
+readints = lambda: map(int,sys.stdin.readline().split())
+readar = lambda: list(map(int,sys.stdin.readline().split()))
+flush = lambda: sys.stdout.flush()
+readin = lambda: sys.stdin.readline()[:-1]
+readins = lambda: map(str,sys.stdin.readline().split())
+
+"""
+(I see why this took nearly an hour to understand in contest last time)
+
+The simplified explanation is to construct a good array equal in length
+to the given array that is as "close" as possible. Closeness is defined
+as the sum of abs(ai-bi) for i from 1 to 2n in array A (given) and B (created)
+
+the good array must consider EVERY partition into two sets of n values
+
+For n = 1, only possibility is the two values must be equal
+Every other n trivially has the all 0 array as an option
+
+n = 2 has the case [2,2,2,2] as an edge case
+[0,0,0,0]
+[a,b,c,d]
+ab = c+d
+ac = b+d
+ad = b+c
+bc = a+d
+bd = a+c
+cd = a+b
+3(a+b+c+d) = ab+ac+ad+bc+bd+cd = ((a+b+c+d)^2-aa-bb-cc-dd)/2
+
+also by brute force -1,-1,-1,2 works
+
+-1,-1,-1,-1,-1,-1,-1,4 works as well (we are kinda seeing the edge lines?)
+
+for a in range(-3,4):
+    for b in range(-3,4):
+        for c in range(-3,4):
+            for d in range(-3,4):
+                if a+b == c*d and a+c == b*d and a+d == b*c and b+c == a*d and b+d == a*c and c+d == a*b:
+                    print(a,b,c,d)
+"""
+
+for _ in range(readint()):
+    n = readint()
+    ar = readar()
+    if n == 1:
+        print(abs(ar[0]-ar[1]))
+    else:
+        ans = 0
+        for i in ar:
+            ans += abs(i)
+        if n == 2: # edge case with 2
+            tmp = 0
+            for j in ar:
+                tmp += abs(j-2)
+            ans = min(ans,tmp)
+        if n % 2 == 0:
+            br = [-1]*(2*n)
+            br[-1] = n
+            ar.sort()
+            tmp = 0
+            for k in range(2*n):
+                tmp += abs(ar[k]-br[k])
+            ans = min(ans,tmp)
+        print(ans)
+```
+:::
+
 
 ### [Educational Round 145](https://codeforces.com/contest/1809)
 
