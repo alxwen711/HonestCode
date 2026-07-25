@@ -1,13 +1,21 @@
 ---
-layout: default
-permalink: /blog/May23
+title: March 2023 Archive Log
+author: "Alexander Wen"
+date: "2023-05-30"
+date-modified: "2026-07-24"
+categories: [competitive programming,2023,archive]
 ---
 
-[link back to all posts](https://alxwen711.github.io/blog)
 
 ## May 1st-15th
 
 Here we have 3 more CodeForces contests I ran in these two weeks. Not noted here is that I’m also grinding through Codechef and Leetcode at the same time. I might give a further update on Codechef later, but for Leetcode I’ll only recap problems that I feel can generate significant discussion, and the fact that the winner of Leetcode contests nowadays solves the 4 problems routinely in under 10 minutes does not bode well.
+
+:::{.callout-note collapse="false"}
+
+Well it's good to see in these past logs that Leetcode competitions being won by someone who solves in sub 10 minutes was a thing even before AI became quite significant. Then again, the fact I was able to climb back to 2600 ELO in Leetcode as recently as May 30, 2026 (Weekly Contest 504) shows at least some stability in the rating system.
+
+:::
 
 ### [Round 870](https://codeforces.com/contest/1826)
 
@@ -18,6 +26,13 @@ New Rating: **1995** (+112)
 Performance: **2283**
 
 So it seems like that I’ve suddenly remembered how to commit SpeedForces now because I literally solved A through D in 31 minutes. I don’t even have to check past contests to know that is a record.
+
+:::{.callout-note collapse="false"}
+
+If D1 is counted, then I actually have done a faster 4 problem solve in Div 2 in 27 minutes from [Round 1111](https://codeforces.com/contest/2247/standings/participant/242040955#p242040955). It's more of an astrisk since the overall problems were easier and D2 also existed. D2 itself is probably deserving of another Honestcode post entirely.
+
+:::
+
 
 <details>
 <summary>Quick rundown of problems C and D</summary>
@@ -80,6 +95,13 @@ As for implementation, it turns out Python is capable of handling a 10 million v
 
 I’m still a bit mixed on my performance on this contest, given that I was completely lost on D and I only really got E because it was maths heavy. That said, E was actually pretty difficult, and asides [one really dubious error on A](https://codeforces.com/contest/1832/submission/205549653) (this fails on `aaa`), the other problems were solved efficiently. If I can be more consistent on the problems like D/E in difficulty, I’ll be in good shape for future contests.
 
+:::{.callout-note}
+# Random Thought
+
+Somewhat unrelated to this post, but imagine if at the start of each contest, each coder received the problems in a completely random order. The solve stats as the contest goes on would still be shown, but for instance, if the easiest problem was A in someone's set with 8000 solves at a given point, it could be that for another person that easiest problem is shown as problem D with the same 8000 solves. It would then destroy the easiest to hardest assumption in these contests which would be very interesting and possibly lead to fairer problem rating calculations; there are cases where a later Problem D/E/F can be rated much higher mainly because Problem C took up a lot of implementation time.
+
+:::
+
 ### [Round 873 (Div 1)](https://codeforces.com/contest/1827)
 
 Problems Solved: A
@@ -108,6 +130,12 @@ And here is how my current alternate account is going:
 [my alternate account:](https://www.codechef.com/users/snowlucario)
 
 I think it’s safe to say that my alternate account shows my skill level more accurately. This basically confirms my theory of CodeChef’s rating system working on some sort of confidence factor that heavily increases rating change in the first few contests, and is an inadvertent benefit to creating an alt account. Another note on this rating here is that while 2100 is pretty good, 2100 on CodeChef is not remotely close to 2100 on CodeForces. It feels more like 1900 on CodeForces. At least though CodeChef’s rating system, while very stubborn with a higher number of completed contests, isn’t as scuffed as Leetcode. That honestly feels like an entirely different discussion where I talk/rant about various rating systems on different competitive programming sites, where I go over how to approximately compare each one/explain the loopholes that are possible.
+
+:::{.callout-tip collapse="true"}
+
+I actually have some live recordings from me doing Codechef on the SnowLucario account in this [playlist](https://www.youtube.com/watch?v=XAPQ-yrUM2M&list=PLJpjxONwMEgMQrHVjN6tHH2rPxMfgwMOn). This is actually how my competitive programming setup looks, so in case you ever thought you needed complex templates/macros for this, you have these live demonstrations of me pretty much just using IDLE as my IDE and Paintbrush (MS Paint equivalent for Mac OS).
+
+:::
 
 Anyways, I digress. On to the regularly scheduled programming.
 
