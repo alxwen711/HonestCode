@@ -1,9 +1,11 @@
 ---
-layout: default
-permalink: /blog/Jun23
+title: June 2023 Archive Log
+author: "Alexander Wen"
+date: "2023-06-30"
+date-modified: "2026-07-25"
+categories: [competitive programming,2023,archive]
 ---
 
-[link back to all posts](https://alxwen711.github.io/blog)
 
 ## June 1st-15th
 
@@ -127,14 +129,23 @@ New Rating: **2075** (+65)
 
 Performance: **2242**
 
-![ONE](docs/assets/images)
+![ONE](1.png)
+
+:::{.callout-note}
+# ONE
+
+_lmao_
+
+(I did say not all of these notes would be important.)
+
+On a somewhat more serious note though, this contest was a case where one problem (the first three in Div 2) decided an absurdly large part of the rankings. Div 1 itself actually wasn't that bad as at least the top 290 out of just under 800 coders got 2 problems. Div 2 though going from top 1500 for solving 3 problems to 16th place for getting D or E and no one there getting F, a contest with that difficulty spike nowadays would start a riot.
+:::
 
 Maybe I could actually I don’t know, solve the second problem on a Division 1 contest for once? I find it amazing that my 5th best contest by performance rating can somehow still feel underwhelming, but here we are. Literally the only reason I got this rating increase was because I solved [A](https://codeforces.com/contest/1835/problem/A) in 10 minutes. Even this problem I have no clue how this ended up being rated at 1700 because the fact that brute force can be used to solve this because `A,B,C <= 3` for most cases should make this so much easier.
 
 Then we get [B](https://codeforces.com/contest/1835/problem/B). I’ll just let this upcoming rant explain why I’m pissed over this.
 
-<details>
-<summary>Everything I have to say about B</summary>
+### Everything I have to say about B
 
 This problem is partially the reason why the [blog post](https://codeforces.com/blog/entry/117337) for this contest is a nuclear waste zone, because going from a problem requiring a slightly optimised brute force to this might be the most egregiously overkill difficulty gap I’ve seen between two problems. In Division 1, this problem had around the same solve rate as C and is one of the few contests I’ve seen where only about a quarter of Div 1 contestants actually get B. Div 2 was even worse off; this problem was Div 2’s D problem and it got 7 solves there. Seven. (Before you ask, Div 2E ended up with 11 solves and no one got 2F). In what universe is deciding a contest on 3 problems considered legitimate? Pretty much everyone from 20th to 1500th was decided on who solved A to C fastest in Div 2, which is not exactly ideal. This also happened in Div 1 to a lesser case, hence why I decry my +65 gain as completely illegitimate.
 
@@ -143,7 +154,6 @@ Now for the actual problem, which is made worse by the fact I nearly had the ans
 You cannot test every value from 0 to `m` due to time constraints, and this is fine as only a few points are needed to find the optimal value. This is where I screwed up first, as I thought the best ticket number would always be within 1 of someone else’s ticket; so if someone had a ticket with the number 43, I would test 42, 43, and 44. The solution requires testing 41, 42, 43, 44, and 45, ie. all values within 2 of someone else’s ticket. I would say I know why this is the case, but I don’t actually completely know. I’m guessing this has something to do with a rounding case? This [editorial solution](https://codeforces.com/blog/entry/117394?#comment-1038636) by Soultaker explains this reasoning best here. 
 
 To top this all off, even after implementing the solution, I still had TLE occur because I ended using a O(log n) binary search to determine maxr and minr for each value tested. There is a viable method that uses two pointers to increment maxr and minr that takes amortised O(1) time per value. I will also note that this most likely does not happen if the limit for `n` is not 1000000. I think its safe to assume that 200000 or even 500000 would have been enough to limit the max runtime for solutions to $O(n log n)$ but the 1000000 limit meant that my initial Python idea ended up TLEing over that extra log n factor. I have no further comments on this problem.
-</details>
 
 To top this off, had I got B, I actually end up reaching 2100. So in retrospect, I also choked on this contest. Yay.
 
@@ -157,6 +167,12 @@ New Rating: **2051** (-24)
 Performance: **1975**
 
 This sort of contest does highlight my improvement over the year. Last year at this time, this would be considered an excellent contest, but now this sort of run is quite pedestrian. [A](https://codeforces.com/contest/1842/problem/A) and [B](https://codeforces.com/contest/1842/problem/B) were completed in about half the time it would take for me to fully explain my thought process on both questions, and then we go to [C](https://codeforces.com/contest/1842/problem/C) which was a dp scuff question. I did minimise the number of wrong submissions made but taking 50 minutes and 3 wrong attempts here was not ideal to say the least. This is saved by myself actually doing quite well on [D](https://codeforces.com/contest/1842/problem/D) since it was a graph problem. Funny enough, the idea for this problem is similar to [ABSOLUTEDIFF](https://www.codechef.com/problems/ABSOLUTEDIFF) from CodeChef Starters 96; both use a creative dijkstra implementation. In solving both of these problems though, I genuinely did not notice this similarity. In reflection, I find that with these contests I tend not to be really strong at identifying exact techniques/algorithms necessary to solve problems, but in many of my ad hoc ideas I end up using these techniques inadvertently.
+
+:::{.callout-note collapse="false"}
+
+In 2026 terms, a 4 problem solve now is only average for me if I get everything without much penalty and in roughly an hour. At the very least solving A through E is still enough to get me a large rating boost. [Well, usually.](https://codeforces.com/submissions/SnowLucario_Z/contest/2039). Then again I'd still consider this contest to be strong overall compared to how I usually do.
+
+:::
 
 Anyways, on to the last contest for this month. I’ll just let the reflection speak for itself.
 
@@ -212,3 +228,10 @@ The `inc` value is logged in the dp array to signify the total increase if a rat
 </details>
 
 With that, a 1.5 year journey from unranked to Master has been completed. Perhaps in a future post I might post a brief reflection on what I learnt in this process, since there were some intriguing moments. I can say though this was good timing; as of writing this, there is a high chance after all that I will be in my first co-op this August. I’ll share more details once I am officially in, but it will be an intriguing new challenge for me. I haven’t really thought of the time once I step away from competitive programming, but even if I may have less time than usual for this passion, you can believe I’ll still find ways to continue this endeavour. For those still reading, just know that this journey was a major reason as to how I ended up with this great opportunity, so keep coding. These last 18 months have shown that it is always possible.
+
+
+:::{.callout-warning collapse="false"}
+
+I get that this ending bit here is meant to be like a storybook ending to this journey, but I'll just say it is much more complicated than that. In fairness, I'd say I'm at least at a similar level to mid 2023 me in competitive programming even with the blatantly lower rating.
+
+:::
