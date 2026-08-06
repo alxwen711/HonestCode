@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -41,10 +44,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-a0f9fd0d421825b736dc1bbcbcba2219.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -104,7 +107,7 @@ ul.task-list li input[type="checkbox"] {
   </script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -191,7 +194,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(28)</span></div><div class="category" data-category="MjAyMg==">2022 <span class="quarto-category-count">(12)</span></div><div class="category" data-category="MjAyMw==">2023 <span class="quarto-category-count">(2)</span></div><div class="category" data-category="MjAyNg==">2026 <span class="quarto-category-count">(14)</span></div><div class="category" data-category="YW5hbHlzaXM=">analysis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YXJjaGl2ZQ==">archive <span class="quarto-category-count">(14)</span></div><div class="category" data-category="Y29kZWNoZWY=">codechef <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Y29kZWZvcmNlcw==">codeforces <span class="quarto-category-count">(5)</span></div><div class="category" data-category="Y29tcGV0aXRpdmUlMjBwcm9ncmFtbWluZw==">competitive programming <span class="quarto-category-count">(18)</span></div><div class="category" data-category="ZGF0YSUyMHN0cnVjdHVyZXM=">data structures <span class="quarto-category-count">(2)</span></div><div class="category" data-category="bGVldGNvZGU=">leetcode <span class="quarto-category-count">(2)</span></div><div class="category" data-category="cmVjYXA=">recap <span class="quarto-category-count">(9)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(34)</span></div><div class="category" data-category="MjAyMg==">2022 <span class="quarto-category-count">(12)</span></div><div class="category" data-category="MjAyMw==">2023 <span class="quarto-category-count">(8)</span></div><div class="category" data-category="MjAyNg==">2026 <span class="quarto-category-count">(14)</span></div><div class="category" data-category="YW5hbHlzaXM=">analysis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YXJjaGl2ZQ==">archive <span class="quarto-category-count">(20)</span></div><div class="category" data-category="Y29kZWNoZWY=">codechef <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Y29kZWZvcmNlcw==">codeforces <span class="quarto-category-count">(5)</span></div><div class="category" data-category="Y29tcGV0aXRpdmUlMjBwcm9ncmFtbWluZw==">competitive programming <span class="quarto-category-count">(24)</span></div><div class="category" data-category="ZGF0YSUyMHN0cnVjdHVyZXM=">data structures <span class="quarto-category-count">(2)</span></div><div class="category" data-category="bGVldGNvZGU=">leetcode <span class="quarto-category-count">(2)</span></div><div class="category" data-category="cmVjYXA=">recap <span class="quarto-category-count">(9)</span></div></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
 
@@ -205,7 +208,7 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Y29kZWZvcmNlcyUyQ3JlY2FwJTJDMjAyNg==" data-listing-date-sort="1779062400000" data-listing-file-modified-sort="1779167264899" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1773">
+<div class="quarto-post image-right" data-index="0" data-categories="Y29kZWZvcmNlcyUyQ3JlY2FwJTJDMjAyNg==" data-listing-date-sort="1779062400000" data-listing-file-modified-sort="1786057890029" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1773">
 <div class="thumbnail"><a href="./posts/2026/CF-edu-190/index.html" class="no-external">
 
 <p class="card-img-top"><img loading='lazy' src="posts\2026\CF-edu-190\e.png"  class="thumbnail-image card-img"/></p>
@@ -242,7 +245,7 @@ Alexander Wen
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="Y29kZWZvcmNlcyUyQ3JlY2FwJTJDMjAyNg==" data-listing-date-sort="1774742400000" data-listing-file-modified-sort="1779167264893" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-word-count-sort="2776">
+<div class="quarto-post image-right" data-index="1" data-categories="Y29kZWZvcmNlcyUyQ3JlY2FwJTJDMjAyNg==" data-listing-date-sort="1774742400000" data-listing-file-modified-sort="1786057890023" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-word-count-sort="2776">
 <div class="thumbnail"><a href="./posts/2026/CF-1088/index.html" class="no-external">
 
 <p class="card-img-top"><img loading='lazy' src="posts\2026\CF-1088\abc451.png"  class="thumbnail-image card-img"/></p>
@@ -279,7 +282,7 @@ Alexander Wen
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="Y29kZWZvcmNlcyUyQ3JlY2FwJTJDMjAyNg==" data-listing-date-sort="1774051200000" data-listing-file-modified-sort="1779167264897" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2121">
+<div class="quarto-post image-right" data-index="2" data-categories="Y29kZWZvcmNlcyUyQ3JlY2FwJTJDMjAyNg==" data-listing-date-sort="1774051200000" data-listing-file-modified-sort="1786057890027" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2121">
 <div class="thumbnail"><a href="./posts/2026/CF-edu-188/index.html" class="no-external">
 
 <p class="card-img-top"><img loading='lazy' src="posts\2026\CF-edu-188\c.png"  class="thumbnail-image card-img"/></p>
@@ -316,7 +319,7 @@ Alexander Wen
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="bGVldGNvZGUlMkNyZWNhcCUyQzIwMjY=" data-listing-date-sort="1772236800000" data-listing-file-modified-sort="1779167264905" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="15" data-listing-word-count-sort="2817">
+<div class="quarto-post image-right" data-index="3" data-categories="bGVldGNvZGUlMkNyZWNhcCUyQzIwMjY=" data-listing-date-sort="1772236800000" data-listing-file-modified-sort="1786057890039" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="15" data-listing-word-count-sort="2817">
 <div class="thumbnail"><a href="./posts/2026/LC-weekly-491/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -353,7 +356,7 @@ Alexander Wen
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="Y29kZWZvcmNlcyUyQ3JlY2FwJTJDMjAyNg==" data-listing-date-sort="1771891200000" data-listing-file-modified-sort="1779167264892" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2120">
+<div class="quarto-post image-right" data-index="4" data-categories="Y29kZWZvcmNlcyUyQ3JlY2FwJTJDMjAyNg==" data-listing-date-sort="1771891200000" data-listing-file-modified-sort="1786057890019" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2120">
 <div class="thumbnail"><a href="./posts/2026/CF-1082/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -390,7 +393,7 @@ Alexander Wen
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-categories="Y29kZWZvcmNlcyUyQ3JlY2FwJTJDMjAyNg==" data-listing-date-sort="1771804800000" data-listing-file-modified-sort="1779167264890" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2257">
+<div class="quarto-post image-right" data-index="5" data-categories="Y29kZWZvcmNlcyUyQ3JlY2FwJTJDMjAyNg==" data-listing-date-sort="1771804800000" data-listing-file-modified-sort="1786057890017" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2257">
 <div class="thumbnail"><a href="./posts/2026/CF-1081/index.html" class="no-external">
 
 <p class="card-img-top"><img loading='lazy' src="posts\2026\CF-1081\doop.png"  class="thumbnail-image card-img"/></p>
@@ -427,7 +430,7 @@ Alexander Wen
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="6" data-categories="bGVldGNvZGUlMkNyZWNhcCUyQzIwMjY=" data-listing-date-sort="1771804800000" data-listing-file-modified-sort="1779167264901" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2088">
+<div class="quarto-post image-right" data-index="6" data-categories="bGVldGNvZGUlMkNyZWNhcCUyQzIwMjY=" data-listing-date-sort="1771804800000" data-listing-file-modified-sort="1786057890033" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2088">
 <div class="thumbnail"><a href="./posts/2026/LC-weekly-490/index.html" class="no-external">
 
 <p class="card-img-top"><img loading='lazy' src="posts\2026\LC-weekly-490\leetoof.png"  class="thumbnail-image card-img"/></p>
@@ -464,7 +467,7 @@ Alexander Wen
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="7" data-categories="Y29tcGV0aXRpdmUlMjBwcm9ncmFtbWluZyUyQ2NvZGVjaGVmJTJDcmVjYXAlMkMyMDI2" data-listing-date-sort="1771545600000" data-listing-file-modified-sort="1779167264933" data-listing-date-modified-sort="1771891200000" data-listing-reading-time-sort="9" data-listing-word-count-sort="1678">
+<div class="quarto-post image-right" data-index="7" data-categories="Y29tcGV0aXRpdmUlMjBwcm9ncmFtbWluZyUyQ2NvZGVjaGVmJTJDcmVjYXAlMkMyMDI2" data-listing-date-sort="1771545600000" data-listing-file-modified-sort="1786057890080" data-listing-date-modified-sort="1771891200000" data-listing-reading-time-sort="9" data-listing-word-count-sort="1678">
 <div class="thumbnail"><a href="./posts/2026/starters-226/index.html" class="no-external">
 
 <img loading="lazy" src="./posts/2026/starters-226/icon.png" class="thumbnail-image">
@@ -503,7 +506,7 @@ Alexander Wen
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="8" data-categories="Y29tcGV0aXRpdmUlMjBwcm9ncmFtbWluZyUyQzIwMjY=" data-listing-date-sort="1771113600000" data-listing-file-modified-sort="1779167264935" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="15" data-listing-word-count-sort="2971">
+<div class="quarto-post image-right" data-index="8" data-categories="Y29tcGV0aXRpdmUlMjBwcm9ncmFtbWluZyUyQzIwMjY=" data-listing-date-sort="1771113600000" data-listing-file-modified-sort="1786057890081" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="15" data-listing-word-count-sort="2971">
 <div class="thumbnail"><a href="./posts/2026/what-is-problem-solving/index.html" class="no-external">
 
 <img loading="lazy" src="./posts/2026/what-is-problem-solving/icon.jpeg" class="thumbnail-image">
@@ -538,7 +541,7 @@ Alexander Wen
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="9" data-categories="Y29tcGV0aXRpdmUlMjBwcm9ncmFtbWluZyUyQ2NvZGVjaGVmJTJDcmVjYXAlMkMyMDI2" data-listing-date-sort="1770336000000" data-listing-file-modified-sort="1779167264931" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-word-count-sort="2677">
+<div class="quarto-post image-right" data-index="9" data-categories="Y29tcGV0aXRpdmUlMjBwcm9ncmFtbWluZyUyQ2NvZGVjaGVmJTJDcmVjYXAlMkMyMDI2" data-listing-date-sort="1770336000000" data-listing-file-modified-sort="1786057890075" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-word-count-sort="2677">
 <div class="thumbnail"><a href="./posts/2026/starters-224/index.html" class="no-external">
 
 <img loading="lazy" src="./posts/2026/starters-224/icon.png" class="thumbnail-image">
@@ -577,7 +580,7 @@ Alexander Wen
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="10" data-categories="ZGF0YSUyMHN0cnVjdHVyZXMlMkMyMDI2" data-listing-date-sort="1769904000000" data-listing-file-modified-sort="1779167264933" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="848">
+<div class="quarto-post image-right" data-index="10" data-categories="ZGF0YSUyMHN0cnVjdHVyZXMlMkMyMDI2" data-listing-date-sort="1769904000000" data-listing-file-modified-sort="1786057890081" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="848">
 <div class="thumbnail"><a href="./posts/2026/string-hash/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -612,7 +615,7 @@ Alexander Wen
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="11" data-categories="Y29tcGV0aXRpdmUlMjBwcm9ncmFtbWluZyUyQzIwMjY=" data-listing-date-sort="1769212800000" data-listing-file-modified-sort="1779167264929" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2125">
+<div class="quarto-post image-right" data-index="11" data-categories="Y29tcGV0aXRpdmUlMjBwcm9ncmFtbWluZyUyQzIwMjY=" data-listing-date-sort="1769212800000" data-listing-file-modified-sort="1786057890073" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2125">
 <div class="thumbnail"><a href="./posts/2026/rule-of-100-million/index.html" class="no-external">
 
 <p class="card-img-top"><img loading='lazy' src="posts\2026\rule-of-100-million\global27c.png"  class="thumbnail-image card-img"/></p>
@@ -647,7 +650,7 @@ Alexander Wen
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="12" data-categories="MjAyNiUyQ2FuYWx5c2lz" data-listing-date-sort="1768521600000" data-listing-file-modified-sort="1779167264915" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1250">
+<div class="quarto-post image-right" data-index="12" data-categories="MjAyNiUyQ2FuYWx5c2lz" data-listing-date-sort="1768521600000" data-listing-file-modified-sort="1786057890055" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1250">
 <div class="thumbnail"><a href="./posts/2026/database-segment-tree/index.html" class="no-external">
 
 <p class="card-img-top"><img loading='lazy' src="posts\2026\database-segment-tree\mountain.png"  class="thumbnail-image card-img"/></p>
@@ -682,7 +685,7 @@ Alexander Wen
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="13" data-categories="ZGF0YSUyMHN0cnVjdHVyZXMlMkMyMDI2" data-listing-date-sort="1767830400000" data-listing-file-modified-sort="1779167264929" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1870">
+<div class="quarto-post image-right" data-index="13" data-categories="ZGF0YSUyMHN0cnVjdHVyZXMlMkMyMDI2" data-listing-date-sort="1767830400000" data-listing-file-modified-sort="1786057890073" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1870">
 <div class="thumbnail"><a href="./posts/2026/sparse-table/index.html" class="no-external">
 
 <p class="card-img-top"><img loading='lazy' src="posts\2026\sparse-table\mountain.png"  class="thumbnail-image card-img"/></p>
@@ -717,7 +720,229 @@ Alexander Wen
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="14" data-categories="Y29tcGV0aXRpdmUlMjBwcm9ncmFtbWluZyUyQzIwMjMlMkNhcmNoaXZl" data-listing-date-sort="1677888000000" data-listing-file-modified-sort="1779167264990" data-listing-date-modified-sort="1778889600000" data-listing-reading-time-sort="16" data-listing-word-count-sort="3167">
+<div class="quarto-post image-right" data-index="14" data-categories="Y29tcGV0aXRpdmUlMjBwcm9ncmFtbWluZyUyQzIwMjMlMkNhcmNoaXZl" data-listing-date-sort="1693353600000" data-listing-file-modified-sort="1786057890197" data-listing-date-modified-sort="1785974400000" data-listing-reading-time-sort="21" data-listing-word-count-sort="4163">
+<div class="thumbnail"><a href="./posts/archive/2023-08/index.html" class="no-external">
+
+<p class="card-img-top"><img loading='lazy' src="posts\archive\2023-08\doop.png"  class="thumbnail-image card-img"/></p>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/archive/2023-08/index.html" class="no-external">August 2023 Archive Log</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/archive/2023-08/index.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Y29tcGV0aXRpdmUlMjBwcm9ncmFtbWluZw=='); return false;">competitive programming</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('MjAyMw=='); return false;">2023</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('YXJjaGl2ZQ=='); return false;">archive</div>
+
+</div>
+<div class="delink listing-description"><a href="./posts/archive/2023-08/index.html" class="no-external">
+Yep, it’s time for another quality recap of codeforces contests.
+</a></div>
+</div>
+<div class="metadata">
+<a href="./posts/archive/2023-08/index.html" class="no-external">
+<div class="listing-date">
+Aug 30, 2023
+</div>
+<div class="listing-author">
+Alexander Wen
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="15" data-categories="Y29tcGV0aXRpdmUlMjBwcm9ncmFtbWluZyUyQzIwMjMlMkNhcmNoaXZl" data-listing-date-sort="1690675200000" data-listing-file-modified-sort="1786057890182" data-listing-date-modified-sort="1785888000000" data-listing-reading-time-sort="13" data-listing-word-count-sort="2537">
+<div class="thumbnail"><a href="./posts/archive/2023-07/index.html" class="no-external">
+
+<p class="card-img-top"><img loading='lazy' src="posts\archive\2023-07\4.png"  class="thumbnail-image card-img"/></p>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/archive/2023-07/index.html" class="no-external">July 2023 Archive Log</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/archive/2023-07/index.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Y29tcGV0aXRpdmUlMjBwcm9ncmFtbWluZw=='); return false;">competitive programming</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('MjAyMw=='); return false;">2023</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('YXJjaGl2ZQ=='); return false;">archive</div>
+
+</div>
+<div class="delink listing-description"><a href="./posts/archive/2023-07/index.html" class="no-external">
+It’s the second half of 2023, and outside of CodeForces, there has been updates on my life. Mainly that I have been accepted into my first ever co-op position with Global…
+</a></div>
+</div>
+<div class="metadata">
+<a href="./posts/archive/2023-07/index.html" class="no-external">
+<div class="listing-date">
+Jul 30, 2023
+</div>
+<div class="listing-author">
+Alexander Wen
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="16" data-categories="Y29tcGV0aXRpdmUlMjBwcm9ncmFtbWluZyUyQzIwMjMlMkNhcmNoaXZl" data-listing-date-sort="1688083200000" data-listing-file-modified-sort="1786057890180" data-listing-date-modified-sort="1784937600000" data-listing-reading-time-sort="18" data-listing-word-count-sort="3411">
+<div class="thumbnail"><a href="./posts/archive/2023-06/index.html" class="no-external">
+
+<p class="card-img-top"><img loading='lazy' src="posts\archive\2023-06\1.png"  class="thumbnail-image card-img"/></p>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/archive/2023-06/index.html" class="no-external">June 2023 Archive Log</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/archive/2023-06/index.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Y29tcGV0aXRpdmUlMjBwcm9ncmFtbWluZw=='); return false;">competitive programming</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('MjAyMw=='); return false;">2023</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('YXJjaGl2ZQ=='); return false;">archive</div>
+
+</div>
+<div class="delink listing-description"><a href="./posts/archive/2023-06/index.html" class="no-external">
+Here we have another typical recap. Sometimes I’m unsure what to put here in these initial sections, but I guess I have a few thoughts about this journal. I guess now I find…
+</a></div>
+</div>
+<div class="metadata">
+<a href="./posts/archive/2023-06/index.html" class="no-external">
+<div class="listing-date">
+Jun 30, 2023
+</div>
+<div class="listing-author">
+Alexander Wen
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="17" data-categories="Y29tcGV0aXRpdmUlMjBwcm9ncmFtbWluZyUyQzIwMjMlMkNhcmNoaXZl" data-listing-date-sort="1685404800000" data-listing-file-modified-sort="1786057890178" data-listing-date-modified-sort="1784851200000" data-listing-reading-time-sort="15" data-listing-word-count-sort="2887">
+<div class="thumbnail"><a href="./posts/archive/2023-05/index.html" class="no-external">
+
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/archive/2023-05/index.html" class="no-external">May 2023 Archive Log</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/archive/2023-05/index.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Y29tcGV0aXRpdmUlMjBwcm9ncmFtbWluZw=='); return false;">competitive programming</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('MjAyMw=='); return false;">2023</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('YXJjaGl2ZQ=='); return false;">archive</div>
+
+</div>
+<div class="delink listing-description"><a href="./posts/archive/2023-05/index.html" class="no-external">
+Here we have 3 more CodeForces contests I ran in these two weeks. Not noted here is that I’m also grinding through Codechef and Leetcode at the same time. I might give a…
+</a></div>
+</div>
+<div class="metadata">
+<a href="./posts/archive/2023-05/index.html" class="no-external">
+<div class="listing-date">
+May 30, 2023
+</div>
+<div class="listing-author">
+Alexander Wen
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="18" data-categories="Y29tcGV0aXRpdmUlMjBwcm9ncmFtbWluZyUyQzIwMjMlMkNhcmNoaXZl" data-listing-date-sort="1682985600000" data-listing-file-modified-sort="1786057890178" data-listing-date-modified-sort="1784851200000" data-listing-reading-time-sort="22" data-listing-word-count-sort="4213">
+<div class="thumbnail"><a href="./posts/archive/2023-04/index.html" class="no-external">
+
+<p class="card-img-top"><img loading='lazy' src="posts\archive\2023-04\1814c.png"  class="thumbnail-image card-img"/></p>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/archive/2023-04/index.html" class="no-external">April 2023 Archive Log</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/archive/2023-04/index.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Y29tcGV0aXRpdmUlMjBwcm9ncmFtbWluZw=='); return false;">competitive programming</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('MjAyMw=='); return false;">2023</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('YXJjaGl2ZQ=='); return false;">archive</div>
+
+</div>
+<div class="delink listing-description"><a href="./posts/archive/2023-04/index.html" class="no-external">
+It is currently May 2nd as of posting this. I’ll keep this short and just say that finals, applying to co-op, and then tooth extractions somewhat caused this delay. That…
+</a></div>
+</div>
+<div class="metadata">
+<a href="./posts/archive/2023-04/index.html" class="no-external">
+<div class="listing-date">
+May 2, 2023
+</div>
+<div class="listing-author">
+Alexander Wen
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="19" data-categories="Y29tcGV0aXRpdmUlMjBwcm9ncmFtbWluZyUyQzIwMjMlMkNhcmNoaXZl" data-listing-date-sort="1680566400000" data-listing-file-modified-sort="1786057890168" data-listing-date-modified-sort="1784592000000" data-listing-reading-time-sort="22" data-listing-word-count-sort="4392">
+<div class="thumbnail"><a href="./posts/archive/2023-03/index.html" class="no-external">
+
+<p class="card-img-top"><img loading='lazy' src="posts\archive\2023-03\doop.png"  class="thumbnail-image card-img"/></p>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/archive/2023-03/index.html" class="no-external">March 2023 Archive Log</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/archive/2023-03/index.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Y29tcGV0aXRpdmUlMjBwcm9ncmFtbWluZw=='); return false;">competitive programming</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('MjAyMw=='); return false;">2023</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('YXJjaGl2ZQ=='); return false;">archive</div>
+
+</div>
+<div class="delink listing-description"><a href="./posts/archive/2023-03/index.html" class="no-external">
+I’m fairly sure in previous archive posts such as Feb 2022, Sep 2022, Dec 2022 mentions to this month have been made. You will see why. Seeing that it has been months since…
+</a></div>
+</div>
+<div class="metadata">
+<a href="./posts/archive/2023-03/index.html" class="no-external">
+<div class="listing-date">
+Apr 4, 2023
+</div>
+<div class="listing-author">
+Alexander Wen
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="20" data-categories="Y29tcGV0aXRpdmUlMjBwcm9ncmFtbWluZyUyQzIwMjMlMkNhcmNoaXZl" data-listing-date-sort="1677888000000" data-listing-file-modified-sort="1786057890162" data-listing-date-modified-sort="1778889600000" data-listing-reading-time-sort="16" data-listing-word-count-sort="3167">
 <div class="thumbnail"><a href="./posts/archive/2023-02/index.html" class="no-external">
 
 <p class="card-img-top"><img loading='lazy' src="posts\archive\2023-02\icpc2022.png"  class="thumbnail-image card-img"/></p>
@@ -754,10 +979,10 @@ Alexander Wen
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="15" data-categories="Y29tcGV0aXRpdmUlMjBwcm9ncmFtbWluZyUyQzIwMjMlMkNhcmNoaXZl" data-listing-date-sort="1675468800000" data-listing-file-modified-sort="1779167264985" data-listing-date-modified-sort="1778371200000" data-listing-reading-time-sort="18" data-listing-word-count-sort="3485">
+<div class="quarto-post image-right" data-index="21" data-categories="Y29tcGV0aXRpdmUlMjBwcm9ncmFtbWluZyUyQzIwMjMlMkNhcmNoaXZl" data-listing-date-sort="1675468800000" data-listing-file-modified-sort="1786057890156" data-listing-date-modified-sort="1778371200000" data-listing-reading-time-sort="18" data-listing-word-count-sort="3485">
 <div class="thumbnail"><a href="./posts/archive/2023-01/index.html" class="no-external">
 
-<p class="card-img-top"><img loading='lazy' src="posts\archive\2023-01\docs\assets\images\ooflmao.png"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img loading='lazy' src="posts\archive\2023-01\ooflmao.png"  class="thumbnail-image card-img"/></p>
 
 </a></div>
 <div class="body">
@@ -791,7 +1016,7 @@ Alexander Wen
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="16" data-categories="Y29tcGV0aXRpdmUlMjBwcm9ncmFtbWluZyUyQzIwMjIlMkNhcmNoaXZl" data-listing-date-sort="1672790400000" data-listing-file-modified-sort="1779167264985" data-listing-date-modified-sort="1775433600000" data-listing-reading-time-sort="13" data-listing-word-count-sort="2529">
+<div class="quarto-post image-right" data-index="22" data-categories="Y29tcGV0aXRpdmUlMjBwcm9ncmFtbWluZyUyQzIwMjIlMkNhcmNoaXZl" data-listing-date-sort="1672790400000" data-listing-file-modified-sort="1786057890154" data-listing-date-modified-sort="1775433600000" data-listing-reading-time-sort="13" data-listing-word-count-sort="2529">
 <div class="thumbnail"><a href="./posts/archive/2022-12/index.html" class="no-external">
 
 <p class="card-img-top"><img loading='lazy' src="posts\archive\2022-12\probdiff.png"  class="thumbnail-image card-img"/></p>
@@ -828,7 +1053,7 @@ Alexander Wen
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="17" data-categories="Y29tcGV0aXRpdmUlMjBwcm9ncmFtbWluZyUyQzIwMjIlMkNhcmNoaXZl" data-listing-date-sort="1669852800000" data-listing-file-modified-sort="1779167264983" data-listing-date-modified-sort="1772236800000" data-listing-reading-time-sort="17" data-listing-word-count-sort="3230">
+<div class="quarto-post image-right" data-index="23" data-categories="Y29tcGV0aXRpdmUlMjBwcm9ncmFtbWluZyUyQzIwMjIlMkNhcmNoaXZl" data-listing-date-sort="1669852800000" data-listing-file-modified-sort="1786057890150" data-listing-date-modified-sort="1772236800000" data-listing-reading-time-sort="17" data-listing-word-count-sort="3230">
 <div class="thumbnail"><a href="./posts/archive/2022-11/index.html" class="no-external">
 
 <p class="card-img-top"><img loading='lazy' src="posts\archive\2022-11\doop.png"  class="thumbnail-image card-img"/></p>
@@ -865,7 +1090,7 @@ Alexander Wen
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="18" data-categories="Y29tcGV0aXRpdmUlMjBwcm9ncmFtbWluZyUyQzIwMjIlMkNhcmNoaXZl" data-listing-date-sort="1667260800000" data-listing-file-modified-sort="1779167264977" data-listing-date-modified-sort="1775433600000" data-listing-reading-time-sort="9" data-listing-word-count-sort="1703">
+<div class="quarto-post image-right" data-index="24" data-categories="Y29tcGV0aXRpdmUlMjBwcm9ncmFtbWluZyUyQzIwMjIlMkNhcmNoaXZl" data-listing-date-sort="1667260800000" data-listing-file-modified-sort="1786057890144" data-listing-date-modified-sort="1775433600000" data-listing-reading-time-sort="9" data-listing-word-count-sort="1703">
 <div class="thumbnail"><a href="./posts/archive/2022-10/index.html" class="no-external">
 
 <p class="card-img-top"><img loading='lazy' src="posts\archive\2022-10\desmos.png"  class="thumbnail-image card-img"/></p>
@@ -902,10 +1127,10 @@ Alexander Wen
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="19" data-categories="Y29tcGV0aXRpdmUlMjBwcm9ncmFtbWluZyUyQzIwMjIlMkNhcmNoaXZl" data-listing-date-sort="1665360000000" data-listing-file-modified-sort="1779167264972" data-listing-date-modified-sort="1775433600000" data-listing-reading-time-sort="27" data-listing-word-count-sort="5323">
+<div class="quarto-post image-right" data-index="25" data-categories="Y29tcGV0aXRpdmUlMjBwcm9ncmFtbWluZyUyQzIwMjIlMkNhcmNoaXZl" data-listing-date-sort="1665360000000" data-listing-file-modified-sort="1786057890136" data-listing-date-modified-sort="1775433600000" data-listing-reading-time-sort="27" data-listing-word-count-sort="5323">
 <div class="thumbnail"><a href="./posts/archive/2022-09/index.html" class="no-external">
 
-<p class="card-img-top"><img loading='lazy' src="posts\archive\2022-09\hackdefence.png"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img loading='lazy' data-src="posts\archive\2022-09\hackdefence.png"  class="thumbnail-image card-img"/></p>
 
 </a></div>
 <div class="body">
@@ -939,10 +1164,10 @@ Alexander Wen
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="20" data-categories="Y29tcGV0aXRpdmUlMjBwcm9ncmFtbWluZyUyQzIwMjIlMkNhcmNoaXZl" data-listing-date-sort="1661644800000" data-listing-file-modified-sort="1779167264966" data-listing-date-modified-sort="1774915200000" data-listing-reading-time-sort="14" data-listing-word-count-sort="2643">
+<div class="quarto-post image-right" data-index="26" data-categories="Y29tcGV0aXRpdmUlMjBwcm9ncmFtbWluZyUyQzIwMjIlMkNhcmNoaXZl" data-listing-date-sort="1661644800000" data-listing-file-modified-sort="1786057890127" data-listing-date-modified-sort="1774915200000" data-listing-reading-time-sort="14" data-listing-word-count-sort="2643">
 <div class="thumbnail"><a href="./posts/archive/2022-08/index.html" class="no-external">
 
-<p class="card-img-top"><img loading='lazy' src="posts\archive\2022-08\39.png"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img loading='lazy' data-src="posts\archive\2022-08\39.png"  class="thumbnail-image card-img"/></p>
 
 </a></div>
 <div class="body">
@@ -976,10 +1201,10 @@ Alexander Wen
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="21" data-categories="Y29tcGV0aXRpdmUlMjBwcm9ncmFtbWluZyUyQzIwMjIlMkNhcmNoaXZl" data-listing-date-sort="1659398400000" data-listing-file-modified-sort="1779167264955" data-listing-date-modified-sort="1774483200000" data-listing-reading-time-sort="20" data-listing-word-count-sort="3810">
+<div class="quarto-post image-right" data-index="27" data-categories="Y29tcGV0aXRpdmUlMjBwcm9ncmFtbWluZyUyQzIwMjIlMkNhcmNoaXZl" data-listing-date-sort="1659398400000" data-listing-file-modified-sort="1786057890110" data-listing-date-modified-sort="1774483200000" data-listing-reading-time-sort="20" data-listing-word-count-sort="3810">
 <div class="thumbnail"><a href="./posts/archive/2022-07/index.html" class="no-external">
 
-<p class="card-img-top"><img loading='lazy' src="posts\archive\2022-07\CodeforcesSuperWeek.png"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img loading='lazy' data-src="posts\archive\2022-07\CodeforcesSuperWeek.png"  class="thumbnail-image card-img"/></p>
 
 </a></div>
 <div class="body">
@@ -1013,7 +1238,7 @@ Alexander Wen
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="22" data-categories="Y29tcGV0aXRpdmUlMjBwcm9ncmFtbWluZyUyQzIwMjIlMkNhcmNoaXZl" data-listing-date-sort="1656892800000" data-listing-file-modified-sort="1779167264951" data-listing-date-modified-sort="1771200000000" data-listing-reading-time-sort="7" data-listing-word-count-sort="1368">
+<div class="quarto-post image-right" data-index="28" data-categories="Y29tcGV0aXRpdmUlMjBwcm9ncmFtbWluZyUyQzIwMjIlMkNhcmNoaXZl" data-listing-date-sort="1656892800000" data-listing-file-modified-sort="1786057890103" data-listing-date-modified-sort="1771200000000" data-listing-reading-time-sort="7" data-listing-word-count-sort="1368">
 <div class="thumbnail"><a href="./posts/archive/2022-06/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -1050,10 +1275,10 @@ Alexander Wen
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="23" data-categories="Y29tcGV0aXRpdmUlMjBwcm9ncmFtbWluZyUyQzIwMjIlMkNhcmNoaXZl" data-listing-date-sort="1654646400000" data-listing-file-modified-sort="1779167264949" data-listing-date-modified-sort="1770595200000" data-listing-reading-time-sort="15" data-listing-word-count-sort="2930">
+<div class="quarto-post image-right" data-index="29" data-categories="Y29tcGV0aXRpdmUlMjBwcm9ncmFtbWluZyUyQzIwMjIlMkNhcmNoaXZl" data-listing-date-sort="1654646400000" data-listing-file-modified-sort="1786057890103" data-listing-date-modified-sort="1770595200000" data-listing-reading-time-sort="15" data-listing-word-count-sort="2930">
 <div class="thumbnail"><a href="./posts/archive/2022-05/index.html" class="no-external">
 
-<p class="card-img-top"><img loading='lazy' src="posts\archive\2022-05\googlecodejam2022.png"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img loading='lazy' data-src="posts\archive\2022-05\googlecodejam2022.png"  class="thumbnail-image card-img"/></p>
 
 </a></div>
 <div class="body">
@@ -1087,10 +1312,10 @@ Alexander Wen
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="24" data-categories="Y29tcGV0aXRpdmUlMjBwcm9ncmFtbWluZyUyQzIwMjIlMkNhcmNoaXZl" data-listing-date-sort="1653523200000" data-listing-file-modified-sort="1779167264945" data-listing-date-modified-sort="1770595200000" data-listing-reading-time-sort="16" data-listing-word-count-sort="3096">
+<div class="quarto-post image-right" data-index="30" data-categories="Y29tcGV0aXRpdmUlMjBwcm9ncmFtbWluZyUyQzIwMjIlMkNhcmNoaXZl" data-listing-date-sort="1653523200000" data-listing-file-modified-sort="1786057890097" data-listing-date-modified-sort="1770595200000" data-listing-reading-time-sort="16" data-listing-word-count-sort="3096">
 <div class="thumbnail"><a href="./posts/archive/2022-04/index.html" class="no-external">
 
-<p class="card-img-top"><img loading='lazy' src="posts\archive\2022-04\MarAprgraph.png"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img loading='lazy' data-src="posts\archive\2022-04\MarAprgraph.png"  class="thumbnail-image card-img"/></p>
 
 </a></div>
 <div class="body">
@@ -1124,7 +1349,7 @@ Alexander Wen
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="25" data-categories="Y29tcGV0aXRpdmUlMjBwcm9ncmFtbWluZyUyQzIwMjIlMkNhcmNoaXZl" data-listing-date-sort="1652140800000" data-listing-file-modified-sort="1779167264943" data-listing-date-modified-sort="1770595200000" data-listing-reading-time-sort="21" data-listing-word-count-sort="4184">
+<div class="quarto-post image-right" data-index="31" data-categories="Y29tcGV0aXRpdmUlMjBwcm9ncmFtbWluZyUyQzIwMjIlMkNhcmNoaXZl" data-listing-date-sort="1652140800000" data-listing-file-modified-sort="1786057890091" data-listing-date-modified-sort="1770595200000" data-listing-reading-time-sort="21" data-listing-word-count-sort="4184">
 <div class="thumbnail"><a href="./posts/archive/2022-03/index.html" class="no-external">
 
 <p class="card-img-top"><img loading='lazy' data-src="posts\archive\2022-03\icpcresults.png"  class="thumbnail-image card-img"/></p>
@@ -1161,7 +1386,7 @@ Alexander Wen
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="26" data-categories="Y29tcGV0aXRpdmUlMjBwcm9ncmFtbWluZyUyQzIwMjIlMkNhcmNoaXZl" data-listing-date-sort="1646006400000" data-listing-file-modified-sort="1779167264937" data-listing-date-modified-sort="1770422400000" data-listing-reading-time-sort="23" data-listing-word-count-sort="4467">
+<div class="quarto-post image-right" data-index="32" data-categories="Y29tcGV0aXRpdmUlMjBwcm9ncmFtbWluZyUyQzIwMjIlMkNhcmNoaXZl" data-listing-date-sort="1646006400000" data-listing-file-modified-sort="1786057890083" data-listing-date-modified-sort="1770422400000" data-listing-reading-time-sort="23" data-listing-word-count-sort="4467">
 <div class="thumbnail"><a href="./posts/archive/2022-02/index.html" class="no-external">
 
 <p class="card-img-top"><img loading='lazy' data-src="posts\archive\2022-02\JanFebgraph.png"  class="thumbnail-image card-img"/></p>
@@ -1198,7 +1423,7 @@ Alexander Wen
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="27" data-categories="Y29tcGV0aXRpdmUlMjBwcm9ncmFtbWluZyUyQzIwMjIlMkNhcmNoaXZl" data-listing-date-sort="1644537600000" data-listing-file-modified-sort="1779167264935" data-listing-date-modified-sort="1770249600000" data-listing-reading-time-sort="15" data-listing-word-count-sort="2878">
+<div class="quarto-post image-right" data-index="33" data-categories="Y29tcGV0aXRpdmUlMjBwcm9ncmFtbWluZyUyQzIwMjIlMkNhcmNoaXZl" data-listing-date-sort="1644537600000" data-listing-file-modified-sort="1786057890081" data-listing-date-modified-sort="1770249600000" data-listing-reading-time-sort="15" data-listing-word-count-sort="2878">
 <div class="thumbnail"><a href="./posts/archive/2022-01/index.html" class="no-external">
 
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>

@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Alexander Wen">
+<meta name="dcterms.date" content="2023-08-30">
+
+<title>August 2023 Archive Log – HonestCode</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-172ba59bd5e0b52282274ba0c0cc16fc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">HonestCode</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/alxwen711"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">August 2023 Archive Log</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">competitive programming</div>
+                <div class="quarto-category">2023</div>
+                <div class="quarto-category">archive</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Alexander Wen </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">August 30, 2023</p>
+      </div>
+    </div>
+    
+      <div>
+      <div class="quarto-title-meta-heading">Modified</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date-modified">August 6, 2026</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<section id="august-1st-15th" class="level2">
+<h2 class="anchored" data-anchor-id="august-1st-15th">August 1st-15th</h2>
+<p>Yep, it’s time for another quality recap of codeforces contests.</p>
+<section id="round-890" class="level3">
+<h3 class="anchored" data-anchor-id="round-890"><a href="https://codeforces.com/contest/1856">Round 890</a></h3>
+<p>Problems Solved: A, B, C, E1</p>
+<p>New Rating: <strong>1973</strong> (+21)</p>
+<p>Performance: <strong>2014</strong></p>
+<p>Statistically, my performance here was mediocre. <a href="https://codeforces.com/contest/1856/problem/D">Problem D</a> was legitimately harder than <a href="https://codeforces.com/contest/1856/problem/E1">Problem E1</a>, and I have to give credit to the contest setters for this contest had one of the most balanced difficulty curves, which is impressive considering the last problem was in multiple parts. Overall pace was okay, nothing out the ordinary, but I was still relatively capped out by the harder problems.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For context, this contest had 5 problems with E being split into 2 parts, where of 16294 participants, the clear rate distribution was 14464-10768-3009-425-1329-19. So in practice E1 could have been seen as a Problem D, D as a Problem E, and E2 as a Problem F. It’s also kinda funny to see the 4th hardest problem having a sub 10% clear rate, which nowadays is exceptionally rare.</p>
+</div>
+</div>
+<p>That said, <a href="https://codeforces.com/contest/1856/problem/C">Problem C</a> was a glorious act of revenge.</p>
+<details>
+<summary>
+Ha ha ha. I got C.
+</summary>
+<p>To quote a rant in a very recent log entry:</p>
+<p><em>RUN O(N) TESTS TO BINARY SEARCH THE ANSWER. This pattern has shown up OVER and OVER again and for TWO hours I did not even bother considering it. It’s one of the most fundamental patterns in these problems, and shows up nearly every contest, and I decided that going for an approach that is <code>O(way too long)</code> was a better solution. And look where I am now. I’m basically back at the same level as the start of the year, hell even the summer of last year. This is a wakeup call. The last thing I want is another failure in October’s regionals, but repeating these blunders and idiocy is simply insanity. Actually goose egging a contest. What a bloody joke.</em></p>
+<p>Let’s just say the wake up call happened here. The LT Binary pattern (Linear Trial Binary, that’s what I’m calling it now) was used for this solution. It took me a while to figure out, but if we assume that the maximum possible value is <code>x</code>, then a maximum of <code>x-1,x-2,x-3…</code> are all attainable. The challenge is determining if a such maximum is possible, but for this you can attempt to make each value in the array the maximum. Due to n being at most 1000, such a <span class="math inline">\(O(n^2 log n)\)</span> solution can work. Then to determine the minimum number of operations needed to make index i value x or higher, it goes as follows:</p>
+<p>Suppose c is tracking the total operations needed. Add x-ar[i] to c, then check if the next value would’ve needed increasing to make this move work (ie. check if ar[i+1] &gt;= x-1). If so, then add the required ar[i+1] operations needed and then check if ar[i+2] would need additions. Repeat until c is determined or you require ar[-1] to be increased; in this case, making ar[i] = x is impossible.</p>
+<p><a href="https://codeforces.com/contest/1856/submission/217306814">solution link</a>, <code>inc</code> tests a specific value in the array if it can be equal to x, <code>f</code> just runs <code>inc</code> on each element in the array, and <code>b</code> is the binary searching mechanism. Anyways, please excuse me as I celebrate that I got my revenge on a LT Binary problem.</p>
+</details>
+</section>
+<section id="round-892" class="level3">
+<h3 class="anchored" data-anchor-id="round-892"><a href="https://codeforces.com/contest/1859">Round 892</a></h3>
+<p>Problems Solved: A, B, C, D</p>
+<p>New Rating: <strong>2064</strong> (+91)</p>
+<p>Performance: <strong>2299</strong></p>
+<p>I won the first half of the contest! Then <a href="https://codeforces.com/contest/1859/problem/E">E</a> happened which was kinda unfortunate. I first solved it if only at most 2 segments could be used, then solved it if the segment had to be a contiguous range. Both used a contiguous dp so I sort had the right idea, but couldn’t see how to optimize it from some <span class="math inline">\(O(n^3)\)</span> ideas I tried. A-D though in 1 hour, and A-C in particular in 17 minutes is exceptional pace. This sort of rating gain based on fast A-D with constantly missing E as skill cap might be somewhat unsustainable, but it’s still solid rating gain for an overall solid contest.</p>
+<div class="callout callout-style-simple callout-none no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">None</span>Brief Note of Me Just Reminiscing on Old Times
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>This was a time when solving A to D in 1 hour was considered near the top in pace. Good times.</p>
+</div>
+</div>
+</div>
+<details>
+<summary>
+D thoughts
+</summary>
+<p>The idea of <a href="https://codeforces.com/contest/1859/problem/D">D</a> is that some of the portals could connect to each other, for instance, a portal where you enter through [1,6] and exit through [4,5] can connect to a portal where you enter [5,12] and exit [9,11]. You want to track the minimum required position to be able to use the portal sequence to reach a further point. In this case you can track that as long as your position is at least 1, you can use the portals to reach 11. Eventually you will have several of these pairs of min entry points and maximum portal exits, for which you then use binary search on each starting pos to find maximum position. Note that using no portals is also an option, above example a starting position of 12 is a case of this.</p>
+<p>There is one more part to consider in this for implementation, being how to know that for a given minimum entry point, you are reaching the absolute furthest point. What I did here was to keep all of the reachable unchecked entry points for a given segment chain in a heap structure. I would then check if the current entry point of the given segment is lower than the given portal segment, and if so, remove it from the heap to take the next segment to the right for comparison. Only when no segments remain in the heap do we know the furthest point has been reach, meaning we can create a new portal segment.</p>
+<p><a href="https://codeforces.com/contest/1859/submission/218547795">Solution link</a></p>
+</details>
+</section>
+<section id="round-893" class="level3">
+<h3 class="anchored" data-anchor-id="round-893"><a href="https://codeforces.com/contest/1858">Round 893</a></h3>
+<p>Problems Solved: A, C, B</p>
+<p>New Rating: <strong>1998</strong> (-67)</p>
+<p>Performance: <strong>1786</strong></p>
+<p>This is what I meant by my previous gains being unsustainable. There is the small caveat that I mainly lost rating because I spent half an hour on <a href="https://codeforces.com/contest/1858/problem/B">B</a> before noticing that <a href="https://codeforces.com/contest/1858/problem/C">C</a> was much easier, but blaming this is a pitfall. Firstly, this is more just bad strategy on my part; if B is 1250 points and C is 1500 points, it implies that their difficulties <em>should</em> be similar and I should’ve checked both of them first before running head first into B. Secondly, B only took that long with a wrong submission because I had very sloppy implementation. And lastly, all of these mistakes would have been negated had I solved <a href="https://codeforces.com/contest/1858/problem/D">D</a>. For this I’m still trying to upsolve it, and the plan is to start the next entry with how exactly this problem works.</p>
+</section>
+</section>
+<section id="august-16th-29th" class="level2">
+<h2 class="anchored" data-anchor-id="august-16th-29th">August 16th-29th</h2>
+<p>You might be wondering why I’m separating the last two days from this entry. I’ll explain after I recap the contests. I’m going to be real, the entirety of these 16ish days can be considered a quality episode of Days of Our Programmers. There was all sorts of drama involved.</p>
+<section id="educational-round-153" class="level3">
+<h3 class="anchored" data-anchor-id="educational-round-153"><a href="https://codeforces.com/contest/1860">Educational Round 153</a></h3>
+<p>Problems Solved: A, B, C, <del>D</del></p>
+<p>New Rating: <strong>1970</strong> (-28)</p>
+<p>Performance: <strong>1881</strong></p>
+<p><a href="https://codeforces.com/contest/1860/problem/D">D</a> I genuinely have no idea how it made it past the pretests. After the contest when hacks started occurring, I knew that my scuffed greedy method was wrong since every correct submission utilized an O(n^3) dp. There’s a sort of dignity in being hacked when you know your submission is wrong (thank you iFFT) rather than being forced to agonize for 12 hours for the inevitable result. Really, the only problem I did well on was <a href="https://codeforces.com/contest/1860/problem/C">C</a>. <a href="https://codeforces.com/contest/1860/problem/B">B</a> had 1 WA due to egregious typo, and <a href="https://codeforces.com/contest/1860/problem/A">A</a>’s saving grace was that it only took 2 WAs for me to figure out the n=2 edge cases. Had this not been an educational contest, my rating loss would’ve been greater, and really, this contest was a mess ended in dignity.</p>
+<p>I guess at least I did A through C relatively quickly?</p>
+</section>
+<section id="harbour-2023" class="level3">
+<h3 class="anchored" data-anchor-id="harbour-2023"><a href="https://codeforces.com/contest/1864">Harbour 2023</a></h3>
+<p>Problems Solved: A, C, B, D, E*</p>
+<p>New Rating: <strong>2039</strong> (+69)</p>
+<p>Performance: <strong>2216</strong></p>
+<p>Okay, this contest was something. This open competition consisted of 9 problems to be solved in 3 hours, and after <a href="https://codeforces.com/contest/1864/problem/A">A</a> is when things started going a bit nuts. I skipped <a href="https://codeforces.com/contest/1864/problem/B">B</a> initially not because I didn’t know how to solve the problem, but more because I wasn’t sure if my solution was correct. I also took into consideration the scoring system and decided that attempting <a href="https://codeforces.com/contest/1864/problem/C">C</a> was a safer option. Looking back submitting B first before trying C would’ve scored a few more points, but the difference in rank is negligible and I went for C over B as a safety valve, so it’s a reasonable strategy. <a href="https://codeforces.com/contest/1864/problem/D">D</a>’s single trick is to get the runtime from <span class="math inline">\(O(n^3)\)</span> to <span class="math inline">\(O(n^2)\)</span>, and I figured out the system for this relatively quickly (<a href="https://codeforces.com/contest/1864/submission/220556119">D submission</a>)</p>
+<p>And then there’s <a href="https://codeforces.com/contest/1864/problem/E">E</a>.</p>
+<section id="oh-boy.-e." class="level4">
+<h4 class="anchored" data-anchor-id="oh-boy.-e.">Oh boy. E.</h4>
+<p>With this problem, we need to first understand what Alice and Bob’s optimal strategy is. In this case, it is easiest to write both of their numbers in binary. With Alice’s first turn, she looks at the most significant 1 bit in a | b. If her value does not contain a 1 in that significant bit, then she knows a &lt; b, otherwise she passes. This then goes to Bob, who knows Alice must have a 1 in that position. If Bob doesn’t have it, then a &gt; b. Otherwise, Bob can begin comparing his value to the 2nd most significant 1 in a | b. This process repeats until all the bits in a | b have been compared; in this case, a = b.</p>
+<p>This information allows us to tell how many turns a game will last. If we know the sum of turns of all <span class="math inline">\(n^2\)</span> possible games, then expected turn count is trivial. In this case, let’s suppose our values can be split into groups X and Y. All values in X have a 1 bit in their <span class="math inline">\(2^29\)</span> bit value (so values like 100000…0000 (29 0’s)), while values in Y do not. This gives 4 possible cases for how the game could play out:</p>
+<ol type="1">
+<li><p>Alice gets a value from X, Bob from X: They compare the first bit and continue the game (at least 2 moves)</p></li>
+<li><p>Alice gets a value from X, Bob from Y: Bob determines a &gt; b, game ends in 2 moves</p></li>
+<li><p>Alice gets a value from Y, Bob from X: Alice determines a &lt; b, game ends in 1 move</p></li>
+<li><p>Alice gets a value from Y, Bob from Y: They don’t compare the first bit continue the game (at least 1 move)</p></li>
+</ol>
+<p>Each of these cases are disjoint. Cases 1 and 4 can be directly added to the sum, while cases 2 and 3 are done recursively. Given the input size, a full tree would use about <span class="math inline">\(2^30\)</span> nodes, but with n being at most 200000, not all nodes will be required. In fact, by effectively <a href="https://en.wikipedia.org/wiki/Bucket_sort">bucket sorting</a> these values, far fewer nodes are used. At ABSOLUTE worst, if somehow each value created 30 new nodes (which is still impossible), only 6 million nodes are created. Given the O(1) storage for each node, it would be close, but the time limit serves no problem here.</p>
+<p>Note that I said time limit. In 99% of problems memory isn’t an issue, but apparently, my <a href="https://codeforces.com/contest/1864/submission/220570699">first implementation</a> hit MLE. It took some optimization (mainly removing ONE piece of info from each node) of this solution to pass the 256MB memory limit. With specific values, enough nodes can be created to actually screw this limit, but I got ridiculously lucky with none of the main tests screwing me over. <a href="https://codeforces.com/contest/1864/submission/220573750">I’m not joking, look at this.</a></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>A brief sidetrack on this MLE thing
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>From looking at this further, I had a relatively naive tree generation method in which in the worst case, roughly <span class="math inline">\(200000 * 30 \approx 6000000\)</span> nodes would be created. There are methods to improve this; if there was only one value left, then the rest of the game could be simulated in that node and the move count after considering all remaining bits would be stored there rather than making a new bit for each subsequent bit. It’s difficult to quantify how much of an effect this would have, but in the extreme case where the values given intentionally differ as much as possible to create as wide of a tree as possible, due to <code>2**18 &gt; 200000</code>, we can deduce at most <span class="math inline">\(200000 * 18 \approx 3600000\)</span> nodes would be created. That would be sufficient to reducing the memory constraint for the hack testcase.</p>
+<p>Another note is this recursive computation:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> total(n):</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    a,b,c <span class="op">=</span> n.l,n.r,n.one</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    v <span class="op">=</span> (a<span class="op">*</span>b)<span class="op">*</span>(<span class="dv">2</span><span class="op">*</span>c<span class="op">+</span><span class="dv">3</span>) <span class="co">#one+1 if bob has extra 1, one+2 otherwise</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> n.lc <span class="op">==</span> <span class="va">None</span> <span class="kw">and</span> n.rc <span class="op">==</span> <span class="va">None</span>: <span class="co">#compute self cases</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> v <span class="op">+</span> (a<span class="op">*</span>a<span class="op">*</span>(c<span class="op">+</span><span class="dv">1</span>)) <span class="op">+</span> (b<span class="op">*</span>b<span class="op">*</span>(c<span class="op">+</span><span class="dv">2</span>))</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> n.lc <span class="op">!=</span> <span class="va">None</span>: v <span class="op">+=</span> total(n.lc)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> n.rc <span class="op">!=</span> <span class="va">None</span>: v <span class="op">+=</span> total(n.rc)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> v</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>For this problem since the maximum depth of the tree would be limited by the length of a value in binary, there were at most 30ish levels of recursion so this implementation is alright. However if this was a lot more iterations (even like 200000), it would be much more problematic; you could technically do something like <code>sys.setrecursionlimit(200000)</code> to get around it, but that would allocate an egrigous amount of stack memory and likely cause an MLE. Alternatively, since the <code>total(n)</code> function only depends on an internal computation and the direct child’s function calls, a dp on tree can be used where subanswers are stored in each node and computed from the bottom to top of the tree. <code>n.l</code> and <code>n.r</code> should also be information stored in the child nodes as something like <code>n.v</code> as well to further optimize memory use.</p>
+</div>
+</div>
+<p>I really got hacked on this problem via MLE. But it happened after the contest so I still got the points. This is some next level luck. As for fixing this? I have an idea in mind where you pretty much do the calculations of the bucket search layer by layer so then only a single layer of the tree is stored at a time. It involves some scuffed dictionary implementation, but I’ll try this out after tomorrow’s Pinely contest.</p>
+<p>Now as for why I’m getting this log out early:</p>
+<p><a href="https://codeforces.com/blog/entry/119770">This contest.</a></p>
+<p>Yep.</p>
+<p>Pinely Round 2. It’s time to get my revenge. Either way, we all know <strong><em>Days of Our Programmers</em></strong> is coming out of this.</p>
+<p><a href="https://alxwen711.github.io/blog/Nov22">Context for the unaware, go to 2nd half</a></p>
+</section>
+</section>
+</section>
+<section id="august-30th-31st" class="level2">
+<h2 class="anchored" data-anchor-id="august-30th-31st">August 30th-31st</h2>
+<section id="pinely-round-2" class="level3">
+<h3 class="anchored" data-anchor-id="pinely-round-2"><a href="https://codeforces.com/contest/1863">Pinely Round 2</a></h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="doop.png" class="img-fluid figure-img"></p>
+<figcaption>https://www.youtube.com/watch?v=98T3PVaRrHU</figcaption>
+</figure>
+</div>
+<p><strong><em>Days of Our Programmers: A Pinely Reunion</em></strong></p>
+<p><em>Tonight, on <strong>The probable series 2 finale of DOOP,</strong></em></p>
+<p><em>The show prepares for a new story arc as the summer draws to a close. With a recent stroke of divine luck in recent memory somehow places the Dragon into striking distance for a return to the Master title, there is a greater event at hand to consider: the beginning of our protagonist’s coop learning journey. In the 20 months of writing this journal several attempts at coop were made, with little success. But it is now, that I can say that in two weeks time, I will be in a co-op with Global Relay. It brings into question the future of this fine show, for as much as I’d want to continue with the same time and drive for these competitions, I have been waiting for such a real world opportunity for a long time, arguably too long. It is finally time. With the incoming coop opportunity coming, our protagonist is more prepared than ever to make the upcoming contests count.</em></p>
+<p><em>Asides this brief sentimentality there is more pressing reason for the Dragon to fight in this next contest, for it is Pinely Round 2. For our frequent readers, you may recall the “contest” that was Pinely Round 1 back in November of 2022. It was the one where through a spectacular implosion losing 140 ELO, our protagonist was banished to a “special” place. As such, this contest has a lot riding on it. A chance for revenge. A meaningful finish to a potential competition hiatus. A true shot at returning to an orange username. There is no need to further delay, and the contest finally begins.</em></p>
+<p><em>The ordeal begins, and for a moment, silence. The silence of 13 and a half thousand competitors at their screens and our protagonist examining the <a href="https://codeforces.com/contest/1863/problem/A">first problem</a>. Then, the typing begins, and the Accepted verdicts flood the leaderboards. 8 minutes in, the Dragon finally strikes. Problem A falls, albeit a bit slower than expected. Then begins the <a href="https://codeforces.com/contest/1863/problem/B">second problem</a>. There’s a permutation, an old callback to great traumas of Div 2B permutation struggles in the past. For a singular moment, a slight pain strikes at the Dragon. In the first Pinely competition, this was when it all fell apart.</em></p>
+<p><em>It would not be the same today. The Dragon ices this challenge in 6 minutes, and with that, he exceeds his performance on the first Pinely competition. But a mere thirteenth of the time has passed. Our protagonist does not want more, he demands it, and thus the <a href="https://codeforces.com/contest/1863/problem/C">third problem</a> commences. It’s an old classic in the Minimum EXcluded value of the array. A bit trickier, but then there is a clue within the constraints: for an array of n values, each of the values will be unique, and from 0 to n inclusive. Strangely enough, this means exactly 1 value between 0 and n will always be left out. Even more strange is when our protagonist experiments with the second testcase:</em></p>
+<pre><code>Initial array: [0,1,3]
+For k = 1: [2,0,1]
+For k = 2: [3,2,0]
+For k = 3: [1,3,2]
+For k = 4: [0,1,3]</code></pre>
+<p><em>A cycle. It gives critical insight to the answer, and through some basic modulo operations in his <a href="https://codeforces.com/contest/1863/submission/221114379">solution</a>, the Dragon claws through C. A mere 22 minutes have passed, and momentum in his wings build. Our protagonist is flying through this contest in great contrast to past failures, and now the <a href="https://codeforces.com/contest/1863/problem/D">4th challenge</a> awaits. Presented in this problem is a rectangular board covered in horizontal and vertical dominoes. The question is to find a colouring such that the three pardigrams hold, or determine that such a colouring is impossible:</em></p>
+<pre><code>I. Every domino must have 1 black cell and 1 white cell.
+II. Every row must have the same number of black and white cells.
+III. Every column must have the same number of black and white cells.</code></pre>
+<p><em>Clearly, if only an odd number of cells in a row or column can be coloured, then no such configuration exists. Past that is a bit more complicated, but the writer of this episode first thought of the most basic case of a proper setup: two dominoes making a square:</em></p>
+<pre><code>UU
+DD</code></pre>
+<p><em>Then our protagonist invents a new setup called a split square:</em></p>
+<pre><code>U……..U
+D……..D</code></pre>
+<p><em>Here we can see this setup still works. It also functions similarly with horizontal dominoes. The key observation is that a proper setup must have all of its dominoes in these split square setups. The proof is a bit hard, but then we look at the first example:</em></p>
+<pre><code>..LR..
+ULRU..
+DLRDUU
+..LRDD</code></pre>
+<p><em>The dragon then sees it. The dominoes are all in split square formation. Then the rest becomes relatively easy; by grouping dominoes by their row/column position, they could be formed into split squares. Then it’s a matter of making sure dominoes in split squares are coloured opposite to each other. With this dagger, our protagonist defeats D, and only 41 minutes in the contest have passed. He flies to the <a href="https://codeforces.com/contest/1863/problem/E">fifth problem</a>. Upon inspection, it is the greatest challenge the Pinely contest has posed yet: a pine tree problem.</em></p>
+<p>Note: the problem isn’t actually about pine trees specifically. I just felt like putting in a terrible pun there.</p>
+<p><em>Here the reasonable idea of structuring the quests in a directed graph is made. Traversing downwards from the tasks with no prerequisites could setup a case where the last tasks are completed as early as possible, and thus this code is created. There is much scuffed code involved, and leads to the glorious success of <code>Wrong answer on pretest 2</code>.</em></p>
+<p><em>It turns out E is a difficult problem. No matter, for the first submission had legitimate error if the graph had multiple “head points”. Turns out this pine tree problem is less a tree and more a dense forest of bushes. It’s a simple fix, and using the technicalities of bfs it leads to: another WA on pretest 2. Frick. Our protagonist finds some actual struggle here, but then another consideration is made: what if the graph was traversed backwards? Suppose you knew that a quest that did not act as the prerequisite for any other quest was done at time x. Based on this information, you can determine the absolute latest time that its prerequisite quests would have to be completed. Thus, our protagonist begins going through the graph in reverse.</em></p>
+<p><em>It still does not work out. Twice. By this point 5000 seconds have been all but fried on this one question, and no one really knows what’s happening. In normal cases, this is when the contest would end in some middling futility, but Pinely demands more, thus this agony still has another hour to it. At this point, our protagonist goes “screw it”, and traverses the graph in both directions. This isn’t as ridiculous as it sounds since the top to bottom search sets up the minimum time needed to complete a quest, and the bottom to top search sets up the latest time a quest can be started. And yet this still fails. The remaining 2+ hours of the competition simply lead to 6 ways to get E wrong, and the contest ends.</em> It is at this point where as the writer, I must say I am quite disappointed with how this contest ended because it leaves no conclusive ending. Did I get revenge on Pinely Round 1? I mean, I still lost rating from this and that choke was painful, but this may as well be a small inconvenience to the disastrous first round. Also, it’s not like I did bad the whole time, and by completing 4 problems, I did far better than what I did last year. It’s such an unsatisfying draw that simply requires another contest to decide. Maybe this is what fate had planned this whole time. Like the future being uncertain, so is this contest’s outcome, and the conclusion of this series of <strong><em>Days of Our Programmers</em></strong>.</p>
+<p>Problems Solved: A, B, C, D</p>
+<p>New Rating: <strong>2022</strong> (-17)</p>
+<p>Performance: <strong>1968</strong></p>
+<p>Editor’s note: I really had no clue how to write a conclusion to this one. This is what happens when a seemingly critical contest of great importance ends up being incredibly mediocre.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>An Update to the Alex Wen vs.&nbsp;Pinely Feud
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For those keeping track, here is a brief overview of each Pinely Round (reviews of Rounds 1 and 2 and summaries of everything else):</p>
+<ul>
+<li><strong><a href="https://codeforces.com/contest/1761/standings/participant/144485398#p144485398">Nov 20th, 2022: Round 1</a>: 1673 -&gt; 1533 (-140)</strong></li>
+</ul>
+<p>We already know how this went.</p>
+<ul>
+<li><strong><a href="https://codeforces.com/contest/1863/standings/participant/162469976#p162469976">Aug 30th, 2023: Round 2</a>: 2041 -&gt; 2026 (-15)</strong></li>
+</ul>
+<p>Very fast A-D, stalled out heavily, overally very mid.</p>
+<ul>
+<li><strong><a href="https://codeforces.com/contest/1909/standings/participant/170469013#p170469013">Dec 23rd, 2023: Round 3</a>: 1952 -&gt; 1962 (+10)</strong></li>
+</ul>
+<p>Pretty similar to Round 2 but D was significantly harder, so better overall.</p>
+<ul>
+<li><strong><a href="https://codeforces.com/contest/1761/standings/participant/144485398#p144485398">Jul 28th, 2024: Round 4</a>: 2128 -&gt; 2201 (+73)</strong></li>
+</ul>
+<p>6 problems solved. Not much else needs to be said.</p>
+<ul>
+<li><strong><a href="https://codeforces.com/contest/1761/standings/participant/144485398#p144485398">Oct 30th, 2025: Round 5</a>: 2093 -&gt; 2124 (+31)</strong></li>
+</ul>
+<p>A-C in 20 minutes, D was pretty ugly but also on the harder side so still a strong contest.</p>
+<p>Overall I ended up gaining rating in 3 of 5 Pinely Rounds. I think we can say I’ve overcome this quite well.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="educational-round-154" class="level3">
+<h3 class="anchored" data-anchor-id="educational-round-154"><a href="https://codeforces.com/contest/1861">Educational Round 154</a></h3>
+<p>Problems Solved: A, B, D, C</p>
+<p>New Rating: <strong>2000</strong> (-22)</p>
+<p>Performance: <strong>1930</strong></p>
+<p>This will be more on the brief side since the previous contest took a lot of time to dramatically recap, but I can reasonably say there is one very critical roadblock I’m facing now:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="2000.png" class="img-fluid figure-img"></p>
+<figcaption>the wall that is 2000</figcaption>
+</figure>
+</div>
+<p>This chart shows the ratings of every problem I have ever solved on Codeforces, both in contest and in practice. The majority of these problems are from contests, with the unrated section mainly being from specific ICPC practice contests. Up to 2000 rating we can see each rating section have at least 10 problems solved, most hovering around 20 or higher. It’s normal for the frequency to drop with harder ratings, but the plummet past 2000 is too much. That is a clear pattern that I can consistently bricked on the harder 2Ds and 2E problems on contests. My CF rating as a result has been relatively stagnant for the last 5 months, similar to Oct-Dec 2022 where I was cramped in mid Expert. In that sense it’s at least clear that my weakness is in skill cap, as my recent consistency in easier problems for the most part has been decent. I say for the most part because C had 4 WA submissions solely because I made a typo.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>And thus that concludes all of the archive posts from my previous journal. There are quite a lot of observations I made when reading back on these which will be noted in a new journal post. I’m not sure how closely to this style I’ll make my new logs for competitive programming recaps, but that’s for me to figure out later.</p>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/alxwen711\.github\.io\/HonestCode\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

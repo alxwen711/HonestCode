@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Alexander Wen">
-<meta name="dcterms.date" content="2026-01-08">
+<meta name="dcterms.date" content="2023-07-30">
 
-<title>Sparse Tables – HonestCode</title>
+<title>July 2023 Archive Log – HonestCode</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -76,35 +76,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../../../styles.css">
 </head>
@@ -146,10 +117,11 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Sparse Tables</h1>
+      <h1 class="title">July 2023 Archive Log</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">data structures</div>
-                <div class="quarto-category">2026</div>
+                <div class="quarto-category">competitive programming</div>
+                <div class="quarto-category">2023</div>
+                <div class="quarto-category">archive</div>
               </div>
                   </div>
   </div>
@@ -167,10 +139,16 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">January 8, 2026</p>
+        <p class="date">July 30, 2023</p>
       </div>
     </div>
     
+      <div>
+      <div class="quarto-title-meta-heading">Modified</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date-modified">August 5, 2026</p>
+      </div>
+    </div>
       
     </div>
     
@@ -186,414 +164,124 @@ window.Quarto = {
 
 
 
-<p>Suppose a hiker is mapping out a mountain range. They walk across the mountain and record their current altitude in meters at important landmarks in this diagram:</p>
+<section id="july-1st-15th" class="level2">
+<h2 class="anchored" data-anchor-id="july-1st-15th">July 1st-15th</h2>
+<p>It’s the second half of 2023, and outside of CodeForces, there has been updates on my life. Mainly that I have been accepted into my first ever co-op position with Global Relay. I’m very excited and greatly look forward to this new opportunity to apply my learnings in this competitive programming journey to a meaningful real world use. Don’t worry though, this journal log will continue though during my co-op, because I enjoy these sort of problem solving challenges, and looking back, the depth of DSA knowledge I’ve learnt from these contests were one of the key factors in me being accepted to this position. To top it all off, I am also on an incredible streak in CodeForces. I’ve broken the 2100 Master threshold, and my last 5 contests have all been at least 1900-rated performances or higher, an all time longest streak. Surely I’m excited to keep this momentum going.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Interestingly on the above streak note, the longest streak of CM-level and above performances has been 9 contests from July 2024 to Dec 2024. I at least had a recentish streak of form from Oct-Nov 2025 of 6 CM-level or better performances, but now it’s recently been at best middling.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="mountain.png" class="img-fluid figure-img"></p>
-<figcaption>Various mountain measurements.</figcaption>
+<p><img src="4.png" class="img-fluid figure-img"></p>
+<figcaption>four</figcaption>
 </figure>
 </div>
-<p>These measurements can then be expressed in an array:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 39%">
-<col style="width: 6%">
-<col style="width: 6%">
-<col style="width: 6%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 6%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Index #</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Altitude in meters</td>
-<td>800</td>
-<td>400</td>
-<td>700</td>
-<td>1000</td>
-<td>1300</td>
-<td>1600</td>
-<td>1200</td>
-<td>900</td>
-</tr>
-</tbody>
-</table>
-<p>From this array, the highest altitude in this entire mountain range is 1300 meters. But some travellers may only traverse part of this mountain range; for example, someone that travels from landmark 1 to 4 reaches a maximum altitude of 1000 meters, and another person who travels from landmark 7 to 8 reaches a maximum altitude of 1200 meters. These continuous segments are referred to as subarrays.</p>
-<p>Now imagine that many tourists ask about the highest altitude they can reach by traversing an arbitrary segment of this mountain range. Thus, a method to find the maximum value of any subarray in this measurement array is required, and each question must be answerable in a practically instant amount of time. An initial solution is to build a table with the maximum altitudes reached for every subarray from index <span class="math inline">\(X\)</span> to <span class="math inline">\(Y\)</span> like below:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-</colgroup>
-<thead>
-<tr class="header">
-<th></th>
-<th>X = 1</th>
-<th>X = 2</th>
-<th>X = 3</th>
-<th>X = 4</th>
-<th>X = 5</th>
-<th>X = 6</th>
-<th>X = 7</th>
-<th>X = 8</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Y = 1</td>
-<td>800</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-</tr>
-<tr class="even">
-<td>Y = 2</td>
-<td>800</td>
-<td>400</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-</tr>
-<tr class="odd">
-<td>Y = 3</td>
-<td>800</td>
-<td>700</td>
-<td>700</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-</tr>
-<tr class="even">
-<td>Y = 4</td>
-<td>1000</td>
-<td>1000</td>
-<td>1000</td>
-<td>1000</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-</tr>
-<tr class="odd">
-<td>Y = 5</td>
-<td>1300</td>
-<td>1300</td>
-<td>1300</td>
-<td>1300</td>
-<td>1300</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-</tr>
-<tr class="even">
-<td>Y = 6</td>
-<td>1600</td>
-<td>1600</td>
-<td>1600</td>
-<td>1600</td>
-<td>1600</td>
-<td>1600</td>
-<td>-</td>
-<td>-</td>
-</tr>
-<tr class="odd">
-<td>Y = 7</td>
-<td>1600</td>
-<td>1600</td>
-<td>1600</td>
-<td>1600</td>
-<td>1600</td>
-<td>1600</td>
-<td>1200</td>
-<td>-</td>
-</tr>
-<tr class="even">
-<td>Y = 8</td>
-<td>1600</td>
-<td>1600</td>
-<td>1600</td>
-<td>1600</td>
-<td>1600</td>
-<td>1600</td>
-<td>1200</td>
-<td>900</td>
-</tr>
-</tbody>
-</table>
-<p>Any tourist’s query can now be answered by instantly looking up the specific subarray in this table. This method is effective, but also tedious because for any positive value <span class="math inline">\(C\)</span>, increasing the length of this array by a factor of <span class="math inline">\(C\)</span> will increase the number of subarrays computed by a factor of <span class="math inline">\(C^2\)</span>. In this example, all 36 possible subarrays are computed, which is manageable. But suppose on larger scale, a robot took far more measurements on the mountain, such as a million. This table method would then have to compute the maximum value of each of roughly 5 trillion subarrays, which is infeasible even with a computer.</p>
-<p>There is a more efficient way because not every subarray maximum value has to be literally computed. For example, knowing that maximum values for the subarrays from index 1 to 4 and index 3 to 6 to be 1000 and 1600 respectively is enough to conclude that the maximum value for the subarray from index 1 to 6 must be 1600. This is because every index from 1 to 6 is in at least one of these subarrays, thus the maximum value for the entire subarray must be the higher of 1000 and 1600. This important observation motivates the following sparse table.</p>
-<p>Let <span class="math inline">\(L\)</span> be the length of a subarray. Start by “computing” the maximum value of every single element subarray.</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 27%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Subarray length</th>
-<th>X = 1</th>
-<th>X = 2</th>
-<th>X = 3</th>
-<th>X = 4</th>
-<th>X = 5</th>
-<th>X = 6</th>
-<th>X = 7</th>
-<th>X = 8</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>L = 1</td>
-<td>800</td>
-<td>400</td>
-<td>700</td>
-<td>1000</td>
-<td>1300</td>
-<td>1600</td>
-<td>1200</td>
-<td>900</td>
-</tr>
-</tbody>
-</table>
-<p>The maximum of the subarray of length <span class="math inline">\(L\)</span> from index <span class="math inline">\(X\)</span> to <span class="math inline">\(X+L-1\)</span> inclusive is equal to the higher of the maximums for the subarray from index <span class="math inline">\(X\)</span> to <span class="math inline">\(X+L/2-1\)</span> and index <span class="math inline">\(X+L/2\)</span> to <span class="math inline">\(X+L-1\)</span>. The computed subarray maximums for <span class="math inline">\(L = 1\)</span> can then be used to compute the subarray maximums for <span class="math inline">\(L = 2\)</span>:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 27%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Subarray length</th>
-<th>X = 1</th>
-<th>X = 2</th>
-<th>X = 3</th>
-<th>X = 4</th>
-<th>X = 5</th>
-<th>X = 6</th>
-<th>X = 7</th>
-<th>X = 8</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>L = 1</td>
-<td>800</td>
-<td>400</td>
-<td>700</td>
-<td>1000</td>
-<td>1300</td>
-<td>1600</td>
-<td>1200</td>
-<td>900</td>
-</tr>
-<tr class="even">
-<td>L = 2</td>
-<td>800</td>
-<td>700</td>
-<td>1000</td>
-<td>1300</td>
-<td>1600</td>
-<td>1600</td>
-<td>1200</td>
-<td>-</td>
-</tr>
-</tbody>
-</table>
-<p>This information can then be used to compute the subarray maximums for <span class="math inline">\(L = 4\)</span>:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 27%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Subarray length</th>
-<th>X = 1</th>
-<th>X = 2</th>
-<th>X = 3</th>
-<th>X = 4</th>
-<th>X = 5</th>
-<th>X = 6</th>
-<th>X = 7</th>
-<th>X = 8</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>L = 1</td>
-<td>800</td>
-<td>400</td>
-<td>700</td>
-<td>1000</td>
-<td>1300</td>
-<td>1600</td>
-<td>1200</td>
-<td>900</td>
-</tr>
-<tr class="even">
-<td>L = 2</td>
-<td>800</td>
-<td>700</td>
-<td>1000</td>
-<td>1300</td>
-<td>1600</td>
-<td>1600</td>
-<td>1200</td>
-<td>-</td>
-</tr>
-<tr class="odd">
-<td>L = 4</td>
-<td>1000</td>
-<td>1300</td>
-<td>1600</td>
-<td>1600</td>
-<td>1600</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-</tr>
-</tbody>
-</table>
-<p>And lastly in this case, <span class="math inline">\(L = 8\)</span> (further steps would use larger powers of 2 for <span class="math inline">\(L\)</span>):</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 27%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-<col style="width: 9%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Subarray length</th>
-<th>X = 1</th>
-<th>X = 2</th>
-<th>X = 3</th>
-<th>X = 4</th>
-<th>X = 5</th>
-<th>X = 6</th>
-<th>X = 7</th>
-<th>X = 8</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>L = 1</td>
-<td>800</td>
-<td>400</td>
-<td>700</td>
-<td>1000</td>
-<td>1300</td>
-<td>1600</td>
-<td>1200</td>
-<td>900</td>
-</tr>
-<tr class="even">
-<td>L = 2</td>
-<td>800</td>
-<td>700</td>
-<td>1000</td>
-<td>1300</td>
-<td>1600</td>
-<td>1600</td>
-<td>1200</td>
-<td>-</td>
-</tr>
-<tr class="odd">
-<td>L = 4</td>
-<td>1000</td>
-<td>1300</td>
-<td>1600</td>
-<td>1600</td>
-<td>1600</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-</tr>
-<tr class="even">
-<td>L = 8</td>
-<td>1600</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-</tr>
-</tbody>
-</table>
-<p>The maximum of any subarray from index <span class="math inline">\(A\)</span> to <span class="math inline">\(B\)</span> can then be computed using this sparse table in 3 steps:</p>
-<ol type="1">
-<li>Compute <span class="math inline">\(N\)</span>, the length of the subarray. (<span class="math inline">\(N = B - A + 1\)</span>)</li>
-<li>Determine <span class="math inline">\(M\)</span>, the largest power of 2 (1, 2, 4, 8, 16, 32…) satisfying <span class="math inline">\(M \leq N\)</span>.</li>
-<li>Look in the row <span class="math inline">\(L = M\)</span> and choose the larger of the values in columns <span class="math inline">\(X = A\)</span> and <span class="math inline">\(X = B - M + 1\)</span>, representing the subarrays from index <span class="math inline">\(A\)</span> to <span class="math inline">\(A + M - 1\)</span> and index <span class="math inline">\(B - M + 1\)</span> to <span class="math inline">\(B\)</span>. These subarrays are guaranteed to cover every index from <span class="math inline">\(A\)</span> to <span class="math inline">\(B\)</span>.</li>
-</ol>
-<p>As an example, suppose a tourist wanted to know the highest altitude (maximum) between landmarks 2 to 4. Use the method to determine the maximum of the subarray from index 2 to 4:</p>
-<ol type="1">
-<li><span class="math inline">\(N = 4 - 2 + 1\)</span> =&gt; <span class="math inline">\(N = 3\)</span></li>
-<li><span class="math inline">\(M = 2\)</span> (largest power of 2 less than or equal to 3)</li>
-<li>Value in <span class="math inline">\(L = 2, X = 2\)</span> is 700; value in <span class="math inline">\(L = 2, X = 4 - 2 + 1 = 3\)</span> is 1000. Thus the maximum altitude between landmarks 2 to 4 is 1000.</li>
-</ol>
-<p>With the sparse table, only 21 total subarrays have their maximum computed, compared to 36 with the naive table approach. Where this efficiency is more pronounced is with more measurements; for any positive value <span class="math inline">\(C\)</span>, increasing the length of the array by a factor of <span class="math inline">\(C\)</span> will now only increase the number of subarrays computed by a factor of <span class="math inline">\(C\text{log}(C)\)</span>. Going back to the robot scenario, if the array consisted of a million values, the number of maximums for subarrays computed would decrease from roughly 5 trillion with a naive table to 19 million with a sparse table.</p>
+<p>Then again, the above streak which I was all happy with myself include a Div 1 contest with 1 problem solved and an educational round with 3 problems solved. Is it consistency to solve 4 problems each contest or inconsistency to solve 4 problems each contest regardless of actual problem difficulty?</p>
+</div>
+</div>
+<p>Yeah, that last part of the paragraph was a really bad transition. If only the contest in this log actually went that well.</p>
+<section id="round-884" class="level3">
+<h3 class="anchored" data-anchor-id="round-884"><a href="https://codeforces.com/contest/1844">Round 884</a></h3>
+<p>Problems Solved: A, C, D</p>
+<p>New Rating: <strong>1955</strong> (-176)</p>
+<p>Performance: <strong>1064</strong></p>
+<p><a href="https://www.youtube.com/watch?v=98T3PVaRrHU">Days of Our <del>Lives</del> Programmers theme, if you want it for your enjoyment or my schadenfreude</a></p>
+<p>No, I won’t bring the dramatic <strong><em>Days of Our Programmers</em></strong> monologue for this recap, much to the chagrin of anyone reading this. This contest really was a combination of a catastrophic misplay that was amplified by some sloppy execution in C and D, but also really bad luck.</p>
+<p>First, the catastrophic misplay, ie. <a href="https://codeforces.com/contest/1844/problem/B">Problem B</a> the question that started this disasterclass. The initial start of the problem is simple; I saw that the MEX value of a subarray depended on its values, and that if it contained values 1 to p-1 but not p, the MEX is p.&nbsp;Thus I made a sieve to determine the possible prime values.</p>
+<p>It turns out that by this first step I was already dead lost. I made about 8 attempts on this problem to no avail, mainly due to the fact I didn’t find that <code>2 4 1 5 3</code> is another optimal primality setup for n = 5. The answer for this problem is really just infuriatingly simple.</p>
+<details>
+<summary>
+A run down of B’s solution
+</summary>
+<p>If n &lt;= 2, the order doesn’t matter (obviously). Otherwise, place 2 and 3 at the ends and 1 dead in the center of the array. Done.</p>
+<p>Yep. The solution to B can be explained in half the required characters of a tweet. I can understand how placing 1 in the center is best due to how quadratics work, but as for how MEX = 5,7,11 does not have to be considered still baffles me. I’ll just let the <a href="https://codeforces.com/blog/entry/118128">tutorial</a> directly explain here.</p>
+<p><em>note that we don’t even need to sieve for primes!</em></p>
+<p>I have no words on this final line.</p>
+</details>
+<p>With this question, I pretty much burnt the first half hour on it, and then about the last 70 minutes on it in futility. That said, C and D didn’t really help either. <a href="https://codeforces.com/contest/1844/problem/C">C</a> had 2 failed attempts due to myself screwing with my dp ideas for solving the problem, and it turns out my first attempt on <a href="https://codeforces.com/contest/1844/problem/D">D</a> was already sufficient (somehow.) <a href="https://codeforces.com/contest/1844/submission/385816157">Link to resubmitted first attempt that passes anyways</a></p>
+<details>
+<summary>
+Why I resubmitted D
+</summary>
+<p>The example cases somewhat display this, but the important rule is that in the row-major order, two of the same character cannot be x units apart, where x is a factor of n and <code>x != n</code>. In an example like <code>abcba</code>, the a’s are 4 units apart, and this is a valid string since the factors of 5 are just 1 and 5. The more optimal method for generating the string with fewest distinct characters is to find the smallest natural number x that is NOT a divisor of n, and to cycle through the first x chars of the alphabet for the whole string. This is optimal because if we were to use x-1 unique chars, either we have two of the same char with a gap under x-1, or we repeat the chars in order to get many gaps of x-1, both of which would divide n by our definition of x. This is what I did in my second attempt.</p>
+<p>What I did in my first attempt was to find all the factors of n, and then when adding in each new char to the string, I checked with each char several indices back relating to these factors to make sure no violations occurred. This somehow clears in under 2 seconds, the issue here is that n can go up to 1000000. A such problem case is in the highly divisible number 720720, which contains 240 factors. With some rough calculations, this could result in about <code>240 * 720720 = 173 million operations</code>, which should not be possible in Python assuming about 20 million calcs/second. This does slightly overestimate the operation count but I did test this on my own computer and it took about 20 seconds, so I have no clue how it is tenfold in pace on the judging machine.</p>
+</details>
+<p>That said, I at least solved C and D, which is also why this didn’t end up as a drama episode despite the satrically large rating loss. Solving A/C/D would place me above everyone that got A/B/C, even with the large timeloss from initial B attempts, but I ended up losing to several people with only A/B/D solves. It distracts from the bigger issue that a lot of people happened to solve C and D. It may have been a Div 1 + 2 contest, but 36% of competitors solving D is extremely rare. I could’ve made an attempt at E but that wasn’t much better since while 5600+ solves were on D, E only got 422 solves. The problem rating gap between D and E is expected to be around 1000 points, with D being rated 1350 and E about 2350. So you get the perfect storm of a collapse on B, bad execution on C and D, and a difficulty curve that really did not help me.</p>
+<p>By all of this, it does mean that my run on this contest, while definitely atrocious, doesn’t feel like my worst underperformance. It just happens to have a -177 rating change, which is bad, but I’ve recovered from this.</p>
+</section>
+</section>
+<section id="july-16th-31st" class="level2">
+<h2 class="anchored" data-anchor-id="july-16th-31st">July 16th-31st</h2>
+<section id="round-887" class="level3">
+<h3 class="anchored" data-anchor-id="round-887"><a href="https://codeforces.com/contest/1852">Round 887</a></h3>
+<p>Problems Solved: oof</p>
+<p>New Rating: <strong>1874</strong> (-86)</p>
+<p>Performance: N/A (my tool says 1602, but proper evaluation of a contest with zero solves is not really possible)</p>
+<p><a href="https://www.youtube.com/watch?v=o1ERCJiUA0c">For god’s sake.</a></p>
+<p><strong><em>Days of Our Programmers</em></strong></p>
+<p>I really thought this show was over. Since Educational Round 145 I had completed 18 contests in a row without major implosion, and it allowed me to reach Master. It should’ve ended there. This mockery of my comedic self destructions should ceased from there. But alas, here we are. Let’s get this over with.</p>
+<p><em>The Proponent of Python’s road to competitive glory has recently unveiled once hidden troubles. Since late March our protagonist had been on a solid streak of progress to reach the unprecedented heights of Master. Even if this 2100 rating barrier was partially built on favorable conditions the execution of the ordeals was swift and consistent. Now though, an unsettling flaw is showing. The previous 884th round removed the Master title from our protagonist in dramatic fashion. A combination of unfortunate problem setting luck and an old menace in the Div 2B permutation problem caused a catastrophic collapse. Regardless, hopes are still high for the Dragon. He is only 176 points down from his peak, and he now looks to Round 887 for redemption. There is much to support this hope. <a href="https://leetcode.com/alxwen711/">A recent LeetCode contest brought our writer to the top 0.4% on the website.</a> This 2400+ barrier crossing should be more than enough momentum to succeed in Round 887. Or so we think. Let us flash back to a previous time:</em></p>
+<p><a href="https://alxwen711.github.io/HonestCode/posts/archive/2023-03/">FLASHBACK</a></p>
+<p><em>Back in February, our Protagonist wrote of his grand exploits in Starters 78. It was a fine contest in which the writer all but committed the great sin of unintentional sandbagging to take a silver medal, just one short of a Division 3 contest win. He then proceeded to boast of his accomplishment by ranting on the flawed rating system on CodeChef. This “momentum” led to being one problem short in the following ICPC regionals. Then we come back to the current age, where our protagonist is</em> actually boasting of a top <del>100</del> 200 finish in a Leetcode contest where the problems and their difficulty have little similarity to a Division 1 CodeForces contest. This is truly disgraceful. Have I not learnt that the moment I even let a shred of overconfidence into myself that it usually leads to a collapse? I got completely kicked in the mouth in the previous contest and I was really delusional enough to claim luck as a factor there.</p>
+<p>There’s no point in the garbage dramatic persona here, because what happened here was abject self destruction. No problems solved. Nil. You want to know the last time I screwed a contest this badly? Round 858. The same contest with my greatest rating loss where a fitting episode detailing that implosion was made. That contest I only got 2 problems in a Division 2 level contest. You can consider myself lucky that I was in Division 1 here since after analysis of their <a href="https://codeforces.com/contest/1853/problem/B">B</a> problem, I’d have likely dropped even worse with overcomplicating it there. And guess what? Remember the dumpster fire that was my slide from CM to Specialist? I’ve done it again. Master to Expert, but now in less time than I take to write these journal entries. Incredible. There isn’t any submissions on <a href="https://codeforces.com/contest/1852/problem/A">A</a> during the contest but really this was because for inane reason, I kept trying to figure out the remaining values after the operations, completely useless info. The eventual solution is blatantly simple in which you just have to figure out how many values less than x are left after the operations. Does it matter if you know if x is removed or not of course it doesn’t. The lowest x value returning 1 value not removed will always be the lowest. Another way to put it is that the solution to A is to RUN O(N) TESTS TO BINARY SEARCH THE ANSWER. This pattern has shown up OVER and OVER again and for TWO hours I did not even bother considering it. It’s one of the most fundamental patterns in these problems, and shows up nearly every contest, and I decided that going for an approach that is <code>O(way too long)</code> was a better solution. And look where I am now. I’m basically back at the same level as the start of the year, hell even the summer of last year. This is a wakeup call. The last thing I want is another failure in October’s regionals, but repeating these blunders and idiocy is simply insanity. Actually goose egging a contest. What a bloody joke.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>A Quick Note About Contest Mentality
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Part of how I ended up finding reasonable success in competitive programming was through the standards I put myself to. That said, most of this ranting did not really end up helping me in the long run. And from recent years, even if Leetcode is significantly easier overall, it has been a surprisingly useful contest system for me to relax with when I do get frustrated with myself in CodeForces. Unrelated, even my CodeForces performance nowadays is less correlated with how I feel on actual ICPC competitions now. CF does have the most similar problems to ICPC, but there are differences in CF having less implementation focus and rarely any geometry type problems.</p>
+<p>I guess what I’m saying here is really just “please enjoy game”. Surely if everyone has that mindset then cheating would be resolved as a problem.</p>
+<p><a href="https://entranthub.com/contests/leetcode/users/US/alxwen711">Also even less related but I did end up peaking above 2600 in Leetcode.</a> It does help somewhat that their cheater removal process is much more open (you can see the users that get removed from the ranklist by comparing to post contest and some time around Thursday when ranks are finalized) and appears to be reasonably effective. Even still there are cases where I can miss the 4th problem in LC contests, so it’s possible for me to push higher.</p>
+</div>
+</div>
+</section>
+<section id="educational-round-152" class="level3">
+<h3 class="anchored" data-anchor-id="educational-round-152"><a href="https://codeforces.com/contest/1849">Educational Round 152</a></h3>
+<p>Problems Solved: A, B, C, D</p>
+<p>New Rating: <strong>1952</strong> (+78)</p>
+<p>Performance: <strong>2153</strong></p>
+<p>See, this is just proof that the previous contest was not what I was capable of. I’d have liked to get problem <a href="https://codeforces.com/contest/1849/problem/E">E</a> but even though it was simply out of my ability. <a href="https://github.com/alxwen711/contestSubmissionArchive/blob/main/codeforces/live%20contests/2023-3/e152/e.py">My efforts there</a> at least showed reasonable thought in building possible solutions and providing counter examples. The first 4 problems though are what I should be doing: clean and efficient execution. <a href="https://codeforces.com/contest/1849/problem/C">C</a> and <a href="https://codeforces.com/contest/1849/problem/D">D</a> in particular are well done for the fact I didn’t give wrong submission and both were completed in under half an hour each. It’s a low bar compared to past contests but for a get right contest, not screwing it up is a positive change.</p>
+<details>
+<summary>
+Quick thoughts on C and D
+</summary>
+<p>C has two observations. First is that a query like [1,6] and [4,6] on the string <code>000110</code> are effectively equivalent, so the first part is to adjust the left boundary to the leftmost <code>1</code>. Secondly is that only the number of 0’s in the segment matters since they will be sorted anyways. With these in mind, all that is needed is to keep track of the closest <code>1</code> to the right of each <code>0</code>, and the number of <code>0</code>’s in any segment of the string, for which a segment tree can be used. A sparse table can also be used with exact query methods which also takes O(log n) per query.</p>
+<p>As for D, it feels like a brute force problem, and honestly, it is one. The idea is that as long as you don’t waste a possible free painting of a tile, you will reach the optimal total. You can track if you have a free tile paint depending on the current value painted and by storing this info in a boolean. What proceeded to occur with my <a href="https://codeforces.com/contest/1849/submission/215935993">submission</a> is a throwback to 2017 coding, back when all I did was control flow spam.</p>
+</details>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>I’m only noticing now that the links to my contest code are probably broken (Aug 5th, 2026 note)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>This is the point when I remember that I did refactoring on <a href="https://github.com/alxwen711/contestSubmissionArchive">Contest Submission Archive</a> to make it more useful for other users wanting to use a similar archiving system. In doing so I also rearranged my archiving folder structure meaning that it’s likely that nearly ALL of the links involving this repository are broken.</p>
+<p>Frick.</p>
+</div>
+</div>
+</div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
