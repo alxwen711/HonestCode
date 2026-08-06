@@ -173,7 +173,7 @@ Pinely Round 2. It’s time to get my revenge. Either way, we all know ***Days o
 
 ### [Pinely Round 2](https://codeforces.com/contest/1863)
 
-![https://www.youtube.com/watch?v=98T3PVaRrHU](docs/assets/images/doop.png)
+![https://www.youtube.com/watch?v=98T3PVaRrHU](doop.png)
 
 ***Days of Our Programmers: A Pinely Reunion***
 
