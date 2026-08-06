@@ -126,7 +126,7 @@ Problems Solved: A, ~~C,~~ B, D
 
 My reaction to still being in Candidate Master after this contest:
 
-![A winner is you!](docs/assets/images/ooflmao.png)
+![A winner is you!](ooflmao.png)
 
 My reaction is only marginally sarcastic since I actually did quite well on [Problem D](https://codeforces.com/contest/1780/problem/D) and while I did take a long time to get [Problem B](https://codeforces.com/contest/1780/problem/B), strategically going for [Problem C](https://codeforces.com/contest/1780/problem/C) was the right move in theory. I get back to Problem C since D actually has a very clean solution.
 
